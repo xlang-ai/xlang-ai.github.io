@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const Header = () => {
   return (
-    <div className='fixed top-0 left-0 w-full h-14 md:h-20 bg-slate-600/20 py-4 px-10 flex justify-between items-center'>
+    <div className='fixed top-0 left-0 w-full h-14 md:h-20 bg-slate-900 py-4 px-10 flex justify-between items-center z-10'>
       <div className='flex gap-3 items-center'>
         <Image
           src='/xlang-ai.png'

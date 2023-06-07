@@ -8,3 +8,17 @@
     @apply text-slate-900 dark:text-slate-50;
   }
 }
+
+@layer components {
+  .btn {
+    @apply font-medium rounded px-2 py-1 cursor-pointer hover:-translate-y-0.5 transition-transform;
+  }
+
+  .btn-primary {
+    @apply bg-emerald-600;
+  }
+
+  .btn-neutral {
+    @apply bg-slate-700;
+  }
+}

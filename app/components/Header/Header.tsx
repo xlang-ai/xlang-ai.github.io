@@ -17,7 +17,7 @@ const Header = () => {
       </div>
 
       <ul className='flex gap-3'>
-        <li className='btn btn-primary text-sm'>Wait List</li>
+        <li className='btn btn-primary text-sm'>Waitlist</li>
         <li className='btn'>Demo</li>
       </ul>
     </div>

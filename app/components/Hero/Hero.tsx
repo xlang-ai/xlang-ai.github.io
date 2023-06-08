@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const Hero = () => {
   return (
-    <div className='h-96 w-screen relative p-10'>
+    <div className='h-screen w-screen relative p-10 pt-14 md:pt-20'>
       <div className='-z-1 opacity-70'>
         <Image
           src='/hero.jpg'
@@ -15,7 +15,8 @@ const Hero = () => {
       </div>
       <div className='relative mt-10'>
         <div className='text-3xl font-bold mb-3'>
-          A new way to do Data Science
+          <div>A new way to</div>
+          <div>do Data Science</div>
         </div>
         <div className='max-w-sm mb-6 leading-7 tracking-wide'>
           We are building the most powerful framework for building natural

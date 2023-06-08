@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Image from 'next/image';
 
 const Header = () => {
   return (
-    <div className='fixed top-0 left-0 w-full h-14 md:h-20 bg-slate-900 py-4 px-10 flex justify-between items-center z-10'>
+    <div className='fixed top-0 left-0 w-full h-14 md:h-20 bg-transparent py-4 px-10 flex justify-between items-center z-10'>
       <div className='flex gap-3 items-center'>
         <Image
           src='/xlang-ai.png'
@@ -17,7 +17,7 @@ const Header = () => {
       </div>
 
       <ul className='flex gap-3'>
-        <li className='btn btn-primary'>Wait List</li>
+        <li className='btn btn-primary text-sm'>Wait List</li>
         <li className='btn'>Demo</li>
       </ul>
     </div>

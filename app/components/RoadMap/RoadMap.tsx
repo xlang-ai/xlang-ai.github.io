@@ -7,8 +7,8 @@ const RoadMap = () => {
     <div className='p-6'>
       <div className='title'>RoadMap</div>
       <div className='mt-6'>
-        <div className='flex flex-col gap-1 w-1/3 m-auto border border-2 border-slate-400 rounded opacity-40'>
-          <h2 className='text-center bg-slate-600 font-medium text-sm py-1'>
+        <div className='flex flex-col gap-1 w-1/3 m-auto border border-2 border-gray-300 dark:border-gray-400 rounded opacity-40'>
+          <h2 className='text-center bg-gray-300 dark:bg-gray-600 font-medium text-sm py-1'>
             June 2023
           </h2>
           <div className='flex flex-col gap-1 w-full p-2'>
@@ -19,8 +19,8 @@ const RoadMap = () => {
 
         <RoadMapLine completed />
 
-        <div className='flex flex-col gap-1 w-1/3 m-auto border border-2 border-slate-400 rounded'>
-          <h2 className='text-center bg-slate-600 font-medium text-sm py-1'>
+        <div className='flex flex-col gap-1 w-1/3 m-auto border border-2 border-emerald-300 dark:border-emerald-400 rounded'>
+          <h2 className='text-center bg-emerald-300 dark:bg-emerald-600 font-medium text-sm py-1'>
             July 2023
           </h2>
           <div className='flex flex-col gap-1 w-full p-2'>
@@ -31,8 +31,8 @@ const RoadMap = () => {
 
         <RoadMapLine />
 
-        <div className='flex flex-col gap-1 w-1/3 m-auto border border-2 border-slate-400 rounded'>
-          <h2 className='text-center bg-slate-600 font-medium text-sm py-1'>
+        <div className='flex flex-col gap-1 w-1/3 m-auto border border-2 border-emerald-300 dark:border-emerald-400 rounded'>
+          <h2 className='text-center bg-emerald-300 dark:bg-emerald-600 font-medium text-sm py-1'>
             August 2023
           </h2>
           <div className='flex flex-col gap-1 w-full p-2'>
@@ -46,7 +46,7 @@ const RoadMap = () => {
 };
 
 const CheckBox = ({ ticked }: { ticked?: boolean }) => (
-  <div className='border border-slate-300 w-4 h-4 flex items-center justify-center rounded-sm text-slate-200'>
+  <div className='border border-gray-700 dark:border-gray-300 border-2 w-4 h-4 flex items-center justify-center rounded-sm text-gray-800 dark:text-gray-200'>
     {ticked && <Check size={20} />}
   </div>
 );
@@ -60,14 +60,14 @@ const RoadMapItem = ({
 }) => (
   <div className='flex gap-2 items-center text-sm'>
     <CheckBox ticked={completed} />
-    <div className='text-slate-300 text-xs'>{text}</div>
+    <div className='text-gray-800 dark:text-gray-300 text-xs'>{text}</div>
   </div>
 );
 
 const RoadMapLine = ({ completed }: { completed?: boolean }) => (
   <div
-    className={`w-0.5 h-10 bg-slate-400 m-auto ${
-      completed ? 'opacity-40' : ''
+    className={`w-0.5 h-10 m-auto ${
+      completed ? 'bg-gray-400/40' : 'bg-emerald-400'
     }`}
   />
 );

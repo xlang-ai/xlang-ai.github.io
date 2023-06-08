@@ -4,23 +4,20 @@
 
 @layer base {
   body {
-    @apply bg-slate-50 dark:bg-slate-900;
-    @apply text-slate-900 dark:text-slate-50;
+    @apply bg-gray-50 dark:bg-gray-900;
+    @apply text-gray-900 dark:text-gray-50;
     @apply overflow-x-hidden;
   }
 }
 
 @layer components {
   .btn {
-    @apply font-medium rounded px-2 py-1 cursor-pointer hover:-translate-y-0.5 transition-transform;
-  }
-
-  .btn-pill {
-    @apply rounded-lg px-6 py-2;
+    @apply font-medium rounded-full px-4 py-1 cursor-pointer hover:-translate-y-0.5 transition-transform;
+    @apply flex items-center justify-center;
   }
 
   .btn-primary {
-    @apply bg-emerald-600;
+    @apply bg-gray-950 dark:bg-gray-50 text-gray-50 dark:text-gray-950;
   }
 
   .btn-neutral {

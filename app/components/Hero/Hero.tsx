@@ -5,7 +5,7 @@ import Image from "next/image";
 import "./hero.css";
 import { textLinearGradientClassName } from "@/app/styles/styles";
 import Link from "next/link";
-import { ArrowRight } from "tabler-icons-react";
+import { ArrowDown, ArrowRight } from "tabler-icons-react";
 import { Typer } from "../Typography";
 import { TypeAnimation } from "react-type-animation";
 
@@ -25,7 +25,7 @@ const Hero = () => {
           }}
         />
       </div>
-      <div className="relative flex flex-col justify-center items-center">
+      <div className="relative flex flex-col h-full justify-center items-center">
         <div>
           <Image
             src="/xlang-ai.png"
@@ -66,6 +66,20 @@ const Hero = () => {
             <ArrowRight className="w-[20px] h-[20px] -rotate-45 transition group-hover:rotate-0" />
           </div>
         </Link>
+
+        {/* Down Arrow */}
+        <div className="absolute bottom-0 left-auto flex justify-center items-center">
+          <ArrowDown
+            className="w-[36px] h-[36px] cursor-pointer"
+            style={{ animation: "arrowAnimation 2s infinite" }}
+            onClick={() => {
+              window.scrollTo({
+                top: window.innerHeight,
+                behavior: "smooth",
+              });
+            }}
+          />
+        </div>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRight } from "tabler-icons-react";
+import { publicFilePath } from "@/app/utils";
 
 const Demo = () => {
   return (
@@ -10,7 +11,10 @@ const Demo = () => {
         {/* Demo Video */}
         <div className="w-full h-auto mt-8">
           <video className="w-full h-full" controls>
-            <source src="xlang-chat-demo.mp4" type="video/mp4" />
+            <source
+              src={publicFilePath("/xlang-chat-demo.mp4")}
+              type="video/mp4"
+            />
           </video>
         </div>
 

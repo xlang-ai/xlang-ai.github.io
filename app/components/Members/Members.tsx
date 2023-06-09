@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "tabler-icons-react";
+import { publicFilePath } from "@/app/utils";
 
 interface Member {
   image: string;
@@ -10,19 +11,19 @@ interface Member {
 }
 const members: Member[] = [
   {
-    image: "/test3.png",
+    image: publicFilePath("/test3.png"),
     name: "Euna",
   },
   {
-    image: "/test.png",
+    image: publicFilePath("/test.png"),
     name: "Ruben",
   },
   {
-    image: "/test2.png",
+    image: publicFilePath("/test2.png"),
     name: "Derek",
   },
   {
-    image: "/xlang-ai.png",
+    image: publicFilePath("/xlang-ai.png"),
     name: "Xlang AI",
   },
 ];

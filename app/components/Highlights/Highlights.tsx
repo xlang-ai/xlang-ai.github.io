@@ -1,6 +1,7 @@
 import React from "react";
 
 import TextWithImage from "../TextWithImage";
+import { publicFilePath } from "@/app/utils";
 
 const Highlights = () => {
   return (
@@ -9,7 +10,7 @@ const Highlights = () => {
 
       <div className="flex flex-col gap-20 mt-5">
         <TextWithImage
-          image="/hero.jpg"
+          image={publicFilePath("/hero.jpg")}
           title="Text to Analytics"
           content="A powerful tool that transforms textual data into meaningful insights,
           enabling efficient analysis and decision-making processes."
@@ -20,7 +21,7 @@ const Highlights = () => {
           }
         />
         <TextWithImage
-          image="/xlang-ai.png"
+          image={publicFilePath("/xlang-ai.png")}
           title="Your best AI assistant"
           content="Unleash the power of your digital companion - Xlang AI, guiding you effortlessly through every task, anticipating your needs with unrivaled intelligence and finesse."
           reverse

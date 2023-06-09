@@ -7,6 +7,7 @@ import { textLinearGradientClassName } from "@/app/styles/styles";
 import Link from "next/link";
 import { ArrowDown, ArrowRight } from "tabler-icons-react";
 import { TypeAnimation } from "react-type-animation";
+import { publicFilePath } from "@/app/utils";
 
 const Hero = () => {
   return (
@@ -14,7 +15,7 @@ const Hero = () => {
       {/* Image */}
       <div className="-z-1 opacity-70">
         <Image
-          src="/hero.jpg"
+          src={publicFilePath("/hero.jpg")}
           alt="hero image"
           fill={true}
           style={{
@@ -27,7 +28,7 @@ const Hero = () => {
       <div className="relative flex flex-col h-full justify-center items-center">
         <div>
           <Image
-            src="/xlang-ai.png"
+            src={publicFilePath("/xlang-ai.png")}
             alt="Xlang"
             width={100}
             height={100}

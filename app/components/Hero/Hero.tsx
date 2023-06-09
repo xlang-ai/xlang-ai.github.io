@@ -6,7 +6,6 @@ import "./hero.css";
 import { textLinearGradientClassName } from "@/app/styles/styles";
 import Link from "next/link";
 import { ArrowDown, ArrowRight } from "tabler-icons-react";
-import { Typer } from "../Typography";
 import { TypeAnimation } from "react-type-animation";
 
 const Hero = () => {

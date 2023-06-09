@@ -1,13 +1,13 @@
-import './globals.css';
-import { Inter } from 'next/font/google';
+import "./styles/globals.css";
+import { Inter } from "next/font/google";
 
-import Header from './components/Header';
+import Header from "./components/Header";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: 'Xlang AI',
-  description: 'Xlang',
+  title: "Xlang AI",
+  description: "Xlang",
 };
 
 export default function RootLayout({
@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en' className='dark'>
+    <html lang="en" className="dark">
       <body className={inter.className}>
         <Header />
         {children}

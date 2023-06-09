@@ -55,15 +55,17 @@ const Hero = () => {
             repeat={Infinity}
           />
         </div>
-        <div className="group btn btn-pill btn-primary w-fit text-sm shadow-md shadow-white">
-          <Link
-            href="https://github.com/xlang-ai"
-            className="flex flex-row gap-1 justify-center items-center"
-          >
+
+        {/* Join Waitlist Button */}
+        <Link
+          href="https://github.com/xlang-ai"
+          className="group btn btn-pill btn-primary w-fit text-sm shadow-md shadow-white"
+        >
+          <div className="flex flex-row gap-1 justify-center items-center">
             <span>Join Waitlist</span>
             <ArrowRight className="w-[20px] h-[20px] -rotate-45 transition group-hover:rotate-0" />
-          </Link>
-        </div>
+          </div>
+        </Link>
       </div>
     </div>
   );

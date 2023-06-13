@@ -34,3 +34,17 @@
     @apply font-bold text-3xl text-center tracking-wide;
   }
 }
+
+.hero-background {
+  background: linear-gradient(90deg, #f9d6b8 10%, #f5a16d 30%, #ff6464 50%, #c7468d 70%, #86569c 90%);
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-height {
+  line-height: 1.5 !important;
+}
+
+.top-margin {
+  margin-top: 2rem;
+}

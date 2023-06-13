@@ -13,7 +13,7 @@ const Hero = () => {
   return (
     <div className="h-screen w-screen relative p-10 pt-14 md:pt-20 flex flex-col justify-center items-center">
       {/* Image */}
-      <div className="-z-1 opacity-70">
+      {/* <div className="-z-1 opacity-70">
         <Image
           src={publicFilePath("/hero.jpg")}
           alt="hero image"
@@ -24,25 +24,15 @@ const Hero = () => {
             animation: "hero-pulsing-animation 3s ease-in-out infinite",
           }}
         />
-      </div>
+      </div> */}
       <div className="relative flex flex-col h-full justify-center items-center">
-        <div>
-          <Image
-            src={publicFilePath("/xlang-ai.png")}
-            alt="Xlang"
-            width={100}
-            height={100}
-            className="rounded-md"
-          />
+        <div className="text-center md:full">
+          <h1 className={`text-3xl font-light leading-tight sm:text-4xl xl:text-5xl xl:text-[60px]`}>
+            <div className={`hero-height`}>Connect Your Data with 🔗</div>
+            <div className={`${textLinearGradientClassName} hero-height`}>Next-Level Language Interfaces</div>
+          </h1>
         </div>
-        <div className="mb-3">
-          <div
-            className={`text-[64px] font-bold cursor-pointer hover:tracking-wider transition-all duration-100 ${textLinearGradientClassName}`}
-          >
-            <Link href="/">Xlang AI</Link>
-          </div>
-        </div>
-        <div className="text-center text-white text-[24px] max-w-xl mb-8 leading-7 tracking-wide">
+        <div className="text-center text-white mb-10 text-base leading-normal md:w-11/12 top-margin">
           <TypeAnimation
             sequence={[
               "We are building the most powerful framework for building natural language interface in all-procedure data science scenario", // Types 'One'

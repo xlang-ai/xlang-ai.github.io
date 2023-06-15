@@ -37,7 +37,7 @@ const ImageSection = ({ image }: { image: string }) => (
     <Image
       src={image}
       alt='image'
-      fill
+      layout="fill"
       style={{ objectFit: 'cover', objectPosition: 'center' }}
     />
   </div>

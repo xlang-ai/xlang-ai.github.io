@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "tabler-icons-react";
-import { publicFilePath } from "@/app/utils";
+import { publicFilePath } from "@/pages/utils";
 
 interface Member {
   image: string;
@@ -45,7 +45,7 @@ const Members = () => {
                   <Image
                     src={member.image}
                     alt={member.name}
-                    fill
+                    layout="fill"
                     style={{ objectFit: "cover", objectPosition: "center" }}
                   />
                 </div>

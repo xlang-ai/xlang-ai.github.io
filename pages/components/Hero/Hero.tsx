@@ -1,30 +1,14 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
-import "./hero.css";
-import { textLinearGradientClassName } from "@/app/styles/styles";
+import { textLinearGradientClassName } from "@/pages/styles/styles";
 import Link from "next/link";
 import { ArrowDown, ArrowRight } from "tabler-icons-react";
 import { TypeAnimation } from "react-type-animation";
-import { publicFilePath } from "@/app/utils";
 
 const Hero = () => {
   return (
     <div className="h-screen w-screen relative p-10 pt-14 md:pt-20 flex flex-col justify-center items-center">
-      {/* Image */}
-      {/* <div className="-z-1 opacity-70">
-        <Image
-          src={publicFilePath("/hero.jpg")}
-          alt="hero image"
-          fill={true}
-          style={{
-            objectFit: "cover",
-            objectPosition: "center",
-            animation: "hero-pulsing-animation 3s ease-in-out infinite",
-          }}
-        />
-      </div> */}
       <div className="relative flex flex-col h-full justify-center items-center">
         <div className="text-center md:full">
           <h1 className={`text-3xl font-light leading-tight sm:text-4xl xl:text-5xl xl:text-[60px]`}>

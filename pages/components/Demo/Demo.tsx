@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRight } from "tabler-icons-react";
-import { publicFilePath } from "@/app/utils";
+import { publicFilePath } from "@/pages/utils";
 
 const Demo = () => {
   return (

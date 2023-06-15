@@ -1,7 +1,7 @@
 import React from "react";
 
 import TextWithImage from "../TextWithImage";
-import { publicFilePath } from "@/app/utils";
+import { publicFilePath } from "@/pages/utils";
 
 const Highlights = () => {
   return (
@@ -20,6 +20,7 @@ const Highlights = () => {
             </button>
           }
         />
+        
         <TextWithImage
           image={publicFilePath("/xlang-ai.png")}
           title="Your best AI assistant"

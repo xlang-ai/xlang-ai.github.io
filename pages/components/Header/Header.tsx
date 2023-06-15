@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import Image from "next/image";
-import { publicFilePath } from "@/app/utils";
+import { publicFilePath } from "@/pages/utils";
 
 const Header = () => {
   return (

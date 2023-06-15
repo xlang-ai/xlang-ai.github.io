@@ -45,7 +45,7 @@ const Members = () => {
                   <Image
                     src={member.image}
                     alt={member.name}
-                    layout="fill"
+                    fill
                     style={{ objectFit: "cover", objectPosition: "center" }}
                   />
                 </div>

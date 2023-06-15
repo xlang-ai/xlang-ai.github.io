@@ -5,8 +5,12 @@ import { textLinearGradientClassName } from "@/pages/styles/styles";
 import Link from "next/link";
 import { ArrowDown, ArrowRight } from "tabler-icons-react";
 import { TypeAnimation } from "react-type-animation";
+import PopupCenter from "@/pages/utils/popup";
+import { useSession } from "next-auth/react";
 
 const Hero = () => {
+  const { data: session, status } = useSession();
+
   return (
     <div className="h-screen w-screen relative p-10 pt-14 md:pt-20 flex flex-col justify-center items-center">
       <div className="relative flex flex-col h-full justify-center items-center">
@@ -31,15 +35,16 @@ const Hero = () => {
         </div>
 
         {/* Join Waitlist Button */}
-        <Link
-          href="https://github.com/xlang-ai"
-          className="group btn btn-pill btn-primary w-fit text-sm shadow-md shadow-white"
-        >
+        <div className="group btn btn-pill btn-primary w-fit text-sm shadow-md shadow-white">
           <div className="flex flex-row gap-1 justify-center items-center">
-            <span>Join Waitlist</span>
+            {session ? (
+              <span>{session.user.name}, You're already in the Waitlist</span>
+            ) : (
+              <span onClick={() => PopupCenter("/google-signin", "Waitlist Login")}>Join Waitlist</span>
+            )}
             <ArrowRight className="w-[20px] h-[20px] -rotate-45 transition group-hover:rotate-0" />
           </div>
-        </Link>
+        </div>
 
         {/* Down Arrow */}
         <div className="absolute bottom-0 left-auto flex justify-center items-center">

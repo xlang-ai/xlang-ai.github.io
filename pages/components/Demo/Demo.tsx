@@ -12,23 +12,10 @@ const Demo = () => {
         <div className="w-full h-auto mt-8">
           <video className="w-full h-full" controls>
             <source
-              src={publicFilePath("/xlang-chat-demo.mp4")}
+              src={publicFilePath("/xlang-chat-demo-v2.mp4")}
               type="video/mp4"
             />
           </video>
-        </div>
-
-        {/* Live Demo Button */}
-        <div className="flex justify-end mt-6">
-          <Link
-            href="https://chat.xlang.ai/"
-            className="group btn btn-pill btn-primary w-fit text-sm shadow-md shadow-white"
-          >
-            <div className="flex flex-row gap-1 justify-center items-center">
-              <span>Live Demo</span>
-              <ArrowRight className="w-[20px] h-[20px] -rotate-45 transition group-hover:rotate-0" />
-            </div>
-          </Link>
         </div>
       </div>
     </div>

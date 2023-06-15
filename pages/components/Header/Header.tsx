@@ -19,7 +19,7 @@ const Header = () => {
       </div>
 
       <ul className="flex gap-3">
-        <li className="btn btn-primary text-sm">Join Us</li>
+        <a className="btn btn-primary text-sm" href="https://forms.gle/Mcyq88JugmMYEar58">Join Us</a>
         {/* <li className="btn">Demo</li> */}
       </ul>
     </div>

@@ -7,7 +7,7 @@ const RoadMap = () => {
   return (
     <div className="p-6">
       <div className="title">RoadMap</div>
-      <div className="mt-6">
+      <div className="mt-9">
         <div className="flex flex-col gap-1 w-1/3 m-auto border border-2 border-gray-300 dark:border-gray-400 rounded opacity-40">
           <h2 className="text-center bg-gray-300 dark:bg-gray-600 font-medium text-sm py-1">
             June 2023
@@ -45,15 +45,12 @@ const RoadMap = () => {
 
       {/* Subsribe to News Button */}
       <div className="flex justify-center mt-10">
-        <Link
-          href="https://chat.xlang.ai/"
-          className="group btn btn-pill btn-primary w-fit text-sm shadow-md shadow-white"
-        >
+        <div className="group btn btn-pill btn-primary w-fit text-sm shadow-md shadow-white">
           <div className="flex flex-row gap-1 justify-center items-center">
-            <span>Subscribe to News</span>
+            <span>Subscribe ours News</span>
             <ArrowRight className="w-[20px] h-[20px] -rotate-45 transition group-hover:rotate-0" />
           </div>
-        </Link>
+        </div>
       </div>
     </div>
   );

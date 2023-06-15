@@ -44,6 +44,7 @@ model User {
   assessed      Boolean  @default(false)
   waitlistSent  Boolean  @default(false)
   assessSent    Boolean  @default(false)
+  subscribeNews Boolean  @default(false)
   accounts      Account[]
   sessions      Session[]
 }

@@ -1,12 +1,8 @@
 import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
-import EmailProvider from "next-auth/providers/email";
 import { SendEmail } from "@/pages/utils/email";
-import Providers from "next-auth/providers"
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
-import { PrismaClient } from "@prisma/client"
-
-const prisma = new PrismaClient()
+import prisma from "@/pages/utils/prisma";
 
 export const authOptions = {
   adapter: PrismaAdapter(prisma),
@@ -30,11 +26,14 @@ export const authOptions = {
   },
   jwt: {
     secret: "j5r8zE#9p2$@uF",
+    // expire after 3 days
+    maxAge: 3 * 24 * 60 * 60,
   },
   callbacks: {
     async jwt({ token, user, account, profile, isNewUser }) {
       if (user) {
         token.id = user.id;
+        token.assessed = user.assessed;
       }
       return token;
     },
@@ -42,8 +41,9 @@ export const authOptions = {
       if (session.user && token) {
         // unify the user id with mongodb user id
         session.user.id = token.id as string;
+        session.user.assessed = token.assessed
         // if has not sent the user waitlist email
-        const user = await prisma.user.findUnique({
+        const user = await prisma.user.findFirst({
           where: {
             id: session.user.id,
           },

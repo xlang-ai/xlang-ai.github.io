@@ -38,7 +38,7 @@ const Hero = () => {
         <div className="group btn btn-pill btn-primary w-fit text-sm shadow-md shadow-white">
           <div className="flex flex-row gap-1 justify-center items-center">
             {session ? (
-              <span>Hello {session.user.name}! You've Joined Our Waitlist. We'll Notify You Shortly.</span>
+              <span>Hello {session.user.name}! You've joined our waitlist!</span>
             ) : (
               <span onClick={() => PopupCenter("/google-signin", "Waitlist Login")}>Join Waitlist</span>
             )}

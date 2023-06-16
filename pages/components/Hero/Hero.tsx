@@ -23,7 +23,7 @@ const Hero = () => {
         <div className="text-center text-white mb-10 text-base leading-normal md:w-11/12 top-margin">
           <TypeAnimation
             sequence={[
-              "The 🌟Xlang.AI Project aims to design and develop a LLM based AI Assistant, capable of assisting users in a variety of tasks by interacting with your data.", // Types 'One'
+              "The Xlang.AI Project aims to design and develop a LLM based AI Assistant, capable of assisting users in a variety of tasks by interacting with your data.", // Types 'One'
               1000, // wait 1s
             ]}
             wrapper="span"

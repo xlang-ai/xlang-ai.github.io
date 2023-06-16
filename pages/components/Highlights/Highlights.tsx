@@ -11,9 +11,8 @@ const Highlights = () => {
       <div className="flex flex-col gap-20 mt-5">
         <TextWithImage
           image={publicFilePath("/hero.jpg")}
-          title="Text to Analytics"
-          content="A powerful tool that transforms textual data into meaningful insights,
-          enabling efficient analysis and decision-making processes."
+          title="Advanced Data Analysis"
+          content="Unleash the power of the most advanced language models for free, to help you do data cleaning, data wrangling, connecting with your Kaggle dataset and other data analysis."
           button={
             <button className="btn btn-secondary text-sm w-fit">
               Join the waitlist

@@ -5,24 +5,25 @@ import Link from "next/link";
 
 const RoadMap = () => {
   return (
-    <div className="p-6">
-      <div className="title">RoadMap</div>
+    <div className="p-6 text:1.2rem">
+      <div className="title">Release Plan</div>
       <div className="mt-9">
-        <div className="flex flex-col gap-1 w-1/3 m-auto border border-2 border-gray-300 dark:border-gray-400 rounded opacity-40">
-          <h2 className="text-center bg-gray-300 dark:bg-gray-600 font-medium text-sm py-1">
-            June 2023
+        <div className="flex flex-col gap-1 w-2/3 m-auto border border-2 border-emerald-300 dark:border-emerald-400 rounded">
+          <h2 className="text-center bg-emerald-300 dark:bg-emerald-600 font-medium py-1">
+            🔥 Live Demo (June 2023)
           </h2>
           <div className="flex flex-col gap-1 w-full p-2">
-            <RoadMapItem completed text="Python executor" />
-            <RoadMapItem completed text="Public release" />
+            <RoadMapItem completed text="Use the most powerful language models by free" />
+            <RoadMapItem completed text="Careful prompt design and optimizer user experience" />
+            <RoadMapItem completed text="Support hundreds of real-world applications" />
           </div>
         </div>
 
         <RoadMapLine completed />
 
-        <div className="flex flex-col gap-1 w-1/3 m-auto border border-2 border-emerald-300 dark:border-emerald-400 rounded">
-          <h2 className="text-center bg-emerald-300 dark:bg-emerald-600 font-medium text-sm py-1">
-            July 2023
+        <div className="flex flex-col gap-1 w-2/3 m-auto border border-2 border-gray-300 dark:border-gray-400 rounded opacity-40">
+          <h2 className="text-center bg-gray-300 dark:bg-gray-600 font-medium py-1">
+            Dev Package (July 2023)
           </h2>
           <div className="flex flex-col gap-1 w-full p-2">
             <RoadMapItem text="Public release" />
@@ -32,15 +33,28 @@ const RoadMap = () => {
 
         <RoadMapLine />
 
-        <div className="flex flex-col gap-1 w-1/3 m-auto border border-2 border-emerald-300 dark:border-emerald-400 rounded">
-          <h2 className="text-center bg-emerald-300 dark:bg-emerald-600 font-medium text-sm py-1">
-            August 2023
+        <div className="flex flex-col gap-1 w-2/3 m-auto border border-2 border-gray-300 dark:border-gray-400 rounded opacity-40">
+          <h2 className="text-center bg-gray-300 dark:bg-gray-600 font-medium py-1">
+            Full Stack (August 2023)
           </h2>
           <div className="flex flex-col gap-1 w-full p-2">
             <RoadMapItem text="Public release" />
             <RoadMapItem text="MongoDB connector" />
           </div>
         </div>
+
+        <RoadMapLine />
+
+        <div className="flex flex-col gap-1 w-2/3 m-auto border border-2 border-gray-300 dark:border-gray-400 rounded opacity-40">
+          <h2 className="text-center bg-gray-300 dark:bg-gray-600 font-medium py-1">
+            Open-Access Model (Sep 2023)
+          </h2>
+          <div className="flex flex-col gap-1 w-full p-2">
+            <RoadMapItem text="Public release" />
+            <RoadMapItem text="MongoDB connector" />
+          </div>
+        </div>
+
       </div>
 
       {/* Subsribe to News Button */}
@@ -77,9 +91,7 @@ const RoadMapItem = ({
 
 const RoadMapLine = ({ completed }: { completed?: boolean }) => (
   <div
-    className={`w-0.5 h-10 m-auto ${
-      completed ? "bg-gray-400/40" : "bg-emerald-400"
-    }`}
+    className={`w-0.5 h-10 m-auto bg-gray-400/40`}
   />
 );
 

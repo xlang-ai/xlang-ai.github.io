@@ -2,7 +2,7 @@ import Demo from './components/Demo';
 import Hero from './components/Hero';
 import RoadMap from './components/RoadMap';
 import Highlights from './components/Highlights';
-import Members from './components/Members';
+// import Members from './components/Members';
 import WaitUser from './components/Google/User';
 
 
@@ -17,7 +17,7 @@ const Home = ({ user }: Props) => {
       <Demo />
       <Highlights />
       <RoadMap />
-      <Members />
+      {/* <Members /> */}
     </div>
   );
 };

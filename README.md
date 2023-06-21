@@ -33,11 +33,6 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-## Run Postgresql
-
-Run the postgresql and create a user for the database.
-
-Then change the database_URI.
 
 ## Run Prisma Studio
 

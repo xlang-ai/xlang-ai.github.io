@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 import Image from "next/image";
-import { publicFilePath } from "@/pages/utils";
-import PopupCenter from "@/pages/utils/popup"; 
+import { publicFilePath } from "@/utils";
+import PopupCenter from "@/utils/popup"; 
 
 const Header = () => {
   return (

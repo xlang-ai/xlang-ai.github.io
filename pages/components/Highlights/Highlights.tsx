@@ -1,7 +1,7 @@
 import React from "react";
 
 import TextWithImage from "../TextWithImage";
-import { publicFilePath } from "@/pages/utils";
+import { publicFilePath } from "@/utils";
 
 const Highlights = () => {
   return (

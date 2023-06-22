@@ -1,13 +1,13 @@
 {
   "name": "website",
-  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@auth/core": "^0.8.2",
@@ -21,6 +21,7 @@
     "eslint-config-next": "13.4.4",
     "next": "^13.4.5",
     "next-auth": "^4.12.3",
+    "nodemailer": "^6.9.3",
     "postcss": "8.4.24",
     "prisma": "4.15.0",
     "react": "^18.2.0",

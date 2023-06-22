@@ -1,16 +1,16 @@
-import NextAuth from "next-auth"
+import NextAuth, { AuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google"
-import { SendEmail } from "@/pages/utils/email";
+import { SendEmail } from "@/utils/email";
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
-import prisma from "@/pages/utils/prisma";
+import prisma from "@/utils/prisma";
 
-export const authOptions = {
+export const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma),
   // Configure one or more authentication providers
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_ID,
-      clientSecret: process.env.GOOGLE_SECRET,
+      clientId: process.env.GOOGLE_ID || '',
+      clientSecret: process.env.GOOGLE_SECRET || '',
       authorization: {
         params: {
           prompt: "consent",
@@ -30,14 +30,14 @@ export const authOptions = {
     maxAge: 3 * 24 * 60 * 60,
   },
   callbacks: {
-    async jwt({ token, user, account, profile, isNewUser }) {
+    async jwt({ token, user, account, profile, isNewUser }: any) {
       if (user) {
         token.id = user.id;
         token.assessed = user.assessed;
       }
       return token;
     },
-    session: async ({ session, token, user }) => {
+    session: async ({ session, token, user }: any) => {
       if (session.user && token) {
         // unify the user id with mongodb user id
         session.user.id = token.id as string;

@@ -1,13 +1,12 @@
 "use client";
 
 import React from "react";
-import { textLinearGradientClassName } from "@/pages/styles/styles";
+import { textLinearGradientClassName } from "@/styles/styles";
 import Link from "next/link";
 import { ArrowDown, ArrowRight } from "tabler-icons-react";
 import { TypeAnimation } from "react-type-animation";
-import PopupCenter from "@/pages/utils/popup";
+import PopupCenter from "@/utils/popup";
 import { useSession } from "next-auth/react";
-import prisma from "@/pages/utils/prisma";
 
 const Hero = () => {
   const { data: session, status } = useSession();
@@ -47,7 +46,7 @@ const Hero = () => {
             (               
             <div className="group btn btn-pill btn-primary w-fit text-sm shadow-md shadow-white">
               <div className="flex flex-row gap-1 justify-center items-center">    
-              <span>Success! You've been in our waitlist!</span>
+              <span>Success! You have been in our waitlist!</span>
               </div>
             </div>
             ) :

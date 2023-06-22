@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "tabler-icons-react";
-import { publicFilePath } from "@/pages/utils";
+import { publicFilePath } from "@/utils";
 
 interface Member {
   image: string;

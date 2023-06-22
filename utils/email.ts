@@ -1,8 +1,7 @@
 import { useSession } from "next-auth/react";
 
-const nodemailer = require('nodemailer');
-
 export async function SendEmail (email: string, user: string) {
+  const nodemailer = require('nodemailer');
   const transporter = nodemailer.createTransport({
     service: process.env.EMAIL_SERVER,
     auth: {

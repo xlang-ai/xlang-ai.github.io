@@ -1,13 +1,12 @@
 "use client";
 
 import React from "react";
-import { textLinearGradientClassName } from "@/pages/styles/styles";
+import { textLinearGradientClassName } from "@/styles/styles";
 import Link from "next/link";
 import { ArrowDown, ArrowRight } from "tabler-icons-react";
 import { TypeAnimation } from "react-type-animation";
-import PopupCenter from "@/pages/utils/popup";
+import PopupCenter from "@/utils/popup";
 import { useSession } from "next-auth/react";
-import prisma from "@/pages/utils/prisma";
 
 const Hero = () => {
   const { data: session, status } = useSession();

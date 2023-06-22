@@ -1,8 +1,8 @@
 import NextAuth, { AuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google"
-import { SendEmail } from "@/pages/utils/email";
+import { SendEmail } from "@/utils/email";
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
-import prisma from "@/pages/utils/prisma";
+import prisma from "@/utils/prisma";
 
 export const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma),

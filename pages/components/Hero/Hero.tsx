@@ -47,7 +47,7 @@ const Hero = () => {
             (               
             <div className="group btn btn-pill btn-primary w-fit text-sm shadow-md shadow-white">
               <div className="flex flex-row gap-1 justify-center items-center">    
-              <span>Success! You've been in our waitlist!</span>
+              <span>Success! You have been in our waitlist!</span>
               </div>
             </div>
             ) :

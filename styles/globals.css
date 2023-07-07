@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-gray-50 dark:bg-gray-900;
+    @apply bg-white dark:bg-gray-900;
     @apply text-gray-900 dark:text-gray-50;
     @apply overflow-x-hidden;
   }
@@ -36,8 +36,15 @@
 }
 
 .hero-background {
-  background: linear-gradient(90deg, #f9d6b8 10%, #f5a16d 30%, #ff6464 50%, #c7468d 70%, #86569c 90%);
-  -webkit-background-clip: text; 
+  background: linear-gradient(
+    90deg,
+    #f9d6b8 10%,
+    #f5a16d 30%,
+    #ff6464 50%,
+    #c7468d 70%,
+    #86569c 90%
+  );
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 

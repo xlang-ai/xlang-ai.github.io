@@ -1,6 +1,6 @@
 import React from 'react';
 
-const blog = () => {
+const news = () => {
   return (
     <div className='py-20'>
       <h1 className='text-center'>Coming soon...</h1>
@@ -8,4 +8,4 @@ const blog = () => {
   );
 };
 
-export default blog;
+export default news;

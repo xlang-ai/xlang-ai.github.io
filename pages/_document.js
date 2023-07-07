@@ -1,24 +1,23 @@
 // _document.js
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import Header from "./components/Header";
+import Header from './components/Header';
 
 export const metadata = {
-    title: "Xlang AI",
-    description: "Xlang",
-  };
-  
-  
+  title: 'Xlang AI',
+  description: 'Xlang',
+};
+
 class _Document extends Document {
   render() {
     return (
-    <Html lang="en" className="dark">
+      <Html lang='en'>
         <Head />
         <body>
-        <Header />
-        <Main />
-        <NextScript />
+          <Header />
+          <Main />
+          <NextScript />
         </body>
-    </Html>
+      </Html>
     );
   }
 }

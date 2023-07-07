@@ -8,6 +8,22 @@
     @apply text-gray-900 dark:text-gray-50;
     @apply overflow-x-hidden;
   }
+
+  h1 {
+    font-weight: 500;
+    font-size: large;
+    @apply: my-2;
+  }
+
+  h2 {
+    font-weight: 500;
+    font-size: medium;
+    @apply: my-2;
+  }
+
+  p {
+    @apply my-2;
+  }
 }
 
 @layer components {

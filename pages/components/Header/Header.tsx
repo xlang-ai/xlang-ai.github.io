@@ -8,16 +8,18 @@ import PopupCenter from '@/utils/popup';
 const Header = () => {
   return (
     <div className='fixed top-0 left-0 w-full h-14 md:h-20 bg-brand-offWhite py-4 px-10 flex justify-between items-center z-10'>
-      <div className='flex gap-3 items-center'>
-        <Image
-          src={publicFilePath('/xlang-ai.png')}
-          alt='Xlang'
-          width={30}
-          height={30}
-          className='rounded-md'
-        />
-        <div className='font-bold'>Xlang AI</div>
-      </div>
+      <Link href='/'>
+        <div className='flex gap-3 items-center cursor-pointer'>
+          <Image
+            src={publicFilePath('/xlang-ai.png')}
+            alt='Xlang'
+            width={30}
+            height={30}
+            className='rounded-md'
+          />
+          <div className='font-bold'>XLang</div>
+        </div>
+      </Link>
 
       <ul className='flex gap-4 text-md'>
         {/* <a

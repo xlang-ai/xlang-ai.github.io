@@ -80,7 +80,7 @@ const TeamGallery = ({ members }: { members: Member[] }) => {
   return (
     <div className='flex flex-wrap gap-x-20 gap-y-6'>
       {members.map((member) => (
-        <div className='w-32 text-sm'>
+        <div className='w-32 text-sm' key={member.name}>
           <div className='w-32 h-32 relative'>
             <Image
               src={member.image}

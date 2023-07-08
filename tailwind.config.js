@@ -13,6 +13,7 @@ module.exports = {
           darkBrown: '#473422',
           limeBlue: '#74ecf1',
           offWhite: 'rgb(245, 242, 241)',
+          offBlack: 'rgb(39, 36, 34)',
         },
       },
     },

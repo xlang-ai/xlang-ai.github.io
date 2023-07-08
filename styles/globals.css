@@ -47,7 +47,7 @@
   }
 
   .title {
-    @apply font-bold text-3xl text-center tracking-wide;
+    @apply font-medium text-gray-500 text-left;
   }
 }
 

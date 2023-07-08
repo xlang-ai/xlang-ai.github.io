@@ -13,6 +13,7 @@ const fakeMembers: Member[] = [
     description:
       'Marketing specialist with expertise in digital strategy and campaign management.',
     image: '/test2.png',
+    url: 'https://github.com',
   },
   {
     name: 'David Johnson',
@@ -25,6 +26,7 @@ const fakeMembers: Member[] = [
     description:
       'Seasoned project manager adept at coordinating cross-functional teams and delivering results.',
     image: '/test2.png',
+    url: 'https://github.com',
   },
   {
     name: 'Michael Wilson',
@@ -48,14 +50,21 @@ const fakeMembers: Member[] = [
 
 const Team = () => {
   return (
-    <div className='py-20 bg-brand-offWhite min-h-screen flex flex-col items-center'>
-      <h1>Team Members</h1>
-      <h2>Faculty</h2>
-      <TeamGallery members={fakeMembers} />
-      <h2 className='mt-4'>Postdoc and Ph.D.</h2>
-      <TeamList members={fakeMembers} />
-      <h2 className='mt-4'>Allumni</h2>
-      <TeamList members={fakeMembers} />
+    <div className='py-20 bg-brand-offWhite min-h-screen'>
+      <h1 className='title px-10'>Team Members</h1>
+      <div className='px-10 pb-8 pt-4'>
+        <h2 className='title mb-4'>Faculty</h2>
+        <TeamGallery members={fakeMembers} />
+      </div>
+
+      <div className='bg-white px-10 py-8'>
+        <h2 className='title mb-4'>Postdoc and Ph.D.</h2>
+        <TeamList members={fakeMembers} />
+      </div>
+      <div className='px-10 py-8'>
+        <h2 className='title mb-4'>Allumni</h2>
+        <TeamList members={fakeMembers} />
+      </div>
     </div>
   );
 };
@@ -69,7 +78,7 @@ interface Member {
 
 const TeamGallery = ({ members }: { members: Member[] }) => {
   return (
-    <div className='flex flex-wrap gap-x-20 gap-y-6 sm:w-3/4 justify-center'>
+    <div className='flex flex-wrap gap-x-20 gap-y-6'>
       {members.map((member) => (
         <div className='w-32 text-sm'>
           <div className='w-32 h-32 relative'>
@@ -84,7 +93,7 @@ const TeamGallery = ({ members }: { members: Member[] }) => {
               }}
             />
           </div>
-          <a className='font-medium my-1' href={member.url}>
+          <a className='font-medium my-2' href={member.url}>
             {member.name}
           </a>
           <div>{member.description}</div>
@@ -96,14 +105,22 @@ const TeamGallery = ({ members }: { members: Member[] }) => {
 
 const TeamList = ({ members }: { members: Member[] }) => {
   return (
-    <div className='px-4'>
+    <div className='grid grid-cols-4 gap-y-1'>
       {members.map((member) => (
-        <div className='flex'>
-          <a className='font-medium cursor-pointer underline' href={member.url}>
+        <React.Fragment key={member.name}>
+          <a
+            className='font-medium col-span-1'
+            style={
+              member?.url
+                ? { cursor: 'pointer', textDecoration: 'underline' }
+                : undefined
+            }
+            href={member.url}
+          >
             {member.name}
           </a>
-          <span className='ml-2'>({member.description})</span>
-        </div>
+          <span className='ml-2 col-span-3'>{member.description}</span>
+        </React.Fragment>
       ))}
     </div>
   );

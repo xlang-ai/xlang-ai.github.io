@@ -3,7 +3,7 @@ import React from 'react';
 const research = () => {
   return (
     <div className='py-20'>
-      <div className='px-16 py-6'>
+      <div className='px-4 sm:px-16 py-6'>
         <h1 className='text-gray-500 mb-10'>Representative papers</h1>
         <div className='grid grid-cols-4 gap-y-4'>
           <div className='font-bold col-span-1'>Code generation</div>
@@ -92,7 +92,7 @@ const research = () => {
         </div>
       </div>
 
-      <div className='px-16 py-6 bg-brand-offWhite'>
+      <div className='px-4 sm:px-16 py-6 bg-brand-offWhite'>
         <h1 className='text-gray-500  mb-10'>Papers from other members</h1>
         <div className='grid grid-cols-4'>
           <div className='font-bold col-span-1'>nlp</div>
@@ -125,7 +125,7 @@ const research = () => {
         </div>
       </div>
 
-      <div className='px-16 py-4'>
+      <div className='px-4 sm:px-16 py-4'>
         <h1 className='text-gray-500  mb-10'>Projects</h1>
         <div className='grid grid-cols-4'>
           <div className='font-bold col-span-1'>nlp</div>

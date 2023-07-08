@@ -51,17 +51,17 @@ const fakeMembers: Member[] = [
 const Team = () => {
   return (
     <div className='py-20 bg-brand-offWhite min-h-screen'>
-      <h1 className='title px-10'>Team Members</h1>
-      <div className='px-10 pb-8 pt-4'>
+      <h1 className='title px-4 sm:px-10'>Team Members</h1>
+      <div className='px-4 sm:px-10 pb-8 pt-4'>
         <h2 className='title mb-4'>Faculty</h2>
         <TeamGallery members={fakeMembers} />
       </div>
 
-      <div className='bg-white px-10 py-8'>
+      <div className='bg-white px-4 sm:px-10 py-8'>
         <h2 className='title mb-4'>Postdoc and Ph.D.</h2>
         <TeamList members={fakeMembers} />
       </div>
-      <div className='px-10 py-8'>
+      <div className='px-4 sm:px-10 py-8'>
         <h2 className='title mb-4'>Allumni</h2>
         <TeamList members={fakeMembers} />
       </div>

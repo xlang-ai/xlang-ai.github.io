@@ -6,7 +6,7 @@ import Supporters from './components/Supporters';
 const about = () => {
   return (
     <>
-      <div className='py-20 bg-brand-offWhite min-h-screen px-10 lg:px-32'>
+      <div className='py-20 bg-brand-offWhite min-h-screen px-4 sm:px-10 lg:px-32'>
         <div className='flex flex-col gap-4'>
           <div>
             <h1 className='text-gray-600 mt-6'>Misson</h1>
@@ -70,7 +70,7 @@ const about = () => {
           </div>
         </div>
       </div>
-      <div className='my-4 px-10 lg:px-32'>
+      <div className='my-4 px-4 sm:px-10 lg:px-32'>
         <Supporters />
       </div>
 

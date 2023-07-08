@@ -65,11 +65,7 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <a
-              href='/'
-              className='block p-4 -translate-x-4'
-              aria-label='Go to the Adept homepage'
-            >
+            <Link href='/' className='block p-4 -translate-x-4'>
               <div
                 className='
     w-[85px] h-[14px] 
@@ -78,7 +74,7 @@ const Footer = () => {
               >
                 <h1 className='text-white font-bold tracking-widest'>XLANG</h1>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

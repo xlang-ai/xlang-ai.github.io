@@ -25,16 +25,17 @@ const about = () => {
               your needs but also takes proactive steps to help you accomplish
               tasks. Our Data AI Copilot is designed to be your trusted
               companion, leveraging advanced AI algorithms to analyze,
-              interpret, and act upon your data. Whether it's automating routine
-              tasks, generating insights, or making data-driven recommendations,
-              our AI copilot is here to support you every step of the way.
+              interpret, and act upon your data. Whether it&apos;s automating
+              routine tasks, generating insights, or making data-driven
+              recommendations, our AI copilot is here to support you every step
+              of the way.
             </p>
           </div>
           <div>
             <h1 className='text-gray-600 mt-6'>AI that works for work</h1>
             <p className='my-10 text-2xl'>
               At Xlang, we believe in AI that works for you. We understand that
-              your time is valuable, and that's why we have developed AI
+              your time is valuable, and that&apos;s why we have developed AI
               solutions that are tailored to enhance your work experience. Our
               AI tools are designed to seamlessly integrate into your existing
               workflows, enabling you to automate repetitive tasks, streamline
@@ -44,7 +45,7 @@ const about = () => {
           <div className='bg-white -mx-10 px-10 lg:-mx-32 lg:px-32'>
             <h1 className='text-gray-600 mt-6'>AI that minds your business</h1>
             <p className='my-10 text-2xl'>
-              In today's fast-paced and data-driven business environment,
+              In today&apos;s fast-paced and data-driven business environment,
               staying ahead of the competition is crucial. Our AI solutions are
               specifically designed to mind your business by providing real-time
               insights, predictive analytics, and intelligent decision-making

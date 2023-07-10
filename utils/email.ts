@@ -12,7 +12,7 @@ export async function SendEmail (email: string, user: string) {
   const result = await transporter.sendMail({
     to: email,
     from: process.env.EMAIL_FROM,
-    subject: `You Have Joined XLang.AI Waitlist!`,
+    subject: `You have joined XLang.AI Waitlist!`,
     text: text(),
     html: html(user),
   });
@@ -84,12 +84,12 @@ function html(user: string) {
       <div class="container">
           <h1>XLang.AI Waitlist Notification</h1>
           <p>Dear ${user},</p>
-          <p>We wanted to inform you that you have been placed on the waitlist for xlang.ai, the next-level language interface.</p>
+          <p>We want to inform you that you have been placed on the waitlist for <a href="https://xlang.ai/">xlang.ai</a>, the next-level language interface.</p>
           <p>Please note that being on the waitlist does not guarantee a spot in the demo. However, if any spots become available, we will notify you promptly.</p>
           <p>Thank you for your interest and patience. If you have any questions, please feel free to contact us.</p>
-          <a href="[Contact Email]" class="button">Contact Us</a>
+          <a href="mailto:contact@xlang.ai" class="button">Contact Us</a>
           <div class="footer">
-              <p>Best regards,</p>
+              <p>Best Regards,</p>
               <p>The XLang.AI Team</p>
           </div>
       </div>

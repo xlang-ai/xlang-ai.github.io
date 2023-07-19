@@ -4,9 +4,10 @@
 
 @layer base {
   body {
-    @apply bg-white dark:bg-gray-900;
-    @apply text-gray-900 dark:text-gray-50;
+    @apply bg-[#F5F5F5];
+    @apply text-[#000000];
     @apply overflow-x-hidden;
+    @apply font-montserrat;
   }
 
   h1 {
@@ -28,18 +29,17 @@
 
 @layer components {
   .btn {
-    @apply font-medium rounded-full px-4 py-1 cursor-pointer hover:-translate-y-0.5 transition-transform;
+    @apply font-bold rounded-lg px-8 py-2 cursor-pointer hover:-translate-y-0.5 transition-transform;
     @apply flex items-center justify-center;
   }
 
   .btn-primary {
-    @apply bg-gray-950 dark:bg-gray-50 text-gray-50 dark:text-gray-950;
+    @apply bg-brand-primary2 text-white;
   }
 
   .btn-secondary {
-    @apply text-gray-950 dark:text-gray-50;
-    @apply border border-gray-950 dark:border-gray-50;
-    @apply shadow;
+    @apply text-black;
+    @apply border border-black px-6;
   }
 
   .btn-neutral {
@@ -48,6 +48,14 @@
 
   .title {
     @apply font-medium text-gray-500 text-left;
+  }
+
+  .bg-gradient {
+    background: radial-gradient(
+      circle,
+      rgba(41, 146, 184, 0.1294642857142857) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
   }
 }
 

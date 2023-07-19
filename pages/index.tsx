@@ -1,18 +1,14 @@
-import Demo from './components/Demo';
 import Hero from './components/Hero';
-import RoadMap from './components/RoadMap';
-import Highlights from './components/Highlights';
+import Highlight from './components/Highlight';
+import ResearchDirections from './components/ResearchDirections';
 import Acknowledgments from './components/Acknowledgement';
 
 const Home = () => {
   return (
     <div>
       <Hero />
-      <Demo />
-      <Highlights />
-      <RoadMap />
-      <Acknowledgments />
-      {/* <Members /> */}
+      <ResearchDirections />
+      <Highlight />
     </div>
   );
 };

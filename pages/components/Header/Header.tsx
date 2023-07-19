@@ -10,30 +10,24 @@ const Header = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
   return (
-    <div className='fixed top-0 left-0 w-full h-14 md:h-20 bg-brand-offWhite py-4 px-10 flex justify-between items-center z-10'>
+    <div className='fixed top-0 left-0 w-full h-14 md:h-20 bg-brand-offWhite py-4 px-6 flex justify-between items-center z-10'>
       <Link href='/'>
-        <div className='flex gap-3 items-center cursor-pointer'>
+        <div className='flex gap-2 items-center cursor-pointer text-brand-dark'>
           <Image
-            src={publicFilePath('/xlang-ai.png')}
+            src={publicFilePath('/logo.svg')}
             alt='Xlang'
             width={30}
             height={30}
             className='rounded-md'
           />
-          <div className='font-bold'>XLang</div>
+          <div>XLANG</div>
         </div>
       </Link>
       <div className='sm:hidden' onClick={() => setShowMenu(true)}>
         <Menu2 />
       </div>
       {showMenu && <SideMenu setShowMenu={setShowMenu} />}
-      <ul className='gap-4 text-md hidden sm:flex'>
-        {/* <a
-          className='btn btn-primary text-sm'
-          href='https://forms.gle/Mcyq88JugmMYEar58'
-        >
-          Join Us
-        </a> */}
+      <ul className='gap-8 text-md text-text-brand-dark hidden sm:flex'>
         <li className='font-medium hover:underline'>
           <Link href='/about'>About</Link>
         </li>
@@ -44,16 +38,79 @@ const Header = () => {
           <Link href='/research'>Research</Link>
         </li>
         <li className='font-medium hover:underline'>
-          <Link href='https://chat.xlang.ai'>Demo</Link>
+          <Link href='https://chat.xlang.ai'>Demos</Link>
         </li>
         <li className='font-medium hover:underline'>
-          <Link href='/blog'>Blog</Link>
+          <Link href='/blog'>Blogs</Link>
         </li>
-        <li className='font-medium hover:underline'>
-          <Link href='/docs'>Docs</Link>
+      </ul>
+
+      <ul className='hidden lg:flex gap-6'>
+        <li>
+          <Link href='mailto:mail@xlang.ai'>
+            <Image
+              src={publicFilePath('/mail.svg')}
+              alt='Xlang'
+              width={25}
+              height={25}
+              className='rounded-md'
+            />
+          </Link>
         </li>
-        <li className='font-medium hover:underline'>
-          <Link href='/news'>News</Link>
+        <li>
+          <Link href='mailto:mail@xlang.ai'>
+            <Image
+              src={publicFilePath('/slack.svg')}
+              alt='Xlang'
+              width={25}
+              height={25}
+              className='rounded-md'
+            />
+          </Link>
+        </li>
+        <li>
+          <Link href='mailto:mail@xlang.ai'>
+            <Image
+              src={publicFilePath('/discord.svg')}
+              alt='Xlang'
+              width={25}
+              height={25}
+              className='rounded-md'
+            />
+          </Link>
+        </li>
+        <li>
+          <Link href='mailto:mail@xlang.ai'>
+            <Image
+              src={publicFilePath('/github.svg')}
+              alt='Xlang'
+              width={25}
+              height={25}
+              className='rounded-md'
+            />
+          </Link>
+        </li>
+        <li>
+          <Link href='mailto:mail@xlang.ai'>
+            <Image
+              src={publicFilePath('/twitter.svg')}
+              alt='Xlang'
+              width={25}
+              height={25}
+              className='rounded-md'
+            />
+          </Link>
+        </li>
+        <li>
+          <Link href='mailto:mail@xlang.ai'>
+            <Image
+              src={publicFilePath('/threads.svg')}
+              alt='Xlang'
+              width={25}
+              height={25}
+              className='rounded-md'
+            />
+          </Link>
         </li>
       </ul>
     </div>
@@ -73,7 +130,7 @@ const SideMenu = ({
       >
         <X width={40} height={40} />
       </div>
-      <ul className='gap-y-4 p-10 flex flex-col justify-center h-full'>
+      <ul className='gap-y-4 p-10 flex flex-col justify-center h-full text-brand-dark'>
         <li className='font-medium text-2xl hover:underline'>
           <Link href='/about'>About</Link>
         </li>
@@ -84,16 +141,10 @@ const SideMenu = ({
           <Link href='/research'>Research</Link>
         </li>
         <li className='font-medium text-2xl hover:underline'>
-          <Link href='https://chat.xlang.ai'>Demo</Link>
+          <Link href='https://chat.xlang.ai'>Demos</Link>
         </li>
         <li className='font-medium text-2xl hover:underline'>
-          <Link href='/blog'>Blog</Link>
-        </li>
-        <li className='font-medium text-2xl hover:underline'>
-          <Link href='/docs'>Docs</Link>
-        </li>
-        <li className='font-medium text-2xl hover:underline'>
-          <Link href='/news'>News</Link>
+          <Link href='/blog'>Blogs</Link>
         </li>
       </ul>
     </div>

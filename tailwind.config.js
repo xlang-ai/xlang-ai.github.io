@@ -6,14 +6,21 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        montserrat: ['Montserrat', 'sans-serif'],
+      },
       colors: {
         secondary: '#f5f2f1',
         brand: {
           lightBrown: '#F2E3AD',
           darkBrown: '#473422',
           limeBlue: '#74ecf1',
-          offWhite: 'rgb(245, 242, 241)',
-          offBlack: 'rgb(39, 36, 34)',
+          offWhite: '#F5F5F5',
+          offBlack: '#0F0F0F',
+          dark: '#003871',
+          dark2: '#174B81',
+          primary: '#009CD5',
+          primary2: '#6C4AAF',
         },
       },
     },

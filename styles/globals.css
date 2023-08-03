@@ -57,6 +57,12 @@
       rgba(255, 255, 255, 0) 100%
     );
   }
+
+  .page-x-width {
+    @apply max-w-5xl;
+    @apply mx-auto;
+    @apply px-4;
+  }
 }
 
 .hero-background {

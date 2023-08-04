@@ -30,7 +30,7 @@ const news: NewsInterface[] = [
 
 const News = () => {
   return (
-    <div className='w-full bg-[#D9D9D9]/20 py-16'>
+    <div className='w-full bg-[#D9D9D9]/20 max-sm:py-0 py-16'>
       <div className='page-x-width'>
         <h1 className='text-2xl font-normal'>News</h1>
         <div className='flex flex-col gap-2'>

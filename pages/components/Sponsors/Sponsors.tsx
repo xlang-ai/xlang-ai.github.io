@@ -7,7 +7,7 @@ import SalesforceImage from '@/public/salesforce.png';
 
 const Sponsors = () => {
   return (
-    <div className='w-full bg-[#B9B9B9]/30 h-fit py-12'>
+    <div className='w-full bg-[#B9B9B9]/30 h-fit py-6 sm:py-12'>
       <div className='page-x-width'>
         <h1 className='text-2xl mb-4'>Sponsors & Donations</h1>
         <p className='text-sm'>
@@ -41,7 +41,13 @@ const Sponsors = () => {
           GPU hardware and hours, cloud credits, other computing resources, and
           more. If you want to join us in democratizing large models, please
           contact us at{' '}
-          <a href='mailto:tao.yu.nlp@gmail.com'>tao.yu.nlp@gmail.com</a>.
+          <a
+            href='mailto:tao.yu.nlp@gmail.com'
+            className='text-sky-500 underline'
+          >
+            tao.yu.nlp@gmail.com
+          </a>
+          .
         </p>
       </div>
     </div>

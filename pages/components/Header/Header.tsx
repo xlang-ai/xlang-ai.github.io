@@ -4,11 +4,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { publicFilePath } from '@/utils';
 import { Menu2, X } from 'tabler-icons-react';
-import PopupCenter from '@/utils/popup';
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
+  console.log(showMenu);
   return (
     <div className='fixed top-0 left-0 w-full h-14 md:h-20 bg-brand-offWhite py-4 z-10 shadow'>
       <div className='page-x-width w-full flex justify-between items-center'>
@@ -24,7 +24,13 @@ const Header = () => {
             <div>XLANG Lab</div>
           </div>
         </Link>
-        <div className='sm:hidden' onClick={() => setShowMenu(true)}>
+        <div
+          className='sm:hidden w-fit h-fit cursor-pointer'
+          onClick={() => {
+            console.log(1);
+            setShowMenu(true);
+          }}
+        >
           <Menu2 />
         </div>
         {showMenu && <SideMenu setShowMenu={setShowMenu} />}
@@ -95,20 +101,30 @@ const SideMenu = ({
         <X width={40} height={40} />
       </div>
       <ul className='gap-y-4 p-10 flex flex-col justify-center h-full text-brand-dark'>
-        <li className='font-[600] text-2xl hover:underline'>
-          <Link href='/about'>About</Link>
+        <li className='text-2xl font-[600] hover:underline text-brand-dark'>
+          <Link href='/' onClick={() => setShowMenu(false)}>
+            about
+          </Link>
         </li>
-        <li className='font-[600] text-2xl hover:underline'>
-          <Link href='/team'>Team</Link>
+        <li className='text-2xl font-[600] hover:underline text-brand-dark'>
+          <Link href='/team' onClick={() => setShowMenu(false)}>
+            team
+          </Link>
         </li>
-        <li className='font-[600] text-2xl hover:underline'>
-          <Link href='/research'>Research</Link>
+        <li className='text-2xl font-[600] hover:underline text-brand-dark'>
+          <Link href='/research' onClick={() => setShowMenu(false)}>
+            research
+          </Link>
         </li>
-        <li className='font-[600] text-2xl hover:underline'>
-          <Link href='https://chat.xlang.ai'>Demos</Link>
+        <li className='text-2xl font-[600] hover:underline text-brand-dark'>
+          <Link href='/project' onClick={() => setShowMenu(false)}>
+            projects
+          </Link>
         </li>
-        <li className='font-[600] text-2xl hover:underline'>
-          <Link href='/blog'>Blogs</Link>
+        <li className='text-2xl font-[600] hover:underline text-brand-dark'>
+          <Link href='/blog' onClick={() => setShowMenu(false)}>
+            blogs
+          </Link>
         </li>
       </ul>
     </div>

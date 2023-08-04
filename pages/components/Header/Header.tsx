@@ -39,7 +39,7 @@ const Header = () => {
             <Link href='/research'>research</Link>
           </li>
           <li className='font-medium hover:underline text-brand-dark'>
-            <Link href='https://chat.xlang.ai'>demos</Link>
+            <Link href='/project'>projects</Link>
           </li>
           <li className='font-medium hover:underline text-brand-dark'>
             <Link href='/blog'>blogs</Link>

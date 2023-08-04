@@ -107,6 +107,7 @@ const PapersSection = () => {
       <div className='flex gap-3 flex-wrap'>
         {Object.entries(PaperCategoryNames).map(([key, value]) => (
           <div
+            key={key}
             className='border border-[#7A7A7A] text-[#7A7A7A] rounded-lg py-1 px-3 text-xs cursor-pointer'
             style={
               filter === key ? { background: '#7A7A7A', color: 'white' } : {}
@@ -123,7 +124,7 @@ const PapersSection = () => {
 
       <div className='flex flex-col mt-10'>
         {filteredPapers.map((paper) => (
-          <PaperBlock paper={paper} />
+          <PaperBlock paper={paper} key={paper.title} />
         ))}
       </div>
     </div>
@@ -192,7 +193,7 @@ const TalksSection = () => {
       <h1 className='text-xl font-[500] mb-10'>Talks</h1>
       <div className='flex flex-wrap gap-4'>
         {talks.map((talk) => (
-          <TalkBlock talk={talk} />
+          <TalkBlock talk={talk} key={talk.title} />
         ))}
       </div>
     </div>

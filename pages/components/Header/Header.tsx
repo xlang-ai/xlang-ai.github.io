@@ -10,7 +10,7 @@ const Header = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
   return (
-    <div className='fixed top-0 left-0 w-full h-14 md:h-20 bg-brand-offWhite py-4 z-10'>
+    <div className='fixed top-0 left-0 w-full h-14 md:h-20 bg-brand-offWhite py-4 z-10 shadow'>
       <div className='page-x-width w-full flex justify-between items-center'>
         <Link href='/'>
           <div className='flex gap-2 items-center cursor-pointer text-brand-dark'>
@@ -29,19 +29,19 @@ const Header = () => {
         </div>
         {showMenu && <SideMenu setShowMenu={setShowMenu} />}
         <ul className='gap-8 text-md text-text-brand-dark hidden sm:flex'>
-          <li className='font-medium hover:underline text-brand-dark'>
+          <li className='font-[600] hover:underline text-brand-dark'>
             <Link href='/'>about</Link>
           </li>
-          <li className='font-medium hover:underline text-brand-dark'>
+          <li className='font-[600] hover:underline text-brand-dark'>
             <Link href='/team'>team</Link>
           </li>
-          <li className='font-medium hover:underline text-brand-dark'>
+          <li className='font-[600] hover:underline text-brand-dark'>
             <Link href='/research'>research</Link>
           </li>
-          <li className='font-medium hover:underline text-brand-dark'>
+          <li className='font-[600] hover:underline text-brand-dark'>
             <Link href='/project'>projects</Link>
           </li>
-          <li className='font-medium hover:underline text-brand-dark'>
+          <li className='font-[600] hover:underline text-brand-dark'>
             <Link href='/blog'>blogs</Link>
           </li>
         </ul>
@@ -95,19 +95,19 @@ const SideMenu = ({
         <X width={40} height={40} />
       </div>
       <ul className='gap-y-4 p-10 flex flex-col justify-center h-full text-brand-dark'>
-        <li className='font-medium text-2xl hover:underline'>
+        <li className='font-[600] text-2xl hover:underline'>
           <Link href='/about'>About</Link>
         </li>
-        <li className='font-medium text-2xl hover:underline'>
+        <li className='font-[600] text-2xl hover:underline'>
           <Link href='/team'>Team</Link>
         </li>
-        <li className='font-medium text-2xl hover:underline'>
+        <li className='font-[600] text-2xl hover:underline'>
           <Link href='/research'>Research</Link>
         </li>
-        <li className='font-medium text-2xl hover:underline'>
+        <li className='font-[600] text-2xl hover:underline'>
           <Link href='https://chat.xlang.ai'>Demos</Link>
         </li>
-        <li className='font-medium text-2xl hover:underline'>
+        <li className='font-[600] text-2xl hover:underline'>
           <Link href='/blog'>Blogs</Link>
         </li>
       </ul>

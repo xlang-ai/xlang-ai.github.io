@@ -1,3 +1,4 @@
+import { parseDate } from '@/utils/date';
 import React from 'react';
 
 interface NewsInterface {
@@ -26,29 +27,6 @@ const news: NewsInterface[] = [
     description: 'The (renewed) group website is now live!',
   },
 ];
-
-const parseDate = (date: Date) => {
-  const months = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ];
-
-  const month = months[date.getUTCMonth()];
-  const day = date.getUTCDate();
-  const year = date.getUTCFullYear();
-
-  return `${month} ${day}, ${year}`;
-};
 
 const News = () => {
   return (

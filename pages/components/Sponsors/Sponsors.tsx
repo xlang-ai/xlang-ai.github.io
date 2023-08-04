@@ -43,7 +43,7 @@ const Sponsors = () => {
           contact us at{' '}
           <a
             href='mailto:tao.yu.nlp@gmail.com'
-            className='text-sky-500 underline'
+            className='text-[#0156AC] underline'
           >
             tao.yu.nlp@gmail.com
           </a>

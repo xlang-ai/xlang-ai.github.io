@@ -12,6 +12,12 @@ const Header = () => {
   return (
     <div className='fixed top-0 left-0 w-full h-14 md:h-20 bg-brand-offWhite py-4 z-10 shadow'>
       <div className='page-x-width w-full flex justify-between items-center'>
+        <div
+          className='sm:hidden w-fit h-fit cursor-pointer'
+          onClick={() => setShowMenu(true)}
+        >
+          <Menu2 className='text-[#0156AC]' />
+        </div>
         <Link href='/'>
           <div className='flex gap-2 items-center cursor-pointer text-brand-dark'>
             <Image
@@ -24,15 +30,6 @@ const Header = () => {
             <div>XLANG Lab</div>
           </div>
         </Link>
-        <div
-          className='sm:hidden w-fit h-fit cursor-pointer'
-          onClick={() => {
-            console.log(1);
-            setShowMenu(true);
-          }}
-        >
-          <Menu2 />
-        </div>
         {showMenu && <SideMenu setShowMenu={setShowMenu} />}
         <ul className='gap-8 text-md text-text-brand-dark hidden sm:flex'>
           <li className='font-[600] hover:underline text-brand-dark'>
@@ -55,7 +52,7 @@ const Header = () => {
         <div className='flex gap-4 items-center'>
           <ul className='hidden lg:flex gap-3'>
             <li>
-              <Link href='mailto:mail@xlang.ai'>
+              <Link href='https://github.com/xlang-ai'>
                 <Image
                   src={publicFilePath('/github-black.svg')}
                   alt='Xlang'
@@ -66,7 +63,7 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link href='mailto:mail@xlang.ai'>
+              <Link href='https://github.com/xlang-ai'>
                 <Image
                   src={publicFilePath('/twitter-black.svg')}
                   alt='Xlang'
@@ -78,7 +75,7 @@ const Header = () => {
             </li>
           </ul>
 
-          <div className='border border-brand-primary2 border-2 text-brand-primary2 font-[500] rounded-xl py-1 px-3 cursor-pointer'>
+          <div className='max-sm:text-sm border border-brand-primary2 border-2 text-brand-primary2 font-[500] rounded-xl py-1 px-3 cursor-pointer'>
             join us
           </div>
         </div>
@@ -95,7 +92,7 @@ const SideMenu = ({
   return (
     <div className='fixed min-w-screen min-h-screen left-0 top-0 right-0 bottom-0 bg-brand-offWhite z-100'>
       <div
-        className='absolute right-5 top-5'
+        className='absolute right-5 top-5 text-brand-dark'
         onClick={() => setShowMenu(false)}
       >
         <X width={40} height={40} />

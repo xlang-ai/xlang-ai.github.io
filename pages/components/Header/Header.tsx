@@ -51,7 +51,7 @@ const Header = () => {
             <li>
               <Link href='mailto:mail@xlang.ai'>
                 <Image
-                  src={publicFilePath('/github.svg')}
+                  src={publicFilePath('/github-black.svg')}
                   alt='Xlang'
                   width={25}
                   height={25}
@@ -62,7 +62,7 @@ const Header = () => {
             <li>
               <Link href='mailto:mail@xlang.ai'>
                 <Image
-                  src={publicFilePath('/twitter.svg')}
+                  src={publicFilePath('/twitter-black.svg')}
                   alt='Xlang'
                   width={25}
                   height={25}

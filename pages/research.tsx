@@ -108,9 +108,9 @@ const PapersSection = () => {
         {Object.entries(PaperCategoryNames).map(([key, value]) => (
           <div
             key={key}
-            className='border border-[#7A7A7A] text-[#7A7A7A] rounded-lg py-1 px-3 text-xs cursor-pointer'
+            className='border border-[1.5px] border-[#7A7A7A] text-[#7A7A7A] rounded-lg py-1 px-3 text-xs cursor-pointer'
             style={
-              filter === key ? { background: '#7A7A7A', color: 'white' } : {}
+              filter === key ? { borderColor: '#0156AC', color: '#0156AC' } : {}
             }
             onClick={() => {
               if (key === filter) setFilter(null);

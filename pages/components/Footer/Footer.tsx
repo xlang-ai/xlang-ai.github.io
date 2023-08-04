@@ -16,7 +16,7 @@ import { publicFilePath } from '@/utils';
 const Footer = () => {
   return (
     <div className='w-full bg-brand-offBlack p-4'>
-      <div className='page-x-width flex justify-between'>
+      <div className='page-x-width flex justify-center sm:justify-between flex-wrap gap-4'>
         <div className='flex gap-2 items-center'>
           <Link href='/'>
             <div className='relative'>

@@ -2,12 +2,12 @@ import React from 'react';
 
 const Welcome = () => {
   return (
-    <div className='w-full mt-36 pb-16'>
+    <div className='w-full max-sm:mt-20 mt-36 pb-16'>
       <div className='page-x-width'>
         <h1 className='text-2xl mb-6'>
           <b>XLANG</b> Lab
         </h1>
-        <p>
+        <p className='leading-7'>
           Welcome to the <b>Executable Language Grounding (XLANG)</b> Group! We
           are part of the <b>HKU NLP Group</b> at the University of Hong Kong.
           XLANG focuses on transforming natural language instructions (via large

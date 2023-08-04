@@ -57,7 +57,7 @@ const News = () => {
         <h1 className='text-2xl font-normal'>News</h1>
         <div className='flex flex-col gap-2'>
           {news.map((n) => (
-            <div className='flex gap-8 flex-wrap py-3 border-b border-black/30 text-sm'>
+            <div className='flex gap-x-8 flex-wrap py-3 border-b border-black/30 text-sm'>
               <div>{parseDate(n.date)}</div>
               <div>{n.description}</div>
             </div>

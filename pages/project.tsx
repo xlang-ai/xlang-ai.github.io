@@ -118,6 +118,7 @@ const SubHighlightProject = () => {
     <div className='my-20 flex flex-col gap-20'>
       {subhighlightProjects.map((proj, i) => (
         <SubHighlightProjectBlock
+          key={proj.title}
           subHighlightProject={proj}
           reverse={i % 2 === 1}
         />
@@ -222,7 +223,7 @@ const RecentProject = () => {
       </h1>
       <div>
         {projects.map((project) => (
-          <ProjectBlock project={project} />
+          <ProjectBlock project={project} key={project.title} />
         ))}
       </div>
     </div>

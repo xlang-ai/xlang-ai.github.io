@@ -1,127 +1,179 @@
 import Image from 'next/image';
 import React from 'react';
 
-const fakeMembers: Member[] = [
+const Team = () => {
+  return (
+    <div className='pt-36 w-full bg-[#D9D9D9]/20'>
+      <div className='page-x-width flex flex-col gap-12 pb-10'>
+        <Intro />
+        <Faculty />
+        <CoreMembers />
+        <Collaborators />
+      </div>
+    </div>
+  );
+};
+
+const Intro = () => {
+  return (
+    <div className='flex flex-col gap-2'>
+      <h1 className='text-2xl font-[500]'>Team</h1>
+      <p>
+        We have an interdisciplinary team that allows us to carry out studies
+        ranging from exploring to the development of next-generation
+      </p>
+      <button className='btn btn-secondary text-xs py-1 w-24'>Join Us</button>
+    </div>
+  );
+};
+
+interface TeamMember {
+  image?: string;
+  name: string;
+  title: string;
+}
+
+const MemberCard = ({ member }: { member: TeamMember }) => {
+  return (
+    <div className='rounded-lg shadow p-6 flex gap-4 w-[340px]'>
+      <div className='relative w-32 h-32'>
+        {member.image ? (
+          <Image src={member.image} alt={member.name} />
+        ) : (
+          <div className='bg-[#D9D9D9] rounded-lg w-32 h-32' />
+        )}
+      </div>
+      <div className='w-full mt-3'>
+        <div className='font-[600] text-sm mb-2'>{member.name}</div>
+        <div className='text-black/80 text-xs'>{member.title}</div>
+      </div>
+    </div>
+  );
+};
+
+const facultyMember: TeamMember[] = [
   {
-    name: 'John Doe',
-    description:
-      'Experienced software engineer with a passion for creating innovative solutions.',
-    image: '/test2.png',
-  },
-  {
-    name: 'Jane Smith',
-    description:
-      'Marketing specialist with expertise in digital strategy and campaign management.',
-    image: '/test2.png',
-    url: 'https://github.com',
-  },
-  {
-    name: 'David Johnson',
-    description:
-      'Skilled graphic designer with a keen eye for aesthetics and attention to detail.',
-    image: '/test2.png',
-  },
-  {
-    name: 'Emily Davis',
-    description:
-      'Seasoned project manager adept at coordinating cross-functional teams and delivering results.',
-    image: '/test2.png',
-    url: 'https://github.com',
-  },
-  {
-    name: 'Michael Wilson',
-    description:
-      'Data analyst with a strong analytical mindset and expertise in statistical modeling.',
-    image: '/test2.png',
-  },
-  {
-    name: 'Sarah Anderson',
-    description:
-      'Creative writer with a knack for crafting engaging and persuasive content.',
-    image: '/test2.png',
-  },
-  {
-    name: 'Robert Martinez',
-    description:
-      'Experienced sales executive with a track record of driving revenue growth and building strong client relationships.',
-    image: '/test2.png',
+    name: 'Tao Yu',
+    title:
+      'Assistant Professor of Computer Science, Co-director of the HKU NLP Group',
   },
 ];
 
-const Team = () => {
+const Faculty = () => {
   return (
-    <div className='py-20 bg-brand-offWhite min-h-screen'>
-      <h1 className='title px-4 sm:px-10'>Team Members</h1>
-      <div className='px-4 sm:px-10 pb-8 pt-4'>
-        <h2 className='title mb-4'>Faculty</h2>
-        <TeamGallery members={fakeMembers} />
-      </div>
-
-      <div className='bg-white px-4 sm:px-10 py-8'>
-        <h2 className='title mb-4'>Postdoc and Ph.D.</h2>
-        <TeamList members={fakeMembers} />
-      </div>
-      <div className='px-4 sm:px-10 py-8'>
-        <h2 className='title mb-4'>Allumni</h2>
-        <TeamList members={fakeMembers} />
+    <div>
+      <h1 className='text-2xl font-[500] mb-6'>Faculty</h1>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-y-4'>
+        {facultyMember.map((member) => (
+          <MemberCard member={member} />
+        ))}
       </div>
     </div>
   );
 };
 
-interface Member {
-  name: string;
-  description: string;
-  image: string;
-  url?: string;
+const coreMember: TeamMember[] = [
+  {
+    name: 'Yiheng Xu',
+    title: 'PhD student',
+  },
+  {
+    name: 'Yiheng Xu',
+    title: 'PhD student',
+  },
+  {
+    name: 'Yiheng Xu',
+    title: 'PhD student',
+  },
+  {
+    name: 'Yiheng Xu',
+    title: 'PhD student',
+  },
+  {
+    name: 'Yiheng Xu',
+    title: 'PhD student',
+  },
+  {
+    name: 'Yiheng Xu',
+    title: 'PhD student',
+  },
+  {
+    name: 'Yiheng Xu',
+    title: 'PhD student',
+  },
+  {
+    name: 'Yiheng Xu',
+    title: 'PhD student',
+  },
+  {
+    name: 'Yiheng Xu',
+    title: 'PhD student',
+  },
+];
+
+const CoreMembers = () => {
+  return (
+    <div>
+      <h1 className='text-2xl font-[500] mb-6'>Core Member</h1>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-y-4'>
+        {coreMember.map((member) => (
+          <MemberCard member={member} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+interface Collaborator {
+  institution: string;
+  members: string[];
 }
 
-const TeamGallery = ({ members }: { members: Member[] }) => {
-  return (
-    <div className='flex flex-wrap gap-x-20 gap-y-6'>
-      {members.map((member) => (
-        <div className='w-32 text-sm' key={member.name}>
-          <div className='w-32 h-32 relative'>
-            <Image
-              src={member.image}
-              alt={member.name}
-              fill
-              style={{
-                objectFit: 'cover',
-                objectPosition: 'center',
-                borderRadius: '10px',
-              }}
-            />
-          </div>
-          <a className='font-medium my-2' href={member.url}>
-            {member.name}
-          </a>
-          <div>{member.description}</div>
-        </div>
-      ))}
-    </div>
-  );
-};
+const collaborators: Collaborator[] = [
+  {
+    institution: 'Salesforce Research',
+    members: ['Caiming Xiong', 'Chen Xing'],
+  },
+  { institution: 'Google Research', members: ['Will Wu', 'Yaqing Wang'] },
+  {
+    institution: 'Amazon AWS',
+    members: ['Yi Zhang', 'Zhiguo Wang', 'Salvatore Romeo'],
+  },
+  { institution: 'DB', members: ['Yiru Chen', 'Bohan Zhang'] },
+  {
+    institution: 'HCI/VIS',
+    members: ['Haotian Li', 'Xingbo Wang', 'Ziyi Huang'],
+  },
+  {
+    institution: 'Other',
+    members: [
+      'Bailin Wang',
+      'Ruiqi Zhong',
+      'Sida Wang',
+      'Zijian He',
+      'Ansong Ni',
+    ],
+  },
+];
 
-const TeamList = ({ members }: { members: Member[] }) => {
+const Collaborators = () => {
   return (
-    <div className='grid grid-cols-4 gap-y-1'>
-      {members.map((member) => (
-        <React.Fragment key={member.name}>
-          <a
-            className='font-medium col-span-1'
-            style={
-              member?.url
-                ? { cursor: 'pointer', textDecoration: 'underline' }
-                : undefined
-            }
-            href={member.url}
-          >
-            {member.name}
-          </a>
-          <span className='ml-2 col-span-3'>{member.description}</span>
-        </React.Fragment>
-      ))}
+    <div>
+      <h1 className='text-2xl font-[500] mb-6'>Collaborators</h1>
+      <div className='flex flex-col gap-6'>
+        {collaborators.map((collaborator) => (
+          <div>
+            <div className='text-[#818181] font-[500] pb-2 mb-2 border-b border-black/30'>
+              {collaborator.institution}
+            </div>
+            <div className='flex flex-wrap gap-y-3'>
+              {collaborator.members.map((member) => (
+                <div className='w-72 font-[500] text-sm'>{member}</div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

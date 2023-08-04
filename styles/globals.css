@@ -59,7 +59,7 @@
   }
 
   .page-x-width {
-    @apply max-w-5xl;
+    @apply max-w-4xl;
     @apply mx-auto;
     @apply px-4;
   }

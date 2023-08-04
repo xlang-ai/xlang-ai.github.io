@@ -65,7 +65,7 @@ const Faculty = () => {
       <h1 className='text-2xl font-[500] mb-6'>Faculty</h1>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-y-4'>
         {facultyMember.map((member) => (
-          <MemberCard member={member} />
+          <MemberCard member={member} key={member.name} />
         ))}
       </div>
     </div>
@@ -117,7 +117,7 @@ const CoreMembers = () => {
       <h1 className='text-2xl font-[500] mb-6'>Core Member</h1>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-y-4'>
         {coreMember.map((member) => (
-          <MemberCard member={member} />
+          <MemberCard member={member} key={member.name} />
         ))}
       </div>
     </div>
@@ -162,13 +162,15 @@ const Collaborators = () => {
       <h1 className='text-2xl font-[500] mb-6'>Collaborators</h1>
       <div className='flex flex-col gap-6'>
         {collaborators.map((collaborator) => (
-          <div>
+          <div key={collaborator.institution}>
             <div className='text-[#818181] font-[500] pb-2 mb-2 border-b border-black/30'>
               {collaborator.institution}
             </div>
             <div className='flex flex-wrap gap-y-3'>
               {collaborator.members.map((member) => (
-                <div className='w-72 font-[500] text-sm'>{member}</div>
+                <div key={member} className='w-72 font-[500] text-sm'>
+                  {member}
+                </div>
               ))}
             </div>
           </div>

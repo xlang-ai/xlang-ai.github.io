@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 const Blog = ({ posts }: { posts: BlogPost[] }) => {
   return (
-    <div className='pt-36 w-full bg-[#D9D9D9]/20'>
+    <div className='pt-36 w-full bg-[#D9D9D9]/20 min-h-[95vh]'>
       <div className='page-x-width pb-10'>
         <h1 className='text-2xl font-[500] mb-4'>Blog</h1>
         <div className='flex flex-col gap-4'>

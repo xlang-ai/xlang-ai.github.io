@@ -30,7 +30,7 @@ const Header = () => {
         {showMenu && <SideMenu setShowMenu={setShowMenu} />}
         <ul className='gap-8 text-md text-text-brand-dark hidden sm:flex'>
           <li className='font-medium hover:underline text-brand-dark'>
-            <Link href='/about'>about</Link>
+            <Link href='/'>about</Link>
           </li>
           <li className='font-medium hover:underline text-brand-dark'>
             <Link href='/team'>team</Link>

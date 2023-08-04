@@ -1,5 +1,5 @@
 import Image, { StaticImageData } from 'next/image';
-import React from 'react';
+import React, { useState } from 'react';
 
 import DemoImage from '@/public/demo.png';
 import DataAgentImage from '@/public/data-agent.png';
@@ -7,6 +7,8 @@ import PluginImage from '@/public/plugin.svg';
 import WebAgentImage from '@/public/web-agent.svg';
 
 const Preview = () => {
+  const [preview, setPreview] = useState<string | StaticImageData>(DemoImage);
+
   return (
     <div className='w-full py-16'>
       <div className='page-x-width'>
@@ -15,7 +17,7 @@ const Preview = () => {
             <div className='text-2xl font-bold mb-4'>XLANG Agent</div>
             <div className='sm:hidden h-[70vw] relative'>
               <Image
-                src={DemoImage}
+                src={preview}
                 alt='Demo'
                 fill
                 style={{ objectFit: 'contain', objectPosition: 'center' }}
@@ -34,7 +36,7 @@ const Preview = () => {
           </div>
           <div className='max-sm:hidden col-span-3 relative'>
             <Image
-              src={DemoImage}
+              src={preview}
               alt='Demo'
               fill
               style={{ objectFit: 'contain', objectPosition: 'center' }}
@@ -43,48 +45,82 @@ const Preview = () => {
         </div>
 
         <div className='flex flex-wrap gap-10 justify-center'>
-          <PreviewBox
-            image={DataAgentImage}
-            title='Data Agent'
-            desc='open-source version of OpenAI with LLM + more data tools'
-          />
-          <PreviewBox
-            image={PluginImage}
-            title='Plugins'
-            desc='open-source version of OpenAI by manipulating webs/plugins via APIs - web/app apis'
-          />
-          <PreviewBox
-            image={WebAgentImage}
-            title='Web Agent'
-            desc='grounding natural language instructions into click and typing actions to manipulate webs as humans do.'
-          />
+          {features.map((feature) => (
+            <FeatureBox feature={feature} setPreview={setPreview} />
+          ))}
         </div>
       </div>
     </div>
   );
 };
 
-const PreviewBox = ({
-  image,
-  title,
-  desc,
-}: {
-  image: string | StaticImageData;
+interface Feature {
+  icon: string | StaticImageData;
   title: string;
   desc: string;
+  video?: string | StaticImageData;
+  details?: string;
+}
+
+const features: Feature[] = [
+  {
+    icon: DataAgentImage,
+    title: 'Data Agent',
+    desc: 'open-source version of OpenAI with LLM + more data tools',
+    video: DemoImage,
+    details: '1',
+  },
+  {
+    icon: PluginImage,
+    title: 'Plugins',
+    desc: 'open-source version of OpenAI by manipulating webs/plugins via APIs - web/app apis',
+    video: '/xlang-demo.png',
+    details: '2',
+  },
+  {
+    icon: WebAgentImage,
+    title: 'Web Agent',
+    desc: 'grounding natural language instructions into click and typing actions to manipulate webs as humans do.',
+    video: DemoImage,
+    details: '3',
+  },
+];
+
+const FeatureBox = ({
+  feature,
+  setPreview,
+}: {
+  feature: Feature;
+  setPreview: React.Dispatch<React.SetStateAction<string | StaticImageData>>;
 }) => {
   return (
     <div className='flex flex-col items-center shadow-lg rounded-2xl p-6 max-w-[220px]'>
       <div className='relative w-12 h-12'>
         <Image
-          src={image}
-          alt={title}
+          src={feature.icon}
+          alt={feature.title}
           fill
           style={{ objectFit: 'contain', objectPosition: 'center' }}
         />
       </div>
-      <div className='text-lg'>{title}</div>
-      <div className='text-[10px] text-center'>{desc}</div>
+      <div className='text-lg'>{feature.title}</div>
+      <div className='text-[10px] text-center flex-1 pb-4'>{feature.desc}</div>
+
+      <div className='flex gap-4'>
+        {feature.video && (
+          <div
+            className='btn cursor-pointer text-[#0156AC] border border-[#0156AC] font-[600] rounded-lg py-1 px-4 text-xs'
+            onClick={() => setPreview(feature.video)}
+          >
+            Video
+          </div>
+        )}
+        {feature.details && (
+          <div className='btn cursor-pointer bg-[#0156AC] text-white border border-[#0156AC] font-[600] rounded-lg py-1 px-4 text-xs'>
+            Details
+          </div>
+        )}
+      </div>
     </div>
   );
 };

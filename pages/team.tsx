@@ -3,8 +3,8 @@ import React from 'react';
 
 const Team = () => {
   return (
-    <div className='pt-36 w-full bg-[#D9D9D9]/20'>
-      <div className='page-x-width flex flex-col gap-12 pb-10'>
+    <div className='pt-20 sm:pt-36 w-full bg-[#D9D9D9]/20'>
+      <div className='page-x-width flex flex-col gap-10 sm:gap-12 pb-10'>
         <Intro />
         <Faculty />
         <CoreMembers />

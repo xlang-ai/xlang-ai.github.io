@@ -18,7 +18,7 @@ const BlogPost = ({ post }: { post: BlogPost }) => {
 
           <div className='text-[#0156AC] font-[500] text-2xl'>{post.title}</div>
 
-          <div className='flex flex-wrap w-full gap-8'>
+          <div className='flex flex-wrap w-full max-sm:gap-2 gap-8'>
             <PostImage coverImage={post.coverImage} title={post.title} />
             <PostMeta date={post.date} author={post.author} />
           </div>
@@ -76,7 +76,7 @@ const PostImage = ({
 );
 
 const PostMeta = ({ date, author }: { date: string; author: string }) => (
-  <div className='font-[600] text-xs flex flex-col gap-12 mt-4'>
+  <div className='font-[600] text-xs flex flex-col max-sm:gap-4 gap-12 mt-4'>
     <div>
       <div className='text-[#666666] mb-2'>Share</div>
       <PostShare />

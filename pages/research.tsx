@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 
 const Research = () => {
   return (
-    <div className='w-full pt-36 pb-10 bg-[#D9D9D9]/20'>
-      <div className='page-x-width flex flex-col gap-10'>
+    <div className='w-full pt-20 sm:pt-36 pb-10 bg-[#D9D9D9]/20'>
+      <div className='page-x-width flex flex-col gap-8 sm:gap-10'>
         <Intro />
         <PapersSection />
         <TalksSection />
@@ -255,7 +255,7 @@ const TalkBlock = ({ talk }: { talk: Talk }) => {
   ];
 
   return (
-    <div className='rounded-xl shadow p-8 min-w-[300px] w-[45%]'>
+    <div className='rounded-xl shadow-md p-8 min-w-full sm:min-w-[300px] w-[45%]'>
       <h1 className='text-lg text-[#0156AC]'>{talk.title}</h1>
       <p className='text-xs text-black/80'>
         {months[talk.startDate.getMonth()]} - {months[talk.endDate.getMonth()]}{' '}

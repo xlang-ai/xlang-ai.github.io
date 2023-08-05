@@ -180,7 +180,7 @@ const SubHighlightProjectBlock = ({
         </div>
       </div>
       {reverse && <ImageBlock className='max-sm:hidden' />}
-      <ImageBlock className='sm:hidden' />
+      <ImageBlock className='sm:hidden col-span-2' />
     </div>
   );
 };
@@ -240,7 +240,7 @@ const ProjectBlock = ({ project }: { project: Project }) => {
     <div className='border-t border-b border-black/30 py-6'>
       <div className='max-sm:flex-col flex gap-4'>
         {project.image ? (
-          <div className='relative w-[180px] h-32'>
+          <div className='relative w-[180px] max-sm:h-48 h-32'>
             <Image
               src={project.image}
               alt={project.title}
@@ -249,7 +249,7 @@ const ProjectBlock = ({ project }: { project: Project }) => {
             />
           </div>
         ) : (
-          <div className='min-w-[180px] h-32 rounded bg-[#D9D9D9]' />
+          <div className='min-w-[180px] max-sm:h-48 h-32 rounded bg-[#D9D9D9]' />
         )}
 
         <div className='flex flex-col'>

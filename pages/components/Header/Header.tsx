@@ -8,7 +8,6 @@ import { Menu2, X } from 'tabler-icons-react';
 const Header = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
-  console.log(showMenu);
   return (
     <div className='fixed top-0 left-0 w-full h-14 md:h-20 bg-brand-offWhite py-4 z-10 shadow'>
       <div className='page-x-width w-full flex justify-between items-center'>

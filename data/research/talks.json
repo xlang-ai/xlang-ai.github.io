@@ -1,0 +1,51 @@
+[
+  {
+    "title": "Building Natural Language Interfaces through Grounding Language Models into Executable Actions",
+    "startDate": "2023-04-01",
+    "endDate": "2023-05-31",
+    "desc": "Columbia NLP seminar, Cornell DB seminar, Microsoft Research Asia",
+    "link": ""
+  },
+  {
+    "title": "Building Natural Language Interfaces with Large Language Models",
+    "startDate": "2022-11-01",
+    "endDate": "2022-11-30",
+    "desc": "Amazon AWS",
+    "link": "https://docs.google.com/presentation/d/1jsfb6foc3XCcfO9mVC4IkCoG9mQ0N3adlISj86Mauig/edit?usp=sharing&resourcekey=0-9oawun4RgUnSh_UWJ64U9g"
+  },
+  {
+    "title": "Few-shot In-context Learning with Large Language Models",
+    "startDate": "2022-06-01",
+    "endDate": "2022-06-30",
+    "desc": "AllState Tech Talks",
+    "link": ""
+  },
+  {
+    "title": "UnifiedSKG: Unifying and Multi-Tasking Structured Knowledge Grounding with Text-to-Text Language Models",
+    "startDate": "2022-02-01",
+    "endDate": "2022-02-28",
+    "desc": "ServiceNow Research (Prev. ElementAI)",
+    "link": "https://docs.google.com/presentation/d/1A2fSbpHXEVP_NVyeiy8TymHnibb91_OZmuk83qffq-Q/edit?usp=sharing"
+  },
+  {
+    "title": "SCoRe: Pre-Training for Context Representation in Conversational Semantic Parsing",
+    "startDate": "2021-04-01",
+    "endDate": "2021-04-30",
+    "desc": "Google Research",
+    "link": "https://docs.google.com/presentation/d/11S7y57PRSlq_ccQxprdtko1MVgQN--L8yH8H9UPfsfE/edit?usp=sharing"
+  },
+  {
+    "title": "Learning to Build Conversational Natural Language Interfaces",
+    "startDate": "2021-01-01",
+    "endDate": "2021-03-31",
+    "desc": "The University of Hong Kong (CS), The National University of Singapore (CS), The University of Wisconsin-Madison (CS), Simon Fraser University (CS), The University of Minnesota Twin Cities (CSE)",
+    "link": "https://docs.google.com/presentation/d/1ZyuMKRoXgY9dBmiJeYT8n_3sgFY6aw_EaMbnqZtAt8Y/edit?usp=sharing"
+  },
+  {
+    "title": "SParC: Cross-Domain Semantic Parsing in Context",
+    "startDate": "2019-09-01",
+    "endDate": "2019-09-30",
+    "desc": "Microsoft Research AI Breakthroughs Workshop, Redmond",
+    "link": "https://yale-lily.github.io/sparc"
+  }
+]

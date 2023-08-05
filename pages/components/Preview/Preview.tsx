@@ -48,6 +48,7 @@ const Preview = () => {
           {features.map((feature) => (
             <FeatureBox
               feature={feature}
+              preview={preview}
               setPreview={setPreview}
               key={feature.title}
             />
@@ -85,20 +86,27 @@ const features: Feature[] = [
     icon: WebAgentImage,
     title: 'Web Agent',
     desc: 'grounding natural language instructions into click and typing actions to manipulate webs as humans do.',
-    video: DemoImage,
+    video: '/data-agent.svg',
     details: '3',
   },
 ];
 
 const FeatureBox = ({
   feature,
+  preview,
   setPreview,
 }: {
   feature: Feature;
+  preview: string | StaticImageData;
   setPreview: React.Dispatch<React.SetStateAction<string | StaticImageData>>;
 }) => {
+  const isSelected = preview === feature.video;
+
   return (
-    <div className='flex flex-col items-center shadow-lg rounded-2xl p-6 max-w-[220px]'>
+    <div
+      className='flex flex-col items-center shadow-lg rounded-2xl p-6 max-w-[220px] border'
+      style={isSelected ? { borderColor: '#0156AC' } : {}}
+    >
       <div className='relative w-12 h-12'>
         <Image
           src={feature.icon}

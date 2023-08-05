@@ -1,4 +1,4 @@
-import { getPapers } from '@/utils/data';
+import { getPapers, getTalks } from '@/utils/data';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
@@ -32,13 +32,21 @@ interface Paper {
   twitterLink?: string;
 }
 
-const Research = ({ papers }: { papers: Paper[] }) => {
+interface Talk {
+  title: string;
+  startDate: Date;
+  endDate: Date;
+  desc: string;
+  link?: string;
+}
+
+const Research = ({ papers, talks }: { papers: Paper[]; talks: Talk[] }) => {
   return (
     <div className='w-full pt-20 sm:pt-36 pb-10 bg-[#D9D9D9]/20'>
       <div className='page-x-width flex flex-col gap-8 sm:gap-10'>
         <Intro />
         <PapersSection papers={papers} />
-        <TalksSection />
+        <TalksSection talks={talks} />
       </div>
     </div>
   );
@@ -156,7 +164,7 @@ const PaperBlock = ({ paper }: { paper: Paper }) => {
   );
 };
 
-const TalksSection = () => {
+const TalksSection = ({ talks }: { talks: Talk[] }) => {
   return (
     <div>
       <h1 className='text-xl font-[500] mb-10'>Talks</h1>
@@ -169,67 +177,57 @@ const TalksSection = () => {
   );
 };
 
-interface Talk {
-  title: string;
-  startDate: Date;
-  endDate: Date;
-  desc: string;
-}
-
-const talks: Talk[] = [
-  {
-    title:
-      'Building Natural Language Interfaces through Grounding Language Models into Executable Actions',
-    startDate: new Date('2023-04-01'),
-    endDate: new Date('2023-05-01'),
-    desc: 'Columbia NLP seminar\nCornell DB seminar\nMicrosoft Research Asia',
-  },
-  {
-    title:
-      'Building Natural Language Interfaces through Grounding Language Models into Executable Actions',
-    startDate: new Date('2023-04-01'),
-    endDate: new Date('2023-05-01'),
-    desc: 'Columbia NLP seminar\nCornell DB seminar\nMicrosoft Research Asia',
-  },
-  {
-    title:
-      'Building Natural Language Interfaces through Grounding Language Models into Executable Actions',
-    startDate: new Date('2023-04-01'),
-    endDate: new Date('2023-05-01'),
-    desc: 'Columbia NLP seminar\nCornell DB seminar\nMicrosoft Research Asia',
-  },
-  {
-    title:
-      'Building Natural Language Interfaces through Grounding Language Models into Executable Actions',
-    startDate: new Date('2023-04-01'),
-    endDate: new Date('2023-05-01'),
-    desc: 'Columbia NLP seminar\nCornell DB seminar\nMicrosoft Research Asia',
-  },
-];
-
 const TalkBlock = ({ talk }: { talk: Talk }) => {
-  const months = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ];
+  const [date, setDate] = useState<string>();
+
+  useEffect(() => {
+    const months = [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
+    ];
+
+    const start = new Date(talk.startDate);
+    const end = new Date(talk.endDate);
+
+    const startMonth = months[start.getMonth()];
+    const endMonth = months[end.getMonth()];
+    const startYear = start.getFullYear();
+    const endYear = end.getFullYear();
+
+    let dateString = '';
+    if (startYear === endYear) {
+      if (startMonth === endMonth) {
+        dateString = `${startMonth} ${startYear}`;
+      } else {
+        dateString = `${startMonth} - ${endMonth} ${endYear}`;
+      }
+    } else {
+      dateString = `${startMonth} ${startYear} - ${endMonth} ${endYear}`;
+    }
+
+    setDate(dateString);
+  }, [talk]);
 
   return (
-    <div className='rounded-xl shadow-md p-8 min-w-full sm:min-w-[300px] w-[45%]'>
+    <div
+      className='rounded-xl shadow-md p-8 min-w-full sm:min-w-[300px] w-[45%]'
+      style={talk.link ? { cursor: 'pointer' } : {}}
+      onClick={() => {
+        if (talk.link) window.open(talk.link, '_blank');
+      }}
+    >
       <h1 className='text-lg text-[#0156AC]'>{talk.title}</h1>
-      <p className='text-xs text-black/80'>
-        {months[talk.startDate.getMonth()]} - {months[talk.endDate.getMonth()]}{' '}
-        {talk.endDate.getFullYear()}
-      </p>
+      {date && <p className='text-xs text-black/80'>{date}</p>}
       <p className='text-xs whitespace-pre-wrap'>{talk.desc}</p>
     </div>
   );
@@ -237,10 +235,12 @@ const TalkBlock = ({ talk }: { talk: Talk }) => {
 
 export async function getStaticProps() {
   const papers = getPapers();
+  const talks = getTalks();
 
   return {
     props: {
       papers,
+      talks,
     },
   };
 }

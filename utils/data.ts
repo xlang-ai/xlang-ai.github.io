@@ -4,7 +4,7 @@ import fs from 'fs';
 
 const DATA_DIR = join(process.cwd(), '/data');
 const TEAM_DIR = join(DATA_DIR, '/team');
-const PAPER_DIR = join(DATA_DIR, '/papers');
+const RESEARCH_DIR = join(DATA_DIR, '/research');
 
 export const getCoreTeamMembers = () => {
   const fileContents = fs.readFileSync(
@@ -58,7 +58,19 @@ export const getCollaborators = () => {
 };
 
 export const getPapers = () => {
-  const fileContents = fs.readFileSync(join(PAPER_DIR, 'papers.json'), 'utf8');
+  const fileContents = fs.readFileSync(
+    join(RESEARCH_DIR, 'papers.json'),
+    'utf8'
+  );
   const papers = JSON.parse(fileContents);
   return papers;
+};
+
+export const getTalks = () => {
+  const fileContents = fs.readFileSync(
+    join(RESEARCH_DIR, 'talks.json'),
+    'utf8'
+  );
+  const talks = JSON.parse(fileContents);
+  return talks;
 };

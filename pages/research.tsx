@@ -1,33 +1,6 @@
+import { getPapers } from '@/utils/data';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-
-const Research = () => {
-  return (
-    <div className='w-full pt-20 sm:pt-36 pb-10 bg-[#D9D9D9]/20'>
-      <div className='page-x-width flex flex-col gap-8 sm:gap-10'>
-        <Intro />
-        <PapersSection />
-        <TalksSection />
-      </div>
-    </div>
-  );
-};
-
-const Intro = () => (
-  <div className='text-sm font-[500]'>
-    <h1 className='text-2xl mb-4'>Research</h1>
-    <p>
-      “X” in XLang Grounding LLMs into executable code or actions in different
-      environments
-    </p>
-    <p>Enhance LLMs with various external tools for building AI agents</p>
-    <p>
-      Interdisciplinary research efforts among NLP, HCI, DB, VIS, UI, DataSci,
-      Robotics, Code/PL, SE.
-    </p>
-    <p>Interaction among humans, agents, and environments.</p>
-  </div>
-);
 
 type PaperCategory =
   | 'CodeGeneration'
@@ -59,39 +32,35 @@ interface Paper {
   twitterLink?: string;
 }
 
-// TODO: verify links and category
+const Research = ({ papers }: { papers: Paper[] }) => {
+  return (
+    <div className='w-full pt-20 sm:pt-36 pb-10 bg-[#D9D9D9]/20'>
+      <div className='page-x-width flex flex-col gap-8 sm:gap-10'>
+        <Intro />
+        <PapersSection papers={papers} />
+        <TalksSection />
+      </div>
+    </div>
+  );
+};
 
-const papers: Paper[] = [
-  {
-    category: 'CodeGeneration',
-    title: 'Binder: Binding Language Models in Symbolic Languages',
-    authors:
-      'Zhoujun Cheng*, Tianbao Xie*, Peng Shi, Chengzu Li, Rahul Nadkarni, Yushi Hu, Caiming Xiong, Dragomir Radev, Mari Ostendorf, Luke Zettlemoyer, Noah A Smith, Tao Yu',
-    publication: 'ICLR 2023',
-    paperLink: 'https://arxiv.org/abs/2210.02875',
-    codeLink: 'https://github.com/hkunlp/binder',
-    dataLink: 'https://github.com/HKUNLP/Binder/tree/main/datasets',
-    blogLink: 'https://github.com/hkunlp/binder',
-    twitterLink: 'https://github.com/hkunlp/binder',
-  },
-  {
-    category: 'PoweredAgents',
-    title:
-      'Instructor Embeddings: One Embedder, Any Task: Instruction-Finetuned Text Embeddings',
-    authors:
-      'Hongjin Su, Weijia Shi, Jungo Kasai, Yizhong Wang, Yushi Hu, Mari Ostendorf, Wen-tau Yih, Noah A. Smith, Luke Zettlemoyer, Tao Yu',
-    publication: 'ACL 2023 Findings',
-  },
-  {
-    category: 'ToolUse',
-    title: 'Selective Annotation',
-    authors:
-      'Hongjin Su, Jungo Kasai, Chen Henry Wu, Weijia Shi, Tianlu Wang, Jiayi Xin, Rui Zhang, Mari Ostendorf, Luke Zettlemoyer, Noah A. Smith, Tao Yu',
-    publication: 'ICLR 2023',
-  },
-];
+const Intro = () => (
+  <div className='text-sm font-[500]'>
+    <h1 className='text-2xl mb-4'>Research</h1>
+    <p>
+      “X” in XLang Grounding LLMs into executable code or actions in different
+      environments
+    </p>
+    <p>Enhance LLMs with various external tools for building AI agents</p>
+    <p>
+      Interdisciplinary research efforts among NLP, HCI, DB, VIS, UI, DataSci,
+      Robotics, Code/PL, SE.
+    </p>
+    <p>Interaction among humans, agents, and environments.</p>
+  </div>
+);
 
-const PapersSection = () => {
+const PapersSection = ({ papers }: { papers: Paper[] }) => {
   const [filter, setFilter] = useState<PaperCategory>(null);
   const [filteredPapers, setFilteredPapers] = useState<Paper[]>(papers);
 
@@ -136,7 +105,7 @@ const PaperBlock = ({ paper }: { paper: Paper }) => {
     <div className='border-t border-b border-black/30 py-6'>
       <div className='sm:flex gap-4'>
         {paper.image ? (
-          <div className='relative w-[180px] h-32'>
+          <div className='relative min-w-[180px] h-32'>
             <Image
               src={paper.image}
               alt={paper.title}
@@ -265,5 +234,15 @@ const TalkBlock = ({ talk }: { talk: Talk }) => {
     </div>
   );
 };
+
+export async function getStaticProps() {
+  const papers = getPapers();
+
+  return {
+    props: {
+      papers,
+    },
+  };
+}
 
 export default Research;

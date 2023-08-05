@@ -39,15 +39,16 @@ const HighlightProject = () => {
   return (
     <div className='grid grid-cols-2'>
       <div className='max-sm:col-span-2 col-span-1'>
-        <div className='flex flex-col gap-6 h-full justify-center w-3/4 max-sm:w-full'>
-          <h1 className='max-sm:mt-6 font-[600] text-3xl my-0'>XLANG Agent</h1>
-          <HighlightProjectImage className='sm:hidden' />
-          <p className='max-sm:text-center text-lg my-0'>
+        <div className='flex flex-col max-sm:gap-3 gap-6 h-full justify-center w-3/4 max-sm:w-full'>
+          <h1 className='max-sm:mt-6 max-sm:text-[#545454] max-sm:text-xl font-[600] text-3xl my-0'>
+            XLANG Agent
+          </h1>
+          <p className='max-sm:text-sm max-sm:leading-7 text-lg my-0'>
             Open-source framework and ecosystem for building and evaluating
             LLM-based agents
           </p>
           <button
-            className='max-sm:mx-auto btn btn-primary font-[500] py-1 w-44 text-xs rounded-md'
+            className='max-sm:w-full max-sm:py-2 max-sm:text-sm max-sm:rounded-lg max-sm:mb-4 btn btn-primary font-[500] py-1 w-44 text-xs rounded-md'
             onClick={() => {
               window.open('https://chat.xlang.ai', '_blank');
             }}
@@ -56,13 +57,13 @@ const HighlightProject = () => {
           </button>
         </div>
       </div>
-      <HighlightProjectImage className='max-sm:hidden' />
+      <HighlightProjectImage className='col-span-2 sm:col-span-1' />
     </div>
   );
 };
 
 const HighlightProjectImage = ({ className }: { className?: string }) => (
-  <div className={`col-span-1 ${className}`}>
+  <div className={`${className}`}>
     <div className='relative max-sm:w-full max-sm:h-[240px] w-[120%] h-[400px]'>
       <Image
         src={projectImage}
@@ -116,7 +117,7 @@ const subhighlightProjects: SubHighlightProjectInterface[] = [
 
 const SubHighlightProject = () => {
   return (
-    <div className='my-20 flex flex-col gap-20'>
+    <div className='my-20 flex flex-col max-sm:gap-12 gap-20'>
       {subhighlightProjects.map((proj, i) => (
         <SubHighlightProjectBlock
           key={proj.title}
@@ -156,7 +157,7 @@ const SubHighlightProjectBlock = ({
   );
 
   return (
-    <div className='grid grid-cols-2 gap-12'>
+    <div className='grid grid-cols-2 max-sm:gap-6 gap-12'>
       {reverse || <ImageBlock className='max-sm:hidden' />}
       <div className='max-sm:col-span-2 col-span-1 flex flex-col gap-4'>
         <div className='flex gap-4 items-center'>
@@ -166,20 +167,20 @@ const SubHighlightProjectBlock = ({
             width={50}
             height={50}
           />
-          <h1 className='text-2xl font-[500] text-[#6F6F6F]'>
+          <h1 className='text-md sm:text-2xl font-[500] text-[#6F6F6F]'>
             {subHighlightProject.title}
           </h1>
         </div>
-        <ImageBlock className='sm:hidden' />
         <p className='text-sm flex-1'>{desc}</p>
 
-        <div className='flex gap-4 text-xs justify-end'>
+        <div className='max-sm:justify-start max-sm:underline flex gap-4 text-xs justify-end'>
           {slidesLink && <Link href={slidesLink}>slides</Link>}
           {productLink && <Link href={productLink}>product</Link>}
           {videoLink && <Link href={videoLink}>video</Link>}
         </div>
       </div>
       {reverse && <ImageBlock className='max-sm:hidden' />}
+      <ImageBlock className='sm:hidden' />
     </div>
   );
 };
@@ -222,7 +223,7 @@ const projects: Project[] = [
 const RecentProject = () => {
   return (
     <div>
-      <h1 className='font-[500] text-[#545454] text-2xl mb-4'>
+      <h1 className='text-lg font-[600] sm:font-[500] text-[#545454] sm:text-2xl mb-4'>
         Recent Projects
       </h1>
       <div>
@@ -237,7 +238,7 @@ const RecentProject = () => {
 const ProjectBlock = ({ project }: { project: Project }) => {
   return (
     <div className='border-t border-b border-black/30 py-6'>
-      <div className='sm:flex gap-4'>
+      <div className='max-sm:flex-col flex gap-4'>
         {project.image ? (
           <div className='relative w-[180px] h-32'>
             <Image

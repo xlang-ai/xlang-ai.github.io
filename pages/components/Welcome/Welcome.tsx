@@ -2,7 +2,7 @@ import React from 'react';
 
 const Welcome = () => {
   return (
-    <div className='w-full max-sm:mt-20 mt-36 pb-16'>
+    <div className='w-full max-sm:mt-20 mt-36 max-sm:pb-4 pb-16'>
       <div className='page-x-width'>
         <h1 className='text-2xl mb-6'>
           <b>XLANG</b> Lab

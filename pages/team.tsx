@@ -97,7 +97,6 @@ const Collaborators = ({
 }: {
   collaborators: Collaborator[];
 }) => {
-  console.log(collaborators);
   return (
     <div>
       <h1 className='text-2xl font-[500] mb-6'>Collaborators</h1>

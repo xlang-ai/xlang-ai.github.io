@@ -113,16 +113,16 @@ const PaperBlock = ({ paper }: { paper: Paper }) => {
     <div className='border-t border-b border-black/30 py-6'>
       <div className='sm:flex gap-4'>
         {paper.image ? (
-          <div className='relative min-w-[180px] h-32'>
+          <div className='relative min-w-[180px] max-sm:h-48 h-32 rounded-lg overflow-hidden'>
             <Image
               src={paper.image}
               alt={paper.title}
               fill
-              style={{ objectFit: 'cover', objectPosition: 'center' }}
+              style={{ objectFit: 'contain', objectPosition: 'left center' }}
             />
           </div>
         ) : (
-          <div className='min-w-[180px] h-32 rounded bg-[#D9D9D9]' />
+          <div className='min-w-[180px] max-sm:h-48 h-32 rounded bg-[#D9D9D9]' />
         )}
 
         <div className='flex flex-col'>

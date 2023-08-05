@@ -1,0 +1,46 @@
+[
+  {
+    "category": "CodeGeneration",
+    "title": "Binder: Binding Language Models in Symbolic Languages",
+    "authors": "Zhoujun Cheng*, Tianbao Xie*, Peng Shi, Chengzu Li, Rahul Nadkarni, Yushi Hu, Caiming Xiong, Dragomir Radev, Mari Ostendorf, Luke Zettlemoyer, Noah A Smith, Tao Yu",
+    "publication": "ICLR 2023",
+    "paperLink": "https://arxiv.org/abs/2210.02875",
+    "codeLink": "https://github.com/HKUNLP/binder",
+    "dataLink": "https://github.com/HKUNLP/Binder/tree/main/datasets",
+    "blogLink": "https://lm-code-binder.github.io/",
+    "twitterLink": "https://twitter.com/taoyds/status/1580987466974396417"
+  },
+  {
+    "category": "PoweredAgents",
+    "title": "Instructor Embeddings: One Embedder, Any Task: Instruction-Finetuned Text Embeddings",
+    "authors": "Hongjin Su, Weijia Shi, Jungo Kasai, Yizhong Wang, Yushi Hu, Mari Ostendorf, Wen-tau Yih, Noah A. Smith, Luke Zettlemoyer, Tao Yu",
+    "publication": "ACL 2023 Findings",
+    "paperLink": "https://arxiv.org/abs/2212.09741",
+    "codeLink": "https://github.com/HKUNLP/instructor-embedding",
+    "dataLink": "https://drive.google.com/file/d/1vZ5c2oJNonGOvXzppNg5mHz24O6jcc52/view",
+    "blogLink": "https://instructor-embedding.github.io/",
+    "twitterLink": "https://twitter.com/WeijiaShi2/status/1605307966109863936",
+    "image": "/demo.png"
+  },
+  {
+    "category": "ToolUse",
+    "title": "Selective Annotation",
+    "authors": "Hongjin Su, Jungo Kasai, Chen Henry Wu, Weijia Shi, Tianlu Wang, Jiayi Xin, Rui Zhang, Mari Ostendorf, Luke Zettlemoyer, Noah A. Smith, Tao Yu",
+    "publication": "ICLR 2023",
+    "paperLink": "https://arxiv.org/abs/2209.01975",
+    "codeLink": "https://github.com/HKUNLP/icl-selective-annotation",
+    "dataLink": "https://github.com/HKUNLP/icl-selective-annotation/tree/main/data"
+  },
+  {
+    "category": "PoweredAgents",
+    "title": "UnifiedSKG",
+    "authors": "Tianbao Xie*, Chen Henry Wu*, Peng Shi, Ruiqi Zhong, Torsten Scholak, Michihiro Yasunaga, Chien-Sheng Wu, Ming Zhong, Pengcheng Yin, Sida I. Wang, Victor Zhong, Bailin Wang, Chengzu Li, Connor Boyle, Ansong Ni, Ziyu Yao, Dragomir Radev, Caiming Xiong, Lingpeng Kong, Rui Zhang, Noah A. Smith, Luke Zettlemoyer, Tao Yu.",
+    "publication": "EMNLP 2022",
+    "paperLink": "https://arxiv.org/abs/2201.05966",
+    "codeLink": "https://github.com/HKUNLP/UnifiedSKG",
+    "dataLink": "https://unifiedskg.com/benchmarks/",
+    "blogLink": "https://unifiedskg.com/",
+    "twitterLink": "",
+    "image": ""
+  }
+]

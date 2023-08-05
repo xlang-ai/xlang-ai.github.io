@@ -3,6 +3,7 @@ import {
   getCoreTeamMembers,
   getFacultyMembers,
 } from '@/utils/data';
+import { InferGetStaticPropsType } from 'next';
 import Image from 'next/image';
 import React from 'react';
 
@@ -21,11 +22,7 @@ const Team = ({
   facultyMembers,
   coreMembers,
   collaborators,
-}: {
-  facultyMembers: TeamMember[];
-  coreMembers: TeamMember[];
-  collaborators: Collaborator[];
-}) => {
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div className='pt-20 sm:pt-36 w-full bg-[#D9D9D9]/20'>
       <div className='page-x-width flex flex-col gap-10 sm:gap-12 pb-10'>
@@ -124,10 +121,10 @@ const Collaborators = ({
   );
 };
 
-export async function getStaticProps() {
-  const facultyMembers = getFacultyMembers();
-  const coreMembers = getCoreTeamMembers();
-  const collaborators = getCollaborators();
+export const getStaticProps = async () => {
+  const facultyMembers = getFacultyMembers() as TeamMember[];
+  const coreMembers = getCoreTeamMembers() as TeamMember[];
+  const collaborators = getCollaborators() as Collaborator[];
 
   return {
     props: {
@@ -136,6 +133,6 @@ export async function getStaticProps() {
       collaborators,
     },
   };
-}
+};
 
 export default Team;

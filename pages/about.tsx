@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Team from './team';
 import Supporters from './components/Supporters';
 
 const about = () => {
@@ -73,8 +72,6 @@ const about = () => {
       <div className='my-4 px-4 sm:px-10 lg:px-32'>
         <Supporters />
       </div>
-
-      <Team />
     </>
   );
 };

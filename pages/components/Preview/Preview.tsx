@@ -10,31 +10,23 @@ const Preview = () => {
   const [preview, setPreview] = useState<string | StaticImageData>(DemoImage);
 
   return (
-    <div className='w-full py-16'>
+    <div className='w-full max-sm:py-8 py-16'>
       <div className='page-x-width'>
-        <div className='grid grid-cols-4 h-fit md:h-[500px] mb-12'>
+        <div className='grid grid-cols-4 h-fit md:h-[500px] max-sm:mb-4 mb-12'>
           <div className='max-sm:col-span-4 max-sm:max-w-fit col-span-1 h-full flex flex-col justify-center max-w-[200px]'>
             <div className='text-2xl font-bold mb-4'>XLANG Agent</div>
-            <div className='sm:hidden h-[70vw] relative'>
-              <Image
-                src={preview}
-                alt='Demo'
-                fill
-                style={{ objectFit: 'contain', objectPosition: 'center' }}
-              />
-            </div>
-            <div className='text-center sm:text-left text-sm leading-6 mb-4'>
+            <div className='  text-left text-sm leading-6 mb-4'>
               Open-source framework and ecosystem for building and evaluating
               LLM-based agents
             </div>
             <div
-              className='max-sm:w-48 max-sm:mx-auto btn btn-primary text-xs font-normal py-2'
+              className='max-sm:w-full btn btn-primary text-xs font-[600] py-2'
               onClick={() => window.open('https://chat.xlang.ai', '_blank')}
             >
               Start Chatting
             </div>
           </div>
-          <div className='max-sm:hidden col-span-3 relative'>
+          <div className='max-sm:col-span-4 max-sm:h-[300px] col-span-3 relative'>
             <Image
               src={preview}
               alt='Demo'

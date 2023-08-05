@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 const Blog = ({ posts }: { posts: BlogPost[] }) => {
   return (
-    <div className='pt-36 w-full bg-[#D9D9D9]/20 min-h-[95vh]'>
+    <div className='max-sm:py-20 pt-36 w-full bg-[#D9D9D9]/20 min-h-[95vh]'>
       <div className='page-x-width pb-10'>
         <h1 className='text-2xl font-[500] mb-4'>Blog</h1>
         <div className='flex flex-col gap-4'>
@@ -22,18 +22,17 @@ const Blog = ({ posts }: { posts: BlogPost[] }) => {
 
 const BlogBlock = ({ post }: { post: BlogPost }) => {
   return (
-    <div className='w-full grid grid-cols-5 h-60 gap-4'>
-      <div className='col-span-5 sm:col-span-3 flex flex-col max-sm:gap-2 gap-6 justify-center border-b border-black/30'>
-        <div className='text-xs text-[#666666] font-bold'>
-          {parseBlogPostDate(post.date)}
-        </div>
+    <div className='w-full grid grid-cols-5 gap-4'>
+      <div className='max-sm:pb-4 col-span-5 sm:col-span-3 flex flex-col max-sm:gap-2 gap-6 justify-center border-b border-black/30'>
+        <BlogBlockImage post={post} className='sm:hidden h-[300px]' />
+        <BlogBlockDate date={post.date} className='max-sm:hidden' />
         <Link
           href={`blog/${post.slug}`}
           className='text-[#0156AC] text-lg font-[500] tracking-wide leading-5 my-0 hover:underline'
         >
           {post.title}
         </Link>
-        <BlogBlockImage post={post} className='sm:hidden h-[300px]' />
+        <BlogBlockDate date={post.date} className='sm:hidden' />
         <p className='text-sm tracking-wide leading-5 my-0 overflow-hidden h-36'>
           {post.previewContent}
         </p>
@@ -42,6 +41,18 @@ const BlogBlock = ({ post }: { post: BlogPost }) => {
     </div>
   );
 };
+
+const BlogBlockDate = ({
+  date,
+  className,
+}: {
+  date: string;
+  className?: string;
+}) => (
+  <div className={`text-xs text-[#666666] font-bold ${className}`}>
+    {parseBlogPostDate(date)}
+  </div>
+);
 
 const BlogBlockImage = ({
   post,

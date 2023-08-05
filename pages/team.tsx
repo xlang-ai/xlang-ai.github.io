@@ -1,14 +1,38 @@
+import {
+  getCollaborators,
+  getCoreTeamMembers,
+  getFacultyMembers,
+} from '@/utils/data';
 import Image from 'next/image';
 import React from 'react';
 
-const Team = () => {
+interface TeamMember {
+  image?: string;
+  name: string;
+  title: string;
+}
+
+interface Collaborator {
+  institution: string;
+  members: string[];
+}
+
+const Team = ({
+  facultyMembers,
+  coreMembers,
+  collaborators,
+}: {
+  facultyMembers: TeamMember[];
+  coreMembers: TeamMember[];
+  collaborators: Collaborator[];
+}) => {
   return (
     <div className='pt-20 sm:pt-36 w-full bg-[#D9D9D9]/20'>
       <div className='page-x-width flex flex-col gap-10 sm:gap-12 pb-10'>
         <Intro />
-        <Faculty />
-        <CoreMembers />
-        <Collaborators />
+        <Faculty facultyMembers={facultyMembers} />
+        <CoreMembers coreMembers={coreMembers} />
+        <Collaborators collaborators={collaborators} />
       </div>
     </div>
   );
@@ -26,12 +50,6 @@ const Intro = () => {
     </div>
   );
 };
-
-interface TeamMember {
-  image?: string;
-  name: string;
-  title: string;
-}
 
 const MemberCard = ({ member }: { member: TeamMember }) => {
   return (
@@ -51,20 +69,12 @@ const MemberCard = ({ member }: { member: TeamMember }) => {
   );
 };
 
-const facultyMember: TeamMember[] = [
-  {
-    name: 'Tao Yu',
-    title:
-      'Assistant Professor of Computer Science, Co-director of the HKU NLP Group',
-  },
-];
-
-const Faculty = () => {
+const Faculty = ({ facultyMembers }: { facultyMembers: TeamMember[] }) => {
   return (
     <div>
       <h1 className='text-2xl font-[500] mb-6'>Faculty</h1>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-y-4'>
-        {facultyMember.map((member) => (
+        {facultyMembers.map((member) => (
           <MemberCard member={member} key={member.name} />
         ))}
       </div>
@@ -72,51 +82,12 @@ const Faculty = () => {
   );
 };
 
-const coreMember: TeamMember[] = [
-  {
-    name: 'Yiheng Xu',
-    title: 'PhD student',
-  },
-  {
-    name: 'Yiheng Xu',
-    title: 'PhD student',
-  },
-  {
-    name: 'Yiheng Xu',
-    title: 'PhD student',
-  },
-  {
-    name: 'Yiheng Xu',
-    title: 'PhD student',
-  },
-  {
-    name: 'Yiheng Xu',
-    title: 'PhD student',
-  },
-  {
-    name: 'Yiheng Xu',
-    title: 'PhD student',
-  },
-  {
-    name: 'Yiheng Xu',
-    title: 'PhD student',
-  },
-  {
-    name: 'Yiheng Xu',
-    title: 'PhD student',
-  },
-  {
-    name: 'Yiheng Xu',
-    title: 'PhD student',
-  },
-];
-
-const CoreMembers = () => {
+const CoreMembers = ({ coreMembers }: { coreMembers: TeamMember[] }) => {
   return (
     <div>
       <h1 className='text-2xl font-[500] mb-6'>Core Member</h1>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-y-4'>
-        {coreMember.map((member) => (
+        {coreMembers.map((member) => (
           <MemberCard member={member} key={member.name} />
         ))}
       </div>
@@ -124,39 +95,12 @@ const CoreMembers = () => {
   );
 };
 
-interface Collaborator {
-  institution: string;
-  members: string[];
-}
-
-const collaborators: Collaborator[] = [
-  {
-    institution: 'Salesforce Research',
-    members: ['Caiming Xiong', 'Chen Xing'],
-  },
-  { institution: 'Google Research', members: ['Will Wu', 'Yaqing Wang'] },
-  {
-    institution: 'Amazon AWS',
-    members: ['Yi Zhang', 'Zhiguo Wang', 'Salvatore Romeo'],
-  },
-  { institution: 'DB', members: ['Yiru Chen', 'Bohan Zhang'] },
-  {
-    institution: 'HCI/VIS',
-    members: ['Haotian Li', 'Xingbo Wang', 'Ziyi Huang'],
-  },
-  {
-    institution: 'Other',
-    members: [
-      'Bailin Wang',
-      'Ruiqi Zhong',
-      'Sida Wang',
-      'Zijian He',
-      'Ansong Ni',
-    ],
-  },
-];
-
-const Collaborators = () => {
+const Collaborators = ({
+  collaborators,
+}: {
+  collaborators: Collaborator[];
+}) => {
+  console.log(collaborators);
   return (
     <div>
       <h1 className='text-2xl font-[500] mb-6'>Collaborators</h1>
@@ -179,5 +123,19 @@ const Collaborators = () => {
     </div>
   );
 };
+
+export async function getStaticProps() {
+  const facultyMembers = getFacultyMembers();
+  const coreMembers = getCoreTeamMembers();
+  const collaborators = getCollaborators();
+
+  return {
+    props: {
+      facultyMembers,
+      coreMembers,
+      collaborators,
+    },
+  };
+}
 
 export default Team;

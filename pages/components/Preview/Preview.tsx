@@ -46,7 +46,11 @@ const Preview = () => {
 
         <div className='flex flex-wrap gap-10 justify-center'>
           {features.map((feature) => (
-            <FeatureBox feature={feature} setPreview={setPreview} />
+            <FeatureBox
+              feature={feature}
+              setPreview={setPreview}
+              key={feature.title}
+            />
           ))}
         </div>
       </div>

@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const Project = () => {
   return (
-    <div className='w-full pt-36 pb-10 bg-[#D9D9D9]/20'>
+    <div className='w-full pt-20 sm:pt-36 pb-10 bg-[#D9D9D9]/20'>
       <div className='page-x-width'>
         <Intro />
         <HighlightProject />
@@ -38,38 +38,39 @@ const Intro = () => (
 const HighlightProject = () => {
   return (
     <div className='grid grid-cols-2'>
-      <div className='col-span-1'>
-        <HighlightProjectDetails />
-      </div>
-      <div className='col-span-1'>
-        <div className='relative w-[120%] h-[400px]'>
-          <Image
-            src={projectImage}
-            alt='project'
-            fill
-            style={{ objectFit: 'contain', objectPosition: 'left center' }}
-          />
+      <div className='max-sm:col-span-2 col-span-1'>
+        <div className='flex flex-col gap-6 h-full justify-center w-3/4 max-sm:w-full'>
+          <h1 className='max-sm:mt-6 font-[600] text-3xl my-0'>XLANG Agent</h1>
+          <HighlightProjectImage className='sm:hidden' />
+          <p className='max-sm:text-center text-lg my-0'>
+            Open-source framework and ecosystem for building and evaluating
+            LLM-based agents
+          </p>
+          <button
+            className='max-sm:mx-auto btn btn-primary font-[500] py-1 w-44 text-xs rounded-md'
+            onClick={() => {
+              window.open('https://chat.xlang.ai', '_blank');
+            }}
+          >
+            Start Chatting
+          </button>
         </div>
       </div>
+      <HighlightProjectImage className='max-sm:hidden' />
     </div>
   );
 };
 
-const HighlightProjectDetails = () => (
-  <div className='flex flex-col gap-6 h-full justify-center w-3/4'>
-    <h1 className='font-[600] text-3xl my-0'>XLANG Agent</h1>
-    <p className='text-lg my-0'>
-      Open-source framework and ecosystem for building and evaluating LLM-based
-      agents
-    </p>
-    <button
-      className='btn btn-primary font-[500] py-1 w-44 text-xs rounded-md'
-      onClick={() => {
-        window.open('https://chat.xlang.ai', '_blank');
-      }}
-    >
-      Start Chatting
-    </button>
+const HighlightProjectImage = ({ className }: { className?: string }) => (
+  <div className={`col-span-1 ${className}`}>
+    <div className='relative max-sm:w-full max-sm:h-[240px] w-[120%] h-[400px]'>
+      <Image
+        src={projectImage}
+        alt='project'
+        fill
+        style={{ objectFit: 'contain', objectPosition: 'left center' }}
+      />
+    </div>
   </div>
 );
 
@@ -137,14 +138,16 @@ const SubHighlightProjectBlock = ({
   const { image, title, desc, slidesLink, productLink, videoLink } =
     subHighlightProject;
 
-  const ImageBlock = () => (
-    <div className='col-span-1 h-[300px] relative rounded-lg overflow-hidden'>
+  const ImageBlock = ({ className }: { className?: string }) => (
+    <div
+      className={`col-span-1 h-[300px] relative rounded-lg overflow-hidden ${className}`}
+    >
       {image ? (
         <Image
           src={image}
           alt={title}
           fill
-          style={{ objectFit: 'cover', objectPosition: 'center' }}
+          style={{ objectFit: 'cover', objectPosition: 'left center' }}
         />
       ) : (
         <div className='bg-[#D9D9D9] w-full h-full' />
@@ -154,8 +157,8 @@ const SubHighlightProjectBlock = ({
 
   return (
     <div className='grid grid-cols-2 gap-12'>
-      {reverse || <ImageBlock />}
-      <div className='col-span-1 flex flex-col gap-4'>
+      {reverse || <ImageBlock className='max-sm:hidden' />}
+      <div className='max-sm:col-span-2 col-span-1 flex flex-col gap-4'>
         <div className='flex gap-4 items-center'>
           <Image
             src={subHighlightProject.icon}
@@ -167,6 +170,7 @@ const SubHighlightProjectBlock = ({
             {subHighlightProject.title}
           </h1>
         </div>
+        <ImageBlock className='sm:hidden' />
         <p className='text-sm flex-1'>{desc}</p>
 
         <div className='flex gap-4 text-xs justify-end'>
@@ -175,7 +179,7 @@ const SubHighlightProjectBlock = ({
           {videoLink && <Link href={videoLink}>video</Link>}
         </div>
       </div>
-      {reverse && <ImageBlock />}
+      {reverse && <ImageBlock className='max-sm:hidden' />}
     </div>
   );
 };

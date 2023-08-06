@@ -125,7 +125,7 @@ const PaperBlock = ({ paper }: { paper: Paper }) => {
           <div className='min-w-[180px] max-sm:h-48 h-32 rounded bg-[#D9D9D9]' />
         )}
 
-        <div className='flex flex-col'>
+        <div className='flex flex-col w-full'>
           <h1 className='text-lg font-[500]'>{paper.title}</h1>
           <p className='text-[#727272] text-xs font-[500]'>{paper.authors}</p>
           {paper.publication && (

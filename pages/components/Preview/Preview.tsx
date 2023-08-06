@@ -26,12 +26,12 @@ const Preview = () => {
               Start Chatting
             </div>
           </div>
-          <div className='max-sm:col-span-4 max-sm:h-[300px] col-span-3 relative'>
+          <div className='max-sm:col-span-4 max-sm:h-[300px] max-sm:my-2 rounded-lg overflow-hidden col-span-3 relative'>
             <Image
               src={preview}
               alt='Demo'
               fill
-              style={{ objectFit: 'contain', objectPosition: 'center' }}
+              style={{ objectFit: 'contain', objectPosition: 'left center' }}
             />
           </div>
         </div>
@@ -96,8 +96,9 @@ const FeatureBox = ({
 
   return (
     <div
-      className='flex flex-col items-center shadow-lg rounded-2xl p-6 max-w-[220px] border'
+      className='flex flex-col items-center shadow-lg rounded-2xl p-6 max-w-[220px] border cursor-pointer'
       style={isSelected ? { borderColor: '#0156AC' } : {}}
+      onClick={() => setPreview(feature.video)}
     >
       <div className='relative w-12 h-12'>
         <Image
@@ -112,10 +113,7 @@ const FeatureBox = ({
 
       <div className='flex gap-4'>
         {feature.video && (
-          <div
-            className='btn cursor-pointer text-[#0156AC] border border-[#0156AC] font-[600] rounded-lg py-1 px-4 text-xs'
-            onClick={() => setPreview(feature.video)}
-          >
+          <div className='btn cursor-pointer text-[#0156AC] border border-[#0156AC] font-[600] rounded-lg py-1 px-4 text-xs'>
             Video
           </div>
         )}

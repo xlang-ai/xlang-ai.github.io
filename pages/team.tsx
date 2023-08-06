@@ -51,9 +51,14 @@ const Intro = () => {
 const MemberCard = ({ member }: { member: TeamMember }) => {
   return (
     <div className='rounded-lg shadow p-6 flex gap-4 w-[340px]'>
-      <div className='relative w-32 h-32'>
+      <div className='relative min-w-fit w-32 h-32 rounded-lg overflow-hidden'>
         {member.image ? (
-          <Image src={member.image} alt={member.name} />
+          <Image
+            src={member.image}
+            alt={member.name}
+            width={128}
+            height={128}
+          />
         ) : (
           <div className='bg-[#D9D9D9] rounded-lg w-32 h-32' />
         )}

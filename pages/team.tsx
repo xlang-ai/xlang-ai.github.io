@@ -20,7 +20,25 @@ const Team = ({
   return (
     <>
       <Head>
-        <title>XLanG | Team</title>
+        <title>XLANG Lab | Team</title>
+        <link
+          rel='apple-touch-icon'
+          sizes='180x180'
+          href='/favicon/white-on-purple/apple-touch-icon.png'
+        />
+        <link
+          rel='icon'
+          type='image/png'
+          sizes='32x32'
+          href='/favicon/white-on-purple/favicon-32x32.png'
+        />
+        <link
+          rel='icon'
+          type='image/png'
+          sizes='16x16'
+          href='/favicon/white-on-purple/favicon-16x16.png'
+        />
+        <link rel='manifest' href='/favicon/white-on-purple/site.webmanifest' />
       </Head>
       <div className='pt-20 sm:pt-36 w-full bg-[#D9D9D9]/20'>
         <div className='page-x-width flex flex-col gap-10 sm:gap-12 pb-10'>

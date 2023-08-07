@@ -14,7 +14,25 @@ const BlogPost = ({ post }: { post: Post }) => {
   return (
     <>
       <Head>
-        <title>XLanG | {post.title}</title>
+        <title>XLANG Lab | {post.title}</title>
+        <link
+          rel='apple-touch-icon'
+          sizes='180x180'
+          href='/favicon/black-on-white/apple-touch-icon.png'
+        />
+        <link
+          rel='icon'
+          type='image/png'
+          sizes='32x32'
+          href='/favicon/black-on-white/favicon-32x32.png'
+        />
+        <link
+          rel='icon'
+          type='image/png'
+          sizes='16x16'
+          href='/favicon/black-on-white/favicon-16x16.png'
+        />
+        <link rel='manifest' href='/favicon/black-on-white/site.webmanifest' />
       </Head>
       <div className='pt-36 w-full min-h-screen bg-[#D9D9D9]/20'>
         <div className='page-x-width'>

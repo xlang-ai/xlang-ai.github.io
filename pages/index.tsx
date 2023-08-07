@@ -15,7 +15,25 @@ const Home = ({
   return (
     <>
       <Head>
-        <title>XLanG | Home</title>
+        <title>XLANG Lab</title>
+        <link
+          rel='apple-touch-icon'
+          sizes='180x180'
+          href='/favicon/white-on-black/apple-touch-icon.png'
+        />
+        <link
+          rel='icon'
+          type='image/png'
+          sizes='32x32'
+          href='/favicon/white-on-black/favicon-32x32.png'
+        />
+        <link
+          rel='icon'
+          type='image/png'
+          sizes='16x16'
+          href='/favicon/white-on-black/favicon-16x16.png'
+        />
+        <link rel='manifest' href='/favicon/white-on-black/site.webmanifest' />
       </Head>
       <div>
         <Welcome />

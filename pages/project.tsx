@@ -24,7 +24,25 @@ const Project = ({
   return (
     <>
       <Head>
-        <title>XLanG | Projects</title>
+        <title>XLANG Lab | Projects</title>
+        <link
+          rel='apple-touch-icon'
+          sizes='180x180'
+          href='/favicon/white-on-blue/apple-touch-icon.png'
+        />
+        <link
+          rel='icon'
+          type='image/png'
+          sizes='32x32'
+          href='/favicon/white-on-blue/favicon-32x32.png'
+        />
+        <link
+          rel='icon'
+          type='image/png'
+          sizes='16x16'
+          href='/favicon/white-on-blue/favicon-16x16.png'
+        />
+        <link rel='manifest' href='/favicon/white-on-blue/site.webmanifest' />
       </Head>
       <div className='w-full pt-20 sm:pt-36 pb-10 bg-[#D9D9D9]/20'>
         <div className='page-x-width'>

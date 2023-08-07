@@ -4,7 +4,7 @@ shortTitle: Demo Release
 slug: demo-release
 date: 23 July 2023
 author: XLANG Lab
-coverImage: /demo.png
+coverImage: /demo/demo.png
 previewContent: We introduce XLang Agent, an LLM-driven natural language interface to you. We are a group of passionate natural language processing researchers. Driven by our fascination with language technology, we have come together to explore building conversational interfaces powered by large language models.
 ---
 

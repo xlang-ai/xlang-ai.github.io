@@ -99,7 +99,7 @@ const PostShare = () => (
     <li className='cursor-pointer'>
       <Link href='https://github.com/xlang-ai'>
         <Image
-          src={publicFilePath('/slack-black.svg')}
+          src={publicFilePath('/icons/slack-black.svg')}
           alt='Xlang'
           width={20}
           height={20}
@@ -110,7 +110,7 @@ const PostShare = () => (
     <li className='cursor-pointer'>
       <Link href='https://github.com/xlang-ai'>
         <Image
-          src={publicFilePath('/discord-black.svg')}
+          src={publicFilePath('/icons/discord-black.svg')}
           alt='Xlang'
           width={20}
           height={20}
@@ -121,7 +121,7 @@ const PostShare = () => (
     <li className='cursor-pointer'>
       <Link href='https://github.com/xlang-ai'>
         <Image
-          src={publicFilePath('/github-black.svg')}
+          src={publicFilePath('/icons/github-black.svg')}
           alt='Xlang'
           width={20}
           height={20}
@@ -132,7 +132,7 @@ const PostShare = () => (
     <li className='cursor-pointer'>
       <Link href='https://github.com/xlang-ai'>
         <Image
-          src={publicFilePath('/twitter-black.svg')}
+          src={publicFilePath('/icons/twitter-black.svg')}
           alt='Xlang'
           width={20}
           height={20}
@@ -143,7 +143,7 @@ const PostShare = () => (
     <li className='cursor-pointer'>
       <Link href='https://github.com/xlang-ai'>
         <Image
-          src={publicFilePath('/threads-black.svg')}
+          src={publicFilePath('/icons/threads-black.svg')}
           alt='Xlang'
           width={20}
           height={20}

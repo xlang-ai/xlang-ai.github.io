@@ -1,27 +1,27 @@
 [
   {
-    "icon": "/data-agent.png",
+    "icon": "/icons/data-agent.png",
     "title": "Data Agent",
     "desc": "By combining code generation with DataTool, Data Copilot introduces a tool-augmented code paradigm. It enables the transformation of user intent, based on data, into actionable insights. This approach pushes the boundaries of traditional coding and tool usage.",
-    "image": "/demo.png",
+    "image": "/demo/demo.png",
     "slidesLink": "https://github.com/xlang-ai",
     "productLink": "https://github.com/xlang-ai",
     "videoLink": "https://github.com/xlang-ai"
   },
   {
-    "icon": "/plugin.svg",
+    "icon": "/icons/plugin.svg",
     "title": "Plugin",
     "desc": "XLang Agents employ an intelligent Plugins system that connects to a wide range of real-world applications, effortlessly integrating into your daily life, assisting with tasks such as scheduling meetings, organizing emails, providing recipe recommendations, and finding optimal routes for your commute.",
-    "image": "/demo.png",
+    "image": "/demo/demo.png",
     "slidesLink": "https://github.com/xlang-ai",
     "productLink": "https://github.com/xlang-ai",
     "videoLink": "https://github.com/xlang-ai"
   },
   {
-    "icon": "/web-agent.svg",
+    "icon": "/icons/web-agent.svg",
     "title": "Web Agent",
     "desc": "Beyond retrieving information, WeBot takes proactive action. It adeptly navigates the complexities of the internet, completing intricate forms, making purchases on your behalf, and even uncovering hidden insights.",
-    "image": "/demo.png",
+    "image": "/demo/demo.png",
     "slidesLink": "https://github.com/xlang-ai",
     "productLink": "https://github.com/xlang-ai",
     "videoLink": "https://github.com/xlang-ai"

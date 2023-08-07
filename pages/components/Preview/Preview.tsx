@@ -1,10 +1,10 @@
 import Image, { StaticImageData } from 'next/image';
 import React, { useState } from 'react';
 
-import DemoImage from '@/public/demo.png';
-import DataAgentImage from '@/public/data-agent.png';
-import PluginImage from '@/public/plugin.svg';
-import WebAgentImage from '@/public/web-agent.svg';
+import DemoImage from '@/public/demo/demo.png';
+import DataAgentImage from '@/public/icons/data-agent.png';
+import PluginImage from '@/public/icons/plugin.svg';
+import WebAgentImage from '@/public/icons/web-agent.svg';
 
 const Preview = () => {
   const [preview, setPreview] = useState<string | StaticImageData>(DemoImage);
@@ -71,14 +71,14 @@ const features: Feature[] = [
     icon: PluginImage,
     title: 'Plugins',
     desc: 'open-source version of OpenAI by manipulating webs/plugins via APIs - web/app apis',
-    video: '/xlang-demo.png',
+    video: '/demo/xlang-demo.png',
     details: '2',
   },
   {
     icon: WebAgentImage,
     title: 'Web Agent',
     desc: 'grounding natural language instructions into click and typing actions to manipulate webs as humans do.',
-    video: '/data-agent.svg',
+    video: '/icons/data-agent.svg',
     details: '3',
   },
 ];

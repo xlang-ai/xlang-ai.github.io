@@ -1,10 +1,13 @@
 import React from 'react';
 import Head from 'next/head';
 
-import { BlogPost, getAllPosts } from '@/utils/post';
 import Image from 'next/image';
-import { parseDateString } from '@/utils/date';
 import Link from 'next/link';
+
+import { getAllPosts } from '@/utils/post';
+import { parseDateString } from '@/utils/date';
+
+import { BlogPost } from '@/interface/blog';
 
 const Blog = ({ posts }: { posts: BlogPost[] }) => {
   return (

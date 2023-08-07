@@ -1,15 +1,12 @@
-import Head from 'next/head';
-import { getPapers, getTalks } from '@/utils/data';
-import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
-type PaperCategory =
-  | 'CodeGeneration'
-  | 'ToolUse'
-  | 'PoweredAgents'
-  | 'EfficientLLMs'
-  | 'InteractiveSystems'
-  | 'Robotics';
+import Head from 'next/head';
+import Image from 'next/image';
+import { InferGetStaticPropsType } from 'next';
+
+import { getPapers, getTalks } from '@/utils/data';
+
+import { Paper, PaperCategory, Talk } from '@/interface/research';
 
 const PaperCategoryNames: Record<PaperCategory, string> = {
   CodeGeneration: 'Code Generation and Semantic Parsing',
@@ -20,28 +17,10 @@ const PaperCategoryNames: Record<PaperCategory, string> = {
   Robotics: 'llm + robotics',
 };
 
-interface Paper {
-  image?: string;
-  category?: PaperCategory;
-  title: string;
-  authors: string;
-  publication?: string;
-  paperLink?: string;
-  codeLink?: string;
-  dataLink?: string;
-  blogLink?: string;
-  twitterLink?: string;
-}
-
-interface Talk {
-  title: string;
-  startDate: Date;
-  endDate: Date;
-  desc: string;
-  link?: string;
-}
-
-const Research = ({ papers, talks }: { papers: Paper[]; talks: Talk[] }) => {
+const Research = ({
+  papers,
+  talks,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
       <Head>

@@ -3,19 +3,9 @@
 import fs from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
+import { BlogPost } from '@/interface/blog';
 
 const postsDirectory = join(process.cwd(), 'data/blog_posts');
-
-export interface BlogPost {
-  title: string;
-  slug: string;
-  shortTitle?: string;
-  date: string;
-  author: string;
-  coverImage?: string;
-  content: string;
-  previewContent: string;
-}
 
 export function getPostSlugs() {
   return fs.readdirSync(postsDirectory);

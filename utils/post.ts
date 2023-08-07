@@ -4,7 +4,7 @@ import fs from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
 
-const postsDirectory = join(process.cwd(), 'pages/blog/posts');
+const postsDirectory = join(process.cwd(), 'data/blog_posts');
 
 export interface BlogPost {
   title: string;

@@ -2,9 +2,18 @@ import Papa from 'papaparse';
 import { join } from 'path';
 import fs from 'fs';
 
+import { News } from '@/interface/news';
+import {
+  HighlightProject,
+  HighlightSubProject,
+  Project,
+} from '@/interface/project';
+
 const DATA_DIR = join(process.cwd(), '/data');
 const TEAM_DIR = join(DATA_DIR, '/team');
 const RESEARCH_DIR = join(DATA_DIR, '/research');
+const NEWS_DIR = join(DATA_DIR, '/news');
+const PROJECTS_DIR = join(DATA_DIR, '/projects');
 
 export const getCoreTeamMembers = () => {
   const fileContents = fs.readFileSync(
@@ -73,4 +82,37 @@ export const getTalks = () => {
   );
   const talks = JSON.parse(fileContents);
   return talks;
+};
+
+export const getNews = (): News[] => {
+  const fileContents = fs.readFileSync(join(NEWS_DIR, 'news.json'), 'utf8');
+  const news: News[] = JSON.parse(fileContents);
+  return news;
+};
+
+export const getRecentProjects = (): Project[] => {
+  const fileContents = fs.readFileSync(
+    join(PROJECTS_DIR, 'recent_projects.json'),
+    'utf8'
+  );
+  const projects: Project[] = JSON.parse(fileContents);
+  return projects;
+};
+
+export const getHighlightProject = (): HighlightProject => {
+  const fileContents = fs.readFileSync(
+    join(PROJECTS_DIR, 'highlight_project.json'),
+    'utf8'
+  );
+  const highlightProject: HighlightProject = JSON.parse(fileContents);
+  return highlightProject;
+};
+
+export const getHighlightSubProjects = (): HighlightSubProject[] => {
+  const fileContents = fs.readFileSync(
+    join(PROJECTS_DIR, 'highlight_sub_projects.json'),
+    'utf8'
+  );
+  const highlightSubProject: HighlightSubProject[] = JSON.parse(fileContents);
+  return highlightSubProject;
 };

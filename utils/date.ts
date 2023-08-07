@@ -21,6 +21,6 @@ export const parseDate = (date: Date) => {
   return `${month} ${day}, ${year}`;
 };
 
-export const parseBlogPostDate = (date: string) => {
+export const parseDateString = (date: string) => {
   return parseDate(new Date(date));
 };

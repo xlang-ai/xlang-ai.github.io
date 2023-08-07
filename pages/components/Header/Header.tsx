@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { publicFilePath } from '@/utils';
 import { Menu2, X } from 'tabler-icons-react';
 
+import { github, twitter } from '@/data/socials/socials';
+
 const Header = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
@@ -51,7 +53,7 @@ const Header = () => {
         <div className='flex gap-4 items-center'>
           <ul className='hidden lg:flex gap-3'>
             <li>
-              <Link href='https://github.com/xlang-ai'>
+              <Link href={github}>
                 <Image
                   src={publicFilePath('/github-black.svg')}
                   alt='Xlang'
@@ -62,7 +64,7 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link href='https://github.com/xlang-ai'>
+              <Link href={twitter}>
                 <Image
                   src={publicFilePath('/twitter-black.svg')}
                   alt='Xlang'

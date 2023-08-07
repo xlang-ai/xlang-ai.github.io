@@ -2,16 +2,18 @@ import React from 'react';
 
 import LogoWhite from '@/public/logo-white.svg';
 
-import {
-  BrandTwitter,
-  BrandGithub,
-  BrandSlack,
-  BrandDiscord,
-  At,
-} from 'tabler-icons-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { publicFilePath } from '@/utils';
+
+import {
+  discord,
+  email,
+  github,
+  slack,
+  threads,
+  twitter,
+} from '@/data/socials/socials';
 
 const Footer = () => {
   return (
@@ -36,7 +38,7 @@ const Footer = () => {
         <nav>
           <ul className='text-white flex gap-6'>
             <li className='cursor-pointer'>
-              <Link href='https://github.com/xlang-ai'>
+              <Link href={`mailto:${email}`}>
                 <Image
                   src={publicFilePath('/mail.svg')}
                   alt='Xlang'
@@ -47,7 +49,7 @@ const Footer = () => {
               </Link>
             </li>
             <li className='cursor-pointer'>
-              <Link href='https://github.com/xlang-ai'>
+              <Link href={slack}>
                 <Image
                   src={publicFilePath('/slack.svg')}
                   alt='Xlang'
@@ -58,7 +60,7 @@ const Footer = () => {
               </Link>
             </li>
             <li className='cursor-pointer'>
-              <Link href='https://github.com/xlang-ai'>
+              <Link href={discord}>
                 <Image
                   src={publicFilePath('/discord.svg')}
                   alt='Xlang'
@@ -69,7 +71,7 @@ const Footer = () => {
               </Link>
             </li>
             <li className='cursor-pointer'>
-              <Link href='https://github.com/xlang-ai'>
+              <Link href={github}>
                 <Image
                   src={publicFilePath('/github.svg')}
                   alt='Xlang'
@@ -80,7 +82,7 @@ const Footer = () => {
               </Link>
             </li>
             <li className='cursor-pointer'>
-              <Link href='https://github.com/xlang-ai'>
+              <Link href={twitter}>
                 <Image
                   src={publicFilePath('/twitter.svg')}
                   alt='Xlang'
@@ -91,7 +93,7 @@ const Footer = () => {
               </Link>
             </li>
             <li className='cursor-pointer'>
-              <Link href='https://github.com/xlang-ai'>
+              <Link href={threads}>
                 <Image
                   src={publicFilePath('/threads.svg')}
                   alt='Xlang'

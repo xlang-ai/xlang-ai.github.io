@@ -1,24 +1,16 @@
+import React from 'react';
+
+import Image from 'next/image';
 import Head from 'next/head';
+import { InferGetStaticPropsType } from 'next';
+
+import { Collaborator, TeamMember } from '@/interface/team';
 
 import {
   getCollaborators,
   getCoreTeamMembers,
   getFacultyMembers,
 } from '@/utils/data';
-import { InferGetStaticPropsType } from 'next';
-import Image from 'next/image';
-import React from 'react';
-
-interface TeamMember {
-  image?: string;
-  name: string;
-  title: string;
-}
-
-interface Collaborator {
-  institution: string;
-  members: string[];
-}
 
 const Team = ({
   facultyMembers,
@@ -133,9 +125,9 @@ const Collaborators = ({
 };
 
 export const getStaticProps = async () => {
-  const facultyMembers = getFacultyMembers() as TeamMember[];
-  const coreMembers = getCoreTeamMembers() as TeamMember[];
-  const collaborators = getCollaborators() as Collaborator[];
+  const facultyMembers = getFacultyMembers();
+  const coreMembers = getCoreTeamMembers();
+  const collaborators = getCollaborators();
 
   return {
     props: {

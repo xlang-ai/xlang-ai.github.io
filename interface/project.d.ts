@@ -15,6 +15,7 @@ export interface HighlightSubProject {
   icon: string;
   title: string;
   desc: string;
+  shortDesc: string;
   image?: string;
   slidesLink?: string;
   productLink?: string;

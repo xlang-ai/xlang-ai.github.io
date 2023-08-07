@@ -4,11 +4,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Head from 'next/head';
 
-import { BlogPost, getAllPosts, getPostBySlug } from '@/utils/post';
+import { getAllPosts, getPostBySlug } from '@/utils/post';
 import { parseDateString } from '@/utils/date';
 import { publicFilePath } from '@/utils';
 
-const BlogPost = ({ post }: { post: BlogPost }) => {
+import { BlogPost as Post } from '@/interface/blog';
+
+const BlogPost = ({ post }: { post: Post }) => {
   return (
     <>
       <Head>

@@ -3,6 +3,8 @@ import { join } from 'path';
 import fs from 'fs';
 
 import { News } from '@/interface/news';
+import { Collaborator, TeamMember } from '@/interface/team';
+import { Paper, Talk } from '@/interface/research';
 import {
   HighlightProject,
   HighlightSubProject,
@@ -15,23 +17,23 @@ const RESEARCH_DIR = join(DATA_DIR, '/research');
 const NEWS_DIR = join(DATA_DIR, '/news');
 const PROJECTS_DIR = join(DATA_DIR, '/projects');
 
-export const getCoreTeamMembers = () => {
+export const getCoreTeamMembers = (): TeamMember[] => {
   const fileContents = fs.readFileSync(
     join(TEAM_DIR, '/core_members.csv'),
     'utf8'
   );
-  return Papa.parse(fileContents, { header: true }).data;
+  return Papa.parse(fileContents, { header: true }).data as TeamMember[];
 };
 
-export const getFacultyMembers = () => {
+export const getFacultyMembers = (): TeamMember[] => {
   const fileContents = fs.readFileSync(
     join(TEAM_DIR, 'faculty_members.csv'),
     'utf8'
   );
-  return Papa.parse(fileContents, { header: true }).data;
+  return Papa.parse(fileContents, { header: true }).data as TeamMember[];
 };
 
-export const getCollaborators = () => {
+export const getCollaborators = (): Collaborator[] => {
   const fileContents = fs.readFileSync(
     join(TEAM_DIR, 'collaborators.csv'),
     'utf8'
@@ -66,21 +68,21 @@ export const getCollaborators = () => {
   }));
 };
 
-export const getPapers = () => {
+export const getPapers = (): Paper[] => {
   const fileContents = fs.readFileSync(
     join(RESEARCH_DIR, 'papers.json'),
     'utf8'
   );
-  const papers = JSON.parse(fileContents);
+  const papers: Paper[] = JSON.parse(fileContents);
   return papers;
 };
 
-export const getTalks = () => {
+export const getTalks = (): Talk[] => {
   const fileContents = fs.readFileSync(
     join(RESEARCH_DIR, 'talks.json'),
     'utf8'
   );
-  const talks = JSON.parse(fileContents);
+  const talks: Talk[] = JSON.parse(fileContents);
   return talks;
 };
 

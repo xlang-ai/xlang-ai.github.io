@@ -1,3 +1,5 @@
+import Head from 'next/head';
+
 import {
   getCollaborators,
   getCoreTeamMembers,
@@ -24,14 +26,19 @@ const Team = ({
   collaborators,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <div className='pt-20 sm:pt-36 w-full bg-[#D9D9D9]/20'>
-      <div className='page-x-width flex flex-col gap-10 sm:gap-12 pb-10'>
-        <Intro />
-        <Faculty facultyMembers={facultyMembers} />
-        <CoreMembers coreMembers={coreMembers} />
-        <Collaborators collaborators={collaborators} />
+    <>
+      <Head>
+        <title>XLanG | Team</title>
+      </Head>
+      <div className='pt-20 sm:pt-36 w-full bg-[#D9D9D9]/20'>
+        <div className='page-x-width flex flex-col gap-10 sm:gap-12 pb-10'>
+          <Intro />
+          <Faculty facultyMembers={facultyMembers} />
+          <CoreMembers coreMembers={coreMembers} />
+          <Collaborators collaborators={collaborators} />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

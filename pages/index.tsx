@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { InferGetStaticPropsType } from 'next';
 
 import Welcome from './components/Welcome';
@@ -9,12 +10,17 @@ import { getNews } from '@/utils/data';
 
 const Home = ({ news }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <div>
-      <Welcome />
-      <News news={news} />
-      <Preview />
-      <Sponsors />
-    </div>
+    <>
+      <Head>
+        <title>XLanG | Home</title>
+      </Head>
+      <div>
+        <Welcome />
+        <News news={news} />
+        <Preview />
+        <Sponsors />
+      </div>
+    </>
   );
 };
 

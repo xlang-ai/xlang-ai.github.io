@@ -2,7 +2,7 @@ import React from 'react';
 
 import { BlogPost, getAllPosts } from '@/utils/post';
 import Image from 'next/image';
-import { parseBlogPostDate, parseDate } from '@/utils/date';
+import { parseDateString } from '@/utils/date';
 import Link from 'next/link';
 
 const Blog = ({ posts }: { posts: BlogPost[] }) => {
@@ -50,7 +50,7 @@ const BlogBlockDate = ({
   className?: string;
 }) => (
   <div className={`text-xs text-[#666666] font-bold ${className}`}>
-    {parseBlogPostDate(date)}
+    {parseDateString(date)}
   </div>
 );
 

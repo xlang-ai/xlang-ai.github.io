@@ -1,34 +1,8 @@
-import { parseDate } from '@/utils/date';
 import React from 'react';
+import { parseDateString } from '@/utils/date';
+import { News as NewsInterface } from '@/interface/news';
 
-interface NewsInterface {
-  date: Date;
-  description: string;
-}
-const news: NewsInterface[] = [
-  {
-    date: new Date('2021-10-26'),
-    description: 'The (renewed) group website is now live!',
-  },
-  {
-    date: new Date('2021-10-26'),
-    description: 'The (renewed) group website is now live!',
-  },
-  {
-    date: new Date('2021-10-26'),
-    description: 'The (renewed) group website is now live!',
-  },
-  {
-    date: new Date('2021-10-26'),
-    description: 'The (renewed) group website is now live!',
-  },
-  {
-    date: new Date('2021-10-26'),
-    description: 'The (renewed) group website is now live!',
-  },
-];
-
-const News = () => {
+const News = ({ news }: { news: NewsInterface[] }) => {
   return (
     <div className='w-full bg-[#D9D9D9]/20 max-sm:py-4 py-16'>
       <div className='page-x-width'>
@@ -39,7 +13,7 @@ const News = () => {
               className='flex gap-x-8 flex-wrap py-3 border-b border-black/30 text-sm'
               key={n.description}
             >
-              <div>{parseDate(n.date)}</div>
+              <div>{parseDateString(n.date)}</div>
               <div>{n.description}</div>
             </div>
           ))}

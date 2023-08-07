@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { BlogPost, getAllPosts, getPostBySlug } from '@/utils/post';
-import { parseBlogPostDate } from '@/utils/date';
+import { parseDateString } from '@/utils/date';
 import { publicFilePath } from '@/utils';
 
 const BlogPost = ({ post }: { post: BlogPost }) => {
@@ -84,7 +84,7 @@ const PostMeta = ({ date, author }: { date: string; author: string }) => (
 
     <div>
       <div className='text-[#666666] mb-2'>Date</div>
-      <div>{parseBlogPostDate(date)}</div>
+      <div>{parseDateString(date)}</div>
     </div>
 
     <div>

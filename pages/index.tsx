@@ -6,9 +6,12 @@ import News from './components/News';
 import Preview from './components/Preview';
 import Sponsors from './components/Sponsors';
 
-import { getNews } from '@/utils/data';
+import { getHighlightSubProjects, getNews } from '@/utils/data';
 
-const Home = ({ news }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Home = ({
+  news,
+  subProj,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
       <Head>
@@ -17,7 +20,7 @@ const Home = ({ news }: InferGetStaticPropsType<typeof getStaticProps>) => {
       <div>
         <Welcome />
         <News news={news} />
-        <Preview />
+        <Preview subProj={subProj} />
         <Sponsors />
       </div>
     </>
@@ -26,10 +29,12 @@ const Home = ({ news }: InferGetStaticPropsType<typeof getStaticProps>) => {
 
 export async function getStaticProps() {
   const news = getNews();
+  const subProj = getHighlightSubProjects();
 
   return {
     props: {
       news,
+      subProj,
     },
   };
 }

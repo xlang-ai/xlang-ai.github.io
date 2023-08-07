@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Image from 'next/image';
 import { InferGetStaticPropsType } from 'next';
 import React from 'react';
@@ -21,14 +22,19 @@ const Project = ({
   highlightSubProjects,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <div className='w-full pt-20 sm:pt-36 pb-10 bg-[#D9D9D9]/20'>
-      <div className='page-x-width'>
-        <Intro />
-        <HighlightProject hightlightProject={hightlightProject} />
-        <SubHighlightProject highlightSubProjects={highlightSubProjects} />
-        <RecentProject recentProjects={recentProjects} />
+    <>
+      <Head>
+        <title>XLanG | Projects</title>
+      </Head>
+      <div className='w-full pt-20 sm:pt-36 pb-10 bg-[#D9D9D9]/20'>
+        <div className='page-x-width'>
+          <Intro />
+          <HighlightProject hightlightProject={hightlightProject} />
+          <SubHighlightProject highlightSubProjects={highlightSubProjects} />
+          <RecentProject recentProjects={recentProjects} />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

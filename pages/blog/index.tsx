@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 
 import { BlogPost, getAllPosts } from '@/utils/post';
 import Image from 'next/image';
@@ -7,16 +8,21 @@ import Link from 'next/link';
 
 const Blog = ({ posts }: { posts: BlogPost[] }) => {
   return (
-    <div className='max-sm:py-20 pt-36 w-full bg-[#D9D9D9]/20 min-h-[95vh]'>
-      <div className='page-x-width pb-10'>
-        <h1 className='text-2xl font-[500] mb-4'>Blog</h1>
-        <div className='flex flex-col gap-4'>
-          {posts.map((post) => (
-            <BlogBlock post={post} key={post.title} />
-          ))}
+    <>
+      <Head>
+        <title>XLanG | Blogs</title>
+      </Head>
+      <div className='max-sm:py-20 pt-36 w-full bg-[#D9D9D9]/20 min-h-[95vh]'>
+        <div className='page-x-width pb-10'>
+          <h1 className='text-2xl font-[500] mb-4'>Blog</h1>
+          <div className='flex flex-col gap-4'>
+            {posts.map((post) => (
+              <BlogBlock post={post} key={post.title} />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

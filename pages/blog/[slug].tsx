@@ -2,6 +2,7 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import Image from 'next/image';
 import Link from 'next/link';
+import Head from 'next/head';
 
 import { BlogPost, getAllPosts, getPostBySlug } from '@/utils/post';
 import { parseDateString } from '@/utils/date';
@@ -9,48 +10,57 @@ import { publicFilePath } from '@/utils';
 
 const BlogPost = ({ post }: { post: BlogPost }) => {
   return (
-    <div className='pt-36 w-full min-h-screen bg-[#D9D9D9]/20'>
-      <div className='page-x-width'>
-        <div className='flex flex-col gap-8 mb-4'>
-          <div className='text-xs text-[#545454] font-[500] tracking-widest'>
-            <Link href='/blog'>Blog</Link> / {post.shortTitle || post.title}
+    <>
+      <Head>
+        <title>XLanG | {post.title}</title>
+      </Head>
+      <div className='pt-36 w-full min-h-screen bg-[#D9D9D9]/20'>
+        <div className='page-x-width'>
+          <div className='flex flex-col gap-8 mb-4'>
+            <div className='text-xs text-[#545454] font-[500] tracking-widest'>
+              <Link href='/blog'>Blog</Link> / {post.shortTitle || post.title}
+            </div>
+
+            <div className='text-[#0156AC] font-[500] text-2xl'>
+              {post.title}
+            </div>
+
+            <div className='flex flex-wrap w-full max-sm:gap-2 gap-8'>
+              <PostImage coverImage={post.coverImage} title={post.title} />
+              <PostMeta date={post.date} author={post.author} />
+            </div>
           </div>
 
-          <div className='text-[#0156AC] font-[500] text-2xl'>{post.title}</div>
-
-          <div className='flex flex-wrap w-full max-sm:gap-2 gap-8'>
-            <PostImage coverImage={post.coverImage} title={post.title} />
-            <PostMeta date={post.date} author={post.author} />
-          </div>
+          <ReactMarkdown
+            className='tracking-wide leading-7 mb-24'
+            components={{
+              h2(props) {
+                return (
+                  <h2 className='text-xl font-[600] my-6'>{props.children}</h2>
+                );
+              },
+              p(props) {
+                return (
+                  <p className='mb-4 text-sm leading-7'>{props.children}</p>
+                );
+              },
+              ul(props) {
+                return <ul className='list-disc pl-4'>{props.children}</ul>;
+              },
+              a(props) {
+                return (
+                  <a className='underline cursor-pointer hover:text-brand-primary2'>
+                    {props.children}
+                  </a>
+                );
+              },
+            }}
+          >
+            {post.content}
+          </ReactMarkdown>
         </div>
-
-        <ReactMarkdown
-          className='tracking-wide leading-7 mb-24'
-          components={{
-            h2(props) {
-              return (
-                <h2 className='text-xl font-[600] my-6'>{props.children}</h2>
-              );
-            },
-            p(props) {
-              return <p className='mb-4 text-sm leading-7'>{props.children}</p>;
-            },
-            ul(props) {
-              return <ul className='list-disc pl-4'>{props.children}</ul>;
-            },
-            a(props) {
-              return (
-                <a className='underline cursor-pointer hover:text-brand-primary2'>
-                  {props.children}
-                </a>
-              );
-            },
-          }}
-        >
-          {post.content}
-        </ReactMarkdown>
       </div>
-    </div>
+    </>
   );
 };
 

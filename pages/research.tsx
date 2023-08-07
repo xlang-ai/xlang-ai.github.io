@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { getPapers, getTalks } from '@/utils/data';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
@@ -42,13 +43,18 @@ interface Talk {
 
 const Research = ({ papers, talks }: { papers: Paper[]; talks: Talk[] }) => {
   return (
-    <div className='w-full pt-20 sm:pt-36 pb-10 bg-[#D9D9D9]/20'>
-      <div className='page-x-width flex flex-col gap-8 sm:gap-10'>
-        <Intro />
-        <PapersSection papers={papers} />
-        <TalksSection talks={talks} />
+    <>
+      <Head>
+        <title>XLanG | Research</title>
+      </Head>
+      <div className='w-full pt-20 sm:pt-36 pb-10 bg-[#D9D9D9]/20'>
+        <div className='page-x-width flex flex-col gap-8 sm:gap-10'>
+          <Intro />
+          <PapersSection papers={papers} />
+          <TalksSection talks={talks} />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

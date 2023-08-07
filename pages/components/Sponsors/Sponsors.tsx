@@ -1,9 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
 
-import GoogleImage from '@/public/google.svg';
-import AmazonImage from '@/public/amazon.svg';
-import SalesforceImage from '@/public/salesforce.png';
+import GoogleImage from '@/public/icons/google.svg';
+import AmazonImage from '@/public/icons/amazon.svg';
+import SalesforceImage from '@/public/icons/salesforce.png';
 
 const Sponsors = () => {
   return (

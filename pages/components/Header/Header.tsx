@@ -22,7 +22,7 @@ const Header = () => {
         <Link href='/'>
           <div className='flex gap-2 items-center cursor-pointer text-brand-dark'>
             <Image
-              src={publicFilePath('/logo.svg')}
+              src={publicFilePath('/icons/logo.svg')}
               alt='Xlang'
               width={30}
               height={30}
@@ -55,7 +55,7 @@ const Header = () => {
             <li>
               <Link href={github}>
                 <Image
-                  src={publicFilePath('/github-black.svg')}
+                  src={publicFilePath('/icons/github-black.svg')}
                   alt='Xlang'
                   width={25}
                   height={25}
@@ -66,7 +66,7 @@ const Header = () => {
             <li>
               <Link href={twitter}>
                 <Image
-                  src={publicFilePath('/twitter-black.svg')}
+                  src={publicFilePath('/icons/twitter-black.svg')}
                   alt='Xlang'
                   width={25}
                   height={25}

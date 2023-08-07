@@ -1,6 +1,6 @@
 import React from 'react';
 
-import LogoWhite from '@/public/logo-white.svg';
+import LogoWhite from '@/public/icons/logo-white.svg';
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -40,7 +40,7 @@ const Footer = () => {
             <li className='cursor-pointer'>
               <Link href={`mailto:${email}`}>
                 <Image
-                  src={publicFilePath('/mail.svg')}
+                  src={publicFilePath('/icons/mail.svg')}
                   alt='Xlang'
                   width={20}
                   height={20}
@@ -51,7 +51,7 @@ const Footer = () => {
             <li className='cursor-pointer'>
               <Link href={slack}>
                 <Image
-                  src={publicFilePath('/slack.svg')}
+                  src={publicFilePath('/icons/slack.svg')}
                   alt='Xlang'
                   width={20}
                   height={20}
@@ -62,7 +62,7 @@ const Footer = () => {
             <li className='cursor-pointer'>
               <Link href={discord}>
                 <Image
-                  src={publicFilePath('/discord.svg')}
+                  src={publicFilePath('/icons/discord.svg')}
                   alt='Xlang'
                   width={20}
                   height={20}
@@ -73,7 +73,7 @@ const Footer = () => {
             <li className='cursor-pointer'>
               <Link href={github}>
                 <Image
-                  src={publicFilePath('/github.svg')}
+                  src={publicFilePath('/icons/github.svg')}
                   alt='Xlang'
                   width={20}
                   height={20}
@@ -84,7 +84,7 @@ const Footer = () => {
             <li className='cursor-pointer'>
               <Link href={twitter}>
                 <Image
-                  src={publicFilePath('/twitter.svg')}
+                  src={publicFilePath('/icons/twitter.svg')}
                   alt='Xlang'
                   width={20}
                   height={20}
@@ -95,7 +95,7 @@ const Footer = () => {
             <li className='cursor-pointer'>
               <Link href={threads}>
                 <Image
-                  src={publicFilePath('/threads.svg')}
+                  src={publicFilePath('/icons/threads.svg')}
                   alt='Xlang'
                   width={20}
                   height={20}

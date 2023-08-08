@@ -1,24 +1,10 @@
-<svg width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d_790_153)">
-<rect x="35.4277" y="32.2638" width="25.1429" height="25.1429" rx="3.92858" fill="#009CD5"/>
-<rect x="79.4277" y="32.2638" width="25.1429" height="25.1429" rx="3.92858" fill="#009CD5"/>
-<rect x="35.4277" y="76.2639" width="25.1429" height="25.1429" rx="3.92858" fill="#009CD5"/>
-<rect x="79.4277" y="76.2639" width="25.1429" height="25.1429" rx="3.92858" fill="#009CD5"/>
-<line x1="60.5703" y1="46.996" x2="79.4275" y2="46.996" stroke="#0156AC" stroke-width="1.96429" stroke-dasharray="3.93 3.93"/>
-<line x1="60.5703" y1="87.8532" x2="79.4275" y2="87.8532" stroke="#0156AC" stroke-width="1.96429" stroke-dasharray="3.93 3.93"/>
-<line x1="50.5544" y1="57.4067" x2="50.5544" y2="76.2639" stroke="#0156AC" stroke-width="1.96429" stroke-dasharray="3.93 3.93"/>
-<line x1="91.4079" y1="57.4067" x2="91.4079" y2="76.2639" stroke="#0156AC" stroke-width="1.96429" stroke-dasharray="3.93 3.93"/>
-</g>
-<defs>
-<filter id="filter0_d_790_153" x="0.427734" y="0.0637939" width="139.143" height="139.143" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="2.8"/>
-<feGaussianBlur stdDeviation="17.5"/>
-<feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_790_153"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_790_153" result="shape"/>
-</filter>
-</defs>
+<svg width="176" height="177" viewBox="0 0 176 177" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect y="0.5" width="64" height="64" rx="10" fill="#009CD5"/>
+<rect x="112" y="0.5" width="64" height="64" rx="10" fill="#009CD5"/>
+<rect y="112.5" width="64" height="64" rx="10" fill="#009CD5"/>
+<rect x="112" y="112.5" width="64" height="64" rx="10" fill="#009CD5"/>
+<line x1="64" y1="38" x2="112" y2="38" stroke="#0156AC" stroke-width="5" stroke-dasharray="10 10"/>
+<line x1="64" y1="142" x2="112" y2="142" stroke="#0156AC" stroke-width="5" stroke-dasharray="10 10"/>
+<line x1="38.5" y1="64.5" x2="38.5" y2="112.5" stroke="#0156AC" stroke-width="5" stroke-dasharray="10 10"/>
+<line x1="142.5" y1="64.5" x2="142.5" y2="112.5" stroke="#0156AC" stroke-width="5" stroke-dasharray="10 10"/>
 </svg>

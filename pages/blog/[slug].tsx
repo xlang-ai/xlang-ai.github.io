@@ -9,6 +9,7 @@ import { parseDateString } from '@/utils/date';
 import { publicFilePath } from '@/utils';
 
 import { BlogPost as Post } from '@/interface/blog';
+import rehypeRaw from 'rehype-raw';
 
 const BlogPost = ({ post }: { post: Post }) => {
   return (
@@ -53,10 +54,16 @@ const BlogPost = ({ post }: { post: Post }) => {
 
           <ReactMarkdown
             className='tracking-wide leading-7 mb-24'
+            rehypePlugins={[rehypeRaw]} linkTarget="_blank"
             components={{
               h2(props) {
                 return (
                   <h2 className='text-xl font-[600] my-6'>{props.children}</h2>
+                );
+              },
+              h3(props) {
+                return (
+                  <h3 className='text-lg font-[600] my-6'>{props.children}</h3>
                 );
               },
               p(props) {
@@ -65,15 +72,26 @@ const BlogPost = ({ post }: { post: Post }) => {
                 );
               },
               ul(props) {
-                return <ul className='list-disc pl-4'>{props.children}</ul>;
+                return <ul className='list-disc pl-4 text-sm leading-7'>{props.children}</ul>;
               },
               a(props) {
                 return (
-                  <a className='underline cursor-pointer hover:text-brand-primary2'>
+                  <a href={props.href} target="_blank" className='underline cursor-pointer hover:text-brand-primary2'>
                     {props.children}
                   </a>
                 );
               },
+              iframe(props) {
+                return (
+                  <iframe
+                    {...props}
+                    className="w-full aspect-video"
+                  />
+                );
+              },
+              hr(props) {
+                return <hr className='my-6' />;
+              }
             }}
           >
             {post.content}

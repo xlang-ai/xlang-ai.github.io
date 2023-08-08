@@ -189,7 +189,7 @@ const SubHighlightProjectBlock = ({
         <p className='text-sm flex-1'>{desc}</p>
 
         <div className='max-sm:justify-start max-sm:underline flex gap-4 text-xs justify-end'>
-          {slidesLink && <Link href={slidesLink}>slides</Link>}
+          {slidesLink && <Link href={slidesLink}>use cases</Link>}
           {productLink && <Link href={productLink}>product</Link>}
           {videoLink && <Link href={videoLink}>video</Link>}
         </div>

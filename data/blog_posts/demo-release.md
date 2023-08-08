@@ -2,56 +2,56 @@
 title: 'Introducing XLang: An Open-source Framework for Building LLM-Powered Agents via Executable Language Grounding'
 shortTitle: Demo Release
 slug: demo-release
-date: 23 July 2023
+date: 8 August 2023
 author: XLANG Lab
 coverImage: /blog/demo.png
 previewContent: We introduce XLang Agent, an LLM-driven natural language interface to you. We are a group of passionate natural language processing researchers. Driven by our fascination with language technology, we have come together to explore building conversational interfaces powered by large language models.
 ---
 
-For decades, when people have imagined the distant future, they’ve almost always included a starring role for robots. Robots have been cast as dependable, helpful and even charming. Yet across those same decades, the technology has remained elusive — stuck in the imagined realm of science fiction.
+> *"Many years later, as he faced the firing squad, Colonel Aureliano Buendía was to remember that distant afternoon when his father took him to discover ice." —— One Hundred Years of Solitude, Gabriel Garcia Márquez.*
+>
+---
 
-Today, we’re introducing a new advancement in robotics that brings us closer to a future of helpful robots. [Robotics Transformer 2, or RT-2](https://robotics-transformer2.github.io/), is a first-of-its-kind vision-language-action (VLA) model. A [Transformer](https://ai.googleblog.com/2017/08/transformer-novel-neural-network.html)-based model trained on text and images from the web, RT-2 can directly output robotic actions. Just like language models are trained on text from the web to learn general ideas and concepts, RT-2 transfers knowledge from web data to inform robot behavior.
+When envisioning the future, people have always imagined an intelligent agent capable of following human commands and performing specific tasks, significantly enhancing productivity. In recent times, with the emergence of powerful language models, this vision is accelerating. For example, in late March, OpenAI harnessed the strength of its its GPT-series language models to introduce a product: [ChatGPT Plugins](https://openai.com/blog/chatgpt-plugins), which sheds new light on LLM-powered agents (Large Language Model-powered agents).
 
-In other words, RT-2 can speak robot.
+The LLM-powered agent represents a crucial step in this burgeoning field, enabling powerful language models to take actions, use tools, execute various tasks and facilitate more intelligent interactions with humans. Our team, **XLang** **Team**, wholeheartedly believes in this promising vision and sees LLM-powered agents as a pivotal path towards the future of Artificial General Intelligence (AGI).
 
-Because a robot capable of doing general tasks in the world needs to be able to handle complex, abstract tasks in highly variable environments — especially ones it's never seen before.
+Now, with great excitement, we announce our commitment to exploring and advancing the realm of LLM-powered agents. In the upcoming sections, we will elaborate on our mission, workouts, and the outlook for future endeavors. Through our mission, we aspire to humbly provide insightful perspectives on the historical trajectory of this captivating vision, pushing forward the . With this enthusiasm and determination, let us together embrace a new era of intelligent agents for the future.
 
-Unlike chatbots, robots need “grounding” in the real world and their abilities. Their training isn’t just about, say, learning everything there is to know about an apple: how it grows, its physical properties, or even that one purportedly landed on Sir Isaac Newton’s head. A robot needs to be able to recognize an apple in context, distinguish it from a red ball, understand what it looks like, and most importantly, know how to pick it up. - understand the environmental context,  your goal in the context.
+## **What is XLang?**
 
-RT-2’s ability to transfer information to actions shows promise for robots to more rapidly adapt to novel situations and environments.  In other words, with RT-2, robots are able to learn more like we do — transferring learned concepts to new situations.
+We try to explain Executable Language Grounding, or **XLang** word by word:
 
-Not only does RT-2 show how advances in AI are cascading rapidly into robotics, it shows enormous promise for more general-purpose robots. While there is still a tremendous amount of work to be done to enable helpful robots in human-centered environments, RT-2 shows us an exciting future for robotics just within grasp.
-model that learns from both web and robotics data, and translates this knowledge into generalised instructions for robotic control.
+- In the context of NLP (Natural Language Processing), **“Grounding”** refers to the process of converting natural language instructions into executable code or actions.
+- **“Executable code or actions”** refers to the translated output of the natural language instructions that can be directly executed(performed) within a given environment. It involves generating code or actions that can interact with the environment, perform specific operations, and produce tangible results.
 
-High-capacity vision-language models (VLMs) are trained on web-scale datasets, making these systems remarkably good at recognising visual or language patterns and operating across different languages. But for robots to achieve a similar level of competency, they would need to collect robot data, first-hand, across every object, environment, task, and situation.
+We hope Executable Language Grounding, i.e., XLang, can thus serve as a bridge, transforming natural language instructions into code or actions executable within real-world environments. Such environments include but are not limited to databases, web applications, and the physical world navigated by robots.
 
-—-------------
+Imagine the process as the transmutation of human instructions and questions — expressed in everyday language — into machine-understandable actions and code. The machine then executes these within a specific environment, leading to changes in the state of that environment. This change is observed, results are analyzed, and a further cycle of interaction with humans is initiated.
 
-To add an intro…language agents..
-
-## What is XLang?
-
-Executable Language Grounding, or XLang, serves as a bridge, transforming natural language instructions into code or actions executable within real-world environments. Such environments include but are not limited to databases, web applications, and the physical world navigated by robots. Imagine the process as the transmutation of human instructions and questions - expressed in everyday language - into machine-understandable actions and code. The machine then executes these within a specific environment, leading to changes in the state of that environment. This change is observed, results are analyzed, and a further cycle of interaction with humans is initiated.
-
-## Why is it important?
-
-This crucial process lies at the heart of AI/language agents that interact with various real-world environments via natural language and accomplish tangible tasks for us. Recent advances in Executable Language Grounding incorporate techniques such as LLM (Large Language Models) enhanced with neuro-symbolic tools, code generation or semantic parsing, and dialog or interactive systems.
+This process expands the capabilities of the agents **far beyond those of a conventional chatbot**, allowing it to address and serve a much broader scope of tasks and applications. And we believe such process lies at the heart of AI/language agents that interact with various real-world environments via natural language and accomplish tangible tasks for us. Recent advances in Executable Language Grounding incorporate techniques such as LLM (Large Language Models) enhanced with neuro-symbolic tools, code generation or semantic parsing, and dialog or interactive systems.
 
 In the current generation of LLMs, we can furnish our models with an assortment of neuro-symbolic tools to enhance their capabilities. Typical inputs to these models could include language from the user, a toolkit brimming with different tools, and a variety of environments. The outcome is an action or code sequence executable within the corresponding environment, often entailing the use of certain tool APIs.
 
-The process of building such agents often demands considerable effort and collaboration from a dedicated team. This is where XLang comes into play. Our objective with XLang is to establish an open-source framework and ecosystem for building and evaluating these powerful LLM-based agents.
+The process of building such agents often demands considerable effort and collaboration from a dedicated team. This is where XLang comes into play. Our objective with XLang is to establish an open-source framework and ecosystem for building and evaluating these powerful LLM-powered agents.
 
-## The Motivations and Challenges behind XLang
+## **The Motivations and Challenges behind XLang**
 
-Our team's initial spark of excitement came when OpenAI announced the release of code interpreters and plugins. These tools represented live demonstrations of many years of our research in areas such as code generation, semantic parsing, and executable language grounding. Unfortunately, we couldn't access these tools to experiment with our ideas for improvements. This limitation prompted us to think ambitiously. What if we developed our own open-source code interpreters and plugins, or even a more general agent system and framework? This would not only benefit our team but also other research labs and companies worldwide. By sharing our work, we believe we can contribute to the growth of research and applications in this direction, allowing more people to perform exciting and interesting work on our open-source system.
+Our team's initial spark of excitement came when OpenAI announced the release of code interpreters and plugins. These tools represented live demonstrations of many years of our research in areas such as code generation, semantic parsing, and executable language grounding. Unfortunately, we couldn't access these tools to experiment with our ideas for improvements. This limitation prompted us to think ambitiously. What if we developed our own open-source code interpreters and plugins, or even a more general agent system and framework? This would not only benefit our team but also other research labs and companies worldwide. By sharing our work, we believe we can contribute to the growth of research and applications in this direction, allowing more people to perform exciting and interesting work on our open-source system. More specifically, by shifting the focus towards interactive and real-time demos, we can:
 
-Secondly, we saw a need for a unified platform, like Vicuna, to evaluate the performance of various LLMs (Large Language Models) in a neutral manner. We understand that interactive evaluation for LLM-powered agents is complex, but establishing a unified system that real users can access is a critical first step. Setting up agent demos is not as straightforward as connecting a chatbox to an LLM. It requires considerable effort, both in terms of engineering and research. The agents need to interact with their corresponding environments and effect changes in those environments. The system must robustly handle all sorts of situations, appropriately manage different possible execution results, and present these outcomes in the correct manner. Ensuring the robustness and scalability of this interaction cycle is a significant challenge.
+- iteratively add and improve the agent’s design and working logics, such as integrating more useful tools
+- implement robust evaluation procedures for various LLMs (Large Language Models) in a neutral manner; while platforms like Vicuna Arena have served as valuable pioneers in this area, we strive to uncover evaluation metrics tailored specifically for agents.
+- push forward the agentic model’s training and development; by incorporating comprehensive evaluations and continuously iterating the training process, we aim to uncover the shortcomings of LLMs and make iterative improvements.
+
+In short, by setting the frameworks including a real-time demo, we can further advance the research and development of LLM-powered agents and demonstrate their potential.
+
+All such promising directions requires a critical first step: establishing a unified system that real users can access. However, challenges are many. Setting up agent demos is not as straightforward as simply connecting a chatbox to an LLM. It requires considerable effort, both in terms of engineering and research. The agents need to interact with their corresponding environments and effect changes in those environments. The system must robustly handle all sorts of situations, appropriately manage different possible execution results, and present these outcomes in the correct manner. Ensuring the robustness and scalability of this interaction cycle is a significant challenge.
 
 Historically, NLP (Natural Language Processing) has lacked practical system demonstrations like those found in robotics or databases, and has instead focused more on testing against static benchmarks. However, with the advent of large models, we believe the time has come to bridge this gap. Similar to the MineDojo framework in embodied AI and the ManiSkill for robotics, setting up such an agent framework necessitates long-term cooperation among many individuals. Our goal is to see the fruits of our research move step by step towards real-world applications that will, in the not-so-distant future, be used by millions.
 
-Our XLang team of about 15 researchers and developers from various backgrounds including NLP, ML, HCI, DB, full-stack development, UI design, and robotics have been working full-time on this project since the end of March. We've invested significant effort in addressing these challenges and minimizing the gap between research and the development of real-world interactive agents. We firmly believe in the value of our work and hope our open-source project will attract more researchers, developers, and designers to contribute to this exciting direction.
+Our XLang team of about 15 researchers and developers from various backgrounds including **NLP** (Natural Language Processing), **ML** (Machine Learning), **HCI** (Human Computer Interaction), **VIS** (Visualization), **DB** (Database), **Full-stack** development, **UI design**, and **Robotics** have been working full-time on this project since the end of March. We've invested significant effort in addressing these challenges and minimizing the gap between research and the development of real-world interactive agents. We firmly believe in the value of our work and hope our open-source project will attract more researchers, developers, and designers to contribute to this exciting direction.
 
-## Why Us? Our Journey
+## **Why Us? Our Journey**
 
 The answer to this question is quite straightforward. Our team is deeply interested in this field, and we've always wished for agents that can help people analyze data without coding, and for more natural language-led interaction modes for webs/apps. This was the primary reason why, in March, our team decided within four days of discussing the concept, to congregate in WeWork Shenzhen and commence full-time work on the project. This dedication has continued for more than four months, and we are committed to the long-term development of this project.
 
@@ -59,43 +59,86 @@ Many of our team members, myself included, have been consistently drawn to resea
 
 Throughout this process, we have maintained active collaborations with industry players like Salesforce, Microsoft, Amazon, Facebook, Google, especially in the realm of text-to-SQL. We were also among the pioneers in working with large language models for in-context learning, LLM+tool use, instruction tuning, and retrieval embeddings for LLM. Here are some of our representative works:
 
-- [Binder: Binding Language Models in Symbolic Languages (ICLR 2023)](https://lm-code-binder.github.io/) - One of the earliest works in LLM + tool use/agents, simultaneously with 'ReAct' last October. We proposed the use of LLM to leverage python/sql code interpreters and various API calls (similar to functional calling) to solve complex problems. This work was, unfortunately, under-recognized and under-credited. It proposed the concept of Toolformer and ChatGPT plugins half a year before its time.
-
-- [Instructor Embeddings: One Embedder, Any Task: Instruction-Finetuned Text Embeddings (ACL 2023 Findings)](https://instructor-embedding.github.io/) - This work showcased instruction-finetuned text embeddings/retriever, the SOTA embedding for retrieval, semantic similarity, etc. It's open-source, and superior to OpenAI embeddings! Used in retrieval augmented language models, it achieved over 500k downloads, over 1k stars, and was used in ~500 projects in half a year.
-
+- [Binder (ICLR 2023)](https://lm-code-binder.github.io/) - One of the earliest works in LLM + tool use/agents. This work proposed leveraging language models to solve complex problems using code interpreters and API calls, and it proposed the concept of Toolformer and ChatGPT plugins half a year before its time.
+- [Instructor Embeddings (ACL 2023 Findings)](https://instructor-embedding.github.io/) - This work presented instruction-finetuned text embeddings that outperformed OpenAI embeddings. It achieved high popularity with over 500k downloads, 1k stars, and usage in numerous projects.
 - [Selective Annotation (ICLR 2023)](https://github.com/HKUNLP/icl-selective-annotation) - This work explored how annotation example selection impacts LLM’s in-context learning performance.
+- Code Generation and Semantic Parsing: [DS-1000 (ICML 2023)](https://ds1000-code-gen.github.io/) and [Coder-Reviewer Reranking (ICML 2023)](https://arxiv.org/abs/2211.16490) introduced LLM-based methods and benchmarks for code generation. [UnifiedSKG (EMNLP 2022)](https://github.com/HKUNLP/UnifiedSKG) offered a state-of-the-art framework for over 20 structured knowledge grounding tasks.
+- [Spider(EMNLP 2018)](https://yale-lily.github.io/spider): Spider is a widely studied benchmark for complex text-to-SQL tasks, attracting submissions from top research labs and communities in NLP, HCI, VIS, PL, and DB.
+- Dialog and Interactive Systems: [ICL-DST (EMNLP Findings 2022)](https://github.com/Yushi-Hu/IC-DST) demonstrated the effectiveness of LLM on dialogue state tracking tasks. Other conversational text-to-code tasks included [SParC (ACL 2019)](https://yale-lily.github.io/sparc), [CoSQL (EMNLP 2019)](https://yale-lily.github.io/cosql), and [NL2Interface (NLVIZ 2022)](https://arxiv.org/abs/2209.08834).
 
-- Code Generation and Semantic Parsing: [DS-1000 (ICML 2023)](https://ds1000-code-gen.github.io/) and [Coder-Reviewer Reranking (ICML 2023)](https://arxiv.org/abs/2211.16490) represented recent LLM-based methods and benchmarks for general code generation, e.g., text-to-python. [UnifiedSKG (EMNLP 2022)](https://github.com/HKUNLP/UnifiedSKG) was a unified text-to-text SOTA T5 LM-based framework for 21 structured knowledge grounding tasks. A good summary in the direction before the ChatGPT era.
+More about our research can be found on our [homepage](https://xlang.ai). To put it simply, we are a dedicated research team profoundly invested and interested in XLang and LLM-powered AI agents, particularly those related to data and web/app agents. More XLang, code generation, LLM+tool use, and LLM+robotics paper collections can be found in our ACL tutorial on complex reasoning: [LLM+tool use](https://github.com/xlang-ai/llm-tool-use).
 
-- [Spider: A Large-Scale Human-Labeled Dataset for Complex and Cross-Domain Semantic Parsing and Text-to-SQL Task (EMNLP 2018)](https://yale-lily.github.io/spider) - This was the most popular complex text-to-SQL benchmark, with over 200 submissions from top research labs, including Google, Facebook, UCB, CMU, UW, and more. It was widely studied not just in NLP but also HCI, VIS, PL, and DB communities.
+## **XLang Agents: An Introduction**
 
-- Dialog and Interactive Systems: [ICL-DST (EMNLP Findings 2022)](https://github.com/Yushi-Hu/IC-DST) - This was the first work demonstrating LLM’s good performance on dialogue state tracking tasks. Other conversational text-to-code tasks included [SParC (ACL 2019)](https://yale-lily.github.io/sparc), [CoSQL (EMNLP 2019)](https://yale-lily.github.io/cosql), [NL2Interface (NLVIZ 2022)](https://arxiv.org/abs/2209.08834)
+XLang Agents are Large Language Model-powered(LLM-powered) Agents developed by our team, aiming to utilize a range of tools to enhance their capabilities, serving as user-centric intelligent agents. Currently the XLang Agents supports three different agents focusing on different application scenarios, including:
 
-More about our research can be found on our homepage. To put it simply, we are a dedicated research team profoundly invested and interested in XLang and LLM-powered AI agents, particularly those related to data and web/app agents. More XLang, code generation, LLM+tool use, and LLM+robotics paper collections can be found in our ACL tutorial on complex reasoning: LLM+tool use.
+- **Data Agent**: This Data Agent is equipped with data-related tools, allowing it to efficiently search, handle and manipulate and visualize data. It is proficient in writing and executing code, enabling various data-related tasks.
+- **Plugins Agent**: The Plugins Agent boasts integration with over 200 plugins from third-party sources. These plugins are carefully selected to cater to various aspects of your daily life scenarios. By leveraging these plugins, the agent can assist you with a wide range of tasks and activities.
+- **Web Agent**: The Web Agent harnesses the power of a chrome extension to navigate and explore websites automatically. This agent streamlines the web browsing experience, making it easier for you to find relevant information, access desired resources, and so on.
 
-XLang Agents are advanced conversational interfaces powered by large language models (LLMs). Developed by a team of dedicated natural language processing researchers, XLang Agents utilize a range of tools to enhance their capabilities, serving as user-centric intelligent agents. In this section, we will provide an overview of three sub-demos implemented by XLang Agents:
+**Here are some interesting things XLang Agents can do!**
 
-- Data Agent: By combining code generation with DataTool, Data Copilot introduces a tool-augmented code paradigm. It enables the transformation of user intent, based on data, into actionable insights. This approach pushes the boundaries of traditional coding and tool usage.
+---
 
-- Plugins Agent: XLang Agents employ an intelligent Plugins system that connects to a wide range of real-world applications. With a seamless natural language interface, these plugins effortlessly integrate into your daily life, assisting with tasks such as scheduling meetings, organizing emails, providing recipe recommendations, and finding optimal routes for your commute.
+### Data Agent
 
-- WeBot: Embark on an exciting journey with the innovative WeBot. Beyond retrieving information, WeBot takes proactive action. It adeptly navigates the complexities of the internet, completing intricate forms, making purchases on your behalf, and even uncovering hidden insights. WeBot prioritizes user interaction, adapting to your needs and ensuring a smooth chat experience. Its interactions are transparent, controllable, and interruptible, ensuring you always remain in control.
+**Code generation + Data tools = Data Agent!**
 
-By harnessing the power of large language models in conjunction with diverse tools, XLang Agents significantly expand the capabilities of conversational interfaces, offering intelligent assistance that revolves around the user. Engage in a conversation with our XLang Agent to explore its wide-ranging capabilities further!
+After selecting certain data tools, the agent can take your request and proactively take actions to fulfill your request. 
 
-## What's Next? The Future
+In the following example, you will see how data agent help you search a dataset, draw an interactive line plot, and finally construct an ARIMA model to perform some prediction.
 
-Our aim is to build XLang, an open-source ecosystem and community for LLM-powered agents. Our aim is to build an open-source XLang and LLM for agents' ecosystem and community. This release is just the beginning of our XLang open-source journey. In the following months, and beyond, we will be open-sourcing several significant projects, which will include all frameworks, models, demos, code, benchmarks, and more. This has been my consistent approach during my Ph.D. in the open academic community of NLP. We hope that in these particular times in NLP, we can enable more people, rather than just a few large companies or closed start-ups, to participate. We envision these initiatives as the starting point to establish a vivid LLM-powered agents, tool use, and language grounding community, encouraging more people to contribute, develop and perform exciting research based on our work.
+<!-- [https://www.youtube.com/watch?v=JabK4PiJJqs](https://www.youtube.com/watch?v=JabK4PiJJqs) -->
+<iframe src="https://www.youtube.com/embed/JabK4PiJJqs" title="Data Agent Overview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+---
+
+### Plugins Agent
+
+**Unleash the power of hundreds of real-world applications through our intelligent Plugins system!**
+
+The Agent, based on the provided API YAML, intelligently determines the optimal timing and selection of plugins to invoke. Each plugin has been thoughtfully curated to fulfill various requirements across your everyday life situations. By harnessing the potential of these plugins, the agent can support you in accomplishing a diverse array of tasks and activities.
+
+In the example below, you’ll see how the plugins agent can assist you with your trip to Toronto. It offers recommendations for attractions, converts currency, checks the weather, and helps you choose suitable clothing. With its wide range of plugins, the agent ensures a smooth and enjoyable travel experience.
+
+<!-- [https://www.youtube.com/watch?v=UL7VEAQHYBE](https://www.youtube.com/watch?v=UL7VEAQHYBE) -->
+<iframe src="https://www.youtube.com/embed/UL7VEAQHYBE" title="Plugins Agent Overview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+---
+
+### Web Agent
+
+**Effortlessly navigate the internet with the Web Agent, powering up your browsing experience.**
+
+In the following example, two important functionalities and advantages of our web agent are demonstrated: **information retrieval** and **task execution**.
+
+Firstly, the web agent navigates to IMDb to extract reviews of a specific movie. Following this, it assists the user in posting a thread on Twitter. Moreover, our interface empowers the web agent to engage in multi-turn interactions, enriching user interactions and ensuring efficient task completion.
+
+<!-- [https://www.youtube.com/watch?v=yH31TXBfrKI](https://www.youtube.com/watch?v=yH31TXBfrKI) -->
+<iframe src="https://www.youtube.com/embed/yH31TXBfrKI" title="Web Agent Overview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+---
+
+By harnessing the power of large language models in conjunction with diverse tools, XLang Agents significantly expand the capabilities of conversational interfaces, offering intelligent assistance that revolves around the user. 
+
+**Engage in a conversation with our XLang Agents to explore its wide-ranging capabilities further!**
+
+💡 We have make all three agents online, just visit 👉[**XLang Agents**](https://chat.xlang.ai) and feel free to explore!
+For more details about XLang Agents, you can also check the official documents in 👉[**XLang Docs**](https://docs.xlang.ai) !
+
+## **What's Next? The Future**
+
+Our aim is to build XLang, an open-source ecosystem and community for LLM-powered agents. This release will just be the beginning of our XLang open-source journey. In the following months, and beyond, we will be open-sourcing several significant projects, which will include all frameworks, models, demos, code, benchmarks, and more. This has been my consistent approach during my Ph.D. in the open academic community of NLP. We hope that in these particular times in NLP, we can enable more people, rather than just a few large companies or closed start-ups, to participate. We envision these initiatives as the starting point to establish a vivid LLM-powered agents, tool use, and language grounding community, encouraging more people to contribute, develop and perform exciting research based on our work.
 
 - Online demos of XLang Agents
-- Agent demo frontend and backend repos for HCI/VIS + NLP research and developers
 - Framework package - toolkits, more sophisticated LangChain for LLMs + tool use/actions and LLM-powered agents
+- Agent demo frontend and backend repos for HCI/VIS + NLP research and developers
 - Pretraining actionable and agentic large language models (more donations, OpenAI credits, and computing resource support welcome!)
 - Crowdsourcing application-driven evaluation package for evaluating LLM-powered agents
 - SOTA methods for LLMs + tool use/actions and LLM-powered agents
-- More…
+- ……
 
-## Acknowledgements
+## **Acknowledgements**
 
 Firstly, I would like to express my gratitude towards Google Research, Amazon AWS, and Salesforce Research. The gift funds and necessary computational resources generously provided by these awards have given us the capability and resources to implement this project. We also appreciate the invaluable advice we received throughout the process.
 

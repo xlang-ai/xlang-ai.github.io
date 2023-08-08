@@ -13,10 +13,10 @@ const Welcome = () => {
           XLANG focuses on transforming natural language instructions (via large
           language models (LLMs)) into code or actions executable within
           real-world environments, including databases, web applications, and
-          the physical world etc,. It lies at the heart of LLM-powered agents or
+          the physical world, etc. It lies at the heart of LLM-powered agents or
           natural language interfaces that interact with these real-world
           environments to facilitate human interaction with data analysis, web
-          applications, and robotic instruction through conversation. Recent
+          applications, and robotic instructions through conversation. Recent
           advances in Executable Language Grounding incorporate techniques such
           as LLM + external tools/actionable or agentic LLMs, code generation,
           semantic parsing, and dialog or interactive systems.

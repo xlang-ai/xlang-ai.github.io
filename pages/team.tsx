@@ -81,8 +81,20 @@ const MemberCard = ({ member }: { member: TeamMember }) => {
         )}
       </div>
       <div className='w-full mt-3'>
-        <div className='font-[600] text-sm mb-2'>{member.name}</div>
-        <div className='text-black/80 text-xs'>{member.title}</div>
+        <div className='font-[600] text-sm mb-2'>
+          {member.link ? (  
+            <a target="_blank" href={member.link} className='text-black hover:text-brand-primary2'>{member.name}</a>  
+          ) : (  
+            <span className='text-black'>{member.name}</span>  
+          )}
+        </div>
+        <div className='text-black/80 text-xs'>
+          {member.link ? (  
+            <a target="_blank" href={member.link} className='text-black'>{member.title}</a>  
+          ) : (  
+            <span className='text-black'>{member.title}</span>  
+          )}
+        </div>
       </div>
     </div>
   );
@@ -104,7 +116,7 @@ const Faculty = ({ facultyMembers }: { facultyMembers: TeamMember[] }) => {
 const CoreMembers = ({ coreMembers }: { coreMembers: TeamMember[] }) => {
   return (
     <div>
-      <h1 className='text-2xl font-[500] mb-6'>Core Member</h1>
+      <h1 className='text-2xl font-[500] mb-6'>Core Members</h1>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-y-4'>
         {coreMembers.map((member) => (
           <MemberCard member={member} key={member.name} />

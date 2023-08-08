@@ -63,7 +63,7 @@ const Intro = () => (
       XLANG focuses on transforming natural language instructions (via large
       language models (LLMs)) into code or actions executable within real-world
       environments, including databases, web applications, and the physical
-      world etc,. It lies at the heart of LLM-powered agents or natural language
+      world, etc. It lies at the heart of LLM-powered agents or natural language
       interfaces that interact with these real-world environments to facilitate
       human interaction with data analysis, web applications, and robotic
       instruction through conversation. Recent advances in Executable Language
@@ -189,7 +189,7 @@ const SubHighlightProjectBlock = ({
         <p className='text-sm flex-1'>{desc}</p>
 
         <div className='max-sm:justify-start max-sm:underline flex gap-4 text-xs justify-end'>
-          {slidesLink && <Link href={slidesLink}>slides</Link>}
+          {slidesLink && <Link href={slidesLink}>use cases</Link>}
           {productLink && <Link href={productLink}>product</Link>}
           {videoLink && <Link href={videoLink}>video</Link>}
         </div>
@@ -203,14 +203,14 @@ const SubHighlightProjectBlock = ({
 const RecentProject = ({ recentProjects }: { recentProjects: Project[] }) => {
   return (
     <div>
-      <h1 className='text-lg font-[600] sm:font-[500] text-[#545454] sm:text-2xl mb-4'>
+      {/* <h1 className='text-lg font-[600] sm:font-[500] text-[#545454] sm:text-2xl mb-4'>
         Recent Projects
       </h1>
       <div>
         {recentProjects.map((project) => (
           <ProjectBlock project={project} key={project.title} />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -1,32 +1,29 @@
 [
   {
-    "icon": "/icons/data-agent.png",
+    "icon": "/icons/data-agent.svg",
     "title": "Data Agent",
-    "desc": "By combining code generation with DataTool, Data Copilot introduces a tool-augmented code paradigm. It enables the transformation of user intent, based on data, into actionable insights. This approach pushes the boundaries of traditional coding and tool usage.",
-    "shortDesc": "open-source version of OpenAI with LLM + more data tools",
+    "desc": "The Data Agent is equipped with data-related tools, allowing it to efficiently search, handle and manipulate and visualize data. It is proficient in writing and executing code, enabling various data-related tasks.",
+    "shortDesc": "proficient in data-centric tasks with code execution and efficient data search, manipulation and visualization tools.",
     "image": "/demo/demo.png",
-    "slidesLink": "https://github.com/xlang-ai",
-    "productLink": "https://github.com/xlang-ai",
-    "videoLink": "https://github.com/xlang-ai"
+    "slidesLink": "https://docs.xlang.ai/use-cases/data-agent",
+    "videoLink": "https://www.youtube.com/watch?v=JabK4PiJJqs"
   },
   {
     "icon": "/icons/plugin.svg",
-    "title": "Plugin",
-    "desc": "XLang Agents employ an intelligent Plugins system that connects to a wide range of real-world applications, effortlessly integrating into your daily life, assisting with tasks such as scheduling meetings, organizing emails, providing recipe recommendations, and finding optimal routes for your commute.",
-    "shortDesc": "open-source version of OpenAI by manipulating webs/plugins via APIs - web/app apis",
+    "title": "Plugins Agent",
+    "desc": "The Plugins Agent boasts integration with over 200 plugins from third-party sources. These plugins are carefully selected to cater to various aspects of your daily life scenarios. By leveraging these plugins, the agent can assist you with a wide range of tasks and activities.",
+    "shortDesc": "catering to various daily life tasks with over 200 third-party plugins for enhanced assistance",
     "image": "/demo/demo.png",
-    "slidesLink": "https://github.com/xlang-ai",
-    "productLink": "https://github.com/xlang-ai",
-    "videoLink": "https://github.com/xlang-ai"
+    "slidesLink": "https://docs.xlang.ai/use-cases/plugins-agent",
+    "videoLink": "https://www.youtube.com/watch?v=UL7VEAQHYBE"
   },
   {
     "icon": "/icons/web-agent.svg",
     "title": "Web Agent",
-    "desc": "Beyond retrieving information, WeBot takes proactive action. It adeptly navigates the complexities of the internet, completing intricate forms, making purchases on your behalf, and even uncovering hidden insights.",
-    "shortDesc": "grounding natural language instructions into click and typing actions to manipulate webs as humans do.",
+    "desc": "The Web Agent harnesses the power of a chrome extension to navigate and explore websites automatically. This agent streamlines the web browsing experience, making it easier for you to find relevant information, access desired resources, and so on.",
+    "shortDesc": "streamlining web browsing, making information retrieval and resource access easier",
     "image": "/demo/demo.png",
-    "slidesLink": "https://github.com/xlang-ai",
-    "productLink": "https://github.com/xlang-ai",
-    "videoLink": "https://github.com/xlang-ai"
+    "slidesLink": "https://docs.xlang.ai/use-cases/web-agent",
+    "videoLink": "https://www.youtube.com/watch?v=yH31TXBfrKI"
   }
 ]

@@ -8,7 +8,8 @@
     "codeLink": "https://github.com/HKUNLP/binder",
     "dataLink": "https://github.com/HKUNLP/Binder/tree/main/datasets",
     "blogLink": "https://lm-code-binder.github.io/",
-    "twitterLink": "https://twitter.com/taoyds/status/1580987466974396417"
+    "twitterLink": "https://twitter.com/taoyds/status/1580987466974396417",
+    "image":"/research/binder.jpeg"
   },
   {
     "category": "PoweredAgents",
@@ -20,20 +21,21 @@
     "dataLink": "https://drive.google.com/file/d/1vZ5c2oJNonGOvXzppNg5mHz24O6jcc52/view",
     "blogLink": "https://instructor-embedding.github.io/",
     "twitterLink": "https://twitter.com/WeijiaShi2/status/1605307966109863936",
-    "image": "/demo/demo.png"
+    "image": "/research/instructor.png"
   },
   {
     "category": "ToolUse",
-    "title": "Selective Annotation",
+    "title": "Selective Annotation Makes Language Models Better Few-Shot Learners",
     "authors": "Hongjin Su, Jungo Kasai, Chen Henry Wu, Weijia Shi, Tianlu Wang, Jiayi Xin, Rui Zhang, Mari Ostendorf, Luke Zettlemoyer, Noah A. Smith, Tao Yu",
     "publication": "ICLR 2023",
     "paperLink": "https://arxiv.org/abs/2209.01975",
     "codeLink": "https://github.com/HKUNLP/icl-selective-annotation",
-    "dataLink": "https://github.com/HKUNLP/icl-selective-annotation/tree/main/data"
+    "dataLink": "https://github.com/HKUNLP/icl-selective-annotation/tree/main/data",
+    "image":"/research/selective_annotation.jpeg"
   },
   {
     "category": "PoweredAgents",
-    "title": "UnifiedSKG",
+    "title": "UnifiedSKG: Unifying and Multi-Tasking Structured Knowledge Grounding with Text-to-Text Language Models",
     "authors": "Tianbao Xie*, Chen Henry Wu*, Peng Shi, Ruiqi Zhong, Torsten Scholak, Michihiro Yasunaga, Chien-Sheng Wu, Ming Zhong, Pengcheng Yin, Sida I. Wang, Victor Zhong, Bailin Wang, Chengzu Li, Connor Boyle, Ansong Ni, Ziyu Yao, Dragomir Radev, Caiming Xiong, Lingpeng Kong, Rui Zhang, Noah A. Smith, Luke Zettlemoyer, Tao Yu.",
     "publication": "EMNLP 2022",
     "paperLink": "https://arxiv.org/abs/2201.05966",
@@ -41,11 +43,11 @@
     "dataLink": "https://unifiedskg.com/benchmarks/",
     "blogLink": "https://unifiedskg.com/",
     "twitterLink": "",
-    "image": ""
+    "image": "/research/unifiedskg.png"
   },
   {
     "category": "CodeGeneration",
-    "title": "DS-1000",
+    "title": "DS-1000: A Natural and Reliable Benchmark for Data Science Code Generation",
     "authors": "Yuhang Lai*, Chengxi Li*, Yiming Wang*, Tianyi Zhang*, Ruiqi Zhong*, Luke Zettlemoyer, Scott Wen-tau Yih, Daniel Fried, Sida Wang, Tao Yu",
     "publication": "ICML 2023",
     "paperLink": "https://arxiv.org/abs/2211.11501",
@@ -53,19 +55,19 @@
     "dataLink": "https://github.com/HKUNLP/DS-1000/tree/main/ds1000_example",
     "blogLink": "https://ds1000-code-gen.github.io/",
     "twitterLink": "https://twitter.com/taoyds/status/1595086401309388801",
-    "imageLink": ""
+    "image": "/research/ds-1000.jpeg"
   },
   {
     "category": "CodeGeneration",
-    "title": "Coder-Reviewer Reranking",
+    "title": "Coder Reviewer Reranking for Code Generation",
     "authors": "Tianyi Zhang*, Tao Yu, Tatsunori B. Hashimoto, Mike Lewis, Wen-tau Yih, Daniel Fried, Sida I. Wang",
     "publication": "ICML 2023",
     "paperLink": "https://arxiv.org/abs/2211.16490",
-    "codeLink": "",
+    "codeLink": "https://github.com/facebookresearch/coder_reviewer_reranking",
     "dataLink": "",
     "blogLink": "",
     "twitterLink": "",
-    "imageLink": ""
+    "image": "/research/code-reviewer.jpeg"
   },
   {
     "category": "PoweredAgents",
@@ -77,11 +79,11 @@
     "dataLink": "https://drive.google.com/uc?export=download&id=1TqleXec_OykOYFREKKtschzY29dUcVAQ",
     "blogLink": "https://yale-lily.github.io/spider",
     "twitterLink": "",
-    "imageLink": ""
+    "image": "/research/spider.webp"
   },
   {
     "category": "EfficientLLMs",
-    "title": "ICL-DST: In-Context Learning for Dialogue State Tracking with GPT-3",
+    "title": "In-Context Learning for Few-Shot Dialogue State Tracking",
     "authors": "Yushi Hu, Chia-Hsuan Lee, Tianbao Xie, Tao Yu, Noah A. Smith, Mari Ostendorf",
     "publication": "EMNLP Findings 2022",
     "paperLink": "https://arxiv.org/abs/2203.08568",
@@ -89,6 +91,6 @@
     "dataLink": "",
     "blogLink": "",
     "twitterLink": "",
-    "imageLink": ""
+    "image": "/research/IC-DST.jpeg"
   }
 ]

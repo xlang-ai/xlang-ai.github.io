@@ -81,8 +81,20 @@ const MemberCard = ({ member }: { member: TeamMember }) => {
         )}
       </div>
       <div className='w-full mt-3'>
-        <div className='font-[600] text-sm mb-2'>{member.name}</div>
-        <div className='text-black/80 text-xs'>{member.title}</div>
+        <div className='font-[600] text-sm mb-2'>
+          {member.link ? (  
+            <a target="_blank" href={member.link} className='text-black'>{member.name}</a>  
+          ) : (  
+            <span className='text-black'>{member.name}</span>  
+          )}
+        </div>
+        <div className='text-black/80 text-xs'>
+          {member.link ? (  
+            <a target="_blank" href={member.link} className='text-black'>{member.title}</a>  
+          ) : (  
+            <span className='text-black'>{member.title}</span>  
+          )}
+        </div>
       </div>
     </div>
   );

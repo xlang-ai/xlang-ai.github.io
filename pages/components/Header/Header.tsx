@@ -34,19 +34,19 @@ const Header = () => {
         {showMenu && <SideMenu setShowMenu={setShowMenu} />}
         <ul className='gap-8 text-md text-text-brand-dark hidden sm:flex'>
           <li className='font-[600] hover:underline text-brand-dark'>
-            <Link href='/'>about</Link>
+            <Link href='/'>About</Link>
           </li>
           <li className='font-[600] hover:underline text-brand-dark'>
-            <Link href='/team'>team</Link>
+            <Link href='/team'>Team</Link>
           </li>
           <li className='font-[600] hover:underline text-brand-dark'>
-            <Link href='/research'>research</Link>
+            <Link href='/research'>Research</Link>
           </li>
           <li className='font-[600] hover:underline text-brand-dark'>
-            <Link href='/project'>projects</Link>
+            <Link href='/project'>Projects</Link>
           </li>
           <li className='font-[600] hover:underline text-brand-dark'>
-            <Link href='/blog'>blogs</Link>
+            <Link href='/blog'>Blogs</Link>
           </li>
         </ul>
 
@@ -77,7 +77,7 @@ const Header = () => {
           </ul>
 
           <div className='max-sm:text-sm border border-brand-primary2 border-2 text-brand-primary2 font-[500] rounded-xl py-1 px-3 cursor-pointer'>
-            join us
+            Join Us
           </div>
         </div>
       </div>

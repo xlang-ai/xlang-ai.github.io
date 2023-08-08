@@ -203,14 +203,14 @@ const SubHighlightProjectBlock = ({
 const RecentProject = ({ recentProjects }: { recentProjects: Project[] }) => {
   return (
     <div>
-      <h1 className='text-lg font-[600] sm:font-[500] text-[#545454] sm:text-2xl mb-4'>
+      {/* <h1 className='text-lg font-[600] sm:font-[500] text-[#545454] sm:text-2xl mb-4'>
         Recent Projects
       </h1>
       <div>
         {recentProjects.map((project) => (
           <ProjectBlock project={project} key={project.title} />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

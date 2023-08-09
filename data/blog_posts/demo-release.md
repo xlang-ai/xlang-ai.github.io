@@ -4,9 +4,9 @@ shortTitle: Demo Release
 slug: demo-release
 date: 9 August 2023
 author: XLANG Lab
-coverImage: /blog/demo.png
+coverImage: /blog/xlang_overview.jpg
 previewContent: We introduce XLang Agent, an LLM-powered agent to you. We are a group of passionate natural language processing researchers. Driven by our fascination with language technology, we have come together to explore building conversational interfaces powered by large language models.
-onlineImage: https://i.imgur.com/7GtvTtIm.png
+onlineImage: /blog/xlang_overview.jpg
 ---
 
 > *"Many years later, as he faced the firing squad, Colonel Aureliano Buendía was to remember that distant afternoon when his father took him to discover ice." —— One Hundred Years of Solitude, Gabriel Garcia Márquez.*

@@ -38,7 +38,7 @@ const Preview = ({ subProj }: { subProj?: HighlightSubProject[] }) => {
           )}
         </div>
 
-        <div className='flex flex-wrap gap-10 justify-center'>
+        <div className='flex flex-wrap gap-10 grid grid-cols-1 sm:grid-cols-2 justify-center'>
           {subProj &&
             subProj.map((proj, i) => (
               <FeatureBox
@@ -68,42 +68,48 @@ const FeatureBox = ({
 }) => {
   return (
     <a href={proj.useCaseLink} target="_blank" >
-    <div
-      className='flex flex-col items-center shadow-lg rounded-2xl p-6 gap-2 max-w-[260px] min-h-[240px] border cursor-pointer'
-      style={selected ? { borderColor: '#0156AC' } : {}}
-      onClick={() => setIndex(index)}
-    >
-      <div className='relative w-12 h-12'>
-        <Image
-          src={proj.icon}
-          alt={proj.title}
-          fill
-          style={{ objectFit: 'contain', objectPosition: 'center' }}
-        />
-      </div>
-      <div className='text-lg'>{proj.title}</div>
-      <div className='text-[10px] text-center flex-1 pb-4'>
-        {proj.shortDesc}
-      </div>
+      <div
+        className='flex items-center shadow-lg rounded-2xl p-6 gap-2 max-w-[400px] max-h-[150px] cursor-pointer'
+        style={selected ? { borderColor: '#0156AC' } : {}}
+        onClick={() => setIndex(index)}
+      >
+        <div className='relative w-36 h-36'>
+          <Image
+            src={proj.icon}
+            alt={proj.title}
+            fill
+            style={{ objectFit: 'contain', objectPosition: 'center' }}
+          />
+        </div>
+        <div className='flex flex-col gap-2 mt-4 ml-4'>
+          <div className='text-lg'>{proj.title}</div>
+          <div className='text-[10px] flex-1 pb-4'>
+            {proj.shortDesc}
+          </div>
+        </div>
+        {/* <div className='text-lg'>{proj.title}</div>
+        <div className='text-[10px] text-center flex-1 pb-4'>
+          {proj.shortDesc}
+        </div> */}
 
-      {/*<div className='flex gap-4'>*/}
-      {/*  {proj.videoLink && (*/}
-      {/*    <Link href={proj.videoLink} target='_blank'>*/}
-      {/*      <div className='btn cursor-pointer text-[#0156AC] border border-[#0156AC] font-[600] rounded-lg py-1 px-4 text-xs'>*/}
-      {/*        Video*/}
-      {/*      </div>*/}
-      {/*    </Link>*/}
-      {/*  )}*/}
-      {/*  {proj.slidesLink && (*/}
-      {/*    <Link href={proj.slidesLink} target='_blank'>*/}
-      {/*      <div className='btn cursor-pointer bg-[#0156AC] text-white border border-[#0156AC] font-[600] rounded-lg py-1 px-4 text-xs'>*/}
-      {/*        Details*/}
-      {/*      </div>*/}
-      {/*    </Link>*/}
-      {/*  )}*/}
-      {/*</div>*/}
-    </div>
-    </a >
+        {/*<div className='flex gap-4'>*/}
+        {/*  {proj.videoLink && (*/}
+        {/*    <Link href={proj.videoLink} target='_blank'>*/}
+        {/*      <div className='btn cursor-pointer text-[#0156AC] border border-[#0156AC] font-[600] rounded-lg py-1 px-4 text-xs'>*/}
+        {/*        Video*/}
+        {/*      </div>*/}
+        {/*    </Link>*/}
+        {/*  )}*/}
+        {/*  {proj.slidesLink && (*/}
+        {/*    <Link href={proj.slidesLink} target='_blank'>*/}
+        {/*      <div className='btn cursor-pointer bg-[#0156AC] text-white border border-[#0156AC] font-[600] rounded-lg py-1 px-4 text-xs'>*/}
+        {/*        Details*/}
+        {/*      </div>*/}
+        {/*    </Link>*/}
+        {/*  )}*/}
+        {/*</div>*/}
+      </div>
+    </a>
   );
 };
 

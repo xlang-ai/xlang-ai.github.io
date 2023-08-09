@@ -178,7 +178,7 @@ const PostShare = () => (
       </Link>
     </li>
     <li className='cursor-pointer'>
-      <Link href='https://github.com/xlang-ai'>
+      <Link href='https://twitter.com/XLangAILabs'>
         <Image
           src={publicFilePath('/icons/twitter-black.svg')}
           alt='Xlang'

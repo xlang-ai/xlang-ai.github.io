@@ -9,6 +9,7 @@ import { getPapers, getTalks } from '@/utils/data';
 import { Paper, PaperCategory, Talk } from '@/interface/research';
 
 const PaperCategoryNames: Record<PaperCategory, string> = {
+  //TODO
   CodeGeneration: 'Code Generation and Semantic Parsing',
   ToolUse: 'lm + tool use/actionable or agentic LLMs',
   PoweredAgents: 'llm-powered agents',
@@ -17,7 +18,7 @@ const PaperCategoryNames: Record<PaperCategory, string> = {
   Robotics: 'llm + robotics',
 };
 
-const Research = ({
+const Publications = ({
   papers,
   talks,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
@@ -48,7 +49,7 @@ const Research = ({
         <div className='page-x-width flex flex-col gap-8 sm:gap-10'>
           <Intro />
           <PapersSection papers={papers} />
-          <TalksSection talks={talks} />
+          {/*<TalksSection talks={talks} />*/}
         </div>
       </div>
     </>
@@ -248,4 +249,4 @@ export async function getStaticProps() {
   };
 }
 
-export default Research;
+export default Publications;

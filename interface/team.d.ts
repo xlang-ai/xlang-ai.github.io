@@ -1,11 +1,24 @@
 export interface TeamMember {
   image?: string;
   name: string;
-  title: string;
+  titles: string;
+  link?: string;
+}
+
+// export interface Collaborator {
+//   institution: string;
+//   members: string[];
+// }
+
+export interface Alumni {
+  name: string;
+  institution: string;
   link?: string;
 }
 
 export interface Collaborator {
+  name:string;
   institution: string;
-  members: string[];
+  link?: string;
+  category: string;
 }

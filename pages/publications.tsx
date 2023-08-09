@@ -11,11 +11,12 @@ import { Paper, PaperCategory, Talk } from '@/interface/research';
 const PaperCategoryNames: Record<PaperCategory, string> = {
   //TODO
   CodeGeneration: 'Code Generation and Semantic Parsing',
-  ToolUse: 'lm + tool use/actionable or agentic LLMs',
-  PoweredAgents: 'llm-powered agents',
+  ToolUse: 'LLM + tool use/actionable or Agentic LLMs',
+  PoweredAgents: 'LLM-powered agents',
   EfficientLLMs: 'Efficient and Generalizable Large Language Models',
-  InteractiveSystems: 'dialog or interactive systems',
-  Robotics: 'llm + robotics',
+  InteractiveSystems: 'Dialog or Interactive Systems',
+  // Robotics: 'LLM + Robotics',
+  Grounding: 'Language Grounding',
 };
 
 const Publications = ({
@@ -69,7 +70,7 @@ const PapersSection = ({ papers }: { papers: Paper[] }) => {
 
   useEffect(() => {
     setFilteredPapers(
-      papers.filter((paper) => !filter || paper.category === filter)
+      papers.filter((paper) => !filter || paper.category.includes(filter))
     );
   }, [filter]);
 

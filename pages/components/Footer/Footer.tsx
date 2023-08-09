@@ -48,7 +48,7 @@ const Footer = () => {
                 />
               </Link>
             </li>
-            {/* <li className='cursor-pointer'>
+            <li className='cursor-pointer'>
               <Link href={slack}>
                 <Image
                   src={publicFilePath('/icons/slack.svg')}
@@ -58,8 +58,8 @@ const Footer = () => {
                   className='rounded-md'
                 />
               </Link>
-            </li> */}
-            {/* <li className='cursor-pointer'>
+            </li>
+            <li className='cursor-pointer'>
               <Link href={discord}>
                 <Image
                   src={publicFilePath('/icons/discord.svg')}
@@ -69,7 +69,7 @@ const Footer = () => {
                   className='rounded-md'
                 />
               </Link>
-            </li> */}
+            </li>
             <li className='cursor-pointer'>
               <Link href={github}>
                 <Image

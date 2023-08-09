@@ -20,4 +20,5 @@ export interface HighlightSubProject {
   slidesLink?: string;
   productLink?: string;
   videoLink?: string;
+  useCaseLink?: string;
 }

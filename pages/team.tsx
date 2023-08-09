@@ -4,17 +4,21 @@ import Image from 'next/image';
 import Head from 'next/head';
 import { InferGetStaticPropsType } from 'next';
 
-import { Collaborator, TeamMember } from '@/interface/team';
+import { Collaborator, TeamMember, Alumni } from '@/interface/team';
 
 import {
-  getCollaborators,
-  getCoreTeamMembers,
   getFacultyMembers,
+  getGraduates,
+  getUndergraduates,
+  getAlumni,
+  getCollaborators,
 } from '@/utils/data';
 
 const Team = ({
   facultyMembers,
-  coreMembers,
+  graduates,
+  undergraduates,
+  alumni,
   collaborators,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
@@ -44,8 +48,11 @@ const Team = ({
         <div className='page-x-width flex flex-col gap-10 sm:gap-12 pb-10'>
           <Intro />
           <Faculty facultyMembers={facultyMembers} />
-          <CoreMembers coreMembers={coreMembers} />
+          <Graduates graduates={graduates} />
+          <Undergraduates undergraduates={undergraduates} />
+          <Alumni alumni={alumni} />
           <Collaborators collaborators={collaborators} />
+          <SpecialMemorialMentor />
         </div>
       </div>
     </>
@@ -68,22 +75,39 @@ const Intro = () => {
 };
 
 const MemberCard = ({ member }: { member: TeamMember }) => {
+  const titles = member.titles.split(';');
+
   return (
-    <div className='rounded-lg shadow p-6 flex gap-4 w-[340px]'>
+    <div className='rounded-lg shadow p-4 flex gap-4 w-[340px]'>
       <div className='relative min-w-fit w-32 h-32 rounded-lg overflow-hidden'>
-        {member.image ? (
-          <Image
-            src={member.image}
-            alt={member.name}
-            width={128}
-            height={128}
-          />
+        {member.link ? (
+          <a target="_blank" href={member.link}>
+            {member.image ? (
+              <Image
+                src={member.image}
+                alt={member.name}
+                width={128}
+                height={128}
+              />
+            ) : (
+              <div className='bg-[#D9D9D9] rounded-lg w-32 h-32' />
+            )}
+          </a>
         ) : (
-          <div className='bg-[#D9D9D9] rounded-lg w-32 h-32' />
+          member.image ? (
+            <Image
+              src={member.image}
+              alt={member.name}
+              width={128}
+              height={128}
+            />
+          ) : (
+            <div className='bg-[#D9D9D9] rounded-lg w-32 h-32' />
+          )
         )}
       </div>
-      <div className='w-full mt-3'>
-        <div className='font-[600] text-sm mb-2'>
+      <div className='w-full'>
+        <div className='font-[600] text-sm mb-1 mt-2'>
           {member.link ? (  
             <a target="_blank" href={member.link} className='text-black hover:text-brand-primary2'>{member.name}</a>  
           ) : (  
@@ -91,11 +115,9 @@ const MemberCard = ({ member }: { member: TeamMember }) => {
           )}
         </div>
         <div className='text-black/80 text-xs'>
-          {member.link ? (  
-            <a target="_blank" href={member.link} className='text-black'>{member.title}</a>  
-          ) : (  
-            <span className='text-black'>{member.title}</span>  
-          )}
+          {titles.map((title, index) => (
+            <div key={index} className='text-black mt-1'>{title}</div>
+          ))}
         </div>
       </div>
     </div>
@@ -115,14 +137,48 @@ const Faculty = ({ facultyMembers }: { facultyMembers: TeamMember[] }) => {
   );
 };
 
-const CoreMembers = ({ coreMembers }: { coreMembers: TeamMember[] }) => {
+const Graduates = ({ graduates }: { graduates: TeamMember[] }) => {
   return (
     <div>
-      <h1 className='text-2xl font-[500] mb-6'>Core Members</h1>
+      <h1 className='text-2xl font-[500] mb-6'>Graduate Students & Visitors</h1>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-y-4'>
-        {coreMembers.map((member) => (
+        {graduates.map((member) => (
           <MemberCard member={member} key={member.name} />
         ))}
+      </div>
+    </div>
+  );
+};
+
+const Undergraduates = ({ undergraduates }: { undergraduates: TeamMember[] }) => {
+  return (
+    <div>
+      <h1 className='text-2xl font-[500] mb-6'>Undergraduate Students & Interns</h1>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-y-4'>
+        {undergraduates.map((member) => (
+          <MemberCard member={member} key={member.name} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const Alumni = ({ alumni }: { alumni: Alumni[] }) => {
+  return (
+    <div>
+      <h1 className='text-2xl font-[500] mb-6'>Student & Visitor Alumni</h1>
+      <div className='text-sm grid grid-cols-3 gap-6'>  
+        {alumni.map((alumnus, index) => (  
+          <div key={index}>  
+            {alumnus.link ? (  
+              <a href={alumnus.link} target='_blank' className='hover:text-brand-primary2'>  
+                {alumnus.name} ({alumnus.institution})  
+              </a>  
+            ) : (  
+              <span>{alumnus.name} ({alumnus.institution})</span>  
+            )}  
+          </div>  
+        ))}  
       </div>
     </div>
   );
@@ -133,10 +189,40 @@ const Collaborators = ({
 }: {
   collaborators: Collaborator[];
 }) => {
+  const category1 = collaborators.filter(c => c.category === '1');
+  const category2 = collaborators.filter(c => c.category === '2');
+
   return (
     <div>
-      <h1 className='text-2xl font-[500] mb-6'>Collaborators</h1>
-      <div className='flex flex-col gap-6'>
+      <h1 className='text-2xl font-[500] mb-6'>Other Collaborators</h1>
+      <div className='text-sm grid grid-cols-3 gap-6'>  
+        {category1.map((collaborator, index) => (  
+          <div key={index}>  
+            {collaborator.link ? (  
+              <a href={collaborator.link} target='_blank' className='hover:text-brand-primary2'>  
+                {collaborator.name} ({collaborator.institution})  
+              </a>  
+            ) : (  
+              <span>{collaborator.name} ({collaborator.institution})</span>  
+            )}  
+          </div>  
+        ))}  
+      </div>
+      <hr className='my-6 border-black/30' />
+      <div className='text-sm grid grid-cols-3 gap-6'>  
+        {category2.map((collaborator, index) => (  
+          <div key={index}>  
+            {collaborator.link ? (  
+              <a href={collaborator.link} target='_blank' className='hover:text-brand-primary2'>  
+                {collaborator.name} ({collaborator.institution})  
+              </a>  
+            ) : (  
+              <span>{collaborator.name} ({collaborator.institution})</span>  
+            )}  
+          </div>  
+        ))}  
+      </div>
+      {/* <div className='flex flex-col gap-6'>
         {collaborators.map((collaborator) => (
           <div key={collaborator.institution}>
             <div className='text-[#818181] font-[500] pb-2 mb-2 border-b border-black/30'>
@@ -151,20 +237,35 @@ const Collaborators = ({
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };
 
+const SpecialMemorialMentor = () => {
+  return (
+    <div>
+      <h1 className='text-2xl font-[500] mb-6'>Special Memorial Mentor</h1>
+      <span className='text-sm gap-6'>
+        <a href='http://www.cs.yale.edu/homes/radev/' target='_blank' className='hover:text-brand-primary2'>Dragomir Radev (Yale University)</a>
+      </span>
+    </div>
+  );
+}
+
 export const getStaticProps = async () => {
   const facultyMembers = getFacultyMembers();
-  const coreMembers = getCoreTeamMembers();
+  const graduates = getGraduates();
+  const undergraduates = getUndergraduates();
+  const alumni = getAlumni();
   const collaborators = getCollaborators();
 
   return {
     props: {
       facultyMembers,
-      coreMembers,
+      graduates,
+      undergraduates,
+      alumni,
       collaborators,
     },
   };

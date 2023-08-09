@@ -63,6 +63,10 @@
     @apply mx-auto;
     @apply px-4;
   }
+
+  .navbar-shadow {
+    box-shadow: 0 0px 50px -15px rgba(0, 0, 0, 0.1);
+  }
 }
 
 .hero-background {

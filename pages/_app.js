@@ -3,6 +3,7 @@ import Head from 'next/head';
 import '../styles/globals.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Image from 'next/image';
 
 export default function App({
   Component,
@@ -14,7 +15,13 @@ export default function App({
         <title>XLanG</title>
       </Head>
       <Header />
-      <Component {...pageProps} />
+      <div className='relative w-full h-full'>
+        <div className='absolute top-0 left-0 max-sm:hidden -mt-8 z-[-1]'>
+          <Image src='/background/wave.svg' width={2000} height={1000} />
+          <Image src='/background/wave2.svg' width={2000} height={1000} />
+        </div>
+        <Component {...pageProps} />
+      </div>
       <Footer />
     </SessionProvider>
   );

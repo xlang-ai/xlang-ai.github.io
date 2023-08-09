@@ -1,7 +1,6 @@
 import Image, { StaticImageData } from 'next/image';
 import React, { useState } from 'react';
 
-import DemoImage from '@/public/demo/demo.png';
 import { HighlightSubProject } from '@/interface/project';
 import Link from 'next/link';
 
@@ -13,7 +12,7 @@ const Preview = ({ subProj }: { subProj?: HighlightSubProject[] }) => {
       <div className='page-x-width'>
         <div className='grid grid-cols-4 h-fit md:h-[500px] max-sm:mb-4 mb-12'>
           <div className='max-sm:col-span-4 max-sm:max-w-fit col-span-1 h-full flex flex-col justify-center max-w-[200px]'>
-            <div className='text-2xl font-bold mb-4'>XLANG Agent</div>
+            <div className='text-2xl font-[600] mb-4'>XLANG Agent</div>
             <div className='  text-left text-sm leading-6 mb-4'>
               Open-source framework and ecosystem for building and evaluating
               LLM-based agents
@@ -69,7 +68,7 @@ const FeatureBox = ({
 }) => {
   return (
     <div
-      className='flex flex-col items-center shadow-lg rounded-2xl p-6 max-w-[220px] border cursor-pointer'
+      className='flex flex-col items-center shadow-lg rounded-2xl p-6 gap-2 max-w-[260px] min-h-[240px] border cursor-pointer'
       style={selected ? { borderColor: '#0156AC' } : {}}
       onClick={() => setIndex(index)}
     >

@@ -11,7 +11,7 @@ const Header = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
   return (
-    <div className='fixed top-0 left-0 w-full h-14 md:h-20 bg-brand-offWhite py-4 z-10 shadow'>
+    <div className='fixed top-0 left-0 w-full h-14 md:h-20 bg-white py-4 z-10 navbar-shadow'>
       <div className='page-x-width w-full flex justify-between items-center'>
         <div
           className='sm:hidden w-fit h-fit cursor-pointer'
@@ -33,20 +33,20 @@ const Header = () => {
         </Link>
         {showMenu && <SideMenu setShowMenu={setShowMenu} />}
         <ul className='gap-8 text-md text-text-brand-dark hidden sm:flex'>
-          <li className='font-[600] hover:underline text-brand-dark'>
-            <Link href='/'>About</Link>
+          <li className='font-[500] hover:underline text-brand-dark'>
+            <Link href='/'>about</Link>
           </li>
-          <li className='font-[600] hover:underline text-brand-dark'>
-            <Link href='/team'>Team</Link>
+          <li className='font-[500] hover:underline text-brand-dark'>
+            <Link href='/team'>team</Link>
           </li>
-          <li className='font-[600] hover:underline text-brand-dark'>
-            <Link href='/research'>Research</Link>
+          <li className='font-[500] hover:underline text-brand-dark'>
+            <Link href='/research'>research</Link>
           </li>
-          <li className='font-[600] hover:underline text-brand-dark'>
-            <Link href='/project'>Projects</Link>
+          <li className='font-[500] hover:underline text-brand-dark'>
+            <Link href='/project'>projects</Link>
           </li>
-          <li className='font-[600] hover:underline text-brand-dark'>
-            <Link href='/blog'>Blogs</Link>
+          <li className='font-[500] hover:underline text-brand-dark'>
+            <Link href='/blog'>blogs</Link>
           </li>
         </ul>
 
@@ -77,7 +77,7 @@ const Header = () => {
           </ul>
 
           <div className='max-sm:text-sm border border-brand-primary2 border-2 text-brand-primary2 font-[500] rounded-xl py-1 px-3 cursor-pointer'>
-            Join Us
+            join us
           </div>
         </div>
       </div>

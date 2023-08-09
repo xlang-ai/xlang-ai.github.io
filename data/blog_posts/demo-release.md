@@ -6,7 +6,7 @@ date: 9 August 2023
 author: XLANG Lab
 coverImage: /blog/demo.png
 previewContent: We introduce XLang Agent, an LLM-powered agent to you. We are a group of passionate natural language processing researchers. Driven by our fascination with language technology, we have come together to explore building conversational interfaces powered by large language models.
-onlineImage: https://i.imgur.com/7GtvTtI.png
+onlineImage: https://i.imgur.com/7GtvTtIm.png
 ---
 
 > *"Many years later, as he faced the firing squad, Colonel Aureliano Buendía was to remember that distant afternoon when his father took him to discover ice." —— One Hundred Years of Solitude, Gabriel Garcia Márquez.*
@@ -73,9 +73,11 @@ More about our research can be found on our [homepage](https://xlang.ai). To put
 
 XLang Agents are Large Language Model-powered(LLM-powered) Agents developed by our team, aiming to utilize a range of tools to enhance their capabilities, serving as user-centric intelligent agents. Currently the XLang Agents supports three different agents focusing on different application scenarios, including:
 
-- **Data Agent**: This Data Agent is equipped with data-related tools, allowing it to efficiently search, handle and manipulate and visualize data. It is proficient in writing and executing code, enabling various data-related tasks.
-- **Plugins Agent**: The Plugins Agent boasts integration with over 200 plugins from third-party sources. These plugins are carefully selected to cater to various aspects of your daily life scenarios. By leveraging these plugins, the agent can assist you with a wide range of tasks and activities.
-- **Web Agent**: The Web Agent harnesses the power of a chrome extension to navigate and explore websites automatically. This agent streamlines the web browsing experience, making it easier for you to find relevant information, access desired resources, and so on.
+- **Data Agent**: This agent is skilled in data tools, allowing efficient data search, manipulation, and visualization. It excels in code execution for data-centric tasks.
+- **Plugins Agent**: With over 200 third-party plugins, this agent addresses diverse daily life needs, aiding in various tasks.
+- **Web Agent**: Utilizing a Chrome extension, this agent automates web navigation, streamlining browsing to find and access information.
+    
+💡 We have make all three agents online, just visit 👉[**XLang Agents**](https://chat.xlang.ai) and feel free to explore! For more details about XLang Agents, you can also check the official documents in 👉[**XLang Docs**](https://docs.xlang.ai) !
 
 **Here are some interesting things XLang Agents can do!**
 
@@ -98,11 +100,10 @@ In the following example, you will see how data agent help you search a dataset,
 
 **Unleash the power of hundreds of real-world applications through our intelligent Plugins system!**
 
-The Agent, based on the provided API YAML, intelligently determines the optimal timing and selection of plugins to invoke. Each plugin has been thoughtfully curated to fulfill various requirements across your everyday life situations. By harnessing the potential of these plugins, the agent can support you in accomplishing a diverse array of tasks and activities.
+The Agent uses a provided API YAML to intelligently determines the optimal timing and selection of plugins to invoke. Each plugin has been thoughtfully curated to fulfill various requirements across your everyday life situations.
 
-In the example below, you’ll see how the plugins agent can assist you with your trip to Toronto. It offers recommendations for attractions, converts currency, checks the weather, and helps you choose suitable clothing. With its wide range of plugins, the agent ensures a smooth and enjoyable travel experience.
+For instance, when traveling to Toronto, it recommends attractions, handles currency conversion, provides weather updates, and suggests clothing, ensuring a hassle-free journey.
 
-<!-- [https://www.youtube.com/watch?v=UL7VEAQHYBE](https://www.youtube.com/watch?v=UL7VEAQHYBE) -->
 <iframe src="https://www.youtube.com/embed/UL7VEAQHYBE" title="Plugins Agent Overview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ---
@@ -111,11 +112,10 @@ In the example below, you’ll see how the plugins agent can assist you with you
 
 **Effortlessly navigate the internet with the Web Agent, powering up your browsing experience.**
 
-In the following example, two important functionalities and advantages of our web agent are demonstrated: **information retrieval** and **task execution**.
+The Web Agent, utilizing a Chrome extension, automates website navigation to streamline browsing and enhance information retrieval. It simplifies the user's quest for pertinent details and desired resources. 
 
-Firstly, the web agent navigates to IMDb to extract reviews of a specific movie. Following this, it assists the user in posting a thread on Twitter. Moreover, our interface empowers the web agent to engage in multi-turn interactions, enriching user interactions and ensuring efficient task completion.
+Specifically in the following example, the agent extracts movie reviews from IMDb and assists in posting a thread on Twitter. Additionally, our interface facilitates multi-turn interactions, ensuring efficient task completion and enriched user engagement.
 
-<!-- [https://www.youtube.com/watch?v=yH31TXBfrKI](https://www.youtube.com/watch?v=yH31TXBfrKI) -->
 <iframe src="https://www.youtube.com/embed/yH31TXBfrKI" title="Web Agent Overview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ---
@@ -123,9 +123,6 @@ Firstly, the web agent navigates to IMDb to extract reviews of a specific movie.
 By harnessing the power of large language models in conjunction with diverse tools, XLang Agents significantly expand the capabilities of conversational interfaces, offering intelligent assistance that revolves around the user. 
 
 **Engage in a conversation with our XLang Agents to explore its wide-ranging capabilities further!**
-
-💡 We have make all three agents online, just visit 👉[**XLang Agents**](https://chat.xlang.ai) and feel free to explore!
-For more details about XLang Agents, you can also check the official documents in 👉[**XLang Docs**](https://docs.xlang.ai) !
 
 ## **What's Next? The Future**
 
@@ -143,10 +140,10 @@ Our aim is to build XLang, an open-source ecosystem and community for LLM-powere
 
 **Team's Gratitude:**
 
-We would like to express our gratitude towards Google Research, Amazon AWS, and Salesforce Research. The gift funds and necessary computational resources generously provided by these awards have given us the capability and resources to implement this project. We also appreciate the invaluable advice we received throughout the process.
+We would like to express our gratitude towards Google Publications, Amazon AWS, and Salesforce Publications. The gift funds and necessary computational resources generously provided by these awards have given us the capability and resources to implement this project. We also appreciate the invaluable advice we received throughout the process.
 
 **Personal Acknowledgements by [Tao](https://taoyds.github.io/):**
 
-I feel fortunate for the year I spent at UWNLP, which is one of the world's top institutions for NLP research. Being in Seattle, a city where so many engaged in NLP have visited or even resided for a while, was a great privilege. During my time there, I managed to catch the earliest shift towards LLM, which allowed me to experience firsthand the changes in NLP. I would like to extend my thanks to Noah Smith, Luke Zettlemoyer, and Mari Ostendorf. The idea of XLang as an executable language grounding came about from a suggestion Luke made during a meeting in his office.
+I feel fortunate for the year I spent at UWNLP, which is one of the world's top institutions for NLP research. During this time, I observed the nascent shift towards LLM in NLP. I would like to extend my thanks to Noah Smith, Luke Zettlemoyer, and Mari Ostendorf. The idea of XLang came about from a suggestion Luke made during a meeting in his office.
 
 I would also like to pay tribute to my late Ph.D. advisor, Dragomir Radev. Without him, it's very possible that none of what we are starting today would exist.

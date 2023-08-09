@@ -14,12 +14,12 @@ const Sponsors = () => {
         </h1>
         <p className='max-sm:text-xs text-sm'>
           We thank the following institutions for their gift supports:
-          Google Research, Amazon AWS and Salesforce Research.
+          Google Publications, Amazon AWS and Salesforce Publications.
         </p>
         <div className='max-sm:my-8 my-4 w-full flex gap-12 justify-center items-center'>
           <Image
             src={GoogleImage}
-            alt='Google Research'
+            alt='Google Publications'
             width={90}
             height={90}
           />
@@ -31,7 +31,7 @@ const Sponsors = () => {
           />
           <Image
             src={SalesforceImage}
-            alt='Salesforce Research'
+            alt='Salesforce Publications'
             width={90}
             height={90}
           />

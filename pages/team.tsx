@@ -52,7 +52,7 @@ const Team = ({
           <Undergraduates undergraduates={undergraduates} />
           <Alumni alumni={alumni} />
           <Collaborators collaborators={collaborators} />
-          <SpecialMemorialMentor />
+          {/* <SpecialMemorialMentor /> */}
         </div>
       </div>
     </>
@@ -208,7 +208,7 @@ const Collaborators = ({
           </div>  
         ))}  
       </div>
-      <hr className='my-6 border-black/30' />
+      <hr className='my-6 border-black/10' />
       <div className='text-sm grid grid-cols-3 gap-6'>  
         {category2.map((collaborator, index) => (  
           <div key={index}>  
@@ -222,6 +222,11 @@ const Collaborators = ({
           </div>  
         ))}  
       </div>
+      <hr className='my-6 border-black/10' />
+      <div className='text-[#818181] font-[500] pb-2 mb-2 '>
+        Special Memorial Mentor
+      </div>
+      <a href='http://www.cs.yale.edu/homes/radev/' target='_blank' className='text-sm hover:text-brand-primary2'>Dragomir Radev (Yale University)</a>
       {/* <div className='flex flex-col gap-6'>
         {collaborators.map((collaborator) => (
           <div key={collaborator.institution}>
@@ -242,16 +247,16 @@ const Collaborators = ({
   );
 };
 
-const SpecialMemorialMentor = () => {
-  return (
-    <div>
-      <h1 className='text-2xl font-[500] mb-6'>Special Memorial Mentor</h1>
-      <span className='text-sm gap-6'>
-        <a href='http://www.cs.yale.edu/homes/radev/' target='_blank' className='hover:text-brand-primary2'>Dragomir Radev (Yale University)</a>
-      </span>
-    </div>
-  );
-}
+// const SpecialMemorialMentor = () => {
+//   return (
+//     <div>
+//       <h1 className='text-2xl font-[500] mb-6'>Special Memorial Mentor</h1>
+//       <span className='text-sm gap-6'>
+//         <a href='http://www.cs.yale.edu/homes/radev/' target='_blank' className='hover:text-brand-primary2'>Dragomir Radev (Yale University)</a>
+//       </span>
+//     </div>
+//   );
+// }
 
 export const getStaticProps = async () => {
   const facultyMembers = getFacultyMembers();

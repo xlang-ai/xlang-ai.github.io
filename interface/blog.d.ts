@@ -7,4 +7,5 @@ export interface BlogPost {
   coverImage?: string;
   content: string;
   previewContent: string;
+  onlineImage?: string;
 }

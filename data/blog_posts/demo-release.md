@@ -1,18 +1,19 @@
 ---
-title: 'Introducing XLang: An Open-source Framework for Building LLM-Powered Agents via Executable Language Grounding'
+title: 'Introducing XLang: An Open-source Framework for Building Language Model Agents'
 shortTitle: Demo Release
 slug: demo-release
-date: 8 August 2023
+date: 9 August 2023
 author: XLANG Lab
 coverImage: /blog/demo.png
-previewContent: We introduce XLang Agent, an LLM-driven natural language interface to you. We are a group of passionate natural language processing researchers. Driven by our fascination with language technology, we have come together to explore building conversational interfaces powered by large language models.
+previewContent: We introduce XLang Agent, an LLM-powered agent to you. We are a group of passionate natural language processing researchers. Driven by our fascination with language technology, we have come together to explore building conversational interfaces powered by large language models.
+onlineImage: https://i.imgur.com/7GtvTtI.png
 ---
 
 > *"Many years later, as he faced the firing squad, Colonel Aureliano Buendía was to remember that distant afternoon when his father took him to discover ice." —— One Hundred Years of Solitude, Gabriel Garcia Márquez.*
 >
 ---
 
-When envisioning the future, people have always imagined an intelligent agent capable of following human commands and performing specific tasks, significantly enhancing productivity. In recent times, with the emergence of powerful language models, this vision is accelerating. For example, in late March, OpenAI harnessed the strength of its its GPT-series language models to introduce a product: [ChatGPT Plugins](https://openai.com/blog/chatgpt-plugins), which sheds new light on LLM-powered agents (Large Language Model-powered agents).
+When envisioning the future, people have always imagined an intelligent agent capable of following human commands and performing specific tasks, significantly enhancing productivity. In recent times, with the emergence of powerful language models, this vision is accelerating. The emergence of [langchain agent](https://github.com/langchain-ai/langchain) and the advancements brought by [AutoGPT](https://github.com/Significant-Gravitas/Auto-GPT) are noteworthy. The introduction of [ChatGPT Plugins](https://openai.com/blog/chatgpt-plugins) and groundbreaking research on interactive tool-use and environments, we're getting a fresh perspective on what Large Language Model-powered agents can truly achieve. The enthusiasm is widespread: from major tech players to open-source developers and researchers, everyone is diving into the field with immense passion and optimism.
 
 The LLM-powered agent represents a crucial step in this burgeoning field, enabling powerful language models to take actions, use tools, execute various tasks and facilitate more intelligent interactions with humans. Our team, **XLang** **Team**, wholeheartedly believes in this promising vision and sees LLM-powered agents as a pivotal path towards the future of Artificial General Intelligence (AGI).
 
@@ -59,12 +60,12 @@ Many of our team members, myself included, have been consistently drawn to resea
 
 Throughout this process, we have maintained active collaborations with industry players like Salesforce, Microsoft, Amazon, Facebook, Google, especially in the realm of text-to-SQL. We were also among the pioneers in working with large language models for in-context learning, LLM+tool use, instruction tuning, and retrieval embeddings for LLM. Here are some of our representative works:
 
-- [Binder (ICLR 2023)](https://lm-code-binder.github.io/) - One of the earliest works in LLM + tool use/agents. This work proposed leveraging language models to solve complex problems using code interpreters and API calls, and it proposed the concept of Toolformer and ChatGPT plugins half a year before its time.
-- [Instructor Embeddings (ACL 2023 Findings)](https://instructor-embedding.github.io/) - This work presented instruction-finetuned text embeddings that outperformed OpenAI embeddings. It achieved high popularity with over 500k downloads, 1k stars, and usage in numerous projects.
-- [Selective Annotation (ICLR 2023)](https://github.com/HKUNLP/icl-selective-annotation) - This work explored how annotation example selection impacts LLM’s in-context learning performance.
-- Code Generation and Semantic Parsing: [DS-1000 (ICML 2023)](https://ds1000-code-gen.github.io/) and [Coder-Reviewer Reranking (ICML 2023)](https://arxiv.org/abs/2211.16490) introduced LLM-based methods and benchmarks for code generation. [UnifiedSKG (EMNLP 2022)](https://github.com/HKUNLP/UnifiedSKG) offered a state-of-the-art framework for over 20 structured knowledge grounding tasks.
-- [Spider(EMNLP 2018)](https://yale-lily.github.io/spider): Spider is a widely studied benchmark for complex text-to-SQL tasks, attracting submissions from top research labs and communities in NLP, HCI, VIS, PL, and DB.
-- Dialog and Interactive Systems: [ICL-DST (EMNLP Findings 2022)](https://github.com/Yushi-Hu/IC-DST) demonstrated the effectiveness of LLM on dialogue state tracking tasks. Other conversational text-to-code tasks included [SParC (ACL 2019)](https://yale-lily.github.io/sparc), [CoSQL (EMNLP 2019)](https://yale-lily.github.io/cosql), and [NL2Interface (NLVIZ 2022)](https://arxiv.org/abs/2209.08834).
+- [**Binder** (ICLR 2023)](https://lm-code-binder.github.io/) - One of the earliest works in LLM + tool use/agents. This work proposed leveraging language models to solve complex problems using code interpreters and API calls, and it proposed the concept of Toolformer and ChatGPT plugins half a year before its time.
+- [**Instructor Embeddings** (ACL 2023 Findings)](https://instructor-embedding.github.io/) - This work presented instruction-finetuned text embeddings that outperformed OpenAI embeddings. It achieved high popularity with over 500k downloads, 1k stars, and usage in numerous projects.
+- [**Selective Annotation** (ICLR 2023)](https://github.com/HKUNLP/icl-selective-annotation) - This work explored how annotation example selection impacts LLM’s in-context learning performance.
+- Code Generation and Semantic Parsing: [**DS-1000** (ICML 2023)](https://ds1000-code-gen.github.io/) and [**Coder-Reviewer Reranking** (ICML 2023)](https://arxiv.org/abs/2211.16490) introduced LLM-based methods and benchmarks for code generation. [**UnifiedSKG** (EMNLP 2022)](https://github.com/HKUNLP/UnifiedSKG) offered a state-of-the-art framework for over 20 structured knowledge grounding tasks.
+- [**Spider**(EMNLP 2018)](https://yale-lily.github.io/spider): Spider is a widely studied benchmark for complex text-to-SQL tasks, attracting submissions from top research labs and communities in NLP, HCI, VIS, PL, and DB.
+- Dialog and Interactive Systems: [**ICL-DST** (EMNLP Findings 2022)](https://github.com/Yushi-Hu/IC-DST) demonstrated the effectiveness of LLM on dialogue state tracking tasks. Other conversational text-to-code tasks included [**SParC** (ACL 2019)](https://yale-lily.github.io/sparc), [**CoSQL** (EMNLP 2019)](https://yale-lily.github.io/cosql), and [**NL2Interface** (NLVIZ 2022)](https://arxiv.org/abs/2209.08834).
 
 More about our research can be found on our [homepage](https://xlang.ai). To put it simply, we are a dedicated research team profoundly invested and interested in XLang and LLM-powered AI agents, particularly those related to data and web/app agents. More XLang, code generation, LLM+tool use, and LLM+robotics paper collections can be found in our ACL tutorial on complex reasoning: [LLM+tool use](https://github.com/xlang-ai/llm-tool-use).
 
@@ -140,8 +141,12 @@ Our aim is to build XLang, an open-source ecosystem and community for LLM-powere
 
 ## **Acknowledgements**
 
-Firstly, I would like to express my gratitude towards Google Research, Amazon AWS, and Salesforce Research. The gift funds and necessary computational resources generously provided by these awards have given us the capability and resources to implement this project. We also appreciate the invaluable advice we received throughout the process.
+**Team's Gratitude:**
 
-I also feel fortunate for the year I spent at UWNLP, which is one of the world's top institutions for NLP research. Being in Seattle, a city where so many engaged in NLP have visited or even resided for a while, was a great privilege. During my time there, I managed to catch the earliest shift towards LLM, which allowed me to experience firsthand the changes in NLP. I would like to extend my thanks to Noah Smith, Luke Zettlemoyer, and Mari Ostendorf. The idea of XLang as an executable language grounding came about from a suggestion Luke made during a meeting in his office.
+We would like to express our gratitude towards Google Research, Amazon AWS, and Salesforce Research. The gift funds and necessary computational resources generously provided by these awards have given us the capability and resources to implement this project. We also appreciate the invaluable advice we received throughout the process.
 
-Lastly, I would like to pay tribute to my late Ph.D. advisor, Dragomir Radev. Without him, it's very possible that none of what we are starting today would exist.
+**Personal Acknowledgements by [Tao](https://taoyds.github.io/):**
+
+I feel fortunate for the year I spent at UWNLP, which is one of the world's top institutions for NLP research. Being in Seattle, a city where so many engaged in NLP have visited or even resided for a while, was a great privilege. During my time there, I managed to catch the earliest shift towards LLM, which allowed me to experience firsthand the changes in NLP. I would like to extend my thanks to Noah Smith, Luke Zettlemoyer, and Mari Ostendorf. The idea of XLang as an executable language grounding came about from a suggestion Luke made during a meeting in his office.
+
+I would also like to pay tribute to my late Ph.D. advisor, Dragomir Radev. Without him, it's very possible that none of what we are starting today would exist.

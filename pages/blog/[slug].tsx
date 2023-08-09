@@ -12,6 +12,7 @@ import { BlogPost as Post } from '@/interface/blog';
 import rehypeRaw from 'rehype-raw';
 
 const BlogPost = ({ post }: { post: Post }) => {
+  const BlogUrl = `xlang-website-git-blogupdate-xlang-teamo.vercel.app/blog/${post.slug}`;
   return (
     <>
       <Head>
@@ -34,6 +35,16 @@ const BlogPost = ({ post }: { post: Post }) => {
           href='/favicon/black-on-white/favicon-16x16.png'
         />
         <link rel='manifest' href='/favicon/black-on-white/site.webmanifest' />
+        <meta name="description" content={post.title} />  
+        <meta property="og:title" content={post.title} />  
+        <meta property="og:type" content="website" />  
+        <meta property="og:image" content={post.onlineImage} />  
+        <meta property="og:description" content={post.previewContent} />  
+        <meta property="og:url" content={BlogUrl} />  
+        <meta name="twitter:card" content="summary_large_image" />  
+        <meta name="twitter:title" content={post.title} />  
+        <meta name="twitter:description" content={post.previewContent} />  
+        <meta name="twitter:image" content={post.onlineImage} />
       </Head>
       <div className='pt-36 w-full min-h-screen bg-[#D9D9D9]/20'>
         <div className='page-x-width'>
@@ -158,17 +169,6 @@ const PostShare = () => (
     <li className='cursor-pointer'>
       <Link href='https://github.com/xlang-ai'>
         <Image
-          src={publicFilePath('/icons/discord-black.svg')}
-          alt='Xlang'
-          width={20}
-          height={20}
-          className='rounded-md'
-        />
-      </Link>
-    </li>
-    <li className='cursor-pointer'>
-      <Link href='https://github.com/xlang-ai'>
-        <Image
           src={publicFilePath('/icons/github-black.svg')}
           alt='Xlang'
           width={20}
@@ -178,20 +178,9 @@ const PostShare = () => (
       </Link>
     </li>
     <li className='cursor-pointer'>
-      <Link href='https://github.com/xlang-ai'>
+      <Link href='http://www.twitter.com/share?url=https://xlang.ai/blog/demo-release'>
         <Image
           src={publicFilePath('/icons/twitter-black.svg')}
-          alt='Xlang'
-          width={20}
-          height={20}
-          className='rounded-md'
-        />
-      </Link>
-    </li>
-    <li className='cursor-pointer'>
-      <Link href='https://github.com/xlang-ai'>
-        <Image
-          src={publicFilePath('/icons/threads-black.svg')}
           alt='Xlang'
           width={20}
           height={20}

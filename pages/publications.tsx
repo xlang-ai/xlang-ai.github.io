@@ -59,16 +59,7 @@ const Publications = ({
 const Intro = () => (
   <div className='text-sm font-[500]'>
     <h1 className='text-2xl mb-4'>Research</h1>
-    <p>
-      “X” in XLang Grounding LLMs into executable code or actions in different
-      environments
-    </p>
-    <p>Enhance LLMs with various external tools for building AI agents</p>
-    <p>
-      Interdisciplinary research efforts among NLP, HCI, DB, VIS, UI, DataSci,
-      Robotics, Code/PL, SE.
-    </p>
-    <p>Interaction among humans, agents, and environments.</p>
+    <p>At the XLang Lab, our research centers on constructing language model agents that convert language instructions into executable actions within real-world contexts. This encompasses databases (data agent), web applications (plugins/web agent), physical world interactions (robotic agent), and involves techniques like LLM + tool utilization, code generation, semantic parsing, interactive systems, and beyond.</p>
   </div>
 );
 
@@ -146,17 +137,12 @@ const PaperBlock = ({ paper }: { paper: Paper }) => {
                 code
               </a>
             )}
-            {paper.dataLink && (
-              <a href={paper.dataLink} target='_blank'>
-                data
-              </a>
-            )}
-            {paper.blogLink && (
+            {paper.codeLink && (
               <a href={paper.blogLink} target='_blank'>
-                blog
+                page
               </a>
             )}
-            {paper.twitterLink && (
+            {paper.codeLink && (
               <a href={paper.twitterLink} target='_blank'>
                 twitter
               </a>

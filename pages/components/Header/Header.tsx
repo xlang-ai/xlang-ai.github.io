@@ -40,10 +40,10 @@ const Header = () => {
             <Link href='/team'>team</Link>
           </li>
           <li className='font-[500] hover:underline text-brand-dark'>
-            <Link href='/research'>research</Link>
+            <Link href='/project'>projects</Link>
           </li>
           <li className='font-[500] hover:underline text-brand-dark'>
-            <Link href='/project'>projects</Link>
+            <Link href='/publications'>publications</Link>
           </li>
           <li className='font-[500] hover:underline text-brand-dark'>
             <Link href='/blog'>blogs</Link>
@@ -112,13 +112,13 @@ const SideMenu = ({
           </Link>
         </li>
         <li className='text-2xl font-[600] hover:underline text-brand-dark'>
-          <Link href='/research' onClick={() => setShowMenu(false)}>
-            research
+          <Link href='/project' onClick={() => setShowMenu(false)}>
+            projects
           </Link>
         </li>
         <li className='text-2xl font-[600] hover:underline text-brand-dark'>
-          <Link href='/project' onClick={() => setShowMenu(false)}>
-            projects
+          <Link href='/publications.tsx' onClick={() => setShowMenu(false)}>
+            research
           </Link>
         </li>
         <li className='text-2xl font-[600] hover:underline text-brand-dark'>

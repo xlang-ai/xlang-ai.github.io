@@ -31,7 +31,7 @@
   },
   {
     "icon": "/icons/robotics.svg",
-    "title": "Robotics",
+    "title": "Robotic Agent",
     "desc": "The Web Agent harnesses the power of a chrome extension to navigate and explore websites automatically. This agent streamlines the web browsing experience, making it easier for you to find relevant information, access desired resources, and so on.",
     "shortDesc": "streamlining web browsing, making information retrieval and resource access easier",
     "image": "/demo/demo.png",

@@ -13,6 +13,7 @@ import rehypeRaw from 'rehype-raw';
 
 const BlogPost = ({ post }: { post: Post }) => {
   const BlogUrl = `https://xlang.ai/blog/${post.slug}`;
+  const TwitterShareUrl = `http://www.twitter.com/share?url=${BlogUrl}&text=${post.title}`;
   return (
     <>
       <Head>
@@ -59,7 +60,7 @@ const BlogPost = ({ post }: { post: Post }) => {
 
             <div className='flex flex-wrap w-full max-sm:gap-2 gap-8'>
               <PostImage coverImage={post.coverImage} title={post.title} />
-              <PostMeta date={post.date} author={post.author} slug={BlogUrl}/>
+              <PostMeta date={post.date} author={post.author} slug={TwitterShareUrl}/>
             </div>
           </div>
 

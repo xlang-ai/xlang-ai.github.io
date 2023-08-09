@@ -1,14 +1,17 @@
+import { list } from "postcss";
+
 export type PaperCategory =
   | 'CodeGeneration'
   | 'ToolUse'
   | 'PoweredAgents'
   | 'EfficientLLMs'
   | 'InteractiveSystems'
-  | 'Robotics';
+  | 'Grounding';
+  // | 'Robotics';
 
 export interface Paper {
   image?: string;
-  category?: PaperCategory;
+  category?: Array<PaperCategory>;
   title: string;
   authors: string;
   publication?: string;

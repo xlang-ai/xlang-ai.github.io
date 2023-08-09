@@ -140,7 +140,7 @@ Our aim is to build XLang, an open-source ecosystem and community for LLM-powere
 
 **Team's Gratitude:**
 
-We would like to express our gratitude towards Google Publications, Amazon AWS, and Salesforce Publications. The gift funds and necessary computational resources generously provided by these awards have given us the capability and resources to implement this project. We also appreciate the invaluable advice we received throughout the process.
+We would like to express our gratitude towards Google Research, Amazon AWS, and Salesforce Research. The gift funds and necessary computational resources generously provided by these awards have given us the capability and resources to implement this project. We also appreciate the invaluable advice we received throughout the process.
 
 **Personal Acknowledgements by [Tao](https://taoyds.github.io/):**
 

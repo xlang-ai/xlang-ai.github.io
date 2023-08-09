@@ -12,7 +12,8 @@ import { BlogPost as Post } from '@/interface/blog';
 import rehypeRaw from 'rehype-raw';
 
 const BlogPost = ({ post }: { post: Post }) => {
-  const BlogUrl = `xlang-website-git-blogupdate-xlang-teamo.vercel.app/blog/${post.slug}`;
+  const BlogUrl = `https://xlang.ai/blog/${post.slug}`;
+  const TwitterShareUrl = `http://www.twitter.com/share?url=${BlogUrl}`;
   return (
     <>
       <Head>
@@ -59,7 +60,7 @@ const BlogPost = ({ post }: { post: Post }) => {
 
             <div className='flex flex-wrap w-full max-sm:gap-2 gap-8'>
               <PostImage coverImage={post.coverImage} title={post.title} />
-              <PostMeta date={post.date} author={post.author} />
+              <PostMeta date={post.date} author={post.author} slug={TwitterShareUrl}/>
             </div>
           </div>
 
@@ -134,11 +135,11 @@ const PostImage = ({
   </div>
 );
 
-const PostMeta = ({ date, author }: { date: string; author: string }) => (
+const PostMeta = ({ date, author, slug}: { date: string; author: string; slug: string }) => (
   <div className='font-[600] text-xs flex flex-col max-sm:gap-4 gap-12 mt-4'>
     <div>
       <div className='text-[#666666] mb-2'>Share</div>
-      <PostShare />
+      <PostShare slug={slug}/>
     </div>
 
     <div>
@@ -153,7 +154,7 @@ const PostMeta = ({ date, author }: { date: string; author: string }) => (
   </div>
 );
 
-const PostShare = () => (
+const PostShare = ({ slug }: { slug: string }) => (
   <ul className='flex gap-4'>
     <li className='cursor-pointer'>
       <Link href='https://github.com/xlang-ai'>
@@ -178,7 +179,7 @@ const PostShare = () => (
       </Link>
     </li>
     <li className='cursor-pointer'>
-      <Link href='http://www.twitter.com/share?url=https://xlang.ai/blog/demo-release'>
+      <Link href={slug}>
         <Image
           src={publicFilePath('/icons/twitter-black.svg')}
           alt='Xlang'

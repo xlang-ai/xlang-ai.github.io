@@ -60,7 +60,9 @@ const Intro = () => {
         We have an interdisciplinary team that allows us to carry out studies
         ranging from exploring to the development of next-generation
       </p>
+        <a href="https://forms.gle/3Ki9ectMB5D31F8g8" target="_blank" rel="noopener noreferrer">
       <button className='btn btn-secondary text-xs py-1 w-24'>Join Us</button>
+        </a>
     </div>
   );
 };

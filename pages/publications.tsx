@@ -70,8 +70,12 @@ const Intro = () => (
       Robotics, Code/PL, SE.
     </p>
     <p>Interaction among humans, agents, and environments.</p>
+    <div style={{ textAlign: 'center' }}>
+      <img src="/blog/xlang_overview.png" alt="XLang Overview" />
+    </div>
   </div>
 );
+
 
 const PapersSection = ({ papers }: { papers: Paper[] }) => {
   const [filter, setFilter] = useState<PaperCategory>(null);

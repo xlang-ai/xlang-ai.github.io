@@ -8,18 +8,13 @@ const Welcome = () => {
           <b>XLANG</b> Lab
         </h1>
         <p className='leading-7'>
-          Welcome to the <b>Executable Language Grounding (XLANG)</b> Group! We
-          are part of the <b>HKU NLP Group</b> at the University of Hong Kong.
-          XLANG focuses on transforming natural language instructions (via large
-          language models (LLMs)) into code or actions executable within
-          real-world environments, including databases, web applications, and
-          the physical world, etc. It lies at the heart of LLM-powered agents or
-          natural language interfaces that interact with these real-world
-          environments to facilitate human interaction with data analysis, web
-          applications, and robotic instructions through conversation. Recent
-          advances in Executable Language Grounding incorporate techniques such
-          as LLM + external tools/actionable or agentic LLMs, code generation,
-          semantic parsing, and dialog or interactive systems.
+          Welcome to the <b>Exe</b>cutable <b>Lang</b>uage <b>G</b>rounding (XLang) Lab!
+          We are part of the HKU NLP Group at the University of Hong Kong.
+          XLang focuses on building language model agents that transform (“grounding”) language instructions into code or actions executable in real-world environments,
+          including databases (data agent), web applications (plugins/web agent), and the physical world (robotic agent) etc,.
+          It lies at the heart of language model agents or natural language interfaces that can interact with and learn from these real-world environments to facilitate human interaction with data analysis,
+          web applications, and robotic instruction through conversation.
+          Recent advances in XLang incorporate techniques such as LLM + external tools, code generation, semantic parsing, and dialog or interactive systems.
         </p>
       </div>
     </div>

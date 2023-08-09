@@ -1,6 +1,6 @@
 [
   {
-    "category": "CodeGeneration",
+    "category": ["CodeGeneration", "PoweredAgents", "ToolUse"],
     "title": "Binder: Binding Language Models in Symbolic Languages",
     "authors": "Zhoujun Cheng*, Tianbao Xie*, Peng Shi, Chengzu Li, Rahul Nadkarni, Yushi Hu, Caiming Xiong, Dragomir Radev, Mari Ostendorf, Luke Zettlemoyer, Noah A Smith, Tao Yu",
     "publication": "ICLR 2023",
@@ -12,7 +12,7 @@
     "image":"/research/binder.jpeg"
   },
   {
-    "category": "PoweredAgents",
+    "category": ["EfficientLLMs"],
     "title": "Instructor Embeddings: One Embedder, Any Task: Instruction-Finetuned Text Embeddings",
     "authors": "Hongjin Su, Weijia Shi, Jungo Kasai, Yizhong Wang, Yushi Hu, Mari Ostendorf, Wen-tau Yih, Noah A. Smith, Luke Zettlemoyer, Tao Yu",
     "publication": "ACL 2023 Findings",
@@ -24,7 +24,7 @@
     "image": "/research/instructor.png"
   },
   {
-    "category": "ToolUse",
+    "category": ["EfficientLLMs"],
     "title": "Selective Annotation Makes Language Models Better Few-Shot Learners",
     "authors": "Hongjin Su, Jungo Kasai, Chen Henry Wu, Weijia Shi, Tianlu Wang, Jiayi Xin, Rui Zhang, Mari Ostendorf, Luke Zettlemoyer, Noah A. Smith, Tao Yu",
     "publication": "ICLR 2023",
@@ -34,7 +34,7 @@
     "image":"/research/selective_annotation.jpeg"
   },
   {
-    "category": "",
+    "category": ["EfficientLLMs"],
     "title": "Compositional Exemplars for In-context Learning",
     "authors": "Jiacheng Ye, Zhiyong Wu, Jiangtao Feng, Tao Yu, and Lingpeng Kong",
     "publication": "ICML 2023",
@@ -43,7 +43,7 @@
     "image":"/research/ce-icl.png"
   },
   {
-    "category": "PoweredAgents",
+    "category": ["Grounding"],
     "title": "UnifiedSKG: Unifying and Multi-Tasking Structured Knowledge Grounding with Text-to-Text Language Models",
     "authors": "Tianbao Xie*, Chen Henry Wu*, Peng Shi, Ruiqi Zhong, Torsten Scholak, Michihiro Yasunaga, Chien-Sheng Wu, Ming Zhong, Pengcheng Yin, Sida I. Wang, Victor Zhong, Bailin Wang, Chengzu Li, Connor Boyle, Ansong Ni, Ziyu Yao, Dragomir Radev, Caiming Xiong, Lingpeng Kong, Rui Zhang, Noah A. Smith, Luke Zettlemoyer, Tao Yu.",
     "publication": "EMNLP 2022",
@@ -55,7 +55,7 @@
     "image": "/research/unifiedskg.png"
   },
   {
-    "category": "CodeGeneration",
+    "category": ["CodeGeneration"],
     "title": "DS-1000: A Natural and Reliable Benchmark for Data Science Code Generation",
     "authors": "Yuhang Lai*, Chengxi Li*, Yiming Wang*, Tianyi Zhang*, Ruiqi Zhong*, Luke Zettlemoyer, Scott Wen-tau Yih, Daniel Fried, Sida Wang, Tao Yu",
     "publication": "ICML 2023",
@@ -67,7 +67,7 @@
     "image": "/research/ds-1000.jpeg"
   },
   {
-    "category": "CodeGeneration",
+    "category": ["CodeGeneration"],
     "title": "Coder Reviewer Reranking for Code Generation",
     "authors": "Tianyi Zhang*, Tao Yu, Tatsunori B. Hashimoto, Mike Lewis, Wen-tau Yih, Daniel Fried, Sida I. Wang",
     "publication": "ICML 2023",
@@ -79,7 +79,7 @@
     "image": "/research/code-reviewer.jpeg"
   },
   {
-    "category": "EfficientLLMs",
+    "category": ["EfficientLLMs", "InteractiveSystems"],
     "title": "In-Context Learning for Few-Shot Dialogue State Tracking",
     "authors": "Yushi Hu, Chia-Hsuan Lee, Tianbao Xie, Tao Yu, Noah A. Smith, Mari Ostendorf",
     "publication": "EMNLP Findings 2022",
@@ -91,7 +91,7 @@
     "image": "/research/IC-DST.jpeg"
   },
   {
-    "category": "",
+    "category": ["EfficientLLMs"],
     "title": "ZeroGen: Efficient Zero-shot Learning via Dataset Generation",
     "authors": "Jiacheng Ye*, Jiahui Gao*, Qintong Li, Hang Xu, Jiangtao Feng, Zhiyong Wu, Tao Yu, Lingpeng Kong",
     "publication": "EMNLP 2022",
@@ -103,7 +103,7 @@
     "image": "/research/zerogen.png"
   },
   {
-    "category": "PoweredAgents",
+    "category": ["Grounding"],
     "title": "Spider: A Large-Scale Human-Labeled Dataset for Complex and Cross-Domain Semantic Parsing and Text-to-SQL Task",
     "authors": "Tao Yu, Rui Zhang, Kai Yang, Michihiro Yasunaga, Dongxu Wang, Zifan Li, James Ma, Irene Li, Qingning Yao, Shanelle Roman, Zilin Zhang, Dragomir Radev",
     "publication": "EMNLP 2018",

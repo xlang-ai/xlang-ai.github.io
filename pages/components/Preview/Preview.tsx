@@ -29,7 +29,7 @@ const Preview = ({ proj, subProj }: { proj?: HighlightProject, subProj?: Highlig
           </div>
           {proj && (
             <div className='max-sm:col-span-4 max-sm:h-[55vw] rounded-lg overflow-hidden col-span-3 relative'>
-              <iframe width="97%" height="97%" src={`https://www.youtube.com/embed/${proj.videoLink}?rel=0`}>
+              <iframe className='w-full h-full' src={`https://www.youtube.com/embed/${proj.videoLink}?rel=0`}>
               </iframe>
             {/* //   <Image
             //     src={subProj[0].image}
@@ -42,7 +42,7 @@ const Preview = ({ proj, subProj }: { proj?: HighlightProject, subProj?: Highlig
         </div>
         <div className='grid grid-cols-4 gap-1 h-fit md:h-[200px] max-sm:mb-4 mb-12'>
           <div className='col-span-4'>
-            <p className='text-lg leading-6'>XLang Agents: Our ongoing effort to build an open-source framework and ecosystem for building and evaluating language model agents. The open-source journey begins with XLang Agent demos. In the following months, and beyond, we will be open-sourcing several significant projects, including a framework, models, methods, benchmarks, and more. In the foreseeable future, we envision that a proficient functional agent will require the fusion of these various agents.</p>
+            <p className='leading-7'>XLang Agents: Our ongoing effort to build an open-source framework and ecosystem for building and evaluating language model agents. The open-source journey begins with XLang Agent demos. In the following months, and beyond, we will be open-sourcing several significant projects, including a framework, models, methods, benchmarks, and more. In the foreseeable future, we envision that a proficient functional agent will require the fusion of these various agents.</p>
           </div>
         </div>
         <div className='flex flex-wrap gap-4 grid grid-cols-1 sm:grid-cols-2 justify-center'>

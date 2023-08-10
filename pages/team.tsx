@@ -63,7 +63,7 @@ const Intro = () => {
   return (
     <div className='flex flex-col gap-2'>
       <h1 className='text-2xl font-[500]'>Team</h1>
-      <p>
+      <p className='leading-7'>
         Our research team is dedicated to creating language model agents that connect language instructions to executable code or actions, facilitating the execution of complex tasks in real-world scenarios. Composed of a diverse and interdisciplinary group, our team combines the expertise of professionals from various fields including NLP, HCI, DB, CV, VIS, Robotics, UI, DataSci, and Code/PL. This collaborative approach enables us to approach our investigations from a range of viewpoints, fostering a comprehensive understanding of the subject.
       </p>
         <a href="https://forms.gle/3Ki9ectMB5D31F8g8" target="_blank" rel="noopener noreferrer">

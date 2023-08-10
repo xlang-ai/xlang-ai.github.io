@@ -7,7 +7,7 @@ const Welcome = () => {
         <h1 className='text-2xl mb-6'>
           <b>XLANG</b> Lab
         </h1>
-        <p className='leading-7'>
+        <p className='leading-7 mb-8'>
           Welcome to the
           <span style={{ fontWeight: 'bold' }}>
             <span style={{ color: 'blue' }}> Exe</span>cutable
@@ -22,7 +22,7 @@ const Welcome = () => {
           Recent advances in XLang incorporate techniques such as LLM + external tools, code generation, semantic parsing, and dialog or interactive systems.
         </p>
         <div className='col-span-4'>
-              <img src='/demo/xlang_overview.jpg' alt='xlang-overview' className='w-full h-auto my-4 shadow-lg' />
+          <img src='/demo/teaser.jpg' alt='xlang-overview' className='w-full h-auto' />
         </div>
       </div>
     </div>

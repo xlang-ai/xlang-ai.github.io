@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { InferGetStaticPropsType } from 'next';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 import projectImage from '@/public/demo.png';
 import Link from 'next/link';
@@ -60,16 +60,7 @@ const Intro = () => (
   <>
     <h1 className='font-[600] text-2xl mb-8'>Projects</h1>
     <p className='text-sm leading-6'>
-      XLANG focuses on transforming natural language instructions (via large
-      language models (LLMs)) into code or actions executable within real-world
-      environments, including databases, web applications, and the physical
-      world, etc. It lies at the heart of LLM-powered agents or natural language
-      interfaces that interact with these real-world environments to facilitate
-      human interaction with data analysis, web applications, and robotic
-      instruction through conversation. Recent advances in Executable Language
-      Grounding incorporate techniques such as LLM + external tools/actionable
-      or agentic LLMs, code generation, semantic parsing, and dialog or
-      interactive systems.
+    Our lab is actively engaged in projects focused on creating language model agents that translate language instructions into executable actions across real-world domains such as databases (data agent), web applications (plugins/web agent), and the physical world (robotic agent) etc. We are currently developing an open-source framework to facilitate the construction and assessment of these agents, starting with XLang Agent demos. In the coming months, we&apos;ll open-source essential projects like frameworks, models, methods, and benchmarks, aiming to establish a robust community dedicated to building capable multifunctional agents.
     </p>
   </>
 );
@@ -217,15 +208,16 @@ const RecentProject = ({ recentProjects }: { recentProjects: Project[] }) => {
 
 const ProjectBlock = ({ project }: { project: Project }) => {
   return (
+    <a href={project.link} target="_blank" >
     <div className='border-t border-b border-black/30 py-6'>
       <div className='max-sm:flex-col flex gap-4'>
         {project.image ? (
-          <div className='relative w-[180px] max-sm:h-48 h-32'>
+          <div className='relative min-w-[180px] max-sm:h-48 h-32 rounded-lg overflow-hidden my-auto shadow-xl'>
             <Image
               src={project.image}
               alt={project.title}
               fill
-              style={{ objectFit: 'cover', objectPosition: 'center' }}
+              style={{ objectFit: 'fill', objectPosition: 'left center' }}
             />
           </div>
         ) : (
@@ -238,14 +230,15 @@ const ProjectBlock = ({ project }: { project: Project }) => {
         </div>
       </div>
     </div>
+    </a>
   );
 };
+
 
 export async function getStaticProps() {
   const recentProjects = getRecentProjects();
   const hightlightProject = getHighlightProject();
   const highlightSubProjects = getHighlightSubProjects();
-
   return {
     props: {
       recentProjects,

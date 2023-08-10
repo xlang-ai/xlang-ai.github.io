@@ -1,27 +1,32 @@
 [
   {
     "title": "Binder: Binding Language Models in Symbolic Languages",
-    "desc": "One of the earliest works in LLM + tool use/agents, simultaneously with 'ReAct' last October. We proposed the use of LLM to leverage python/sql code interpreters and various API calls (similar to functional calling) to solve complex problems. This work was, unfortunately, under-recognized and under-credited. It proposed the concept of Toolformer and ChatGPT plugins half a year before its time.",
-    "image": ""
+    "desc": "Binder was among the earliest works in LLM using tools, before Toolformer and ChatGPT plugins. By combining code and LLM API calls, Binder can solve complex reasoning problems with high-performance while being interpretable and scalable.",
+    "link": "https://github.com/HKUNLP/binder",
+    "image": "/research/binder.jpg"
   },
   {
-    "title": "Instructor Embeddings: One Embedder, Any Task: Instruction-Finetuned Text Embeddings",
-    "desc": "This work showcased instruction-finetuned text embeddings/retriever, the SOTA embedding for retrieval, semantic similarity, etc. It's open-source, and superior to OpenAI embeddings! Used in retrieval augmented language models, it achieved over 500k downloads, over 1k stars, and was used in ~500 projects in half a year.",
-    "image": ""
+    "title": "Instructor Embeddings: One Embedder, Any Task",
+    "desc": "The instruction-finetuned text embeddings outperformed OpenAI embeddings. It achieved high popularity with over 500k downloads, 1k github stars, and usage in numerous projects.",
+    "link": "https://github.com/HKUNLP/instructor-embedding",
+    "image": "/research/instructor.jpg"
   },
   {
-    "title": "UnifiedSKG: Unifying and Multi-Tasking Structured Knowledge Grounding with Text-to-Text Language Models",
-    "desc": "",
-    "image": ""
+    "title": "UnifiedSKG: A Unified Framework for Structured Knowledge Grounding",
+    "desc": "UnifiedSKG provides a unified and multi-tasking paradigm for structured knowledge grounding on 21 tasks with text-to-text language models. It has gains 500 github stars, serving as a popular toolkit for structured knowledge grounding.",
+    "link" : "https://github.com/HKUNLP/UnifiedSKG",
+    "image": "/research/unifiedskg.png"
   },
   {
     "title": "DS-1000: A Natural and Reliable Benchmark for Data Science Code Generation",
-    "desc": "",
-    "image": ""
+    "desc": "DS-1000 is a code generation benchmark with a thousand data science questions spanning seven Python libraries that (1) reflects diverse, realistic, and practical use cases, (2) has a reliable metric, (3) defends against memorization by perturbing questions.",
+    "link" : "https://github.com/HKUNLP/DS-1000",
+    "image": "/research/ds-1000.jpeg"
   },
   {
     "title": "Spider: A Large-Scale Human-Labeled Dataset for Complex and Cross-Domain Semantic Parsing and Text-to-SQL Task",
-    "desc": "This was the most popular complex text-to-SQL benchmark, with over 200 submissions from top research labs, including Google, Facebook, UCB, CMU, UW, and more. It was widely studied not just in NLP but also HCI, VIS, PL, and DB communities.",
-    "image": ""
+    "desc": "Spider is one of the most widely-used semantic parsing datasets with 10k+ questions and 5k+ complex cross-table SQL queries over different domains.",
+    "link" : "https://github.com/taoyds/spider",
+    "image": "/research/spider.webp"
   }
 ]

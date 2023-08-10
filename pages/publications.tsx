@@ -9,14 +9,13 @@ import { getPapers, getTalks } from '@/utils/data';
 import { Paper, PaperCategory, Talk } from '@/interface/research';
 
 const PaperCategoryNames: Record<PaperCategory, string> = {
-  //TODO
-  CodeGeneration: 'Code Generation and Semantic Parsing',
-  ToolUse: 'LLM + tool use/actionable or Agentic LLMs',
+  // CodeGeneration: 'code generation and semantic parsing',
+  Grounding: 'executable language grounding',
+  ToolUse: 'LLM + tool use',
   PoweredAgents: 'LLM-powered agents',
-  EfficientLLMs: 'Efficient and Generalizable Large Language Models',
-  InteractiveSystems: 'Dialog or Interactive Systems',
+  EfficientLLMs: 'efficient and generalizable LLMs',
+  InteractiveSystems: 'dialog and interactive systems',
   // Robotics: 'LLM + Robotics',
-  Grounding: 'Language Grounding',
 };
 
 const Publications = ({
@@ -60,19 +59,7 @@ const Publications = ({
 const Intro = () => (
   <div className='text-sm font-[500]'>
     <h1 className='text-2xl mb-4'>Research</h1>
-    <p>
-      “X” in XLang Grounding LLMs into executable code or actions in different
-      environments
-    </p>
-    <p>Enhance LLMs with various external tools for building AI agents</p>
-    <p>
-      Interdisciplinary research efforts among NLP, HCI, DB, VIS, UI, DataSci,
-      Robotics, Code/PL, SE.
-    </p>
-    <p>Interaction among humans, agents, and environments.</p>
-    <div style={{ textAlign: 'center' }}>
-      <img src="/blog/xlang_overview.png" alt="XLang Overview" />
-    </div>
+    <p>At the XLang Lab, our research centers on constructing language model agents that convert language instructions into executable actions within real-world contexts. This encompasses databases (data agent), web applications (plugins/web agent), physical world interactions (robotic agent), and involves techniques like LLM + tool utilization, code generation, semantic parsing, interactive systems, and beyond.</p>
   </div>
 );
 
@@ -141,7 +128,7 @@ const PaperBlock = ({ paper }: { paper: Paper }) => {
             <p className='italic text-xs font-[500]'>{paper.publication}</p>
           )}
           <div className='flex justify-end w-full gap-3 font-[500] text-xs'>
-            {paper.paperLink && (
+ {paper.paperLink && (
               <a href={paper.paperLink} target='_blank'>
                 paper
               </a>
@@ -151,14 +138,14 @@ const PaperBlock = ({ paper }: { paper: Paper }) => {
                 code
               </a>
             )}
-            {paper.dataLink && (
-              <a href={paper.dataLink} target='_blank'>
-                data
-              </a>
-            )}
+            {/*{paper.dataLink && (*/}
+            {/*  <a href={paper.dataLink} target='_blank'>*/}
+            {/*    data*/}
+            {/*  </a>*/}
+            {/*)}*/}
             {paper.blogLink && (
               <a href={paper.blogLink} target='_blank'>
-                blog
+                page
               </a>
             )}
             {paper.twitterLink && (

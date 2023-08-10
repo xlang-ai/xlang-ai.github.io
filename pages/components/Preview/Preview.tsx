@@ -35,7 +35,7 @@ const Preview = ({ subProj }: { subProj?: HighlightSubProject[] }) => {
             </Link>
           </div>
           {subProj && (
-            <div className='max-sm:col-span-4 max-sm:h-[300px] max-sm:my-2 rounded-lg overflow-hidden col-span-3 relative'>
+            <div className='max-sm:col-span-4 max-sm:h-[55vw] rounded-lg overflow-hidden col-span-3 relative'>
               <Image
                 src={subProj[0].image}
                 alt='Demo'
@@ -75,7 +75,7 @@ const FeatureBox = ({
   setIndex: React.Dispatch<React.SetStateAction<number>>;
 }) => {
   return (
-    <a href={proj.useCaseLink} target="_blank" >
+    <a href={proj.useCaseLink} target='_blank'>
       <div
         className='flex items-center shadow-lg rounded-2xl p-6 gap-2 max-w-[400px] max-h-[150px] cursor-pointer'
         style={selected ? { borderColor: '#0156AC' } : {}}
@@ -91,9 +91,7 @@ const FeatureBox = ({
         </div>
         <div className='flex flex-col gap-2 mt-4 ml-4'>
           <div className='text-lg'>{proj.title}</div>
-          <div className='text-[10px] flex-1 pb-4'>
-            {proj.shortDesc}
-          </div>
+          <div className='text-[10px] flex-1 pb-4'>{proj.shortDesc}</div>
         </div>
         {/* <div className='text-lg'>{proj.title}</div>
         <div className='text-[10px] text-center flex-1 pb-4'>

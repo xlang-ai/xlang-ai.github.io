@@ -1,7 +1,7 @@
 ---
 title: 'Introducing XLang: An Open-Source Framework for Building Language Model Agents via Executable Language Grounding'
 shortTitle: XLANG Intro
-slug: 2023-08-xlang-intro
+slug: xlang-intro
 date: 10 August 2023
 author: XLANG Lab
 coverImage: /blog/xlang_overview.png

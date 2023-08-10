@@ -129,3 +129,9 @@ Our aim is to build XLang, an open-source ecosystem and community for building a
 ## **Acknowledgements**
 
 We would like to express our gratitude towards Google Research, Amazon AWS, and Salesforce Research. The gift funds and necessary computational resources generously provided by these awards have given us the capability and resources to implement this project. We also appreciate the invaluable advice we received throughout the process.
+
+**Personal Acknowledgements by [Tao](https://taoyds.github.io/):**
+
+I feel fortunate for the year I spent at UWNLP, which is one of the world's top institutions for NLP research. During this time, I observed the nascent shift towards LLM in NLP. I would like to extend my thanks to Noah Smith, Luke Zettlemoyer, and Mari Ostendorf. The idea of XLang came about from a suggestion Luke made during a meeting in his office.
+
+I would also like to pay tribute to my late Ph.D. advisor, Dragomir Radev. Without him, it's very possible that none of what we are starting today would exist.

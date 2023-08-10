@@ -14,7 +14,7 @@
   {
     "category": ["EfficientLLMs"],
     "title": "Instructor Embeddings: One Embedder, Any Task: Instruction-Finetuned Text Embeddings",
-    "authors": "Hongjin Su, Weijia Shi, Jungo Kasai, Yizhong Wang, Yushi Hu, Mari Ostendorf, Wen-tau Yih, Noah A. Smith, Luke Zettlemoyer, Tao Yu",
+    "authors": "Hongjin Su*, Weijia Shi*, Jungo Kasai, Yizhong Wang, Yushi Hu, Mari Ostendorf, Wen-tau Yih, Noah A. Smith, Luke Zettlemoyer, Tao Yu",
     "publication": "ACL 2023 Findings",
     "paperLink": "https://arxiv.org/abs/2212.09741",
     "codeLink": "https://github.com/HKUNLP/instructor-embedding",
@@ -44,7 +44,7 @@
     "dataLink": "https://unifiedskg.com/benchmarks/",
     "blogLink": "https://unifiedskg.com/",
     "twitterLink": "https://twitter.com/taoyds/status/1487177399875690500",
-    "image": "/research/unifiedskg.jpg"
+    "image": "/research/unifiedskg.png"
   },
   {
     "category": ["Grounding"],
@@ -56,12 +56,12 @@
     "dataLink": "https://github.com/HKUNLP/DS-1000/tree/main/ds1000_example",
     "blogLink": "https://ds1000-code-gen.github.io/",
     "twitterLink": "https://twitter.com/taoyds/status/1595086401309388801",
-    "image": "/research/ds-1000.jpg"
+    "image": "/research/ds-1000.jpeg"
   },
   {
     "category": ["Grounding"],
     "title": "Coder Reviewer Reranking for Code Generation",
-    "authors": "Tianyi Zhang*, Tao Yu, Tatsunori B. Hashimoto, Mike Lewis, Wen-tau Yih, Daniel Fried, Sida I. Wang",
+    "authors": "Tianyi Zhang, Tao Yu, Tatsunori B. Hashimoto, Mike Lewis, Wen-tau Yih, Daniel Fried, Sida I. Wang",
     "publication": "ICML 2023",
     "paperLink": "https://arxiv.org/abs/2211.16490",
     "codeLink": "https://github.com/facebookresearch/coder_reviewer_reranking",
@@ -80,7 +80,7 @@
     "dataLink": "",
     "blogLink": "",
     "twitterLink": "",
-    "image": "/research/ic-dst.jpg"
+    "image": "/research/IC-DST.jpeg"
   },
   {
     "category": ["EfficientLLMs"],
@@ -92,7 +92,7 @@
     "dataLink": "",
     "blogLink": "",
     "twitterLink": "",
-    "image": "/research/zerogen.jpg"
+    "image": "/research/zerogen.png"
   },
   {
     "category": ["CodeGeneration", "InteractiveSystems"],
@@ -146,7 +146,7 @@
     "category": ["Grounding"],
     "title": "SParC: Cross-Domain Semantic Parsing in Context",
     "authors": "Tao Yu, Rui Zhang, Michihiro Yasunaga, Yi Chern Tan, Xi Victoria Lin, Suyi Li, Heyang Er, Irene Li, Bo Pang, Tao Chen, Emily Ji, Shreya Dixit, David Proctor, Sungrok Shim, Jonathan Kraft, Vincent Zhang, Caiming Xiong, Richard Socher, Dragomir Radev",
-    "publication": "ACL 2019",
+    "publication": "ACL 2018",
     "paperLink": "https://arxiv.org/abs/1906.02285",
     "codeLink": "https://github.com/taoyds/sparc",
     "dataLink": "https://drive.google.com/uc?export=download&id=1Uu7NMHTR1tdQw1t7bAuM7OPU4LElVKfg",
@@ -164,6 +164,6 @@
     "dataLink": "https://drive.google.com/uc?export=download&id=1TqleXec_OykOYFREKKtschzY29dUcVAQ",
     "blogLink": "https://yale-lily.github.io/spider",
     "twitterLink": "",
-    "image": "/research/spider.jpg"
+    "image": "/research/spider.webp"
   }
 ]

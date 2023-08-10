@@ -86,7 +86,7 @@ const HighlightProject = ({
               window.open(hightlightProject.link, '_blank');
             }}
           >
-            Start Chatting
+            Try Online Demo
           </button>
         </div>
       </div>
@@ -147,17 +147,19 @@ const SubHighlightProjectBlock = ({
 
   const ImageBlock = ({ className }: { className?: string }) => (
     <div
-      className={`col-span-1 h-[300px] relative rounded-lg overflow-hidden ${className}`}
+      className={`col-span-1 h-[250px] relative rounded-lg overflow-hidden ${className}`}
     >
-      {image ? (
-        <Image
-          src={image}
-          alt={title}
-          fill
-          style={{ objectFit: 'cover', objectPosition: 'left center' }}
-        />
+      {videoLink ? (
+        <iframe 
+          width="95%" 
+          height="100%" 
+          src={videoLink}
+          style={{ objectFit: 'cover', objectPosition: 'left center' }}>
+        </iframe>
       ) : (
-        <div className='bg-[#D9D9D9] w-full h-full' />
+        <div>
+        <div>Coming soon, please stay tuned...</div>
+        </div>
       )}
     </div>
   );
@@ -182,7 +184,7 @@ const SubHighlightProjectBlock = ({
         <div className='max-sm:justify-start max-sm:underline flex gap-4 text-xs justify-end'>
           {slidesLink && <Link href={slidesLink}>use cases</Link>}
           {productLink && <Link href={productLink}>product</Link>}
-          {videoLink && <Link href={videoLink}>video</Link>}
+          {/* {videoLink && <Link href={videoLink}>video</Link>} */}
         </div>
       </div>
       {reverse && <ImageBlock className='max-sm:hidden' />}

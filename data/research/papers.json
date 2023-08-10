@@ -1,6 +1,6 @@
 [
   {
-    "category": ["Grounding", "PoweredAgents", "ToolUse"],
+    "category": ["Grounding", "ToolUse"],
     "title": "Binder: Binding Language Models in Symbolic Languages",
     "authors": "Zhoujun Cheng*, Tianbao Xie*, Peng Shi, Chengzu Li, Rahul Nadkarni, Yushi Hu, Caiming Xiong, Dragomir Radev, Mari Ostendorf, Luke Zettlemoyer, Noah A Smith, Tao Yu",
     "publication": "ICLR 2023",

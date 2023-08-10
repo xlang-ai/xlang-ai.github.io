@@ -10,9 +10,9 @@ import { Paper, PaperCategory, Talk } from '@/interface/research';
 
 const PaperCategoryNames: Record<PaperCategory, string> = {
   // CodeGeneration: 'code generation and semantic parsing',
-  Grounding: 'executable language grounding',
+  Grounding: 'code generation and semantic parsing',
   ToolUse: 'LLM + tool use',
-  PoweredAgents: 'LLM-powered agents',
+  // PoweredAgents: 'LLM-powered agents',
   EfficientLLMs: 'efficient and generalizable LLMs',
   InteractiveSystems: 'dialog and interactive systems',
   // Robotics: 'LLM + Robotics',
@@ -46,7 +46,7 @@ const Publications = ({
         <link rel='manifest' href='/favicon/white-on-green/site.webmanifest' />
       </Head>
       <div className='w-full pt-20 sm:pt-36 pb-10 bg-[#D9D9D9]/20'>
-        <div className='page-x-width flex flex-col gap-8 sm:gap-10'>
+        <div className='page-x-width flex flex-col gap-8 sm:gap-6'>
           <Intro />
           <PapersSection papers={papers} />
           {/*<TalksSection talks={talks} />*/}

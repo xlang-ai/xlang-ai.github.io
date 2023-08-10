@@ -66,7 +66,7 @@ XLang Agents are language model agents developed by our team, aiming to utilize 
 - **Data Agent**: This agent is skilled in data tools, allowing efficient data search, manipulation, and visualization. It excels in code execution for data-centric tasks.
 - **Plugins Agent**: With over 200 third-party plugins, this agent addresses diverse daily life needs, aiding in various tasks.
 - **Web Agent**: Utilizing a Chrome extension, this agent automates web navigation, streamlining browsing to find and access information.
-- - **Robotic Agent**: comming soon
+- **Robotic Agent**: comming soon
     
 💡 We have make all three agents online, just visit 👉[**XLang Agents**](https://chat.xlang.ai) and feel free to explore! For more details about XLang Agents, you can also check the official documents in 👉[**XLang Docs**](https://docs.xlang.ai) !
 

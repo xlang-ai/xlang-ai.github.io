@@ -11,7 +11,7 @@ const News = ({ news }: { news?: NewsInterface[] }) => {
           {news &&
             news.map((n) => (
               <div
-                className='flex gap-x-8 flex-wrap py-3 border-b border-black/30 text-sm'
+                className='grid grid-cols-[auto,1fr] gap-x-8 flex-wrap py-3 border-b border-black/30 text-sm'
                 key={n.description}
               >
                 <div>{parseDateString(n.date)}</div>

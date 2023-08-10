@@ -2,5 +2,9 @@
   {
     "date": "2023-08-08",
     "description": "The group website is now live!"
+  },
+  {
+    "date": "2023-08-10",
+    "description": "XLang Agents: Our ongoing effort to build an open-source framework and ecosystem for building and evaluating language model agents. The open-source journey begins with XLang Agent demos. In the following months, and beyond, we will be open-sourcing several significant projects, including a framework, models, methods, benchmarks, and more. In the foreseeable future, we envision that a proficient functional agent will require the fusion of these various agents."
   }
 ]

@@ -4,9 +4,9 @@ shortTitle: XLANG Intro
 slug: 2023-08-xlang-intro
 date: 10 August 2023
 author: XLANG Lab
-coverImage: /blog/xlang_overview.jpg
+coverImage: /blog/xlang_overview.png
 previewContent: Introducing XLang, an open-source platform that constructs language model agents through executable language grounding. Alongside this framework, we unveil demos of XLang Agents, encompassing Data, Plugins, and Web agents. Moving forward, we're set to open-source multiple substantial projects, encompassing frameworks, models, demos, code, benchmarks, and beyond.
-onlineImage: https://i.imgur.com/3hSBX2ah.jpg
+onlineImage: https://i.imgur.com/Yu25Xlv.png
 ---
 
 

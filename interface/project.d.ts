@@ -3,6 +3,7 @@ export interface Project {
   desc: string;
   image?: string;
   link?: string;
+  videoLink?: string;
 }
 
 export interface HighlightProject {
@@ -10,6 +11,7 @@ export interface HighlightProject {
   desc: string;
   image: string;
   link: string;
+  videoLink?: string;
 }
 
 export interface HighlightSubProject {

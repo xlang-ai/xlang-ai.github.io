@@ -10,9 +10,9 @@ import { Paper, PaperCategory, Talk } from '@/interface/research';
 
 const PaperCategoryNames: Record<PaperCategory, string> = {
   // CodeGeneration: 'code generation and semantic parsing',
-  Grounding: 'executable language grounding',
+  Grounding: 'code generation and semantic parsing',
   ToolUse: 'LLM + tool use',
-  PoweredAgents: 'LLM-powered agents',
+  // PoweredAgents: 'LLM-powered agents',
   EfficientLLMs: 'efficient and generalizable LLMs',
   InteractiveSystems: 'dialog and interactive systems',
   // Robotics: 'LLM + Robotics',

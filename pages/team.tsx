@@ -64,11 +64,10 @@ const Intro = () => {
     <div className='flex flex-col gap-2'>
       <h1 className='text-2xl font-[500]'>Team</h1>
       <p>
-        Our research team is dedicated to creating language model agents that connect language instructions to executable code or actions, facilitating the execution of complex tasks in real-world scenarios. Composed of a diverse and interdisciplinary group, our team combines the expertise of professionals from various fields including NLP, HCI, DB, CV, VIS, Robotics, UI, DataSci, and Code/PL. This collaborative approach enables us to approach our investigations from a range of viewpoints, fostering a comprehensive understanding of the subject.
-      </p>
-        <a href="https://forms.gle/3Ki9ectMB5D31F8g8" target="_blank" rel="noopener noreferrer">
-      <button className='btn btn-secondary text-xs py-1 w-24'>Join Us</button>
-        </a>
+        Our research team is dedicated to crafting language model agents that link language instructions to executable code or actions, enabling the execution of complex tasks in real-world scenarios. Consisting of a diverse and interdisciplinary group, our team merges expertise from fields such as NLP, HCI, DB, CV, VIS, Robotics, UI, DataSci, and Code/PL. This collaborative approach lets us explore our investigations from multiple angles, fostering a thorough understanding of the subject.      </p>
+      {/*  <a href="https://forms.gle/3Ki9ectMB5D31F8g8" target="_blank" rel="noopener noreferrer">*/}
+      {/*<button className='btn btn-secondary text-xs py-1 w-24'>Join Us</button>*/}
+      {/*  </a>*/}
     </div>
   );
 };

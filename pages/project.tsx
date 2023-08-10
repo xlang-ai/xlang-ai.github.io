@@ -226,7 +226,7 @@ const ProjectBlock = ({ project }: { project: Project }) => {
 
         <div className='flex flex-col'>
           <h1 className='text-lg font-[500] my-0'>{project.title}</h1>
-          <p className='text-xs'>{project.desc}</p>
+          <li className='text-xs'>{project.desc}</li>
         </div>
       </div>
     </div>

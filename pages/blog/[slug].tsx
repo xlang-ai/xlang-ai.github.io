@@ -157,7 +157,7 @@ const PostMeta = ({ date, author, slug}: { date: string; author: string; slug: s
 const PostShare = ({ slug }: { slug: string }) => (
   <ul className='flex gap-4'>
     <li className='cursor-pointer'>
-      <Link href='https://github.com/xlang-ai'>
+      <Link href='https://join.slack.com/t/xlanggroup/shared_invite/zt-20zb8hxas-eKSGJrbzHiPmrADCDX3_rQ'>
         <Image
           src={publicFilePath('/icons/slack-black.svg')}
           alt='Xlang'

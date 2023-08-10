@@ -8,8 +8,13 @@ const Welcome = () => {
           <b>XLANG</b> Lab
         </h1>
         <p className='leading-7'>
-          Welcome to the <b>Exe</b>cutable <b>Lang</b>uage <b>G</b>rounding (XLang) Lab!
-          We are part of the HKU NLP Group at the University of Hong Kong.
+          Welcome to the
+          <span style={{ fontWeight: 'bold' }}>
+            <span style={{ color: 'blue' }}>Exe</span>cutable
+            <span style={{ color: 'blue' }}>Lang</span>uage
+            <span style={{ color: 'blue' }}>G</span>rounding (XLang)
+          </span> Lab!
+          We are a part of the <a href="https://nlp.cs.hku.hk/" target="_blank" rel="noopener noreferrer">HKU NLP Group</a> at the University of Hong Kong.
           XLang focuses on building language model agents that transform (“grounding”) language instructions into code or actions executable in real-world environments,
           including databases (data agent), web applications (plugins/web agent), and the physical world (robotic agent) etc,.
           It lies at the heart of language model agents or natural language interfaces that can interact with and learn from these real-world environments to facilitate human interaction with data analysis,

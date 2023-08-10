@@ -58,8 +58,8 @@ const Project = ({
 
 const Intro = () => (
   <>
-    <h1 className='font-[600] text-2xl mb-8'>Projects</h1>
-    <p className='text-sm leading-6'>
+    <h1 className='text-2xl mb-6'>Projects</h1>
+    <p className='leading-7'>
     Our lab is actively engaged in projects focused on creating language model agents that translate language instructions into executable actions across real-world domains such as databases (data agent), web applications (plugins/web agent), and the physical world (robotic agent) etc. We are currently developing an open-source framework to facilitate the construction and assessment of these agents, starting with XLang Agent demos. In the coming months, we&apos;ll open-source essential projects like frameworks, models, methods, and benchmarks, aiming to establish a robust community dedicated to building capable multifunctional agents.
     </p>
   </>

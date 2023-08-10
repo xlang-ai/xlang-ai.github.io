@@ -57,9 +57,9 @@ const Publications = ({
 };
 
 const Intro = () => (
-  <div className='text-sm font-[500]'>
-    <h1 className='text-2xl mb-4'>Research</h1>
-    <p>At the XLang Lab, our research centers on constructing language model agents that convert language instructions into executable actions within real-world contexts. This encompasses databases (data agent), web applications (plugins/web agent), physical world interactions (robotic agent), and involves techniques like LLM + tool utilization, code generation, semantic parsing, interactive systems, and beyond.</p>
+  <div>
+    <h1 className='text-2xl mb-6'>Research</h1>
+    <p className='leading-7'>At the XLang Lab, our research centers on constructing language model agents that convert language instructions into executable actions within real-world contexts. This encompasses databases (data agent), web applications (plugins/web agent), physical world interactions (robotic agent), and involves techniques like LLM + tool utilization, code generation, semantic parsing, interactive systems, and beyond.</p>
   </div>
 );
 
@@ -76,7 +76,7 @@ const PapersSection = ({ papers }: { papers: Paper[] }) => {
 
   return (
     <div>
-      <h1 className='text-2xl font-[500] mb-4'>Papers</h1>
+      <h1 className='text-2xl font-[500] mb-6'>Papers</h1>
       <div className='flex gap-3 flex-wrap'>
         {Object.entries(PaperCategoryNames).map(([key, value]) => (
           <div

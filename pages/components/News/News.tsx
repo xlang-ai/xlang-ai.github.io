@@ -17,7 +17,7 @@ const News = ({ news }: { news?: NewsInterface[] }) => {
               &nbsp;<a href="https://chat.xlang.ai/" target="_blank" className="underline">XLang Agent Demos</a>&nbsp; 
               are now available. Feel free to check! For more details about the XLang framework, please stay tuned at our
               &nbsp;<a href="https://www.github.com/xlang-ai/xlang" target="_blank" className="underline">GitHub repo</a>&nbsp;
-              and follow our &nbsp;<a href="https://twitter.com/XLangAILabs" target="_blank" className="underline">twitter</a>🔥🔥</div>
+              and follow our &nbsp;<a href="https://twitter.com/XLangAI" target="_blank" className="underline">twitter</a>🔥🔥</div>
           </div>
           {news &&
             news.map((n) => (

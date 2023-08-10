@@ -146,7 +146,7 @@
     "category": ["Grounding"],
     "title": "SParC: Cross-Domain Semantic Parsing in Context",
     "authors": "Tao Yu, Rui Zhang, Michihiro Yasunaga, Yi Chern Tan, Xi Victoria Lin, Suyi Li, Heyang Er, Irene Li, Bo Pang, Tao Chen, Emily Ji, Shreya Dixit, David Proctor, Sungrok Shim, Jonathan Kraft, Vincent Zhang, Caiming Xiong, Richard Socher, Dragomir Radev",
-    "publication": "ACL 2018",
+    "publication": "ACL 2019",
     "paperLink": "https://arxiv.org/abs/1906.02285",
     "codeLink": "https://github.com/taoyds/sparc",
     "dataLink": "https://drive.google.com/uc?export=download&id=1Uu7NMHTR1tdQw1t7bAuM7OPU4LElVKfg",

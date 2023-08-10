@@ -2,7 +2,6 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { InferGetStaticPropsType } from 'next';
 import React, {useEffect, useState} from 'react';
-import {getTalks} from '@/utils/data';
 
 import projectImage from '@/public/demo.png';
 import Link from 'next/link';
@@ -16,7 +15,6 @@ import {
   HighlightSubProject,
   Project,
 } from '@/interface/project';
-import {Talk} from "@/interface/research";
 
 const Project = ({
   recentProjects,
@@ -62,7 +60,7 @@ const Intro = () => (
   <>
     <h1 className='font-[600] text-2xl mb-8'>Projects</h1>
     <p className='text-sm leading-6'>
-    Our lab is actively engaged in projects focused on creating language model agents that translate language instructions into executable actions across real-world domains such as databases (data agent), web applications (plugins/web agent), and the physical world (robotic agent) etc,. We are currently developing an open-source framework to facilitate the construction and assessment of these agents, starting with XLang Agent demos. In the coming months, we'll open-source essential projects like frameworks, models, methods, and benchmarks, aiming to establish a robust community dedicated to building capable multifunctional agents.
+    Our lab is actively engaged in projects focused on creating language model agents that translate language instructions into executable actions across real-world domains such as databases (data agent), web applications (plugins/web agent), and the physical world (robotic agent) etc. We are currently developing an open-source framework to facilitate the construction and assessment of these agents, starting with XLang Agent demos. In the coming months, we&apos;ll open-source essential projects like frameworks, models, methods, and benchmarks, aiming to establish a robust community dedicated to building capable multifunctional agents.
     </p>
   </>
 );
@@ -233,76 +231,6 @@ const ProjectBlock = ({ project }: { project: Project }) => {
       </div>
     </div>
     </a>
-  );
-};
-
-const TalksSection = ({ talks }: { talks: Talk[] }) => {
-  return (
-    <div>
-      <h1 className='text-xl font-[500] mb-10'>Talks</h1>
-      <div className='flex flex-wrap gap-4'>
-        {talks.map((talk) => (
-          <TalkBlock talk={talk} key={talk.title} />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-
-const TalkBlock = ({ talk }: { talk: Talk }) => {
-  const [date, setDate] = useState<string>();
-
-  useEffect(() => {
-    const months = [
-      'Jan',
-      'Feb',
-      'Mar',
-      'Apr',
-      'May',
-      'Jun',
-      'Jul',
-      'Aug',
-      'Sep',
-      'Oct',
-      'Nov',
-      'Dec',
-    ];
-
-    const start = new Date(talk.startDate);
-    const end = new Date(talk.endDate);
-
-    const startMonth = months[start.getMonth()];
-    const endMonth = months[end.getMonth()];
-    const startYear = start.getFullYear();
-    const endYear = end.getFullYear();
-
-    let dateString = '';
-    if (startYear === endYear) {
-      if (startMonth === endMonth) {
-        dateString = `${startMonth} ${startYear}`;
-      } else {
-        dateString = `${startMonth} - ${endMonth} ${endYear}`;
-      }
-    } else {
-      dateString = `${startMonth} ${startYear} - ${endMonth} ${endYear}`;
-    }
-
-    setDate(dateString);
-  }, [talk]);
-
-  return (
-    <div
-      className='rounded-xl shadow-md p-8 min-w-full sm:min-w-[300px] w-[45%]'
-      style={talk.link ? { cursor: 'pointer' } : {}}
-      onClick={() => {
-        if (talk.link) window.open(talk.link, '_blank');
-      }}
-    >
-      <h1 className='text-lg text-[#0156AC]'>{talk.title}</h1>
-      {date && <p className='text-xs text-black/80'>{date}</p>}
-      <p className='text-xs whitespace-pre-wrap'>{talk.desc}</p>
-    </div>
   );
 };
 

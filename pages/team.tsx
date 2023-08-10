@@ -68,6 +68,7 @@ const Intro = () => {
       {/*  <a href="https://forms.gle/3Ki9ectMB5D31F8g8" target="_blank" rel="noopener noreferrer">*/}
       {/*<button className='btn btn-secondary text-xs py-1 w-24'>Join Us</button>*/}
       {/*  </a>*/}
+      </p>
     </div>
   );
 };

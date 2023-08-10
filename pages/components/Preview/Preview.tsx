@@ -10,7 +10,7 @@ const Preview = ({ subProj }: { subProj?: HighlightSubProject[] }) => {
   return (
     <div className='w-full max-sm:py-8 py-16'>
       <div className='page-x-width'>
-        <div className='grid grid-cols-4 gap-1 h-fit md:h-[500px] max-sm:mb-4 mb-12'>
+        <div className='grid grid-cols-4 gap-1 h-fit md:h-[400px] max-sm:mb-4 mb-12'>
           <div className='max-sm:col-span-4 max-sm:max-w-fit col-span-1 h-full flex flex-col justify-center max-w-[200px]'>
             <div className='text-2xl font-[600] mb-4'>XLANG Agents</div>
             <div className='  text-left text-sm leading-6 mb-4'>
@@ -37,14 +37,12 @@ const Preview = ({ subProj }: { subProj?: HighlightSubProject[] }) => {
             </div>
           )}
         </div>
-
-        <div className='grid grid-cols-4 gap-1 h-fit md:h-[500px] max-sm:mb-4 mb-12'>
+        <div className='grid grid-cols-4 gap-1 h-fit md:h-[200px] max-sm:mb-4 mb-12'>
           <div className='col-span-4'>
-            <p className='text-lg leading-6 my-4'>XLang Agents: Our ongoing effort to build an open-source framework and ecosystem for building and evaluating language model agents. The open-source journey begins with XLang Agent demos. In the following months, and beyond, we will be open-sourcing several significant projects, including a framework, models, methods, benchmarks, and more. In the foreseeable future, we envision that a proficient functional agent will require the fusion of these various agents.</p>
+            <p className='text-lg leading-6'>XLang Agents: Our ongoing effort to build an open-source framework and ecosystem for building and evaluating language model agents. The open-source journey begins with XLang Agent demos. In the following months, and beyond, we will be open-sourcing several significant projects, including a framework, models, methods, benchmarks, and more. In the foreseeable future, we envision that a proficient functional agent will require the fusion of these various agents.</p>
           </div>
         </div>
-
-        <div className='flex flex-wrap gap-10 grid grid-cols-1 sm:grid-cols-2 justify-center'>
+        <div className='flex flex-wrap gap-4 grid grid-cols-1 sm:grid-cols-2 justify-center'>
           {subProj &&
             subProj.map((proj, i) => (
               <FeatureBox

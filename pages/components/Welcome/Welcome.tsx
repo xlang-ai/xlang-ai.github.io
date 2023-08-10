@@ -17,7 +17,7 @@ const Welcome = () => {
           Recent advances in XLang incorporate techniques such as LLM + external tools, code generation, semantic parsing, and dialog or interactive systems.
         </p>
         <div className='col-span-4'>
-              <img src='/demo/xlang_overview.jpg' alt='xlang-overview' className='w-full h-auto my-4' />
+              <img src='/demo/xlang_overview.jpg' alt='xlang-overview' className='w-full h-auto my-4 shadow-lg' />
         </div>
       </div>
     </div>

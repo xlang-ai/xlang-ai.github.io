@@ -33,7 +33,7 @@
     "icon": "/icons/robotics.svg",
     "title": "Robotic Agent",
     "desc": "Robotic Agent is a physical robot that can be controlled in a interactive manner. It translates language instructions into robotic actions to carry out tasks in the physical real world.",
-    "shortDesc": "translates language instructions into robotic actions to carry out tasks in the physical real world.",
+    "shortDesc": "translating language instructions into robotic actions to carry out tasks in the physical real world.",
     "image": "/demo/demo.png",
     "slidesLink": "",
     "videoLink": "",

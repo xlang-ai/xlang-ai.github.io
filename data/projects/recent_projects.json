@@ -15,18 +15,18 @@
     "title": "UnifiedSKG: A Unified Framework for Structured Knowledge Grounding",
     "desc": "UnifiedSKG provides a unified and multi-tasking paradigm for structured knowledge grounding on 21 tasks with text-to-text language models. It has gains 500 github stars, serving as a popular toolkit for structured knowledge grounding.",
     "link" : "https://github.com/HKUNLP/UnifiedSKG",
-    "image": "/research/unifiedskg.png"
+    "image": "/research/unifiedskg.jpg"
   },
   {
     "title": "DS-1000: A Natural and Reliable Benchmark for Data Science Code Generation",
     "desc": "DS-1000 is a code generation benchmark with a thousand data science questions spanning seven Python libraries that (1) reflects diverse, realistic, and practical use cases, (2) has a reliable metric, (3) defends against memorization by perturbing questions.",
     "link" : "https://github.com/HKUNLP/DS-1000",
-    "image": "/research/ds-1000.jpeg"
+    "image": "/research/ds-1000.jpg"
   },
   {
     "title": "Spider: A Large-Scale Human-Labeled Dataset for Complex and Cross-Domain Semantic Parsing and Text-to-SQL Task",
     "desc": "Spider is one of the most widely-used semantic parsing datasets with 10k+ questions and 5k+ complex cross-table SQL queries over different domains.",
     "link" : "https://github.com/taoyds/spider",
-    "image": "/research/spider.webp"
+    "image": "/research/spider.jpg"
   }
 ]

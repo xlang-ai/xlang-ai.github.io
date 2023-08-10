@@ -46,7 +46,7 @@ const Publications = ({
         <link rel='manifest' href='/favicon/white-on-green/site.webmanifest' />
       </Head>
       <div className='w-full pt-20 sm:pt-36 pb-10 bg-[#D9D9D9]/20'>
-        <div className='page-x-width flex flex-col gap-8 sm:gap-10'>
+        <div className='page-x-width flex flex-col gap-8 sm:gap-6'>
           <Intro />
           <PapersSection papers={papers} />
           {/*<TalksSection talks={talks} />*/}

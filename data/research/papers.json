@@ -1,6 +1,6 @@
 [
   {
-    "category": ["CodeGeneration", "PoweredAgents", "ToolUse"],
+    "category": ["Grounding", "PoweredAgents", "ToolUse"],
     "title": "Binder: Binding Language Models in Symbolic Languages",
     "authors": "Zhoujun Cheng*, Tianbao Xie*, Peng Shi, Chengzu Li, Rahul Nadkarni, Yushi Hu, Caiming Xiong, Dragomir Radev, Mari Ostendorf, Luke Zettlemoyer, Noah A Smith, Tao Yu",
     "publication": "ICLR 2023",
@@ -9,7 +9,7 @@
     "dataLink": "https://github.com/HKUNLP/Binder/tree/main/datasets",
     "blogLink": "https://lm-code-binder.github.io/",
     "twitterLink": "https://twitter.com/taoyds/status/1580987466974396417",
-    "image":"/research/binder.jpeg"
+    "image":"/research/binder.jpg"
   },
   {
     "category": ["EfficientLLMs"],
@@ -21,7 +21,7 @@
     "dataLink": "https://drive.google.com/file/d/1vZ5c2oJNonGOvXzppNg5mHz24O6jcc52/view",
     "blogLink": "https://instructor-embedding.github.io/",
     "twitterLink": "https://twitter.com/WeijiaShi2/status/1605307966109863936",
-    "image": "/research/instructor.png"
+    "image": "/research/instructor.jpg"
   },
   {
     "category": ["EfficientLLMs"],
@@ -31,19 +31,11 @@
     "paperLink": "https://arxiv.org/abs/2209.01975",
     "codeLink": "https://github.com/HKUNLP/icl-selective-annotation",
     "dataLink": "https://github.com/HKUNLP/icl-selective-annotation/tree/main/data",
-    "image":"/research/selective_annotation.jpeg"
+    "twitterLink": "https://twitter.com/jungokasai/status/1568302230490730497",
+    "image":"/research/selective-annotation.jpg"
   },
   {
-    "category": ["EfficientLLMs"],
-    "title": "Compositional Exemplars for In-context Learning",
-    "authors": "Jiacheng Ye, Zhiyong Wu, Jiangtao Feng, Tao Yu, and Lingpeng Kong",
-    "publication": "ICML 2023",
-    "paperLink": "https://arxiv.org/abs/2302.05698",
-    "codeLink": "https://github.com/HKUNLP/icl-ceil",
-    "image":"/research/ce-icl.png"
-  },
-  {
-    "category": ["Grounding"],
+    "category": ["Grounding", "EfficientLLMs"],
     "title": "UnifiedSKG: Unifying and Multi-Tasking Structured Knowledge Grounding with Text-to-Text Language Models",
     "authors": "Tianbao Xie*, Chen Henry Wu*, Peng Shi, Ruiqi Zhong, Torsten Scholak, Michihiro Yasunaga, Chien-Sheng Wu, Ming Zhong, Pengcheng Yin, Sida I. Wang, Victor Zhong, Bailin Wang, Chengzu Li, Connor Boyle, Ansong Ni, Ziyu Yao, Dragomir Radev, Caiming Xiong, Lingpeng Kong, Rui Zhang, Noah A. Smith, Luke Zettlemoyer, Tao Yu.",
     "publication": "EMNLP 2022",
@@ -51,11 +43,11 @@
     "codeLink": "https://github.com/HKUNLP/UnifiedSKG",
     "dataLink": "https://unifiedskg.com/benchmarks/",
     "blogLink": "https://unifiedskg.com/",
-    "twitterLink": "",
+    "twitterLink": "https://twitter.com/taoyds/status/1487177399875690500",
     "image": "/research/unifiedskg.png"
   },
   {
-    "category": ["CodeGeneration"],
+    "category": ["Grounding"],
     "title": "DS-1000: A Natural and Reliable Benchmark for Data Science Code Generation",
     "authors": "Yuhang Lai*, Chengxi Li*, Yiming Wang*, Tianyi Zhang*, Ruiqi Zhong*, Luke Zettlemoyer, Scott Wen-tau Yih, Daniel Fried, Sida Wang, Tao Yu",
     "publication": "ICML 2023",
@@ -67,7 +59,7 @@
     "image": "/research/ds-1000.jpeg"
   },
   {
-    "category": ["CodeGeneration"],
+    "category": ["Grounding"],
     "title": "Coder Reviewer Reranking for Code Generation",
     "authors": "Tianyi Zhang*, Tao Yu, Tatsunori B. Hashimoto, Mike Lewis, Wen-tau Yih, Daniel Fried, Sida I. Wang",
     "publication": "ICML 2023",
@@ -76,7 +68,7 @@
     "dataLink": "",
     "blogLink": "",
     "twitterLink": "",
-    "image": "/research/code-reviewer.jpeg"
+    "image": "/research/code-review.jpg"
   },
   {
     "category": ["EfficientLLMs", "InteractiveSystems"],
@@ -101,6 +93,66 @@
     "blogLink": "",
     "twitterLink": "",
     "image": "/research/zerogen.png"
+  },
+  {
+    "category": ["CodeGeneration", "InteractiveSystems"],
+    "title": "NL2INTERFACE: Interactive Visualization Interface Generation from Natural Language Queries",
+    "authors": "Yiru Chen, Ryan Li, Austin Mac, Tianbao Xie, Tao Yu, Eugene Wu",
+    "publication": "IEEE Visualization Conference NLVIZ Workshop 2022",
+    "paperLink": "https://arxiv.org/abs/2209.08834",
+    "codeLink": "https://github.com/learnedinterfaces/PI2",
+    "dataLink": "",
+    "blogLink": "",
+    "twitterLink": "",
+    "image": "/research/nl2interface.jpg"
+  },
+  {
+    "category": ["Grounding"],
+    "title": "GraPPa: Grammar-Augmented Pre-Training for Table Semantic Parsing",
+    "authors": "Tao Yu, Chien-Sheng Wu, Xi Victoria Lin, Bailin Wang, Yi Chern Tan, Xinyi Yang, Dragomir Radev, Richard Socher, Caiming Xiong",
+    "publication": "ICLR 2021",
+    "paperLink": "https://arxiv.org/abs/2009.13845",
+    "codeLink": "https://github.com/taoyds/grappa",
+    "dataLink": "",
+    "blogLink": "",
+    "twitterLink": "",
+    "image": "/research/grappa.jpg"
+  },
+  {
+    "category": ["Grounding"],
+    "title": "Semantic Evaluation for Text-to-SQL with Distilled Test Suites",
+    "authors": "Ruiqi Zhong, Tao Yu, Dan Klein",
+    "publication": "EMNLP 2020",
+    "paperLink": "https://arxiv.org/abs/2010.02840",
+    "codeLink": "https://github.com/taoyds/test-suite-sql-eval",
+    "dataLink": "",
+    "blogLink": "",
+    "twitterLink": "",
+    "image": "/research/test-suite.jpg"
+  },
+  {
+    "category": ["Grounding", "InteractiveSystems"],
+    "title": "CoSQL: A Conversational Text-to-SQL Challenge Towards Cross-Domain Natural Language Interfaces to Databases",
+    "authors": "Tao Yu, Rui Zhang, Heyang Er, Suyi Li, Eric Xue, Bo Pang, Xi Victoria Lin, Yi Chern Tan, Tianze Shi, Zihan Li, Youxuan Jiang, Michihiro Yasunaga, Sungrok Shim, Tao Chen, Alexander Fabbri, Zifan Li, Luyao Chen, Yuwen Zhang, Shreya Dixit, Vincent Zhang, Caiming Xiong, Richard Socher, Walter Lasecki, Dragomir Radev",
+    "publication": "EMNLP 2019",
+    "paperLink": "https://arxiv.org/abs/1909.05378",
+    "codeLink": "https://github.com/taoyds/cosql",
+    "dataLink": "https://drive.google.com/uc?export=download&id=1Y3ydpFiQQ3FC0bzdfy3groV95O_f1nXF",
+    "blogLink": "https://yale-lily.github.io/cosql",
+    "twitterLink": "",
+    "image": "/research/cosql.jpg"
+  },
+  {
+    "category": ["Grounding"],
+    "title": "SParC: Cross-Domain Semantic Parsing in Context",
+    "authors": "Tao Yu, Rui Zhang, Michihiro Yasunaga, Yi Chern Tan, Xi Victoria Lin, Suyi Li, Heyang Er, Irene Li, Bo Pang, Tao Chen, Emily Ji, Shreya Dixit, David Proctor, Sungrok Shim, Jonathan Kraft, Vincent Zhang, Caiming Xiong, Richard Socher, Dragomir Radev",
+    "publication": "ACL 2018",
+    "paperLink": "https://arxiv.org/abs/1906.02285",
+    "codeLink": "https://github.com/taoyds/sparc",
+    "dataLink": "https://drive.google.com/uc?export=download&id=1Uu7NMHTR1tdQw1t7bAuM7OPU4LElVKfg",
+    "blogLink": "https://yale-lily.github.io/sparc",
+    "twitterLink": "",
+    "image": "/research/sparc.jpg"
   },
   {
     "category": ["Grounding"],

@@ -22,6 +22,7 @@ const Sponsors = () => {
             alt='Google Research'
             width={90}
             height={90}
+            className='mt-2'
           />
           <Image
             src={AmazonImage}

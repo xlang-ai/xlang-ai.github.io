@@ -4,7 +4,7 @@ export type PaperCategory =
   // | 'CodeGeneration'
   | 'Grounding'
   | 'ToolUse'
-  | 'PoweredAgents'
+  // | 'PoweredAgents'
   | 'EfficientLLMs'
   | 'InteractiveSystems'
   // | 'Robotics';

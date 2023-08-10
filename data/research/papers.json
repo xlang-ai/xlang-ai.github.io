@@ -1,6 +1,6 @@
 [
   {
-    "category": ["Grounding", "PoweredAgents", "ToolUse"],
+    "category": ["Grounding", "ToolUse"],
     "title": "Binder: Binding Language Models in Symbolic Languages",
     "authors": "Zhoujun Cheng*, Tianbao Xie*, Peng Shi, Chengzu Li, Rahul Nadkarni, Yushi Hu, Caiming Xiong, Dragomir Radev, Mari Ostendorf, Luke Zettlemoyer, Noah A Smith, Tao Yu",
     "publication": "ICLR 2023",
@@ -44,7 +44,7 @@
     "dataLink": "https://unifiedskg.com/benchmarks/",
     "blogLink": "https://unifiedskg.com/",
     "twitterLink": "https://twitter.com/taoyds/status/1487177399875690500",
-    "image": "/research/unifiedskg.png"
+    "image": "/research/unifiedskg.jpg"
   },
   {
     "category": ["Grounding"],
@@ -56,7 +56,7 @@
     "dataLink": "https://github.com/HKUNLP/DS-1000/tree/main/ds1000_example",
     "blogLink": "https://ds1000-code-gen.github.io/",
     "twitterLink": "https://twitter.com/taoyds/status/1595086401309388801",
-    "image": "/research/ds-1000.jpeg"
+    "image": "/research/ds-1000.jpg"
   },
   {
     "category": ["Grounding"],
@@ -80,7 +80,7 @@
     "dataLink": "",
     "blogLink": "",
     "twitterLink": "",
-    "image": "/research/IC-DST.jpeg"
+    "image": "/research/IC-DST.jpg"
   },
   {
     "category": ["EfficientLLMs"],
@@ -92,7 +92,7 @@
     "dataLink": "",
     "blogLink": "",
     "twitterLink": "",
-    "image": "/research/zerogen.png"
+    "image": "/research/zerogen.jpg"
   },
   {
     "category": ["CodeGeneration", "InteractiveSystems"],
@@ -164,6 +164,6 @@
     "dataLink": "https://drive.google.com/uc?export=download&id=1TqleXec_OykOYFREKKtschzY29dUcVAQ",
     "blogLink": "https://yale-lily.github.io/spider",
     "twitterLink": "",
-    "image": "/research/spider.webp"
+    "image": "/research/spider.jpg"
   }
 ]

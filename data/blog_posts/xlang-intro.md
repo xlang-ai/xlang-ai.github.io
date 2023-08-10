@@ -1,12 +1,12 @@
 ---
 title: 'Introducing XLang: An Open-Source Framework for Building Language Model Agents via Executable Language Grounding'
 shortTitle: XLANG Intro
-slug: 2023-08-xlang-intro
+slug: xlang-intro
 date: 10 August 2023
 author: XLANG Lab
 coverImage: /blog/xlang_overview.png
 previewContent: Introducing XLang, an open-source platform that constructs language model agents through executable language grounding. Alongside this framework, we unveil demos of XLang Agents, encompassing Data, Plugins, and Web agents. Moving forward, we're set to open-source multiple substantial projects, encompassing frameworks, models, demos, code, benchmarks, and beyond.
-onlineImage: https://i.imgur.com/Yu25Xlv.png
+onlineImage: https://i.imgur.com/sPqu2t7.png
 ---
 
 
@@ -128,12 +128,4 @@ Our aim is to build XLang, an open-source ecosystem and community for building a
 
 ## **Acknowledgements**
 
-**Team's Gratitude:**
-
 We would like to express our gratitude towards Google Research, Amazon AWS, and Salesforce Research. The gift funds and necessary computational resources generously provided by these awards have given us the capability and resources to implement this project. We also appreciate the invaluable advice we received throughout the process.
-
-**Personal Acknowledgements by [Tao](https://taoyds.github.io/):**
-
-I feel fortunate for the year I spent at UWNLP, which is one of the world's top institutions for NLP research. During this time, I observed the nascent shift towards LLM in NLP. I would like to extend my thanks to Noah Smith, Luke Zettlemoyer, and Mari Ostendorf. The idea of the lab name, XLang, came about from a suggestion Luke made during a meeting in his office.
-
-I would also like to pay tribute to my late Ph.D. advisor, [**Dragomir Radev**](https://yaledailynews.com/blog/2023/04/04/dragomir-radev-computer-science-professor-and-ai-expert-dies-at-54/). Without him, it's very possible that none of what we are starting today would exist.

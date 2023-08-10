@@ -1,12 +1,12 @@
 ---
 title: 'Introducing XLang: An Open-source Framework for Building Language Model Agents'
 shortTitle: Xlang Intro
-slug: xlang-intro
+slug: 2023-08-xlang-intro
 date: 10 August 2023
 author: XLANG Lab
 coverImage: /blog/xlang_overview.jpg
 previewContent: We introduce XLang Agent, an LLM-powered agent to you. We are a group of passionate natural language processing researchers. Driven by our fascination with language technology, we have come together to explore building conversational interfaces powered by large language models.
-onlineImage: https://i.imgur.com/YWzhRo2m.png
+onlineImage: https://i.imgur.com/3hSBX2am.jpg
 ---
 
 > *"Many years later, as he faced the firing squad, Colonel Aureliano Buendía was to remember that distant afternoon when his father took him to discover ice." —— One Hundred Years of Solitude, Gabriel Garcia Márquez.*

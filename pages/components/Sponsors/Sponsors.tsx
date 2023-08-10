@@ -13,7 +13,7 @@ const Sponsors = () => {
           Acknowledgements
         </h1>
         <p className='max-sm:text-xs text-sm'>
-          We thank the following institutions for their gift supports:
+          We thank the following institutions for their gift support:
           Google Research, Amazon AWS and Salesforce Research.
         </p>
         <div className='max-sm:my-8 my-4 w-full flex gap-12 justify-center items-center'>

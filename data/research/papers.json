@@ -14,7 +14,7 @@
   {
     "category": ["EfficientLLMs"],
     "title": "Instructor Embeddings: One Embedder, Any Task: Instruction-Finetuned Text Embeddings",
-    "authors": "Hongjin Su, Weijia Shi, Jungo Kasai, Yizhong Wang, Yushi Hu, Mari Ostendorf, Wen-tau Yih, Noah A. Smith, Luke Zettlemoyer, Tao Yu",
+    "authors": "Hongjin Su*, Weijia Shi*, Jungo Kasai, Yizhong Wang, Yushi Hu, Mari Ostendorf, Wen-tau Yih, Noah A. Smith, Luke Zettlemoyer, Tao Yu",
     "publication": "ACL 2023 Findings",
     "paperLink": "https://arxiv.org/abs/2212.09741",
     "codeLink": "https://github.com/HKUNLP/instructor-embedding",
@@ -61,7 +61,7 @@
   {
     "category": ["Grounding"],
     "title": "Coder Reviewer Reranking for Code Generation",
-    "authors": "Tianyi Zhang*, Tao Yu, Tatsunori B. Hashimoto, Mike Lewis, Wen-tau Yih, Daniel Fried, Sida I. Wang",
+    "authors": "Tianyi Zhang, Tao Yu, Tatsunori B. Hashimoto, Mike Lewis, Wen-tau Yih, Daniel Fried, Sida I. Wang",
     "publication": "ICML 2023",
     "paperLink": "https://arxiv.org/abs/2211.16490",
     "codeLink": "https://github.com/facebookresearch/coder_reviewer_reranking",

@@ -1,12 +1,12 @@
 import { list } from "postcss";
 
 export type PaperCategory =
-  | 'CodeGeneration'
+  // | 'CodeGeneration'
+  | 'Grounding'
   | 'ToolUse'
   | 'PoweredAgents'
   | 'EfficientLLMs'
   | 'InteractiveSystems'
-  | 'Grounding';
   // | 'Robotics';
 
 export interface Paper {

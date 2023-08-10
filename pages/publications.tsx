@@ -9,14 +9,13 @@ import { getPapers, getTalks } from '@/utils/data';
 import { Paper, PaperCategory, Talk } from '@/interface/research';
 
 const PaperCategoryNames: Record<PaperCategory, string> = {
-  //TODO
-  CodeGeneration: 'Code Generation and Semantic Parsing',
-  ToolUse: 'LLM + tool use/actionable or Agentic LLMs',
+  // CodeGeneration: 'code generation and semantic parsing',
+  Grounding: 'executable language grounding',
+  ToolUse: 'LLM + tool use',
   PoweredAgents: 'LLM-powered agents',
-  EfficientLLMs: 'Efficient and Generalizable Large Language Models',
-  InteractiveSystems: 'Dialog or Interactive Systems',
+  EfficientLLMs: 'efficient and generalizable LLMs',
+  InteractiveSystems: 'dialog and interactive systems',
   // Robotics: 'LLM + Robotics',
-  Grounding: 'Language Grounding',
 };
 
 const Publications = ({
@@ -128,7 +127,7 @@ const PaperBlock = ({ paper }: { paper: Paper }) => {
             <p className='italic text-xs font-[500]'>{paper.publication}</p>
           )}
           <div className='flex justify-end w-full gap-3 font-[500] text-xs'>
-            {paper.paperLink && (
+ {paper.paperLink && (
               <a href={paper.paperLink} target='_blank'>
                 paper
               </a>
@@ -138,12 +137,17 @@ const PaperBlock = ({ paper }: { paper: Paper }) => {
                 code
               </a>
             )}
-            {paper.codeLink && (
+            {/*{paper.dataLink && (*/}
+            {/*  <a href={paper.dataLink} target='_blank'>*/}
+            {/*    data*/}
+            {/*  </a>*/}
+            {/*)}*/}
+            {paper.blogLink && (
               <a href={paper.blogLink} target='_blank'>
                 page
               </a>
             )}
-            {paper.codeLink && (
+            {paper.twitterLink && (
               <a href={paper.twitterLink} target='_blank'>
                 twitter
               </a>

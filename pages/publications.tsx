@@ -57,9 +57,9 @@ const Publications = ({
 };
 
 const Intro = () => (
-  <div className='text-sm font-[500]'>
+  <div className='flex flex-col gap-2'>
     <h1 className='text-2xl mb-4'>Research</h1>
-    <p>At the XLang Lab, our research centers on constructing language model agents that convert language instructions into executable actions within real-world contexts. This encompasses databases (data agent), web applications (plugins/web agent), physical world interactions (robotic agent), and involves techniques like LLM + tool utilization, code generation, semantic parsing, interactive systems, and beyond.</p>
+    <p className="leading-7">At the XLang Lab, our research centers on constructing language model agents that convert language instructions into executable actions within real-world contexts. This encompasses databases (data agent), web applications (plugins/web agent), physical world interactions (robotic agent), and involves techniques like LLM + tool utilization, code generation, semantic parsing, interactive systems, and beyond.</p>
   </div>
 );
 

@@ -1,12 +1,13 @@
 import Image, { StaticImageData } from 'next/image';
+// import 
 import React, { useState } from 'react';
 
-import { HighlightSubProject } from '@/interface/project';
+import { HighlightProject, HighlightSubProject } from '@/interface/project';
 import Link from 'next/link';
 
-const Preview = ({ subProj }: { subProj?: HighlightSubProject[] }) => {
+const Preview = ({ proj, subProj }: { proj?: HighlightProject, subProj?: HighlightSubProject[] }) => {
   const [index, setIndex] = useState<number>(0);
-
+  console.log(proj);
   return (
     <div className='w-full max-sm:py-8 py-16'>
       <div className='page-x-width'>
@@ -22,18 +23,20 @@ const Preview = ({ subProj }: { subProj?: HighlightSubProject[] }) => {
                 className='max-sm:w-full btn btn-primary text-xs font-[600] py-2'
                 onClick={() => window.open('https://chat.xlang.ai', '_blank')}
               >
-                Start Chatting
+                Try Online Demo
               </div>
             </Link>
           </div>
-          {subProj && (
+          {proj && (
             <div className='max-sm:col-span-4 max-sm:h-[55vw] rounded-lg overflow-hidden col-span-3 relative'>
-              <Image
-                src={subProj[0].image}
-                alt='Demo'
-                fill
-                style={{ objectFit: 'contain', objectPosition: 'left center' }}
-              />
+              <iframe width="97%" height="97%" src={`https://www.youtube.com/embed/${proj.videoLink}?rel=0`}>
+              </iframe>
+            {/* //   <Image
+            //     src={subProj[0].image}
+            //     alt='Demo'
+            //     fill
+            //     style={{ objectFit: 'contain', objectPosition: 'left center' }}
+            //   /> */}
             </div>
           )}
         </div>

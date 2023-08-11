@@ -2,31 +2,31 @@
   {
     "title": "Instructor Embeddings: One Embedder, Any Task",
     "desc": "Over 500k downloads, 1k github stars, and used by 500+ projects, including LangChain, Pytorch serve",
-    "link": "https://github.com/HKUNLP/instructor-embedding",
+    "link": "https://instructor-embedding.github.io/",
     "image": "/research/instructor.jpg"
   },
   {
     "title": "DS-1000: A Natural and Reliable Benchmark for Data Science Code Generation",
     "desc": "1,000 natural, diverse, realistic data science questions over Python libraries",
-    "link" : "https://github.com/HKUNLP/DS-1000",
+    "link" : "https://ds1000-code-gen.github.io/",
     "image": "/research/ds-1000.jpg"
   },
   {
     "title": "Binder: Binding Language Models in Symbolic Languages",
     "desc": "One of the earliest works empowering LLMs with tools: integrating LLM calls in programming languages",
-    "link": "https://github.com/HKUNLP/binder",
+    "link": "https://lm-code-binder.github.io/",
     "image": "/research/binder.jpg"
   },
   {
     "title": "UnifiedSKG: A Unified Framework for Structured Knowledge Grounding",
     "desc": "An overall summary of structure knowledge grounding before LLM era",
-    "link" : "https://github.com/HKUNLP/UnifiedSKG",
+    "link" : "https://unifiedskg.com/",
     "image": "/research/unifiedskg.jpg"
   },
   {
     "title": "Spider: A Large-Scale Human-Labeled Dataset for Complex and Cross-Domain Semantic Parsing and Text-to-SQL Task",
     "desc": "One of the most popular complex text-to-SQL benchmarks with >200 submissions from leading research labs, including Google, Facebook, UCB, CMU, UW",
-    "link" : "https://github.com/taoyds/spider",
+    "link" : "https://yale-lily.github.io/spider",
     "image": "/research/spider.jpg"
   }
 ]

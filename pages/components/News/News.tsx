@@ -8,6 +8,17 @@ const News = ({ news }: { news?: NewsInterface[] }) => {
       <div className='page-x-width'>
         <h1 className='text-2xl font-normal'>News</h1>
         <div className='flex flex-col gap-2'>
+          <div
+            className='grid grid-cols-[auto,1fr] gap-x-8 flex-wrap py-3 border-b border-black/30 text-sm'
+            key="top-news"
+          >
+            <div>{`Aug 10, 2023`}</div>
+            <div>The 
+              &nbsp;<a href="https://chat.xlang.ai/" target="_blank" className="underline">XLang Agent Demos</a>&nbsp; 
+              are now available. Feel free to check! For more details about the XLang framework, please stay tuned at our
+              &nbsp;<a href="https://www.github.com/xlang-ai/xlang" target="_blank" className="underline">GitHub repo</a>&nbsp;
+              and follow our &nbsp;<a href="https://twitter.com/XLangAI" target="_blank" className="underline">twitter</a>🔥🔥</div>
+          </div>
           {news &&
             news.map((n) => (
               <div

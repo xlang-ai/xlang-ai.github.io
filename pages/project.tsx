@@ -58,8 +58,8 @@ const Project = ({
 
 const Intro = () => (
   <>
-    <h1 className='font-[600] text-2xl mb-8'>Projects</h1>
-    <p className='text-sm leading-6'>
+    <h1 className='text-2xl mb-6'>Projects</h1>
+    <p className='leading-7'>
     Our lab is actively engaged in projects focused on creating language model agents that translate language instructions into executable actions across real-world domains such as databases (data agent), web applications (plugins/web agent), and the physical world (robotic agent) etc. We are currently developing an open-source framework to facilitate the construction and assessment of these agents, starting with XLang Agent demos. In the coming months, we&apos;ll open-source essential projects like frameworks, models, methods, and benchmarks, aiming to establish a robust community dedicated to building capable multifunctional agents.
     </p>
   </>
@@ -86,7 +86,7 @@ const HighlightProject = ({
               window.open(hightlightProject.link, '_blank');
             }}
           >
-            Start Chatting
+            Try Online Demo
           </button>
         </div>
       </div>
@@ -147,17 +147,19 @@ const SubHighlightProjectBlock = ({
 
   const ImageBlock = ({ className }: { className?: string }) => (
     <div
-      className={`col-span-1 h-[300px] relative rounded-lg overflow-hidden ${className}`}
+      className={`col-span-1 h-[250px] relative rounded-lg overflow-hidden ${className}`}
     >
-      {image ? (
-        <Image
-          src={image}
-          alt={title}
-          fill
-          style={{ objectFit: 'cover', objectPosition: 'left center' }}
-        />
+      {videoLink ? (
+        <iframe 
+          width="95%" 
+          height="100%" 
+          src={videoLink}
+          style={{ objectFit: 'cover', objectPosition: 'left center' }}>
+        </iframe>
       ) : (
-        <div className='bg-[#D9D9D9] w-full h-full' />
+        <div>
+        <div>Coming soon, please stay tuned...</div>
+        </div>
       )}
     </div>
   );
@@ -182,7 +184,7 @@ const SubHighlightProjectBlock = ({
         <div className='max-sm:justify-start max-sm:underline flex gap-4 text-xs justify-end'>
           {slidesLink && <Link href={slidesLink}>use cases</Link>}
           {productLink && <Link href={productLink}>product</Link>}
-          {videoLink && <Link href={videoLink}>video</Link>}
+          {/* {videoLink && <Link href={videoLink}>video</Link>} */}
         </div>
       </div>
       {reverse && <ImageBlock className='max-sm:hidden' />}
@@ -226,7 +228,7 @@ const ProjectBlock = ({ project }: { project: Project }) => {
 
         <div className='flex flex-col'>
           <h1 className='text-lg font-[500] my-0'>{project.title}</h1>
-          <p className='text-xs'>{project.desc}</p>
+          <li className='text-xs'>{project.desc}</li>
         </div>
       </div>
     </div>

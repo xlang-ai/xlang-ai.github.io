@@ -10,9 +10,9 @@ import { Paper, PaperCategory, Talk } from '@/interface/research';
 
 const PaperCategoryNames: Record<PaperCategory, string> = {
   // CodeGeneration: 'code generation and semantic parsing',
-  Grounding: 'executable language grounding',
+  Grounding: 'code generation and semantic parsing',
   ToolUse: 'LLM + tool use',
-  PoweredAgents: 'LLM-powered agents',
+  // PoweredAgents: 'LLM-powered agents',
   EfficientLLMs: 'efficient and generalizable LLMs',
   InteractiveSystems: 'dialog and interactive systems',
   // Robotics: 'LLM + Robotics',
@@ -46,7 +46,7 @@ const Publications = ({
         <link rel='manifest' href='/favicon/white-on-green/site.webmanifest' />
       </Head>
       <div className='w-full pt-20 sm:pt-36 pb-10 bg-[#D9D9D9]/20'>
-        <div className='page-x-width flex flex-col gap-8 sm:gap-10'>
+        <div className='page-x-width flex flex-col gap-8 sm:gap-6'>
           <Intro />
           <PapersSection papers={papers} />
           {/*<TalksSection talks={talks} />*/}
@@ -57,9 +57,9 @@ const Publications = ({
 };
 
 const Intro = () => (
-  <div className='text-sm font-[500]'>
-    <h1 className='text-2xl mb-4'>Research</h1>
-    <p>At the XLang Lab, our research centers on constructing language model agents that convert language instructions into executable actions within real-world contexts. This encompasses databases (data agent), web applications (plugins/web agent), physical world interactions (robotic agent), and involves techniques like LLM + tool utilization, code generation, semantic parsing, interactive systems, and beyond.</p>
+  <div>
+    <h1 className='text-2xl mb-6'>Research</h1>
+    <p className='leading-7'>At the XLang Lab, our research centers on constructing language model agents that convert language instructions into executable actions within real-world contexts. This encompasses databases (data agent), web applications (plugins/web agent), physical world interactions (robotic agent), and involves techniques like LLM + tool utilization, code generation, semantic parsing, interactive systems, and beyond.</p>
   </div>
 );
 
@@ -76,7 +76,7 @@ const PapersSection = ({ papers }: { papers: Paper[] }) => {
 
   return (
     <div>
-      <h1 className='text-2xl font-[500] mb-4'>Papers</h1>
+      <h1 className='text-2xl font-[500] mb-6'>Papers</h1>
       <div className='flex gap-3 flex-wrap'>
         {Object.entries(PaperCategoryNames).map(([key, value]) => (
           <div

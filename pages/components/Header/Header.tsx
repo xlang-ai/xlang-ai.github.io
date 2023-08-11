@@ -117,7 +117,7 @@ const SideMenu = ({
           </Link>
         </li>
         <li className='text-2xl font-[600] hover:underline text-brand-dark'>
-          <Link href='/publications.tsx' onClick={() => setShowMenu(false)}>
+          <Link href='/publications' onClick={() => setShowMenu(false)}>
             publications
           </Link>
         </li>

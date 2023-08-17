@@ -13,7 +13,8 @@ import rehypeRaw from 'rehype-raw';
 
 const BlogPost = ({ post }: { post: Post }) => {
   const BlogUrl = `https://xlang.ai/blog/${post.slug}`;
-  const TwitterShareUrl = `http://www.twitter.com/share?url=${BlogUrl}&text=${post.title}`;
+  // const TwitterShareUrl = `http://www.twitter.com/share?url=${BlogUrl}&text=${post.title}`;
+  const TwitterShareUrl = post.twitterLink;
   return (
     <>
       <Head>

@@ -7,6 +7,7 @@ author: XLANG Lab
 coverImage: /blog/xlang_overview.png
 previewContent: Introducing XLang, an open-source platform that constructs language model agents through executable language grounding. Alongside this framework, we unveil demos of XLang Agents, encompassing Data, Plugins, and Web agents. Moving forward, we're set to open-source multiple substantial projects, encompassing frameworks, models, demos, code, benchmarks, and beyond.
 onlineImage: https://i.imgur.com/sPqu2t7.png
+twitterLink: https://twitter.com/XLangAI/status/1689723514134446081
 ---
 
 

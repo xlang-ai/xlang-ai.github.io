@@ -8,4 +8,5 @@ export interface BlogPost {
   content: string;
   previewContent: string;
   onlineImage?: string;
+  twitterLink?: string;
 }

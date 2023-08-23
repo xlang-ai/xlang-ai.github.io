@@ -129,7 +129,7 @@ const PostImage = ({
   coverImage?: string;
   title: string;
 }) => (
-  <div className='relative max-sm:w-full max-sm:h-[300px] min-h-[450px] min-w-[300px] rounded-lg overflow-hidden mb-4'>
+  <div className='relative w-full aspect-video rounded-lg'>
     {coverImage ? (
       <Image
         src={coverImage}
@@ -144,7 +144,7 @@ const PostImage = ({
 );
 
 const PostMeta = ({ date, author, slug}: { date: string; author: string; slug: string }) => (
-  <div className='font-[600] text-xs flex grid grid-cols-3 mb-4'>
+  <div className='relative w-full font-[600] text-xs flex flex-wrap grid grid-cols-3 mb-4'>
     <div className='flex flex-col justify-center items-center'>
       <div className='text-[#666666] mb-2'>Author</div>
       <div>{author}</div>

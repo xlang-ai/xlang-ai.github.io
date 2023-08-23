@@ -1,6 +1,7 @@
 export interface BlogPost {
   title: string;
   slug: string;
+  subTitle?: string;
   shortTitle?: string;
   date: string;
   author: string;

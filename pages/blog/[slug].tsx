@@ -58,14 +58,17 @@ const BlogPost = ({ post }: { post: Post }) => {
             <div className='text-[#0156AC] font-[500] text-3xl text-justify'>
               {post.title}
             </div>
+            {post.subTitle && <div className='text-[#0156AC] font-[500] text-2xl text-justify'>
+              {post.subTitle}
+            </div>}
 
             <div className='flex flex-wrap flex-col w-full'>
               <PostMeta date={post.date} author={post.author} slug={TwitterShareUrl}/>
               <PostImage coverImage={post.coverImage} title={post.title} />
               {post.title == 'xxx' && <div className='flex items-center justify-center mt-2'>
                 <div className='max-sm:text-sm border border-brand-primary2 border-2 text-brand-primary2 font-[500] rounded-xl py-1 px-3 cursor-pointer w-52 text-center'>
-                  <a href="https://huggingface.co/" target="_blank" rel="noopener noreferrer">
-                  Download the Model
+                  <a href="https://huggingface.co/OpenLemur" target="_blank" rel="noopener noreferrer">
+                    Download the Models
                   </a>
                 </div>
               </div>}

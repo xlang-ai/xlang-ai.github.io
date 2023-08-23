@@ -55,13 +55,20 @@ const BlogPost = ({ post }: { post: Post }) => {
               <Link href='/blog'>Blog</Link> / {post.shortTitle || post.title}
             </div>
 
-            <div className='text-[#0156AC] font-[500] text-2xl'>
+            <div className='text-[#0156AC] font-[500] text-3xl text-justify'>
               {post.title}
             </div>
 
-            <div className='flex flex-wrap w-full max-sm:gap-2 gap-8'>
-              <PostImage coverImage={post.coverImage} title={post.title} />
+            <div className='flex flex-wrap flex-col w-full'>
               <PostMeta date={post.date} author={post.author} slug={TwitterShareUrl}/>
+              <PostImage coverImage={post.coverImage} title={post.title} />
+              {post.title == 'xxx' && <div className='flex items-center justify-center mt-2'>
+                <div className='max-sm:text-sm border border-brand-primary2 border-2 text-brand-primary2 font-[500] rounded-xl py-1 px-3 cursor-pointer w-52 text-center'>
+                  <a href="https://huggingface.co/" target="_blank" rel="noopener noreferrer">
+                  Download the Model
+                  </a>
+                </div>
+              </div>}
             </div>
           </div>
 
@@ -71,25 +78,25 @@ const BlogPost = ({ post }: { post: Post }) => {
             components={{
               h2(props) {
                 return (
-                  <h2 className='text-xl font-[600] my-6'>{props.children}</h2>
+                  <h2 className='text-xl font-[600] my-6 text-justify'>{props.children}</h2>
                 );
               },
               h3(props) {
                 return (
-                  <h3 className='text-lg font-[600] my-6'>{props.children}</h3>
+                  <h3 className='text-lg font-[600] my-6 text-justify'>{props.children}</h3>
                 );
               },
               p(props) {
                 return (
-                  <p className='mb-4 text-sm leading-7'>{props.children}</p>
+                  <p className='mb-4 text-sm leading-7 text-justify'>{props.children}</p>
                 );
               },
               ul(props) {
-                return <ul className='list-disc pl-4 text-sm leading-7'>{props.children}</ul>;
+                return <ul className='list-disc pl-4 text-sm leading-7 text-justify'>{props.children}</ul>;
               },
               a(props) {
                 return (
-                  <a href={props.href} target="_blank" className='underline cursor-pointer hover:text-brand-primary2'>
+                  <a href={props.href} target="_blank" className='underline cursor-pointer hover:text-brand-primary2 text-justify'>
                     {props.children}
                   </a>
                 );
@@ -122,7 +129,7 @@ const PostImage = ({
   coverImage?: string;
   title: string;
 }) => (
-  <div className='relative max-sm:w-full max-sm:h-[300px] h-[400px] w-[60%] min-w-[300px] rounded-lg overflow-hidden'>
+  <div className='relative max-sm:w-full max-sm:h-[300px] min-h-[450px] min-w-[300px] rounded-lg overflow-hidden mb-4'>
     {coverImage ? (
       <Image
         src={coverImage}
@@ -137,20 +144,20 @@ const PostImage = ({
 );
 
 const PostMeta = ({ date, author, slug}: { date: string; author: string; slug: string }) => (
-  <div className='font-[600] text-xs flex flex-col max-sm:gap-4 gap-12 mt-4'>
-    <div>
-      <div className='text-[#666666] mb-2'>Share</div>
-      <PostShare slug={slug}/>
+  <div className='font-[600] text-xs flex grid grid-cols-3 mb-4'>
+    <div className='flex flex-col justify-center items-center'>
+      <div className='text-[#666666] mb-2'>Author</div>
+      <div>{author}</div>
     </div>
 
-    <div>
+    <div className='flex flex-col justify-center items-center'>
       <div className='text-[#666666] mb-2'>Date</div>
       <div>{parseDateString(date)}</div>
     </div>
 
-    <div>
-      <div className='text-[#666666] mb-2'>Author</div>
-      <div>{author}</div>
+    <div className='flex flex-col justify-center items-center'>
+      <div className='text-[#666666] mb-2'>Share</div>
+      <PostShare slug={slug}/>
     </div>
   </div>
 );

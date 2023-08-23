@@ -54,8 +54,6 @@ Lemur-chat significantly outperforms other open-source supervised fine-tuned mod
 
 <br>
 
-The Lemur project is an open collaborative research effort between XLang Lab and Salesforce Research. We thank the following institutions for their gift support:
-
 The Lemur project is a open collaborative research effort between [XLang Lab](https://xlang.ai) and [Salesforce Research](https://www.salesforceairesearch.com/). We would like to thank Salesforce Research, Google Research, and Amazon AWS for their gift support to this open-source effort! The open-source model still has a long way to go compared to closed-source models. However, we look forward to Lemur's work becoming a valuable effort in establishing a more powerful and balanced foundation for the open-source model and driving research on agent models.
 
 <br>

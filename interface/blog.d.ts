@@ -10,4 +10,5 @@ export interface BlogPost {
   previewContent: string;
   onlineImage?: string;
   twitterLink?: string;
+  githubLink?: string;
 }

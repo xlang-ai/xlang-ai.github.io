@@ -14,7 +14,8 @@ import rehypeRaw from 'rehype-raw';
 const BlogPost = ({ post }: { post: Post }) => {
   const BlogUrl = `https://xlang.ai/blog/${post.slug}`;
   // const TwitterShareUrl = `http://www.twitter.com/share?url=${BlogUrl}&text=${post.title}`;
-  const TwitterShareUrl = post.twitterLink;
+  const TwitterShareUrl = post.twitterLink || 'https://twitter.com/XLangAI';
+  const GithubShareUrl = post.githubLink || 'https://github.com/xlang-ai';
   return (
     <>
       <Head>
@@ -63,7 +64,7 @@ const BlogPost = ({ post }: { post: Post }) => {
             </div>}
 
             <div className='flex flex-wrap flex-col w-full'>
-              <PostMeta date={post.date} author={post.author} slug={TwitterShareUrl}/>
+              <PostMeta date={post.date} author={post.author} twitterUrl={TwitterShareUrl} githubUrl={GithubShareUrl}/>
               <PostImage coverImage={post.coverImage} title={post.title} />
               {post.title == 'xxx' && <div className='flex items-center justify-center mt-2'>
                 <div className='max-sm:text-sm border border-brand-primary2 border-2 text-brand-primary2 font-[500] rounded-xl py-1 px-3 cursor-pointer w-52 text-center'>
@@ -146,7 +147,7 @@ const PostImage = ({
   </div>
 );
 
-const PostMeta = ({ date, author, slug}: { date: string; author: string; slug: string }) => (
+const PostMeta = ({ date, author, twitterUrl, githubUrl }: { date: string; author: string; twitterUrl: string, githubUrl: string }) => (
   <div className='relative w-full font-[600] text-xs flex flex-wrap grid grid-cols-3 mb-4'>
     <div className='flex flex-col justify-center items-center'>
       <div className='text-[#666666] mb-2'>Author</div>
@@ -160,12 +161,12 @@ const PostMeta = ({ date, author, slug}: { date: string; author: string; slug: s
 
     <div className='flex flex-col justify-center items-center'>
       <div className='text-[#666666] mb-2'>Share</div>
-      <PostShare slug={slug}/>
+      <PostShare twitterUrl={twitterUrl} githubUrl={githubUrl}/>
     </div>
   </div>
 );
 
-const PostShare = ({ slug }: { slug: string }) => (
+const PostShare = ({ twitterUrl, githubUrl }: { twitterUrl: string, githubUrl: string }) => (
   <ul className='flex gap-4'>
     <li className='cursor-pointer'>
       <Link href='https://join.slack.com/t/xlanggroup/shared_invite/zt-20zb8hxas-eKSGJrbzHiPmrADCDX3_rQ'>
@@ -179,7 +180,7 @@ const PostShare = ({ slug }: { slug: string }) => (
       </Link>
     </li>
     <li className='cursor-pointer'>
-      <Link href='https://github.com/xlang-ai'>
+      <Link href={githubUrl}>
         <Image
           src={publicFilePath('/icons/github-black.svg')}
           alt='Xlang'
@@ -190,7 +191,7 @@ const PostShare = ({ slug }: { slug: string }) => (
       </Link>
     </li>
     <li className='cursor-pointer'>
-      <Link href={slug}>
+      <Link href={twitterUrl}>
         <Image
           src={publicFilePath('/icons/twitter-black.svg')}
           alt='Xlang'

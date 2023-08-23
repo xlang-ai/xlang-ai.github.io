@@ -1,5 +1,5 @@
 ---
-title: 'Lemur: The State-of-the-art Open Pretrained Large Language Models Balancing Text and Code Capabilities'
+title: 'Introducing Lemur: The State-of-the-art Open Pretrained Large Language Models Balancing Text and Code Capabilities'
 shortTitle: Lemur Intro
 slug: openlemur
 date: 24 August 2023
@@ -54,7 +54,7 @@ Lemur-chat significantly outperforms other open-source supervised fine-tuned mod
 
 <br>
 
-The Lemur project is a collaborative effort between XLang Lab and Salesforce Research. We would like to thank Salesforce Research, Google Research, and Amazon AWS for their gift support to this open-source effort! The open-source model still has a long way to go compared to closed-source models. However, we look forward to Lemur's work becoming a valuable effort in establishing a more powerful and balanced foundation for the open-source model and driving research on agent models.
+The Lemur project is a open collaborative research effort between [XLang Lab](https://xlang.ai) and [Salesforce Research](https://www.salesforceairesearch.com/). We would like to thank Salesforce Research, Google Research, and Amazon AWS for their gift support to this open-source effort! The open-source model still has a long way to go compared to closed-source models. However, we look forward to Lemur's work becoming a valuable effort in establishing a more powerful and balanced foundation for the open-source model and driving research on agent models.
 
 <br>
 

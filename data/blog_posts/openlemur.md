@@ -1,10 +1,10 @@
 ---
-title: 'Introducing Lemur-70B: the State-of-the-art Open LLMs Balancing Text and Code Capabilities'
+title: 'Lemur: The State-of-the-art Open Pretrained Large Language Models Balancing Text and Code Capabilities'
 shortTitle: Lemur Intro
 slug: openlemur
 date: 24 August 2023
 author: XLANG Lab
-coverImage: /blog/xlang_overview.png
+coverImage: /blog/lemur/lemur-twitter.png
 previewContent: In this work, we introduce Lemur and Lemur-chat, the state-of-the-art open pretrained and supervised fine-tuned large language models balancing text and code intelligence.
 onlineImage: https://i.imgur.com/ItEokRk.png
 twitterLink: https://twitter.com/XLangAI/status/1689723514134446081

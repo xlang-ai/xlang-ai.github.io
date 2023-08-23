@@ -1,5 +1,5 @@
 ---
-title: 'Introducing Lemur-70B: the State-of-the-art Open LLMs Balancing Text and Code Capabilities'
+title: 'Lemur: The State-of-the-art Open Pretrained Large Language Models Balancing Text and Code Capabilities'
 shortTitle: Lemur Intro
 slug: openlemur
 date: 24 August 2023

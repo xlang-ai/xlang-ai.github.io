@@ -7,7 +7,7 @@ author: XLANG Lab
 coverImage: /blog/lemur/lemur-twitter.png
 previewContent: In this work, we introduce Lemur and Lemur-chat, the state-of-the-art open pretrained and supervised fine-tuned large language models balancing text and code intelligence.
 onlineImage: https://i.imgur.com/ItEokRk.png
-twitterLink: https://twitter.com/XLangAI/status/1689723514134446081
+twitterLink: https://twitter.com/XLangAI/status/1694376463536128033
 githubLink: https://github.com/OpenLemur/Lemur
 ---
 

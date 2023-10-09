@@ -6,7 +6,7 @@ date: 08 October 2023
 author: XLANG Lab
 coverImage: /blog/lemur/lemur-twitter.png
 previewContent: In this work, we introduce Lemur and Lemur-chat, the state-of-the-art open pretrained and supervised fine-tuned large language models balancing text and code intelligence.
-onlineImage: https://i.imgur.com/ItEokRk.png
+onlineImage: https://i.imgur.com/Tga8kHW.jpeg
 twitterLink: https://twitter.com/XLangAI/status/1694376463536128033
 githubLink: https://github.com/OpenLemur/Lemur
 ---
@@ -38,7 +38,7 @@ We evaluated Lemur across:
 
 <figure style="text-align: center;">  
   <img src="/blog/lemur/overall-performance.png" height=20>  
-  <figcaption style="text-align: center;">Comparison of the foundational and agent capabilities between Lemur-Chat and other open-source pre-trained LLMs.</figcaption>  
+  <figcaption style="text-align: center;">Comparison of the foundational and agent capabilities between Lemur and other models.</figcaption>  
 </figure>  
 
 Lemur significantly outperformed other models on agent benchmarks, showcasing its versatility and potential as a foundation for capable agents.

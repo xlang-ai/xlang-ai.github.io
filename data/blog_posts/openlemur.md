@@ -4,8 +4,8 @@ shortTitle: Lemur Intro
 slug: openlemur
 date: 08 October 2023
 author: XLANG Lab
-coverImage: /blog/lemur/lemur-twitter.png
-previewContent: In this work, we introduce Lemur and Lemur-chat, the state-of-the-art open pretrained and supervised fine-tuned large language models balancing text and code intelligence.
+coverImage: /blog/lemur/lemur.jpg
+previewContent: We are excited to announce Lemur, an openly accessible language model optimized for both natural language and coding capabilities to serve as the backbone of versatile language agents.
 onlineImage: https://i.imgur.com/Tga8kHW.jpeg
 twitterLink: https://twitter.com/XLangAI/status/1694376463536128033
 githubLink: https://github.com/OpenLemur/Lemur

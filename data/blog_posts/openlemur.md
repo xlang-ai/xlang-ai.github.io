@@ -35,13 +35,18 @@ We evaluated Lemur across:
 - 8 language and code datasets like MMLU, BBH, GSM8K, HumanEval, and Spider to validate balanced capabilities
 - 13 interactive agent datasets to test skills like tool usage, adapting to feedback from environment or human, and exploring partially observable digital or physical environments.
 
+<figure style="text-align: center;">  
+  <img src="/blog/lemur/agent-skills.png" height=20>  
+  <figcaption style="text-align: center;"></figcaption>  
+</figure>  
+
+
+Lemur significantly outperformed other models on agent benchmarks, showcasing its versatility and potential as a foundation for capable agents.
 
 <figure style="text-align: center;">  
   <img src="/blog/lemur/overall-performance.png" height=20>  
   <figcaption style="text-align: center;">Comparison of the foundational and agent capabilities between Lemur and other models.</figcaption>  
 </figure>  
-
-Lemur significantly outperformed other models on agent benchmarks, showcasing its versatility and potential as a foundation for capable agents.
 
 <br>
 

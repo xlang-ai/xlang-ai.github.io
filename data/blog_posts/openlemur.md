@@ -1,63 +1,67 @@
 ---
-title: 'Introducing Lemur: The State-of-the-art Open Pretrained Large Language Models Balancing Text and Code Capabilities'
+title: 'Introducing Lemur: Open Foundation Models for Language Agents'
 shortTitle: Lemur Intro
 slug: openlemur
-date: 24 August 2023
+date: 08 October 2023
 author: XLANG Lab
-coverImage: /blog/lemur/lemur-twitter.png
-previewContent: In this work, we introduce Lemur and Lemur-chat, the state-of-the-art open pretrained and supervised fine-tuned large language models balancing text and code intelligence.
-onlineImage: https://i.imgur.com/ItEokRk.png
+coverImage: /blog/lemur/lemur.jpg
+previewContent: We are excited to announce Lemur, an openly accessible language model optimized for both natural language and coding capabilities to serve as the backbone of versatile language agents.
+onlineImage: https://i.imgur.com/Tga8kHW.jpeg
 twitterLink: https://twitter.com/XLangAI/status/1694376463536128033
 githubLink: https://github.com/OpenLemur/Lemur
 ---
 
 <br>
 
-## Introduction
+We are excited to announce Lemur, an openly accessible language model optimized for both natural language and coding capabilities to serve as the backbone of versatile language agents. Our preprint [Lemur: Open Foundation Models for Language Agents via Harmonizing Natural Language and Code]() shares details on this new model.
 
-Open large language models (LLMs) have traditionally been tailored for either textual or code-related tasks, with limited ability to effectively balance both. However, many complex language applications, particularly language model agents, demand systems with a multifaceted skill set encompassing understanding, reasoning, planning, coding, and context grounding. 
+As language models continue to evolve from conversational chatbots to functional agents that can act in the real world, they need both strong language understanding and the ability to execute actions. Lemur balances natural language and coding skills to enable agents to follow instructions, reason about tasks, and take grounded actions.
 
-In this work, we introduce Lemur and Lemur-chat, the state-of-the-art open pretrained and supervised fine-tuned large language models balancing text and code intelligence.
+## Why Lemur?
+Most existing open source models specialize in either natural language or code. Lemur combines both strengths by:
 
-<br>
+- Pretraining on a 90B token corpus with 10:1 ratio of code to text
+- Instruction tuning on 300K examples covering both text and code
 
-## Pretraining and Supervised Fine Tuning
-
-We pretrain Llama 2 on ~100B code-intensive data, followed by supervised fine tuning on ~300K public instructional and dialog data to enhance coding and grounding abilities while maintaining competitive textual reasoning and knowledge performance.
-
-<figure style="display: flex; justify-content: center;">  
-  <img src="/blog/lemur/train_procedure.png" width="70%" height="70%">  
-</figure>  
-
-<br><br>
-
-## Evaluation
-
-Lemur outperforms other open source language models on coding benchmarks, yet remains competitive textual reasoning and knowledge performance.
-
+This two-stage training produces state-of-the-art performance averaged across diverse language and coding benchmarks, surpassing other available open source models and narrowing the gap between open-source and commercial models on agent abilities.
 
 <figure style="text-align: center;">  
-  <img src="/blog/lemur/base-model.png" height=20>  
-  <figcaption style="text-align: center;">Lemur v.s. Other open source pretrained LLMs</figcaption>  
+  <img src="/blog/lemur/pipeline.png" height=20>  
+  <figcaption style="text-align: center;">Training Procedure of Lemur Models</figcaption>  
 </figure>  
 
-<br>
-<br>
-
-Lemur-chat significantly outperforms other open-source supervised fine-tuned models across various dimensions. 
-
+## Testing Lemur's Abilities
+We evaluated Lemur across:
+- 8 language and code datasets like MMLU, BBH, GSM8K, HumanEval, and Spider to validate balanced capabilities
+- 13 interactive agent datasets to test skills like tool usage, adapting to feedback from environment or human, and exploring partially observable digital or physical environments.
 
 <figure style="text-align: center;">  
-  <img src="/blog/lemur/chat-model.png" height=20>  
-  <figcaption style="text-align: center;">Lemur v.s. Other open source supervised fine-tuned LLMs and ChatGPT</figcaption>  
+  <img src="/blog/lemur/agent-skills.png" height=20>  
+  <figcaption style="text-align: center;"></figcaption>  
+</figure>  
+
+
+Lemur significantly outperformed other models on agent benchmarks, showcasing its versatility and potential as a foundation for capable agents.
+
+<figure style="text-align: center;">  
+  <img src="/blog/lemur/overall-performance.png" height=20>  
+  <figcaption style="text-align: center;">Comparison of the foundational and agent capabilities between Lemur and other models.</figcaption>  
 </figure>  
 
 <br>
 
-The Lemur project is a open collaborative research effort between [XLang Lab](https://xlang.ai) and [Salesforce Research](https://www.salesforceairesearch.com/). We would like to thank Salesforce Research, Google Research, and Amazon AWS for their gift support to this open-source effort! The open-source model still has a long way to go compared to closed-source models. However, we look forward to Lemur's work becoming a valuable effort in establishing a more powerful and balanced foundation for the open-source model and driving research on agent models.
+## Moving Research Forward
+By open sourcing Lemur and our training corpora, we hope to empower more research into developing capable and controllable agents that can understand instructions and act appropriately. Testing Lemur across diverse agent scenarios gives insights into critical areas like:
 
-<br>
+- Harmonizing natural language and programming abilities
+- Tool usage as an augmentation mechanism
+- Adapting behavior based on environment and human feedback
+- Reasoning and planning under partial observability in digital and physical environments
 
-## More details and models coming soon. Enjoy!
+There is still much work to be done, but Lemur represents an important step towards open source models that can power the next generation of language agents. We look forward to seeing what the community builds!
 
-<br>
+You can find more details in our preprint: [Lemur: Open Foundation Models for Language Agents via Harmonizing Natural Language and Code]()
+
+## Acknowledgements
+
+The Lemur project is a open collaborative research effort between [XLang Lab](https://xlang.ai) and [Salesforce Research](https://www.salesforceairesearch.com/). We would like to thank Salesforce Research, Google Research, and Amazon AWS for their gift support to this open-source effort!

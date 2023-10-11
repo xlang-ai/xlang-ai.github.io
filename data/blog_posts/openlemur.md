@@ -66,21 +66,8 @@ By open sourcing Lemur and our training corpora, we hope to empower more researc
 
 There is still much work to be done, but Lemur represents an important step towards open source models that can power the next generation of language agents. We look forward to seeing what the community builds!
 
-You can find more details in our preprint: [Lemur: Open Foundation Models for Language Agents via Harmonizing Natural Language and Code]()
+You can find more details in our preprint: [Lemur: Harmonizing Natural Language and Code for Language Agents](https://arxiv.org/abs/2310.06830)
 
 ## Acknowledgements
 
 The Lemur project is a open collaborative research effort between [XLang Lab](https://xlang.ai) and [Salesforce Research](https://www.salesforceairesearch.com/). We would like to thank Salesforce Research, Google Research, and Amazon AWS for their gift support to this open-source effort!
-
-## Citation
-
-```
-@misc{xu2023lemur,
-      title={Lemur: Harmonizing Natural Language and Code for Language Agents}, 
-      author={Yiheng Xu and Hongjin Su and Chen Xing and Boyu Mi and Qian Liu and Weijia Shi and Binyuan Hui and Fan Zhou and Yitao Liu and Tianbao Xie and Zhoujun Cheng and Siheng Zhao and Lingpeng Kong and Bailin Wang and Caiming Xiong and Tao Yu},
-      year={2023},
-      eprint={2310.06830},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
-}
-```

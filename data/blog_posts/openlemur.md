@@ -13,9 +13,15 @@ githubLink: https://github.com/OpenLemur/Lemur
 
 <br>
 
-We are excited to announce Lemur, an openly accessible language model optimized for both natural language and coding capabilities to serve as the backbone of versatile language agents. Our preprint [Lemur: Open Foundation Models for Language Agents via Harmonizing Natural Language and Code]() shares details on this new model.
+We are excited to announce Lemur, an openly accessible language model optimized for both natural language and coding capabilities to serve as the backbone of versatile language agents. Our preprint [Lemur: Harmonizing Natural Language and Code for Language Agents](https://arxiv.org/abs/2310.06830) shares details on this new model.
 
 As language models continue to evolve from conversational chatbots to functional agents that can act in the real world, they need both strong language understanding and the ability to execute actions. Lemur balances natural language and coding skills to enable agents to follow instructions, reason about tasks, and take grounded actions.
+
+Please find more detailed information here:
+
+- Paper: [Lemur: Harmonizing Natural Language and Code for Language Agents](https://arxiv.org/abs/2310.06830)
+- Code: [OpenLemur Repository ](https://github.com/OpenLemur/Lemur)
+- Model: [HuggingFace Hub](https://huggingface.co/OpenLemur)
 
 ## Why Lemur?
 Most existing open source models specialize in either natural language or code. Lemur combines both strengths by:
@@ -65,3 +71,16 @@ You can find more details in our preprint: [Lemur: Open Foundation Models for La
 ## Acknowledgements
 
 The Lemur project is a open collaborative research effort between [XLang Lab](https://xlang.ai) and [Salesforce Research](https://www.salesforceairesearch.com/). We would like to thank Salesforce Research, Google Research, and Amazon AWS for their gift support to this open-source effort!
+
+## Citation
+
+```
+@misc{xu2023lemur,
+      title={Lemur: Harmonizing Natural Language and Code for Language Agents}, 
+      author={Yiheng Xu and Hongjin Su and Chen Xing and Boyu Mi and Qian Liu and Weijia Shi and Binyuan Hui and Fan Zhou and Yitao Liu and Tianbao Xie and Zhoujun Cheng and Siheng Zhao and Lingpeng Kong and Bailin Wang and Caiming Xiong and Tao Yu},
+      year={2023},
+      eprint={2310.06830},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+```

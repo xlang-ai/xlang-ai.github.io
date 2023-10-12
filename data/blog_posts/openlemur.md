@@ -4,14 +4,22 @@ shortTitle: Lemur Intro
 slug: openlemur
 date: 08 October 2023
 author: XLANG Lab
-coverImage: /blog/lemur/lemur.jpg
+coverImage: /blog/lemur/overview.jpeg
 previewContent: We are excited to announce Lemur, an openly accessible language model optimized for both natural language and coding capabilities to serve as the backbone of versatile language agents.
-onlineImage: https://i.imgur.com/Tga8kHW.jpeg
-twitterLink: https://twitter.com/XLangNLP/status/1694376463536128033
+onlineImage: https://i.imgur.com/m4aI7hW.jpg
+twitterLink: https://twitter.com/taoyds/status/1712547761252610076
 githubLink: https://github.com/OpenLemur/Lemur
 ---
 
-<br>
+TLDR: 🎉 Introducing Lemur-70B & Lemur-70B-Chat: 🚀Open & SOTA Foundation Models for Language Agents! The closest open model to GPT-3.5 on 🤖15 agent tasks🤖!
+
+📄Paper: [http://arxiv.org/abs/2310.06830](http://arxiv.org/abs/2310.06830)
+
+🤗Model: [http://huggingface.co/OpenLemur](http://huggingface.co/OpenLemur)
+
+👩‍💻Code: [https://github.com/OpenLemur/Lemur](https://github.com/OpenLemur/Lemur)
+
+<hr class="solid">
 
 We are excited to announce Lemur, an openly accessible language model optimized for both natural language and coding capabilities to serve as the backbone of versatile language agents. Our preprint [Lemur: Harmonizing Natural Language and Code for Language Agents](https://arxiv.org/abs/2310.06830) shares details on this new model.
 

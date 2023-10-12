@@ -7,7 +7,7 @@ author: XLANG Lab
 coverImage: /blog/lemur/lemur.jpg
 previewContent: We are excited to announce Lemur, an openly accessible language model optimized for both natural language and coding capabilities to serve as the backbone of versatile language agents.
 onlineImage: https://i.imgur.com/Tga8kHW.jpeg
-twitterLink: https://twitter.com/XLangAI/status/1694376463536128033
+twitterLink: https://twitter.com/XLangNLP/status/1694376463536128033
 githubLink: https://github.com/OpenLemur/Lemur
 ---
 

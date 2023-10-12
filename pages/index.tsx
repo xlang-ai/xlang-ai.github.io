@@ -1,12 +1,12 @@
 import Head from 'next/head';
 import { InferGetStaticPropsType } from 'next';
-
 import Welcome from './components/Welcome';
 import News from './components/News';
 import Preview from './components/Preview';
 import Sponsors from './components/Sponsors';
 
 import { getHighlightProject, getHighlightSubProjects, getNews } from '@/utils/data';
+import { Analytics } from '@vercel/analytics/react';
 
 const Home = ({
   news,
@@ -41,6 +41,7 @@ const Home = ({
         <News news={news} />
         <Preview proj={proj} subProj={subProj} />
         <Sponsors />
+        <Analytics />
       </div>
     </>
   );

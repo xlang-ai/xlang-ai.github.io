@@ -1,5 +1,41 @@
 [
   {
+    "category": ["PoweredAgents", "InteractiveSystems"],
+    "title": "OpenAgents: An Open Platform for Language Agents in the Wild",
+    "authors": "Tianbao Xie*, Fan Zhou*, Zhoujun Cheng*, Peng Shi*, Luoxuan Weng*, Yitao Liu*, Toh Jing Hua, Junning Zhao, Qian Liu, Che Liu, Leo Z. Liu, Yiheng Xu, Hongjin Su, Dongchan Shin, Caiming Xiong, Tao Yu",
+    "publication": "arXiv",
+    "paperLink": "https://arxiv.org/abs/2310.10634",
+    "codeLink": "https://github.com/xlang-ai/OpenAgents",
+    "dataLink": "https://github.com/xlang-ai/OpenAgents",
+    "blogLink": "https://www.xlang.ai/blog/xlang-intro",
+    "twitterLink": "https://twitter.com/ChengZhoujun/status/1714343204148113860",
+    "image": "/research/openagents.png"
+  },
+  {
+    "category": ["PoweredAgents", "Grounding", "ToolUse"],
+    "title": "Lemur: Harmonizing Natural Language and Code for Language Agents",
+    "authors": "Yiheng Xu*, Hongjin Su*, Chen Xing*, Boyu Mi, Qian Liu, Weijia Shi, Binyuan Hui, Fan Zhou, Yitao Liu, Tianbao Xie, Zhoujun Cheng, Siheng Zhao, Lingpeng Kong, Bailin Wang, Caiming Xiong, Tao Yu",
+    "publication": "arXiv",
+    "paperLink": "https://arxiv.org/abs/2310.06830",
+    "codeLink": "https://github.com/OpenLemur/lemur",
+    "dataLink": "https://huggingface.co/OpenLemur",
+    "blogLink": "https://www.xlang.ai/blog/openlemur",
+    "twitterLink": "https://twitter.com/yihengxu_/status/1712537543688990940",
+    "image": "/research/lemur.png"
+  },
+  {
+    "category": ["CodeGeneration", "Robotics"],
+    "title": "Text2Reward: Automated Dense Reward Function Generation for Reinforcement Learning\n",
+    "authors": "Tianbao Xie*, Siheng Zhao*, Chen Henry Wu, Yitao Liu, Qian Luo, Victor Zhong, Yanchao Yang, Tao Yu",
+    "publication": "arXiv",
+    "paperLink": "https://arxiv.org/abs/2309.11489",
+    "codeLink": "https://github.com/xlang-ai/text2reward",
+    "dataLink": "https://github.com/xlang-ai/text2reward",
+    "blogLink": "https://text-to-reward.github.io/",
+    "twitterLink": "https://twitter.com/arankomatsuzaki/status/1706311844829487153",
+    "image": "/research/text2reward.png"
+  },
+  {
     "category": ["EfficientLLMs"],
     "title": "Instructor Embeddings: One Embedder, Any Task: Instruction-Finetuned Text Embeddings",
     "authors": "Hongjin Su*, Weijia Shi*, Jungo Kasai, Yizhong Wang, Yushi Hu, Mari Ostendorf, Wen-tau Yih, Noah A. Smith, Luke Zettlemoyer, Tao Yu",

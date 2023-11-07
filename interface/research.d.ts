@@ -1,13 +1,13 @@
 import { list } from "postcss";
 
 export type PaperCategory =
-  // | 'CodeGeneration'
+  | 'CodeGeneration'
   | 'Grounding'
   | 'ToolUse'
-  // | 'PoweredAgents'
+  | 'PoweredAgents'
   | 'EfficientLLMs'
   | 'InteractiveSystems'
-  // | 'Robotics';
+  | 'Robotics';
 
 export interface Paper {
   image?: string;

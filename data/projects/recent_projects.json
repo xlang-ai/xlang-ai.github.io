@@ -1,5 +1,23 @@
 [
   {
+    "title": "OpenAgents: An Open Platform for Language Agents in the Wild",
+    "desc": "ChatGPT Plus replica for researcher, developers and general users, 2.5k github stars",
+    "link": "https://github.com/xlang-ai/OpenAgents",
+    "image": "/research/openagents.png"
+  },
+  {
+    "title": "Lemur: Open Foundation Models for Language Agents",
+    "desc": "Lemur-70B and Lemur-70B-chat, Open & SOTA Foundation Models for Language Agents",
+    "link": "https://github.com/OpenLemur/lemur",
+    "image": "/research/lemur.png"
+  },
+  {
+    "title": "Text2Reward: Automated Dense Reward Function Generation for Reinforcement Learning\n",
+    "desc": "One of the earliest works on using LLMs for RL reward function generation",
+    "link": "https://text-to-reward.github.io/",
+    "image": "/research/text2reward.png"
+  },
+  {
     "title": "Instructor Embeddings: One Embedder, Any Task",
     "desc": "Over 500k downloads, 1k github stars, and used by 500+ projects, including LangChain, Pytorch serve",
     "link": "https://instructor-embedding.github.io/",

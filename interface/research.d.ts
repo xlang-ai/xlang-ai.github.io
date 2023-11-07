@@ -1,4 +1,4 @@
-import { list } from "postcss";
+import { list } from 'postcss';
 
 export type PaperCategory =
   | 'CodeGeneration'
@@ -20,6 +20,7 @@ export interface Paper {
   dataLink?: string;
   blogLink?: string;
   twitterLink?: string;
+  huggingfaceModel?: string;
 }
 
 export interface Talk {

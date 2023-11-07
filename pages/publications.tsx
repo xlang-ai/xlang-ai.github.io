@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { InferGetStaticPropsType } from 'next';
 import { Star } from 'tabler-icons-react';
+import { Download } from 'tabler-icons-react';
 
 import { getPapers, getTalks } from '@/utils/data';
 
@@ -113,6 +114,7 @@ const PapersSection = ({ papers }: { papers: Paper[] }) => {
 
 const PaperBlock = ({ paper }: { paper: Paper }) => {
   const [githubStars, setGithubStars] = useState<number>();
+  const [huggingfaceDownloads, setHuggingfaceDownloads] = useState<number>();
 
   useEffect(() => {
     paper.codeLink &&
@@ -120,7 +122,13 @@ const PaperBlock = ({ paper }: { paper: Paper }) => {
         const stars = await getGitHubStars(paper.codeLink);
         setGithubStars(stars);
       })();
-  }, [githubStars, paper.codeLink]);
+
+    paper.huggingfaceModel &&
+      (async () => {
+        const downloads = await getHuggingFaceDownloads(paper.huggingfaceModel);
+        setHuggingfaceDownloads(downloads);
+      })();
+  }, [githubStars, paper.codeLink, paper.huggingfaceModel]);
 
   return (
     <div className='border-t border-b border-black/30 py-6'>
@@ -145,6 +153,16 @@ const PaperBlock = ({ paper }: { paper: Paper }) => {
             <p className='italic text-xs font-[500]'>{paper.publication}</p>
           )}
           <div className='flex justify-end items-center w-full gap-3 font-[500] text-xs'>
+            {huggingfaceDownloads && paper.huggingfaceModel && (
+              <a
+                href={`https://huggingface.co/${paper.huggingfaceModel}`}
+                target='_blank'
+                className='flex items-center gap-1'
+              >
+                <Download size={12} />
+                {huggingfaceDownloads}
+              </a>
+            )}
             {githubStars && paper.paperLink && (
               <a
                 href={paper.paperLink}
@@ -259,14 +277,35 @@ const TalkBlock = ({ talk }: { talk: Talk }) => {
 const getGitHubStars = async (url: string) => {
   const regex = /https:\/\/github\.com\/([^\/]+)\/([^\/]+)/;
   const match = url.match(regex);
-  const response = await fetch(
-    `https://api.github.com/repos/${match[1]}/${match[2]}`
-  );
-  const data = await response.json();
-  if (data.stargazers_count !== undefined) {
-    return data.stargazers_count;
-  } else {
-    return 0;
+  try {
+    const response = await fetch(
+      `https://api.github.com/repos/${match[1]}/${match[2]}`
+    );
+    const data = await response.json();
+    if (data.stargazers_count !== undefined) {
+      return data.stargazers_count;
+    } else {
+      return 0;
+    }
+  } catch (error) {
+    console.error(error);
+    return undefined;
+  }
+};
+
+const getHuggingFaceDownloads = async (modelId: string) => {
+  const apiUrl = `https://huggingface.co/api/models/${modelId}?expand[]=downloadsAllTime`;
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    if (data?.downloadsAllTime) {
+      return data.downloadsAllTime;
+    } else {
+      return 0;
+    }
+  } catch (error) {
+    console.error(error);
+    return undefined;
   }
 };
 

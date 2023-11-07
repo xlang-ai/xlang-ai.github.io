@@ -293,20 +293,24 @@ const getGitHubStars = async (url: string) => {
   }
 };
 
-const getHuggingFaceDownloads = async (modelId: string) => {
-  const apiUrl = `https://huggingface.co/api/models/${modelId}?expand[]=downloadsAllTime`;
-  try {
-    const response = await fetch(apiUrl);
-    const data = await response.json();
-    if (data?.downloadsAllTime) {
-      return data.downloadsAllTime;
-    } else {
-      return 0;
+const getHuggingFaceDownloads = async (modelIds: string[]) => {
+  let total = 0;
+  modelIds.forEach(async (modelId) => {
+    const apiUrl = `https://huggingface.co/api/models/${modelId}?expand[]=downloadsAllTime`;
+    try {
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+      if (data?.downloadsAllTime) {
+        total += data.downloadsAllTime;
+      } else {
+        total += 0;
+      }
+    } catch (error) {
+      console.error(error);
     }
-  } catch (error) {
-    console.error(error);
-    return undefined;
-  }
+  });
+
+  return total;
 };
 
 export async function getStaticProps() {

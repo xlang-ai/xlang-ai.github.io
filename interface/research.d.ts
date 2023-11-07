@@ -20,7 +20,7 @@ export interface Paper {
   dataLink?: string;
   blogLink?: string;
   twitterLink?: string;
-  huggingfaceModel?: string;
+  huggingfaceModel?: string[];
 }
 
 export interface Talk {

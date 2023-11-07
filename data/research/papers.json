@@ -22,7 +22,10 @@
     "blogLink": "https://www.xlang.ai/blog/openlemur",
     "twitterLink": "https://twitter.com/yihengxu_/status/1712537543688990940",
     "image": "/research/lemur.png",
-    "huggingfaceModel": "OpenLemur/lemur-70b-chat-v1"
+    "huggingfaceModel": [
+      "OpenLemur/lemur-70b-chat-v1",
+      "OpenLemur/lemur-70b-v1"
+    ]
   },
   {
     "category": ["CodeGeneration", "Robotics"],
@@ -47,7 +50,11 @@
     "blogLink": "https://instructor-embedding.github.io/",
     "twitterLink": "https://twitter.com/WeijiaShi2/status/1605307966109863936",
     "image": "/research/instructor.jpg",
-    "huggingfaceModel": "hkunlp/instructor-large"
+    "huggingfaceModel": [
+      "hkunlp/instructor-base",
+      "hkunlp/instructor-large",
+      "hkunlp/instructor-xl"
+    ]
   },
   {
     "category": ["Grounding"],

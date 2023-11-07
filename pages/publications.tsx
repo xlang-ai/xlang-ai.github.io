@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import { InferGetStaticPropsType } from 'next';
+import { Star } from 'tabler-icons-react';
 
 import { getPapers, getTalks } from '@/utils/data';
 
@@ -111,6 +112,16 @@ const PapersSection = ({ papers }: { papers: Paper[] }) => {
 };
 
 const PaperBlock = ({ paper }: { paper: Paper }) => {
+  const [githubStars, setGithubStars] = useState<number>();
+
+  useEffect(() => {
+    paper.codeLink &&
+      (async () => {
+        const stars = await getGitHubStars(paper.codeLink);
+        setGithubStars(stars);
+      })();
+  }, [githubStars, paper.codeLink]);
+
   return (
     <div className='border-t border-b border-black/30 py-6'>
       <div className='sm:flex gap-4'>
@@ -133,7 +144,17 @@ const PaperBlock = ({ paper }: { paper: Paper }) => {
           {paper.publication && (
             <p className='italic text-xs font-[500]'>{paper.publication}</p>
           )}
-          <div className='flex justify-end w-full gap-3 font-[500] text-xs'>
+          <div className='flex justify-end items-center w-full gap-3 font-[500] text-xs'>
+            {githubStars && paper.paperLink && (
+              <a
+                href={paper.paperLink}
+                target='_blank'
+                className='flex items-center gap-1'
+              >
+                <Star size={12} />
+                {githubStars}
+              </a>
+            )}
             {paper.paperLink && (
               <a href={paper.paperLink} target='_blank'>
                 paper
@@ -233,6 +254,20 @@ const TalkBlock = ({ talk }: { talk: Talk }) => {
       <p className='text-xs whitespace-pre-wrap'>{talk.desc}</p>
     </div>
   );
+};
+
+const getGitHubStars = async (url: string) => {
+  const regex = /https:\/\/github\.com\/([^\/]+)\/([^\/]+)/;
+  const match = url.match(regex);
+  const response = await fetch(
+    `https://api.github.com/repos/${match[1]}/${match[2]}`
+  );
+  const data = await response.json();
+  if (data.stargazers_count !== undefined) {
+    return data.stargazers_count;
+  } else {
+    return 0;
+  }
 };
 
 export async function getStaticProps() {

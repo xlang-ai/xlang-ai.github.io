@@ -139,7 +139,7 @@ const Faculty = ({ facultyMembers }: { facultyMembers: TeamMember[] }) => {
 const Graduates = ({ graduates }: { graduates: TeamMember[] }) => {
   return (
     <div>
-      <h1 className='text-2xl font-[500] mb-6'>Graduate Students & Visitors</h1>
+      <h1 className='text-2xl font-[500] mb-6'>Graduate Students</h1>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-y-4'>
         {graduates.map((member) => (
           <MemberCard member={member} key={member.name} />
@@ -152,7 +152,7 @@ const Graduates = ({ graduates }: { graduates: TeamMember[] }) => {
 const Undergraduates = ({ undergraduates }: { undergraduates: TeamMember[] }) => {
   return (
     <div>
-      <h1 className='text-2xl font-[500] mb-6'>Undergraduate Students & Interns</h1>
+      <h1 className='text-2xl font-[500] mb-6'>Undergraduate Students</h1>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-y-4'>
         {undergraduates.map((member) => (
           <MemberCard member={member} key={member.name} />

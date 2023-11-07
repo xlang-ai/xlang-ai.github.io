@@ -28,7 +28,7 @@
     ]
   },
   {
-    "category": ["CodeGeneration", "Robotics"],
+    "category": ["Grounding", "Robotics"],
     "title": "Text2Reward: Automated Dense Reward Function Generation for Reinforcement Learning\n",
     "authors": "Tianbao Xie*, Siheng Zhao*, Chen Henry Wu, Yitao Liu, Qian Luo, Victor Zhong, Yanchao Yang, Tao Yu",
     "publication": "arXiv",
@@ -152,7 +152,7 @@
     "image": "/research/ic-dst.jpg"
   },
   {
-    "category": ["CodeGeneration", "InteractiveSystems"],
+    "category": ["Grounding", "InteractiveSystems"],
     "title": "NL2INTERFACE: Interactive Visualization Interface Generation from Natural Language Queries",
     "authors": "Yiru Chen, Ryan Li, Austin Mac, Tianbao Xie, Tao Yu, Eugene Wu",
     "publication": "IEEE Visualization Conference NLVIZ Workshop 2022",

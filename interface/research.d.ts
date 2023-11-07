@@ -1,7 +1,7 @@
 import { list } from 'postcss';
 
 export type PaperCategory =
-  | 'CodeGeneration'
+  // | 'CodeGeneration'
   | 'Grounding'
   | 'ToolUse'
   | 'PoweredAgents'

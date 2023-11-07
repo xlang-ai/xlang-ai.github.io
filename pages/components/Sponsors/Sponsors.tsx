@@ -35,8 +35,8 @@ const Sponsors = () => {
           <Image
             src={UGCImage}
             alt='UGC'
-            width={848}
-            height={90}
+            width={660}
+            height={70}
           />
         </div>
       </div>

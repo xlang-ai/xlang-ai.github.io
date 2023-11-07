@@ -59,10 +59,16 @@ const Publications = ({
 const Intro = () => (
   <div>
     <h1 className='text-2xl mb-6'>Research</h1>
-    <p className='leading-7'>At the XLang Lab, our research centers on constructing language model agents that convert language instructions into executable actions within real-world contexts. This encompasses databases (data agent), web applications (plugins/web agent), physical world interactions (robotic agent), and involves techniques like LLM + tool utilization, code generation, semantic parsing, interactive systems, and beyond.</p>
+    <p className='leading-7'>
+      At the XLang Lab, our research centers on constructing language model
+      agents that convert language instructions into executable actions within
+      real-world contexts. This encompasses databases (data agent), web
+      applications (plugins/web agent), physical world interactions (robotic
+      agent), and involves techniques like LLM + tool utilization, code
+      generation, semantic parsing, interactive systems, and beyond.
+    </p>
   </div>
 );
-
 
 const PapersSection = ({ papers }: { papers: Paper[] }) => {
   const [filter, setFilter] = useState<PaperCategory>(null);
@@ -114,7 +120,7 @@ const PaperBlock = ({ paper }: { paper: Paper }) => {
               src={paper.image}
               alt={paper.title}
               fill
-              style={{ objectFit: 'fill', objectPosition: 'left center' }}
+              style={{ objectFit: 'cover', objectPosition: 'center' }}
             />
           </div>
         ) : (
@@ -128,7 +134,7 @@ const PaperBlock = ({ paper }: { paper: Paper }) => {
             <p className='italic text-xs font-[500]'>{paper.publication}</p>
           )}
           <div className='flex justify-end w-full gap-3 font-[500] text-xs'>
- {paper.paperLink && (
+            {paper.paperLink && (
               <a href={paper.paperLink} target='_blank'>
                 paper
               </a>

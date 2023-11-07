@@ -85,7 +85,7 @@ const ProjectBlock = ({ project }: { project: Project }) => {
                 src={project.image}
                 alt={project.title}
                 fill
-                style={{ objectFit: 'fill', objectPosition: 'left center' }}
+                style={{ objectFit: 'cover', objectPosition: 'center' }}
               />
             </div>
           ) : (

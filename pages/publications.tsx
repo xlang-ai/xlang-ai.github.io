@@ -153,17 +153,18 @@ const PaperBlock = ({ paper }: { paper: Paper }) => {
             <p className='italic text-xs font-[500]'>{paper.publication}</p>
           )}
           <div className='flex justify-end items-center w-full gap-3 font-[500] text-xs'>
-            {huggingfaceDownloads && paper.huggingfaceModel && (
-              <a
-                href={`https://huggingface.co/${paper.huggingfaceModel}`}
-                target='_blank'
-                className='flex items-center gap-1'
-              >
-                <Download size={12} />
-                {huggingfaceDownloads}
-              </a>
-            )}
-            {githubStars && paper.codeLink && (
+            {huggingfaceDownloads !== undefined &&
+              paper.huggingfaceModel[0] && (
+                <a
+                  href={`https://huggingface.co/${paper.huggingfaceModel[0]}`}
+                  target='_blank'
+                  className='flex items-center gap-1'
+                >
+                  <Download size={12} />
+                  {huggingfaceDownloads}
+                </a>
+              )}
+            {githubStars !== undefined && paper.codeLink && (
               <a
                 href={paper.codeLink}
                 target='_blank'
@@ -285,7 +286,7 @@ const getGitHubStars = async (url: string) => {
     if (data.stargazers_count !== undefined) {
       return data.stargazers_count;
     } else {
-      return 0;
+      return undefined;
     }
   } catch (error) {
     console.error(error);
@@ -295,20 +296,18 @@ const getGitHubStars = async (url: string) => {
 
 const getHuggingFaceDownloads = async (modelIds: string[]) => {
   let total = 0;
-  modelIds.forEach(async (modelId) => {
+  for (const modelId of modelIds) {
     const apiUrl = `https://huggingface.co/api/models/${modelId}?expand[]=downloadsAllTime`;
     try {
       const response = await fetch(apiUrl);
       const data = await response.json();
       if (data?.downloadsAllTime) {
         total += data.downloadsAllTime;
-      } else {
-        total += 0;
       }
     } catch (error) {
       console.error(error);
     }
-  });
+  }
 
   return total;
 };

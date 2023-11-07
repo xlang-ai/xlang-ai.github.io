@@ -40,9 +40,6 @@ const Header = () => {
             <Link href='/team'>team</Link>
           </li>
           <li className='font-[500] hover:underline text-brand-dark'>
-            <Link href='/project'>projects</Link>
-          </li>
-          <li className='font-[500] hover:underline text-brand-dark'>
             <Link href='/publications'>publications</Link>
           </li>
           <li className='font-[500] hover:underline text-brand-dark'>
@@ -77,8 +74,12 @@ const Header = () => {
           </ul>
 
           <div className='max-sm:text-sm border border-brand-primary2 border-2 text-brand-primary2 font-[500] rounded-xl py-1 px-3 cursor-pointer'>
-            <a href="https://forms.gle/3Ki9ectMB5D31F8g8" target="_blank" rel="noopener noreferrer">
-            join us
+            <a
+              href='https://forms.gle/3Ki9ectMB5D31F8g8'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              join us
             </a>
           </div>
         </div>

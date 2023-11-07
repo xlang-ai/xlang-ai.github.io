@@ -13,8 +13,8 @@ const Sponsors = () => {
           Acknowledgements
         </h1>
         <p className='max-sm:text-xs text-sm'>
-          We thank the following institutions for their gift support:
-          Google Research, Amazon AWS and Salesforce Research.
+          We thank the following institutions for their gift support: Google
+          Research, Amazon AWS and Salesforce Research.
         </p>
         <div className='max-sm:my-8 my-4 w-full flex gap-12 justify-center items-center'>
           <Image
@@ -24,12 +24,7 @@ const Sponsors = () => {
             height={90}
             className='mt-2'
           />
-          <Image
-            src={AmazonImage}
-            alt='Amazon AWS'
-            width={90}
-            height={90}
-          />
+          <Image src={AmazonImage} alt='Amazon AWS' width={90} height={90} />
           <Image
             src={SalesforceImage}
             alt='Salesforce Research'
@@ -37,16 +32,6 @@ const Sponsors = () => {
             height={90}
           />
         </div>
-        <p className='max-sm:text-xs text-sm'>
-          <b>Donations appreciated!</b> XLANG Lab is funded by university grants and kind donations. We welcome any form of donations and sponsorships. To aid our mission of building open-source language agents, contact us at {''}
-          <a
-            href='mailto:mail@xlang.ai'
-            className='text-[#0156AC] underline'
-          >
-            mail@xlang.ai
-          </a>
-          .
-        </p>
       </div>
     </div>
   );

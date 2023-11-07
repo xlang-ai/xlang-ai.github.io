@@ -6,14 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { publicFilePath } from '@/utils';
 
-import {
-  discord,
-  email,
-  github,
-  slack,
-  threads,
-  twitter,
-} from '@/data/socials/socials';
+import { discord, github, threads, twitter } from '@/data/socials/socials';
 
 const Footer = () => {
   return (
@@ -37,28 +30,6 @@ const Footer = () => {
         </div>
         <nav>
           <ul className='text-white flex gap-6'>
-            <li className='cursor-pointer'>
-              <Link href={`mailto:${email}`}>
-                <Image
-                  src={publicFilePath('/icons/mail.svg')}
-                  alt='Xlang'
-                  width={20}
-                  height={20}
-                  className='rounded-md'
-                />
-              </Link>
-            </li>
-            <li className='cursor-pointer'>
-              <Link href={slack}>
-                <Image
-                  src={publicFilePath('/icons/slack.svg')}
-                  alt='Xlang'
-                  width={20}
-                  height={20}
-                  className='rounded-md'
-                />
-              </Link>
-            </li>
             <li className='cursor-pointer'>
               <Link href={discord}>
                 <Image

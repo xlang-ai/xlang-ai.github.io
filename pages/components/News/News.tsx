@@ -13,14 +13,14 @@ const News = ({ news }: { news?: NewsInterface[] }) => {
             key="top-news"
           >
             <div>{`Oct 18, 2023`}</div>
-            <div>🔥🔥 We have released &nbsp;<a href="https://github.com/xlang-ai/OpenAgents" target="_blank" className="underline">💥OpenAgents💥</a>,&nbsp; an open platform designed for language agents in the wild! With OpenAgents, you can analyze data, call plugins, and control your browser in a manner similar to ChatGPT Plus. What sets us apart is our open code, which allows for easy deployment, full stack code, chat web UI, agent methods, and more. For more details, you can visit our <a href="https://arxiv.org/abs/2310.10634" target="_blank" className="underline">research paper</a> and the <a href="https://github.com/xlang-ai/OpenAgents" target="_blank" className="underline">code</a>! &nbsp;</div>
+            <div>🔥🔥 We have released &nbsp;<a href="https://github.com/xlang-ai/OpenAgents" target="_blank" className="underline">💥OpenAgents💥</a>,&nbsp; an open platform designed for language agents in the wild! With OpenAgents, you can analyze data, call plugins, and control your browser in a manner similar to ChatGPT Plus. What sets us apart is our open code, which allows for easy deployment, full stack code, chat web UI, agent methods, and more. For more details, you can visit our <a href="https://arxiv.org/abs/2310.10634" target="_blank" className="underline">paper</a> and the <a href="https://github.com/xlang-ai/OpenAgents" target="_blank" className="underline">code</a>! &nbsp;</div>
           </div>
           <div
             className='grid grid-cols-[auto,1fr] gap-x-8 flex-wrap py-3 border-b border-black/30 text-sm'
             key="top-news"
           >
             <div>{`Oct 13, 2023`}</div>
-            <div>🔥🔥 We have released &nbsp;<a href="https://github.com/OpenLemur/Lemur" target="_blank" className="underline">Lemur70B</a>,&nbsp; 🚀 Open & SOTA Foundation Models for Language Agents! The closest open model to GPT-3.5 on 🤖15 agent tasks🤖! ! Check out our paper [here](https://arxiv.org/abs/2310.06830) and feel free to download and use the model at &nbsp;<a href="https://huggingface.co/OpenLemur" target="_blank" className="underline">HuggingFace</a>!&nbsp;</div>
+            <div>🔥🔥 We have released &nbsp;<a href="https://github.com/OpenLemur/Lemur" target="_blank" className="underline">Lemur70B</a>,&nbsp; 🚀 Open & SOTA Foundation Models for Language Agents! The closest open model to GPT-3.5 on 🤖15 agent tasks🤖! ! Check out our <a href="https://arxiv.org/abs/2310.06830" target="_blank" className="underline">paper</a> and feel free to download and use the model at &nbsp;<a href="https://huggingface.co/OpenLemur" target="_blank" className="underline">HuggingFace</a>!&nbsp;</div>
           </div>
           {/*<div*/}
           {/*  className='grid grid-cols-[auto,1fr] gap-x-8 flex-wrap py-3 border-b border-black/30 text-sm'*/}

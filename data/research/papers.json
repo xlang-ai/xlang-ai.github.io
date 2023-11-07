@@ -21,7 +21,8 @@
     "dataLink": "https://huggingface.co/OpenLemur",
     "blogLink": "https://www.xlang.ai/blog/openlemur",
     "twitterLink": "https://twitter.com/yihengxu_/status/1712537543688990940",
-    "image": "/research/lemur.png"
+    "image": "/research/lemur.png",
+    "huggingfaceModel": "OpenLemur/lemur-70b-chat-v1"
   },
   {
     "category": ["CodeGeneration", "Robotics"],

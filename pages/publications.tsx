@@ -163,9 +163,9 @@ const PaperBlock = ({ paper }: { paper: Paper }) => {
                 {huggingfaceDownloads}
               </a>
             )}
-            {githubStars && paper.paperLink && (
+            {githubStars && paper.codeLink && (
               <a
-                href={paper.paperLink}
+                href={paper.codeLink}
                 target='_blank'
                 className='flex items-center gap-1'
               >

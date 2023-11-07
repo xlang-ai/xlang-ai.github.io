@@ -15,7 +15,7 @@ const Welcome = () => {
             <span style={{ color: '#643EAD' }}> G</span>rounding (XLANG)
           </span> Lab!
           We are part of the <a href="https://nlp.cs.hku.hk/" target="_blank" className="underline">HKU NLP Group</a> at the University of Hong Kong.
-          XLang focuses on building language model agents that transform (“grounding”) language instructions into code or actions executable in real-world environments,
+          We focuses on building language model agents that transform (“grounding”) language instructions into code or actions executable in real-world environments,
           including databases (data agent), web applications (plugins/web agent), and the physical world (robotic agent) etc,.
           It lies at the heart of language model agents or natural language interfaces that can interact with and learn from these real-world environments to facilitate human interaction with data analysis,
           web applications, and robotic instruction through conversation.

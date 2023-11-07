@@ -32,12 +32,7 @@ const Sponsors = () => {
             width={90}
             height={90}
           />
-          <Image
-            src={UGCImage}
-            alt='UGC'
-            width={660}
-            height={70}
-          />
+          <Image src={UGCImage} alt='UGC' width={300} height={70} />
         </div>
       </div>
     </div>

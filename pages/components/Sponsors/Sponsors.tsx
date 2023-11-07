@@ -4,6 +4,7 @@ import Image from 'next/image';
 import GoogleImage from '@/public/icons/google.svg';
 import AmazonImage from '@/public/icons/amazon.svg';
 import SalesforceImage from '@/public/icons/salesforce.svg';
+import UGCImage from '@/public/icons/ugc.png';
 
 const Sponsors = () => {
   return (
@@ -14,7 +15,7 @@ const Sponsors = () => {
         </h1>
         <p className='max-sm:text-xs text-sm'>
           We thank the following institutions for their gift support: Google
-          Research, Amazon AWS and Salesforce Research.
+          Research, Amazon AWS, Salesforce Research, and UGC.
         </p>
         <div className='max-sm:my-8 my-4 w-full flex gap-12 justify-center items-center'>
           <Image
@@ -29,6 +30,12 @@ const Sponsors = () => {
             src={SalesforceImage}
             alt='Salesforce Research'
             width={90}
+            height={90}
+          />
+          <Image
+            src={UGCImage}
+            alt='UGC'
+            width={848}
             height={90}
           />
         </div>

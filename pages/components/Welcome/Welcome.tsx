@@ -12,7 +12,7 @@ const Welcome = () => {
           <span style={{ fontWeight: 'bold' }}>
             <span style={{ color: '#643EAD' }}> Exe</span>cutable
             <span style={{ color: '#643EAD' }}> Lang</span>uage
-            <span style={{ color: '#643EAD' }}> G</span>rounding (XLang)
+            <span style={{ color: '#643EAD' }}> G</span>rounding (XLANG)
           </span> Lab!
           We are part of the <a href="https://nlp.cs.hku.hk/" target="_blank" className="underline">HKU NLP Group</a> at the University of Hong Kong.
           XLang focuses on building language model agents that transform (“grounding”) language instructions into code or actions executable in real-world environments,

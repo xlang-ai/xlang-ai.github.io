@@ -62,7 +62,7 @@ const Intro = () => (
   <div>
     <h1 className='text-2xl mb-6'>Research</h1>
     <p className='leading-7'>
-      At the XLang Lab, our research centers on constructing language model
+      At the XLANG Lab, our research centers on constructing language model
       agents that convert language instructions into executable actions within
       real-world contexts. This encompasses databases (data agent), web
       applications (plugins/web agent), physical world interactions (robotic

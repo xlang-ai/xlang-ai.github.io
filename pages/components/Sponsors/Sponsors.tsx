@@ -14,7 +14,7 @@ const Sponsors = () => {
           Acknowledgements
         </h1>
         <p className='max-sm:text-xs text-sm'>
-          We thank the following institutions for their gift support: Google
+          We thank the following institutions for their funding support: Google
           Research, Amazon AWS, Salesforce Research, and UGC.
         </p>
         <div className='max-sm:my-8 my-4 w-full flex gap-12 justify-center items-center'>

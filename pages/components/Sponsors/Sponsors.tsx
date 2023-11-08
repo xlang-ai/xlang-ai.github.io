@@ -17,7 +17,7 @@ const Sponsors = () => {
           We thank the following institutions for their funding support: Google
           Research, Amazon AWS, Salesforce Research, and UGC.
         </p>
-        <div className='max-sm:my-8 my-4 w-full flex gap-12 justify-center items-center'>
+        <div className='max-sm:my-8 my-4 w-full flex flex-wrap gap-12 justify-center items-center'>
           <Image
             src={GoogleImage}
             alt='Google Research'
@@ -32,7 +32,7 @@ const Sponsors = () => {
             width={90}
             height={90}
           />
-          <Image src={UGCImage} alt='UGC' width={300} height={70} />
+          <Image src={UGCImage} alt='UGC' width={150} height={70} />
         </div>
       </div>
     </div>

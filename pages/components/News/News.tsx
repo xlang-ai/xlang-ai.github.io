@@ -12,6 +12,20 @@ const News = ({ news }: { news?: NewsInterface[] }) => {
             className='grid grid-cols-[auto,1fr] gap-x-8 flex-wrap py-3 border-b border-black/30 text-sm'
             key="top-news"
           >
+            <div>{`April 11, 2024`}</div>
+            <div>🔥🔥 We have released &nbsp;<a href="https://os-world.github.io/" target="_blank" className="underline">OSWorld</a>,&nbsp; A unified, real computer env for multimodal agents to evaluate open-ended computer tasks with arbitrary apps and interfaces on Ubuntu, Windows, & macOS! &nbsp;</div>
+          </div>
+          <div
+            className='grid grid-cols-[auto,1fr] gap-x-8 flex-wrap py-3 border-b border-black/30 text-sm'
+            key="top-news"
+          >
+            <div>{`Feb 20, 2024`}</div>
+            <div>🔥🔥 We have released &nbsp;<a href="https://arks-codegen.github.io/" target="_blank" className="underline">ARKS</a>,&nbsp; a general pipeline for retrieval-augmented code generation (RACG)! &nbsp;</div>
+          </div>
+          <div
+            className='grid grid-cols-[auto,1fr] gap-x-8 flex-wrap py-3 border-b border-black/30 text-sm'
+            key="top-news"
+          >
             <div>{`Oct 18, 2023`}</div>
             <div>🔥🔥 We have released &nbsp;<a href="https://github.com/xlang-ai/OpenAgents" target="_blank" className="underline">💥OpenAgents💥</a>,&nbsp; an open platform designed for language agents in the wild! For more details, you can visit our <a href="https://arxiv.org/abs/2310.10634" target="_blank" className="underline">paper</a> and the <a href="https://github.com/xlang-ai/OpenAgents" target="_blank" className="underline">code</a>! &nbsp;</div>
           </div>

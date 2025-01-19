@@ -74,8 +74,11 @@ const Intro = () => {
 };
 
 const MemberCard = ({ member }: { member: TeamMember }) => {
-  const titles = member.titles.split(';');
-
+  let titles = [];
+  if (member.titles) {
+    titles = member.titles.split(';');
+  }
+  
   return (
     <div className='rounded-lg shadow p-4 flex gap-4 w-[340px]'>
       <div className='relative min-w-fit w-32 h-32 rounded-lg overflow-hidden'>

@@ -19,7 +19,7 @@
     "paperLink": "https://arxiv.org/abs/2412.04454",
     "codeLink": "https://github.com/xlang-ai/aguvis",
     "dataLink": "",
-    "blogLink": "",
+    "blogLink": "https://aguvis-project.github.io/",
     "twitterLink": "",
     "image": "/research/aguvis.jpg"
   },
@@ -31,7 +31,7 @@
     "paperLink": "https://www.arxiv.org/abs/2411.07763",
     "codeLink": "https://github.com/xlang-ai/Spider2",
     "dataLink": "",
-    "blogLink": "",
+    "blogLink": "https://spider2-sql.github.io/",
     "twitterLink": "",
     "image": "/research/spider2.jpg"
   },
@@ -41,7 +41,7 @@
     "authors": "Yanzhe Zhang, Tao Yu, Diyi Yang",
     "publication": "Preprint",
     "paperLink": "https://arxiv.org/abs/2411.02391",
-    "codeLink": "",
+    "codeLink": "https://github.com/SALT-NLP/PopupAttack",
     "dataLink": "",
     "blogLink": "",
     "twitterLink": "",
@@ -55,7 +55,7 @@
     "paperLink": "https://arxiv.org/abs/2407.12883",
     "codeLink": "https://github.com/xlang-ai/BRIGHT",
     "dataLink": "",
-    "blogLink": "",
+    "blogLink": "https://brightbenchmark.github.io/",
     "twitterLink": "",
     "image": "/research/bright.jpg"
   },
@@ -79,7 +79,7 @@
     "paperLink": "https://arxiv.org/abs/2404.07972",
     "codeLink": "https://github.com/xlang-ai/OSWorld",
     "dataLink": "https://github.com/xlang-ai/OSWorld/tree/main/evaluation_examples",
-    "blogLink": "",
+    "blogLink": "https://os-world.github.io/",
     "twitterLink": "https://twitter.com/TianbaoX/status/1778781521253667267",
     "image": "/research/osworld.png"
   },
@@ -115,7 +115,7 @@
     "paperLink": "https://arxiv.org/abs/2402.07456",
     "codeLink": "https://github.com/OS-Copilot/OS-Copilot",
     "dataLink": "",
-    "blogLink": "",
+    "blogLink": "https://os-copilot.github.io/",
     "twitterLink": "https://twitter.com/zywu_hku/status/1758014688779244002",
     "image": "/research/os_copilot.png"
   },
@@ -141,7 +141,7 @@
     "dataLink": "",
     "blogLink": "",
     "twitterLink": "",
-    "image": "/research/os-copilot.png"
+    "image": "/research/does.png"
   },
   {
     "category": ["PhysicalAIAgents"],

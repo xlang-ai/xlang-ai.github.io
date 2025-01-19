@@ -136,7 +136,7 @@ const PostImage = ({
   <div className='relative w-full aspect-video rounded-lg'>
     {coverImage ? (
       <Image
-        src={coverImage}
+        src={publicFilePath(coverImage)}
         alt={title}
         fill
         style={{ objectFit: 'contain', objectPosition: 'center top' }}

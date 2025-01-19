@@ -8,6 +8,7 @@ import { getAllPosts } from '@/utils/post';
 import { parseDateString } from '@/utils/date';
 
 import { BlogPost } from '@/interface/blog';
+import { publicFilePath } from '@/utils';
 
 const Blog = ({ posts }: { posts: BlogPost[] }) => {
   return (
@@ -95,7 +96,7 @@ const BlogBlockImage = ({
     >
       {post.coverImage ? (
         <Image
-          src={post.coverImage}
+          src={publicFilePath(post.coverImage)}
           alt={post.title}
           fill
           style={{ objectFit: 'contain', objectPosition: 'center' }}

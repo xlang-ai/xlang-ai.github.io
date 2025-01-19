@@ -5,7 +5,7 @@ import Head from 'next/head';
 import { InferGetStaticPropsType } from 'next';
 
 import { Collaborator, TeamMember, Alumni } from '@/interface/team';
-
+import { publicFilePath } from '@/utils';
 import {
   getFacultyMembers,
   getGraduates,
@@ -83,7 +83,7 @@ const MemberCard = ({ member }: { member: TeamMember }) => {
           <a target="_blank" href={member.link}>
             {member.image ? (
               <Image
-                src={member.image}
+                src={publicFilePath(member.image)}
                 alt={member.name}
                 width={128}
                 height={128}
@@ -95,7 +95,7 @@ const MemberCard = ({ member }: { member: TeamMember }) => {
         ) : (
           member.image ? (
             <Image
-              src={member.image}
+              src={publicFilePath(member.image)}
               alt={member.name}
               width={128}
               height={128}

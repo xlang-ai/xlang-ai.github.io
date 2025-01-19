@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 import { HighlightProject, HighlightSubProject } from '@/interface/project';
 import Link from 'next/link';
-
+import { publicFilePath } from '@/utils';
 const Preview = ({ proj, subProj }: { proj?: HighlightProject, subProj?: HighlightSubProject[] }) => {
   const [index, setIndex] = useState<number>(0);
   return (
@@ -81,7 +81,7 @@ const FeatureBox = ({
       >
         <div className='relative w-36 h-36'>
           <Image
-            src={proj.icon}
+            src={publicFilePath(proj.icon)}
             alt={proj.title}
             fill
             style={{ objectFit: 'contain', objectPosition: 'center' }}

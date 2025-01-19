@@ -16,7 +16,7 @@ const Footer = () => {
           <Link href='/'>
             <div className='relative'>
               <Image
-                src={LogoWhite}
+                src={publicFilePath('/icons/logo-white.svg')}
                 alt='Xlang'
                 width={30}
                 height={30}

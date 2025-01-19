@@ -5,7 +5,7 @@ import React from 'react';
 
 import { getRecentProjects } from '@/utils/data';
 import { Project } from '@/interface/project';
-
+import { publicFilePath } from '@/utils';
 const Project = ({
   recentProjects,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
@@ -82,7 +82,7 @@ const ProjectBlock = ({ project }: { project: Project }) => {
           {project.image ? (
             <div className='relative min-w-[180px] max-sm:h-48 h-32 rounded-lg overflow-hidden my-auto shadow-xl'>
               <Image
-                src={project.image}
+                src={publicFilePath(project.image)}
                 alt={project.title}
                 fill
                 style={{ objectFit: 'cover', objectPosition: 'center' }}

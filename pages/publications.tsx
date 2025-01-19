@@ -9,7 +9,7 @@ import { Download } from 'tabler-icons-react';
 import { getPapers, getTalks } from '@/utils/data';
 
 import { Paper, PaperCategory, Talk } from '@/interface/research';
-
+import { publicFilePath } from '@/utils';
 const PaperCategoryNames: Record<PaperCategory, string> = {
   // CodeGeneration: 'code generation and semantic parsing',
   Grounding: 'code generation and semantic parsing',
@@ -136,7 +136,7 @@ const PaperBlock = ({ paper }: { paper: Paper }) => {
         {paper.image ? (
           <div className='relative min-w-[180px] max-sm:h-48 h-32 rounded-lg overflow-hidden my-auto shadow-xl'>
             <Image
-              src={paper.image}
+              src={publicFilePath(paper.image)}
               alt={paper.title}
               fill
               style={{ objectFit: 'cover', objectPosition: 'center' }}

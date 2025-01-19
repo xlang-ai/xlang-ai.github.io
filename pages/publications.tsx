@@ -59,12 +59,12 @@ const Intro = () => (
   <div>
     <h1 className='text-2xl mb-6'>Research</h1>
     <p className='leading-7'>
-      At the XLANG Lab, our research centers on constructing language model
-      agents that convert language instructions into executable actions within
-      real-world contexts. This encompasses databases (data agent), web
-      applications (plugins/web agent), physical world interactions (robotic
-      agent), and involves techniques like LLM + tool utilization, code
-      generation, semantic parsing, interactive systems, and beyond.
+      Our research focuses on building grounded AI systems that enable users to interact 
+      through natural language with digital and physical environments. We develop AI agents 
+      that translate language and perception into executable code and actions, empowering 
+      people to perform data science, control computers, and collaborate with robots. Our 
+      work spans three core areas: code generation for data science, grounding language in 
+      the digital world, and grounding language in the physical world.
     </p>
   </div>
 );

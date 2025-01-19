@@ -1,9 +1,33 @@
 [
   {
+    "category": [],
+    "title": "AgentTrek: Agent Trajectory Synthesis via Guiding Replay with Web Tutorials",
+    "authors": "Yiheng Xu, Dunjie Lu, Zhennan Shen, Junli Wang, Zekun Wang, Yuchen Mao, Caiming Xiong, Tao Yu",
+    "publication": "Preprint",
+    "paperLink": "https://arxiv.org/abs/2412.09605",
+    "codeLink": "",
+    "dataLink": "",
+    "blogLink": "https://agenttrek.github.io/",
+    "twitterLink": "",
+    "image": "/research/agenttrek.jpg"
+  },
+  {
+    "category": [],
+    "title": "Aguvis: Unified Pure Vision Agents for Autonomous GUI Interaction",
+    "authors": "Yiheng Xu, Zekun Wang, Junli Wang, Dunjie Lu, Tianbao Xie, Amrita Saha, Doyen Sahoo, Tao Yu, Caiming Xiong",
+    "publication": "Preprint",
+    "paperLink": "https://arxiv.org/abs/2412.04454",
+    "codeLink": "https://github.com/xlang-ai/aguvis",
+    "dataLink": "",
+    "blogLink": "",
+    "twitterLink": "",
+    "image": "/research/aguvis.jpg"
+  },
+  {
     "category": ["Grounding"],
     "title": "BRIGHT: A Realistic and Challenging Benchmark for Reasoning-Intensive Retrieval",
     "authors": "Hongjin Su, Howard Yen, Mengzhou Xia, Weijia Shi, Niklas Muennighoff, Han-yu Wang, Haisu Liu, Quan Shi, Zachary S. Siegel, Michael Tang, Ruoxi Sun, Jinsung Yoon, Sercan O. Arik, Danqi Chen, Tao Yu",
-    "publication": "Preprint 2024",
+    "publication": "Preprint",
     "paperLink": "https://arxiv.org/abs/2407.12883",
     "codeLink": "https://github.com/xlang-ai/BRIGHT",
     "dataLink": "",
@@ -21,7 +45,7 @@
     "dataLink": "",
     "blogLink": "https://spider2-v.github.io/",
     "twitterLink": "",
-    "image": "/research/spider2-v.jpg"
+    "image": "/research/spider2v.jpg"
   },
   {
     "category": [],
@@ -45,7 +69,7 @@
     "dataLink": "",
     "blogLink": "",
     "twitterLink": "",
-    "image": "/research/spider2.0.jpg"
+    "image": "/research/spider2.jpg"
   },
   {
     "category": ["PoweredAgents", "InteractiveSystems", "ToolUse"],

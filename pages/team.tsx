@@ -51,7 +51,7 @@ const Team = ({
           <Graduates graduates={graduates} />
           <Undergraduates undergraduates={undergraduates} />
           <Alumni alumni={alumni} />
-          <Collaborators collaborators={collaborators} />
+          {/* <Collaborators collaborators={collaborators} /> */}
           {/* <SpecialMemorialMentor /> */}
         </div>
       </div>

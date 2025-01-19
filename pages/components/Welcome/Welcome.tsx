@@ -1,4 +1,5 @@
 import React from 'react';
+import { publicFilePath } from '../../../utils';
 
 const Welcome = () => {
   return (
@@ -22,7 +23,11 @@ const Welcome = () => {
           Recent advances in XLANG incorporate techniques such as LLM + external tools, code generation, semantic parsing, efficient and generalizable LLMs, and dialog or interactive systems.
         </p>
         <div className='col-span-4'>
-          <img src='/demo/teaser.jpg' alt='xlang-overview' className='w-full h-auto' />
+          <img 
+            src={publicFilePath('/demo/teaser.jpg')} 
+            alt='xlang-overview' 
+            className='w-full h-auto' 
+          />
         </div>
       </div>
     </div>

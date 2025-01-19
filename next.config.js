@@ -1,10 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: process.env.NODE_ENV === "production" ? "/xlang-website" : "",
+  basePath: process.env.NODE_ENV === "production" ? "/" : "",
   images: {
     unoptimized: true,
-    path: process.env.NODE_ENV === "production" ? "/xlang-website" : "",
+    path: process.env.NODE_ENV === "production" ? "/" : "",
   },
   reactStrictMode: true,
   swcMinify: true,

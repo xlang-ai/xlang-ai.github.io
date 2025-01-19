@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+  basePath: process.env.NODE_ENV === "production" ? "/xlang-website" : "",
+  images: {
+    unoptimized: true,
+  },
   reactStrictMode: true,
   swcMinify: true,
   webpack: (config, { isServer }) => {

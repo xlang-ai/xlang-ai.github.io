@@ -12,12 +12,9 @@ import { Paper, PaperCategory, Talk } from '@/interface/research';
 import { publicFilePath } from '@/utils';
 const PaperCategoryNames: Record<PaperCategory, string> = {
   // CodeGeneration: 'code generation and semantic parsing',
-  Grounding: 'code generation and semantic parsing',
-  ToolUse: 'LLM + tool use',
-  PoweredAgents: 'LLM-powered agents',
-  EfficientLLMs: 'efficient and generalizable LLMs',
-  InteractiveSystems: 'dialog and interactive systems',
-  Robotics: 'LLM + Robotics',
+  CodeGeneration: 'Code Generation for Data Science',
+  DigitalAIAgents: 'Grounding Language in the Digital World',
+  PhysicalAIAgents: 'Grounding Language in the Physical World',
 };
 
 const Publications = ({

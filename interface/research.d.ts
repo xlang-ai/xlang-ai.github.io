@@ -2,12 +2,9 @@ import { list } from 'postcss';
 
 export type PaperCategory =
   // | 'CodeGeneration'
-  | 'Grounding'
-  | 'ToolUse'
-  | 'PoweredAgents'
-  | 'EfficientLLMs'
-  | 'InteractiveSystems'
-  | 'Robotics';
+  | 'CodeGeneration'
+  | 'DigitalAIAgents'
+  | 'PhysicalAIAgents';
 
 export interface Paper {
   image?: string;

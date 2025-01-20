@@ -169,7 +169,7 @@ const Alumni = ({ alumni }: { alumni: Alumni[] }) => {
   return (
     <div>
       <h1 className='text-2xl font-[500] mb-6'>Student & Visitor Alumni</h1>
-      <div className='text-sm grid grid-cols-3 gap-6'>  
+      <div className='text-sm grid grid-cols-2 gap-6'>  
         {alumni.map((alumnus, index) => (  
           <div key={index}>  
             {alumnus.link ? (  

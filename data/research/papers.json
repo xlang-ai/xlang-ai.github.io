@@ -132,7 +132,7 @@
     "image": "/research/openagents.png"
   },
   {
-    "category": ["DigitalAIAgents"],
+    "category": ["Others"],
     "title": "Does Collaborative Human-LM Dialogue Generation Help Information Extraction from Human Dialogues?",
     "authors": "Bo-Ru Lu, Nikita Haduong, Chia-Hsuan Lee, Zeqiu Wu, Hao Cheng, Paul Koester, Jean Utke, Tao Yu, Noah A. Smith, Mari Ostendorf",
     "publication": "COLM 2024",
@@ -144,7 +144,7 @@
     "image": "/research/does.png"
   },
   {
-    "category": ["PhysicalAIAgents"],
+    "category": ["PhysicalAIAgents","DigitalAIAgents"],
     "title": "Lemur: Harmonizing Natural Language and Code for Language Agents",
     "authors": "Yiheng Xu*, Hongjin Su*, Chen Xing*, Boyu Mi, Qian Liu, Weijia Shi, Binyuan Hui, Fan Zhou, Yitao Liu, Tianbao Xie, Zhoujun Cheng, Siheng Zhao, Lingpeng Kong, Bailin Wang, Caiming Xiong, Tao Yu",
     "publication": "ICLR 2024 Spotlight",

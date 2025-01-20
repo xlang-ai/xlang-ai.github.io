@@ -4,7 +4,8 @@ export type PaperCategory =
   // | 'CodeGeneration'
   | 'CodeGeneration'
   | 'DigitalAIAgents'
-  | 'PhysicalAIAgents';
+  | 'PhysicalAIAgents'
+  | 'Others';
 
 export interface Paper {
   image?: string;

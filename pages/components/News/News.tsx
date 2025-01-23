@@ -13,7 +13,7 @@ const News = ({ news }: { news?: NewsInterface[] }) => {
             key="top-news"
           >
             <div>{`24/01/2025`}</div>
-            <div> OpenAI's <a href="https://openai.com/index/computer-using-agent/" target="_blank" className="underline">Operator</a> Computer-Using Agent (CUA) achieves a 38.1% success rate on <a href="https://os-world.github.io/" target="_blank" className="underline">OSWorld</a>!</div>
+            <div> OpenAI&apos;s <a href="https://openai.com/index/computer-using-agent/" target="_blank" className="underline">Operator</a> Computer-Using Agent (CUA) achieves a 38.1% success rate on <a href="https://os-world.github.io/" target="_blank" className="underline">OSWorld</a>!</div>
           </div>
           <div
             className='grid grid-cols-[auto,1fr] gap-x-8 flex-wrap py-3 border-b border-black/30 text-sm'

@@ -148,7 +148,7 @@ const PaperBlock = ({ paper }: { paper: Paper }) => {
           <h1 className='text-lg font-[500]'>{paper.title}</h1>
           <p className='text-[#727272] text-xs font-[500]'>{paper.authors}</p>
           {paper.publication && (
-            <p className='italic text-xs font-[500]'>{paper.publication}</p>
+            <p className='text-md font-[500]'>{paper.publication}</p>
           )}
           <div className='flex justify-end items-center w-full gap-3 font-[500] text-xs'>
             {huggingfaceDownloads !== undefined &&

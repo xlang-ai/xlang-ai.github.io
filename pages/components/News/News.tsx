@@ -47,13 +47,6 @@ const News = ({ news }: { news?: NewsInterface[] }) => {
             className='grid grid-cols-[auto,1fr] gap-x-8 flex-wrap py-3 border-b border-black/30 text-sm'
             key="top-news"
           >
-            <div>{`Feb 20, 2024`}</div>
-            <div>🔥🔥 We have released &nbsp;<a href="https://arks-codegen.github.io/" target="_blank" className="underline">ARKS</a>,&nbsp; a general pipeline for retrieval-augmented code generation (RACG)! &nbsp;</div>
-          </div>
-          <div
-            className='grid grid-cols-[auto,1fr] gap-x-8 flex-wrap py-3 border-b border-black/30 text-sm'
-            key="top-news"
-          >
             <div>{`September 28, 2023`}</div>
             <div>🔥🔥 Introducing Text2Reward - Using LLMs to generate dense reward functions from natural language for robotic RL policy training!</div>
           </div>

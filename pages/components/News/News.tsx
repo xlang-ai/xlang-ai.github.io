@@ -76,7 +76,7 @@ const News = ({ news }: { news?: NewsInterface[] }) => {
           {/*    &nbsp;<a href="https://www.github.com/xlang-ai/xlang" target="_blank" className="underline">GitHub repo</a>&nbsp;*/}
           {/*    and follow our &nbsp;<a href="https://twitter.com/XLangNLP" target="_blank" className="underline">twitter</a></div>*/}
           {/*</div>*/}
-          {news &&
+          {/* {news &&
             news.map((n) => (
               <div
                 className='grid grid-cols-[auto,1fr] gap-x-8 flex-wrap py-3 border-b border-black/30 text-sm'
@@ -85,7 +85,7 @@ const News = ({ news }: { news?: NewsInterface[] }) => {
                 <div>{parseDateString(n.date)}</div>
                 <div>{n.description}</div>
               </div>
-            ))}
+            ))} */}
         </div>
       </div>
     </div>

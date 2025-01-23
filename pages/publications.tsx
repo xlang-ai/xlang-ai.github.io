@@ -78,7 +78,7 @@ const PapersSection = ({ papers }: { papers: Paper[] }) => {
     setFilteredPapers(
       papers.filter((paper) => !filter || paper.category.includes(filter))
     );
-  }, [filter]);
+  }, [filter, papers]);
 
   return (
     <div>

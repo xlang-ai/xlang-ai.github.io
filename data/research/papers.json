@@ -1,6 +1,6 @@
 [
   {
-    "category": ["DigitalAIAgents"],
+    "category": ["DigitalAIAgents", "Others"],
     "title": "AgentTrek: Agent Trajectory Synthesis via Guiding Replay with Web Tutorials",
     "authors": "Yiheng Xu, Dunjie Lu, Zhennan Shen, Junli Wang, Zekun Wang, Yuchen Mao, Caiming Xiong, Tao Yu",
     "publication": "Preprint",
@@ -24,7 +24,7 @@
     "image": "/research/aguvis.jpg"
   },
   {
-    "category": ["CodeGeneration"],
+    "category": ["CodeGeneration", "DigitalAIAgents"],
     "title": "Spider 2.0: Evaluating Language Models on Real-World Enterprise Text-to-SQL Workflows",
     "authors": "Fangyu Lei, Jixuan Chen, Yuxiao Ye, Ruisheng Cao, Dongchan Shin, Hongjin Su, Zhaoqing Suo, Hongcheng Gao, Wenjing Hu, Pengcheng Yin, Victor Zhong, Caiming Xiong, Ruoxi Sun, Qian Liu, Sida Wang, Tao Yu",
     "publication": "Preprint",
@@ -48,7 +48,7 @@
     "image": "/research/attack.jpg"
   },
   {
-    "category": ["CodeGeneration"],
+    "category": ["Others"],
     "title": "BRIGHT: A Realistic and Challenging Benchmark for Reasoning-Intensive Retrieval",
     "authors": "Hongjin Su, Howard Yen, Mengzhou Xia, Weijia Shi, Niklas Muennighoff, Han-yu Wang, Haisu Liu, Quan Shi, Zachary S. Siegel, Michael Tang, Ruoxi Sun, Jinsung Yoon, Sercan O. Arik, Danqi Chen, Tao Yu",
     "publication": "Preprint",
@@ -60,7 +60,7 @@
     "image": "/research/bright.jpg"
   },
   {
-    "category": ["CodeGeneration"],
+    "category": ["Others"],
     "title": "Generative Representational Instruction Tuning",
     "authors": "Niklas Muennighoff, Hongjin Su, Liang Wang, Nan Yang, Furu Wei, Tao Yu, Amanpreet Singh, Douwe Kiela",
     "publication": "ICLR 2024 AGI Workshop, Best Paper Award",
@@ -84,7 +84,7 @@
     "image": "/research/osworld.png"
   },
   {
-    "category": ["CodeGeneration"],
+    "category": ["CodeGeneration", "DigitalAIAgents"],
     "title": "Spider2-V: How Far Are Multimodal Agents From Automating Data Science and Engineering Workflows?",
     "authors": "Ruisheng Cao, Fangyu Lei, Haoyuan Wu, Jixuan Chen, Yeqiao Fu, Hongcheng Gao, Xinzhuang Xiong, Hanchong Zhang, Yuchen Mao, Wenjing Hu, Tianbao Xie, Hongshen Xu, Danyang Zhang, Sida Wang, Ruoxi Sun, Pengcheng Yin, Caiming Xiong, Ansong Ni, Qian Liu, Victor Zhong, Lu Chen, Kai Yu, Tao Yu",
     "publication": "NeurIPS 2024, Spotlight",
@@ -144,7 +144,7 @@
     "image": "/research/does.png"
   },
   {
-    "category": ["PhysicalAIAgents","DigitalAIAgents"],
+    "category": ["PhysicalAIAgents","DigitalAIAgents","CodeGeneration"],
     "title": "Lemur: Harmonizing Natural Language and Code for Language Agents",
     "authors": "Yiheng Xu*, Hongjin Su*, Chen Xing*, Boyu Mi, Qian Liu, Weijia Shi, Binyuan Hui, Fan Zhou, Yitao Liu, Tianbao Xie, Zhoujun Cheng, Siheng Zhao, Lingpeng Kong, Bailin Wang, Caiming Xiong, Tao Yu",
     "publication": "ICLR 2024 Spotlight",
@@ -172,7 +172,7 @@
     "image": "/research/text2reward.png"
   },
   {
-    "category": ["CodeGeneration"],
+    "category": ["DigitalAIAgents", "Others"],
     "title": "Instructor Embeddings: One Embedder, Any Task: Instruction-Finetuned Text Embeddings",
     "authors": "Hongjin Su*, Weijia Shi*, Jungo Kasai, Yizhong Wang, Yushi Hu, Mari Ostendorf, Wen-tau Yih, Noah A. Smith, Luke Zettlemoyer, Tao Yu",
     "publication": "ACL 2023 Findings",
@@ -213,7 +213,7 @@
     "image": "/research/code-review.jpg"
   },
   {
-    "category": ["CodeGeneration"],
+    "category": ["Others"],
     "title": "Compositional Exemplars for In-context Learning",
     "authors": "Jiacheng Ye, Zhiyong Wu, Jiangtao Feng, Tao Yu, Lingpeng Kong.",
     "publication": "ICML 2023",
@@ -225,7 +225,7 @@
     "image": "/research/ce-icl.png"
   },
   {
-    "category": ["CodeGeneration"],
+    "category": ["Others"],
     "title": "Batch Prompting: Efficient Inference with Large Language Model APIs",
     "authors": "Zhoujun Cheng, Jungo Kasai, Tao Yu",
     "publication": "EMNLP 2023 Industry Track",
@@ -237,7 +237,7 @@
     "image": "/research/batch.png"
   },
   {
-    "category": ["CodeGeneration"],
+    "category": ["CodeGeneration", "DigitalAIAgents", "Others"],
     "title": "Binder: Binding Language Models in Symbolic Languages",
     "authors": "Zhoujun Cheng*, Tianbao Xie*, Peng Shi, Chengzu Li, Rahul Nadkarni, Yushi Hu, Caiming Xiong, Dragomir Radev, Mari Ostendorf, Luke Zettlemoyer, Noah A Smith, Tao Yu",
     "publication": "ICLR 2023",
@@ -249,7 +249,7 @@
     "image": "/research/binder.jpg"
   },
   {
-    "category": ["CodeGeneration"],
+    "category": ["Others"],
     "title": "Selective Annotation Makes Language Models Better Few-Shot Learners",
     "authors": "Hongjin Su, Jungo Kasai, Chen Henry Wu, Weijia Shi, Tianlu Wang, Jiayi Xin, Rui Zhang, Mari Ostendorf, Luke Zettlemoyer, Noah A. Smith, Tao Yu",
     "publication": "ICLR 2023",
@@ -272,7 +272,7 @@
     "image": "/research/unifiedskg.jpg"
   },
   {
-    "category": ["CodeGeneration"],
+    "category": ["Others"],
     "title": "ZeroGen: Efficient Zero-shot Learning via Dataset Generation",
     "authors": "Jiacheng Ye*, Jiahui Gao*, Qintong Li, Hang Xu, Jiangtao Feng, Zhiyong Wu, Tao Yu, Lingpeng Kong",
     "publication": "EMNLP 2022",
@@ -284,7 +284,7 @@
     "image": "/research/zerogen.jpg"
   },
   {
-    "category": ["CodeGeneration"],
+    "category": ["Others"],
     "title": "In-Context Learning for Few-Shot Dialogue State Tracking",
     "authors": "Yushi Hu, Chia-Hsuan Lee, Tianbao Xie, Tao Yu, Noah A. Smith, Mari Ostendorf",
     "publication": "EMNLP Findings 2022",

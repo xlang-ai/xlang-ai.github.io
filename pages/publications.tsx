@@ -15,7 +15,7 @@ const PaperCategoryNames: Record<PaperCategory, string> = {
   CodeGeneration: 'Code Generation for Data Science',
   DigitalAIAgents: 'Grounding Language in the Digital World',
   PhysicalAIAgents: 'Grounding Language in the Physical World',
-  Others: 'Others',
+  Others: 'Others : RAG, Tool use, Efficient LLM, Data synthesis etc.',
 };
 
 const Publications = ({

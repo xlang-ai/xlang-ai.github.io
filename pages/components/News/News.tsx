@@ -12,6 +12,34 @@ const News = ({ news }: { news?: NewsInterface[] }) => {
             className='grid grid-cols-[auto,1fr] gap-x-8 flex-wrap py-3 border-b border-black/30 text-sm'
             key="top-news"
           >
+            <div>{`December 24, 2024`}</div>
+            <div>🔥🔥 Introducing Aguvis - A unified vision-based strong agent model for autonomous GUI interaction across web, desktop & mobile platforms.</div>
+          </div>
+          <div
+            className='grid grid-cols-[auto,1fr] gap-x-8 flex-wrap py-3 border-b border-black/30 text-sm'
+            key="top-news"
+          >
+            <div>{`December 15, 2024`}</div>
+            <div>🔥🔥 Instructor embeddings recently hit 5 million downloads on huggingface!</div>
+          </div>
+          <div
+            className='grid grid-cols-[auto,1fr] gap-x-8 flex-wrap py-3 border-b border-black/30 text-sm'
+            key="top-news"
+          >
+            <div>{`November 15, 2024`}</div>
+            <div>🔥🔥 6 years after our Yale Spider 1.0, we're introducing Spider 2.0, the real-world enterprise agentic Text-to-SQL workflow challenge in the LLM era!</div>
+          </div>
+          <div
+            className='grid grid-cols-[auto,1fr] gap-x-8 flex-wrap py-3 border-b border-black/30 text-sm'
+            key="top-news"
+          >
+            <div>{`October 23, 2024`}</div>
+            <div>🔥🔥 Excited to see <a href="https://www.anthropic.com/news/3-5-models-and-computer-use" target="_blank" className="underline">AnthropicAI</a> using our <a href="https://os-world.github.io" target="_blank" className="underline">OSWorld</a> (NeurIPS'24) to benchmark their computer use!</div>
+          </div>
+          <div
+            className='grid grid-cols-[auto,1fr] gap-x-8 flex-wrap py-3 border-b border-black/30 text-sm'
+            key="top-news"
+          >
             <div>{`April 11, 2024`}</div>
             <div>🔥🔥 We have released &nbsp;<a href="https://os-world.github.io/" target="_blank" className="underline">OSWorld</a>,&nbsp; A unified, real computer env for multimodal agents to evaluate open-ended computer tasks with arbitrary apps and interfaces on Ubuntu, Windows, & macOS! &nbsp;</div>
           </div>
@@ -21,6 +49,13 @@ const News = ({ news }: { news?: NewsInterface[] }) => {
           >
             <div>{`Feb 20, 2024`}</div>
             <div>🔥🔥 We have released &nbsp;<a href="https://arks-codegen.github.io/" target="_blank" className="underline">ARKS</a>,&nbsp; a general pipeline for retrieval-augmented code generation (RACG)! &nbsp;</div>
+          </div>
+          <div
+            className='grid grid-cols-[auto,1fr] gap-x-8 flex-wrap py-3 border-b border-black/30 text-sm'
+            key="top-news"
+          >
+            <div>{`September 28, 2023`}</div>
+            <div>🔥🔥 Introducing Text2Reward - Using LLMs to generate dense reward functions from natural language for robotic RL policy training!</div>
           </div>
           <div
             className='grid grid-cols-[auto,1fr] gap-x-8 flex-wrap py-3 border-b border-black/30 text-sm'

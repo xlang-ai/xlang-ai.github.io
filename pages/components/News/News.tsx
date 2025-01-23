@@ -12,6 +12,13 @@ const News = ({ news }: { news?: NewsInterface[] }) => {
             className='grid grid-cols-[auto,1fr] gap-x-8 flex-wrap py-3 border-b border-black/30 text-sm'
             key="top-news"
           >
+            <div>{`24/01/2025`}</div>
+            <div> OpenAI's <a href="https://openai.com/index/computer-using-agent/" target="_blank" className="underline">Operator</a> CUA agent achieves a 38.1% success rate on <a href="https://os-world.github.io/" target="_blank" className="underline">OSWorld</a>!</div>
+          </div>
+          <div
+            className='grid grid-cols-[auto,1fr] gap-x-8 flex-wrap py-3 border-b border-black/30 text-sm'
+            key="top-news"
+          >
             <div>{`24/12/2024`}</div>
             <div>Introducing <a href="https://aguvis-project.github.io/" target="_blank" className="underline">Aguvis</a> - A unified vision-based strong agent model for autonomous GUI interaction across web, desktop & mobile platforms.</div>
           </div>
@@ -34,7 +41,7 @@ const News = ({ news }: { news?: NewsInterface[] }) => {
             key="top-news"
           >
             <div>{`23/10/2024`}</div>
-            <div>Excited to see <a href="https://www.anthropic.com/news/3-5-models-and-computer-use" target="_blank" className="underline">AnthropicAI</a> using our <a href="https://os-world.github.io" target="_blank" className="underline">OSWorld</a> (NeurIPS&apos;24) to benchmark their computer use!</div>
+            <div>Excited to see <a href="https://www.anthropic.com/news/3-5-models-and-computer-use" target="_blank" className="underline">Anthropic</a> using our <a href="https://os-world.github.io" target="_blank" className="underline">OSWorld</a> (NeurIPS&apos;24) to benchmark their computer use!</div>
           </div>
           <div
             className='grid grid-cols-[auto,1fr] gap-x-8 flex-wrap py-3 border-b border-black/30 text-sm'

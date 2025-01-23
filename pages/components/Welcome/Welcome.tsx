@@ -1,5 +1,6 @@
 import React from 'react';
 import { publicFilePath } from '../../../utils';
+import Image from 'next/image';
 
 const Welcome = () => {
   return (
@@ -21,10 +22,12 @@ const Welcome = () => {
           Through these agents, we aim to enable non-experts to access complex systems such as databases, software, and robots while unlocking functionalities across existing applications and physical systems that dramatically expand AI capabilities.
         </p>
         <div className='col-span-4'>
-          <img 
-            src={publicFilePath('/demo/teaser.jpg')} 
-            alt='xlang-overview' 
-            className='w-full h-auto' 
+          <Image
+            src={publicFilePath('/demo/teaser.jpg')}
+            alt='xlang-overview'
+            width={500}
+            height={300}
+            className='w-full h-auto'
           />
         </div>
       </div>

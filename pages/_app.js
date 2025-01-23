@@ -17,8 +17,8 @@ export default function App({
       <Header />
       <div className='relative w-full h-full'>
         <div className='absolute top-0 left-0 max-sm:hidden -mt-8 z-[-1]'>
-          <Image src={publicFilePath('/background/wave.svg')} width={2000} height={1000} />
-          <Image src={publicFilePath('/background/wave2.svg')} width={2000} height={1000} />
+          <Image src={publicFilePath('/background/wave.svg')} alt="Wave" width={2000} height={1000} />
+          <Image src={publicFilePath('/background/wave2.svg')} alt="Wave 2" width={2000} height={1000} />
         </div>
         <Component {...pageProps} />
       </div>

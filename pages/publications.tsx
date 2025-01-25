@@ -130,21 +130,21 @@ const PaperBlock = ({ paper }: { paper: Paper }) => {
 
   return (
     <div className='border-t border-b border-black/30 py-6'>
-      <div className='grid grid-cols-6 gap-4'>
+      <div className='grid grid-cols-7 gap-4'>
         {paper.image ? (
           <div className='col-span-2 relative aspect-video rounded-lg overflow-hidden shadow-xl'>
             <Image
               src={publicFilePath(paper.image)}
               alt={paper.title}
               fill
-              style={{ objectFit: 'cover', objectPosition: 'center' }}
+              style={{ width: '100%', height: 'auto' }}
             />
           </div>
         ) : (
           <div className='col-span-2 aspect-video rounded bg-[#D9D9D9]' />
         )}
 
-        <div className='col-span-4 flex flex-col'>
+        <div className='col-span-5 flex flex-col'>
           <h1 className='text-lg font-[500]'>{paper.title}</h1>
           <p className='text-[#727272] text-xs font-[500]'>{paper.authors}</p>
           {paper.publication && (

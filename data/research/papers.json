@@ -156,6 +156,18 @@
     "image": "/research/does.png"
   },
   {
+    "category": ["PhysicalAIAgents"],
+    "title": "Text2Reward: Automated Dense Reward Function Generation for Reinforcement Learning\n",
+    "authors": "Tianbao Xie*, Siheng Zhao*, Chen Henry Wu, Yitao Liu, Qian Luo, Victor Zhong, Yanchao Yang, Tao Yu",
+    "publication": "ICLR 2024, Spotlight",
+    "paperLink": "https://arxiv.org/abs/2309.11489",
+    "codeLink": "https://github.com/xlang-ai/text2reward",
+    "dataLink": "https://github.com/xlang-ai/text2reward",
+    "blogLink": "https://text-to-reward.github.io/",
+    "twitterLink": "https://twitter.com/arankomatsuzaki/status/1706311844829487153",
+    "image": "/research/text2reward.png"
+  },
+  {
     "category": ["PhysicalAIAgents","DigitalAIAgents","CodeGeneration"],
     "title": "Lemur: Harmonizing Natural Language and Code for Language Agents",
     "authors": "Yiheng Xu*, Hongjin Su*, Chen Xing*, Boyu Mi, Qian Liu, Weijia Shi, Binyuan Hui, Fan Zhou, Yitao Liu, Tianbao Xie, Zhoujun Cheng, Siheng Zhao, Lingpeng Kong, Bailin Wang, Caiming Xiong, Tao Yu",
@@ -170,18 +182,6 @@
       "OpenLemur/lemur-70b-chat-v1",
       "OpenLemur/lemur-70b-v1"
     ]
-  },
-  {
-    "category": ["PhysicalAIAgents"],
-    "title": "Text2Reward: Automated Dense Reward Function Generation for Reinforcement Learning\n",
-    "authors": "Tianbao Xie*, Siheng Zhao*, Chen Henry Wu, Yitao Liu, Qian Luo, Victor Zhong, Yanchao Yang, Tao Yu",
-    "publication": "ICLR 2024, Spotlight",
-    "paperLink": "https://arxiv.org/abs/2309.11489",
-    "codeLink": "https://github.com/xlang-ai/text2reward",
-    "dataLink": "https://github.com/xlang-ai/text2reward",
-    "blogLink": "https://text-to-reward.github.io/",
-    "twitterLink": "https://twitter.com/arankomatsuzaki/status/1706311844829487153",
-    "image": "/research/text2reward.png"
   },
   {
     "category": ["DigitalAIAgents", "Others"],

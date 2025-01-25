@@ -130,9 +130,9 @@ const PaperBlock = ({ paper }: { paper: Paper }) => {
 
   return (
     <div className='border-t border-b border-black/30 py-6'>
-      <div className='sm:flex gap-4'>
+      <div className='grid grid-cols-6 gap-4'>
         {paper.image ? (
-          <div className='relative min-w-[180px] max-sm:h-48 h-32 rounded-lg overflow-hidden my-auto shadow-xl'>
+          <div className='col-span-2 relative aspect-video rounded-lg overflow-hidden shadow-xl'>
             <Image
               src={publicFilePath(paper.image)}
               alt={paper.title}
@@ -141,16 +141,16 @@ const PaperBlock = ({ paper }: { paper: Paper }) => {
             />
           </div>
         ) : (
-          <div className='min-w-[180px] max-sm:h-48 h-32 rounded bg-[#D9D9D9]' />
+          <div className='col-span-2 aspect-video rounded bg-[#D9D9D9]' />
         )}
 
-        <div className='flex flex-col w-full'>
+        <div className='col-span-4 flex flex-col'>
           <h1 className='text-lg font-[500]'>{paper.title}</h1>
           <p className='text-[#727272] text-xs font-[500]'>{paper.authors}</p>
           {paper.publication && (
             <p className='text-md font-[500]'>{paper.publication}</p>
           )}
-          <div className='flex justify-end items-center w-full gap-3 font-[500] text-xs'>
+          <div className='flex justify-end items-center w-full gap-3 font-[500] text-xs mt-auto'>
             {huggingfaceDownloads !== undefined &&
               paper.huggingfaceModel[0] && (
                 <a

@@ -136,7 +136,6 @@ const PaperBlock = ({ paper }: { paper: Paper }) => {
             <Image
               src={publicFilePath(paper.image)}
               alt={paper.title}
-              fill
               style={{ width: '100%', height: 'auto' }}
             />
           </div>

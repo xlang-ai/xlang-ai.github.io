@@ -51,7 +51,7 @@ const BlogPost = ({ post }: { post: Post }) => {
       </Head>
       <div className='pt-36 w-full min-h-screen bg-[#D9D9D9]/20'>
         <div className='page-x-width'>
-          <div className='flex flex-col gap-8 mb-4'>
+          <div className='flex flex-col gap-8 mb-8'>
             <div className='text-xs text-[#545454] font-[500] tracking-widest'>
               <Link href='/blog'>Blog</Link> / {post.shortTitle || post.title}
             </div>
@@ -77,7 +77,7 @@ const BlogPost = ({ post }: { post: Post }) => {
           </div>
 
           <ReactMarkdown
-            className='tracking-wide leading-7 mb-24'
+            className='tracking-wide leading-7 mb-24 mt-6'
             rehypePlugins={[rehypeRaw]} linkTarget="_blank"
             components={{
               h2(props) {

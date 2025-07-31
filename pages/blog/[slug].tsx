@@ -99,34 +99,19 @@ const BlogPost = ({ post }: { post: Post }) => {
                 return <ul className='list-disc pl-4 text-sm leading-7 text-justify'>{props.children}</ul>;
               },
               a(props) {
-                // Check if the link is an internal anchor link (starts with #)
-                const isInternalLink = props.href && props.href.startsWith('#');
+                // Check if the link is a reference citation (matches #ref pattern)
+                const isRefCitation = props.href && props.href.match(/^#ref\d+$/);
                 
-                if (isInternalLink) {
+                if (isRefCitation) {
+                  // Render reference citations as plain text without links
                   return (
-                    <a 
-                      href={props.href} 
-                      target="_self"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        const targetId = props.href.substring(1); // Remove the #
-                        const targetElement = document.getElementById(targetId);
-                        if (targetElement) {
-                          targetElement.scrollIntoView({ 
-                            behavior: 'smooth',
-                            block: 'start' 
-                          });
-                          // Update URL hash without triggering page reload
-                          window.history.pushState(null, null, props.href);
-                        }
-                      }}
-                      className='underline cursor-pointer hover:text-brand-primary2 text-justify'
-                    >
+                    <span className='text-sm font-medium text-blue-600 bg-blue-50 px-1 py-0.5 rounded'>
                       {props.children}
-                    </a>
+                    </span>
                   );
                 }
                 
+                // Handle all other links normally
                 return (
                   <a 
                     href={props.href} 

@@ -99,8 +99,14 @@ const BlogPost = ({ post }: { post: Post }) => {
                 return <ul className='list-disc pl-4 text-sm leading-7 text-justify'>{props.children}</ul>;
               },
               a(props) {
+                // Check if the link is an internal anchor link (starts with #)
+                const isInternalLink = props.href && props.href.startsWith('#');
                 return (
-                  <a href={props.href} target="_blank" className='underline cursor-pointer hover:text-brand-primary2 text-justify'>
+                  <a 
+                    href={props.href} 
+                    target={isInternalLink ? "_self" : "_blank"} 
+                    className='underline cursor-pointer hover:text-brand-primary2 text-justify'
+                  >
                     {props.children}
                   </a>
                 );
@@ -115,6 +121,29 @@ const BlogPost = ({ post }: { post: Post }) => {
               },
               hr(props) {
                 return <hr className='my-6' />;
+              },
+              code(props) {
+                // Handle inline code
+                if (!props.className) {
+                  return (
+                    <code className='bg-gray-100 text-red-600 px-1 py-0.5 rounded text-sm font-mono'>
+                      {props.children}
+                    </code>
+                  );
+                }
+                // Handle code blocks
+                return (
+                  <code className='block bg-gray-100 p-4 rounded-lg text-sm font-mono whitespace-pre-wrap overflow-x-auto leading-relaxed'>
+                    {props.children}
+                  </code>
+                );
+              },
+              pre(props) {
+                return (
+                  <pre className='bg-gray-100 p-4 rounded-lg text-sm font-mono whitespace-pre-wrap overflow-x-auto my-4 leading-relaxed'>
+                    {props.children}
+                  </pre>
+                );
               }
             }}
           >

@@ -14,11 +14,11 @@ In April 2024, OSWorld's initial version [[1]](#ref1) was released for the first
 
 Throughout these 15 months, we have continuously invested in supporting features like Docker, parallelization and developing system images for more platforms, while collaborating with the community to address issues on an ongoing basis. 
 
-After 15 months, we are announcing a major improvement and refinement initiative. We have collected, verified, validated, and fixed 300+ pieces of feedback, involving approximately two months of dedicated effort from a ~10-person team. We are now launching the OSWorld-Verified and refined OSWorld examples, providing more authentic signals for evaluation and learning based on this foundation.
+After 15 months, we are announcing a major improvement and refinement initiative. We have collected, verified, validated, and fixed 300+ pieces of feedback, involving approximately two months of dedicated effort from a ~10-person team. We are now launching OSWorld-Verified - an enhanced version of OSWorld with comprehensive upgrades and refined examples, providing more authentic signals for evaluation and learning based on this foundation.
 
 What follows are our insights from this refinement process, re-evaluation results and current state analysis, a retrospective on computer-use agent evaluation over the past year, and our outlook for the future of CUA evaluation.
 
-**TL;DR**: We've systematically addressed 300+ issues in OSWorld through a comprehensive refinement process. OSWorld-Verified delivers more reliable evaluation signals through improved infrastructure (VMware/Docker → AWS, 50x parallelization) and enhanced task quality (fixed web changes, ambiguity, evaluation robustness). The benchmark remains challenging with significant room for improvement toward human-level performance.
+**TL;DR**: Major Upgrade! OSWorld has been enhanced and is now OSWorld-Verified with comprehensive improvements. We've systematically addressed 300+ issues in OSWorld through a comprehensive refinement process. OSWorld-Verified delivers more reliable evaluation signals through improved infrastructure (VMware/Docker → AWS, 50x parallelization) and enhanced task quality (fixed web changes, ambiguity, evaluation robustness). The benchmark remains challenging with significant room for improvement toward human-level performance.
 
 **Key Updates**:
 - **Infrastructure**: Migrated to AWS cloud for massive parallelization (10+ hours → minutes)
@@ -74,6 +74,7 @@ e.g., Some tasks' config and postconfig rely on "hardcoded" operations, such as 
 
 **Unclear scope definitions**:
 - e.g., "Resize image" vs "resize layer" confusion in GIMP tasks
+- e.g., "Download some image" vs "download some image in GIMP" - the former is feasible while the latter is infeasible, but some tasks failed to clarify this scope
 - e.g., When a user says 'Switch off Bluetooth' while Bluetooth is already unavailable (meaning the Bluetooth button cannot be turned on), agents can be confused about whether this should be considered a success or deemed infeasible
 
 #### Multiple Solution Approaches
@@ -246,7 +247,7 @@ Based on these results, we updated the leaderboard by adding a verified section 
 
 ## How to Use and Submit New Results on the Leaderboard
 
-You can always still use providers like VMware and Docker with the new task suites.
+OSWorld-Verified is an in-place upgrade of OSWorld with enhanced infrastructure and improved task quality. You can always still use providers like VMware and Docker with the new task suites. Please compare your OSWorld results with the new benchmark results when running the latest version.
 
 Meanwhile, we have provided a detailed guide on using our AWS-based [Public Evaluation platform](https://github.com/xlang-ai/OSWorld/blob/main/PUBLIC_EVALUATION_GUIDELINE.md). You can set up and run your OSWorld-Verified tests on this more controllable platform. 
 

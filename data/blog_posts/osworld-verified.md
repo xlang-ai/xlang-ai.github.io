@@ -10,15 +10,11 @@ onlineImage: https://imgur.com/a/Jh7SS0Q
 githubLink: https://github.com/xlang-ai/OSWorld
 ---
 
-In April 2024, OSWorld's initial version [[1]](#ref1) was released for the first controllable environment to benchmark computer use agents. 
-
-Over the past year and more, we have been delighted and pleasantly surprised to witness the benchmark and environment's driving impact on the community, the emergence of multiple related works, new directions and testing initiatives from tech giants like Anthropic [[2]](#ref2)[[3]](#ref3) and OpenAI [[4]](#ref4), and the birth of new startups [[5]](#ref5)[[6]](#ref6)[[7]](#ref7), applications and possibilities.
+In April 2024, OSWorld's initial version [[1]](#ref1) was released for the first controllable environment to benchmark computer use agents. Over the past year and more, we have been delighted and pleasantly surprised to witness the benchmark and environment's driving impact on the community, the emergence of multiple related works, new directions and testing initiatives from tech giants like Anthropic [[2]](#ref2)[[3]](#ref3) and OpenAI [[4]](#ref4), and the birth of new startups [[5]](#ref5)[[6]](#ref6)[[7]](#ref7), applications and possibilities.
 
 Throughout these 15 months, we have continuously invested in supporting features like Docker, parallelization and developing system images for more platforms, while collaborating with the community to address issues on an ongoing basis. 
 
-After 15 months, we are announcing a major improvement and refinement initiative. We have collected, verified, validated, and fixed 300+ pieces of feedback, involving approximately two months of dedicated effort from a ~10-person team. 
-
-We are now launching the OSWorld-Verified and refined OSWorld examples, providing more authentic signals for evaluation and learning based on this foundation.
+After 15 months, we are announcing a major improvement and refinement initiative. We have collected, verified, validated, and fixed 300+ pieces of feedback, involving approximately two months of dedicated effort from a ~10-person team. We are now launching the OSWorld-Verified and refined OSWorld examples, providing more authentic signals for evaluation and learning based on this foundation.
 
 What follows are our insights from this refinement process, re-evaluation results and current state analysis, a retrospective on computer-use agent evaluation over the past year, and our outlook for the future of CUA evaluation.
 
@@ -113,9 +109,7 @@ We have been continuously searching for the technical optimal solution. Our init
 
 Inspired by the dokur project series (https://github.com/dockur/windows), we integrated Docker containerization technology 2024 Summer, utilizing an open-source VMware-like service - QEMU - running within Docker containers to execute virtual machines. This approach enabled us to achieve multi-environment parallelization on a single server, running 8 or even 16 environments simultaneously for experiments, though still constrained by server performance. We also implemented AWS support during this period but didn't pursue it extensively.
 
-Later, WindowsAgentArena [[8]](#ref8) (whose leading authors founded the c/ua company) left a profound impression on us by leveraging cloud services for parallelization, compressing evaluation time from 10+ hours to just 20 minutes. 
-
-We think it is the right direction, while enhancement can always be done. So we actually followed WindowsAgentArena's approach by leveraging AWS as cloud services and extended this feature in OSWorld infrastructure, which enables us to run up to 50 environments simultaneously and shorten evaluation time to minutes while ensuring comparability across evaluations.
+Later, WindowsAgentArena [[8]](#ref8) (whose leading authors founded the c/ua company) left a profound impression on us by leveraging cloud services for parallelization, compressing evaluation time from 10+ hours to just 20 minutes. We think it is the right direction, while enhancement can always be done. So we actually followed WindowsAgentArena's approach by leveraging AWS as cloud services and extended this feature in OSWorld infrastructure, which enables us to run up to 50 environments simultaneously and shorten evaluation time to minutes while ensuring comparability across evaluations.
 
 <hr class="solid">
 

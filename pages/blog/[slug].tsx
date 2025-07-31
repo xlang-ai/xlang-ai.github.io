@@ -101,10 +101,36 @@ const BlogPost = ({ post }: { post: Post }) => {
               a(props) {
                 // Check if the link is an internal anchor link (starts with #)
                 const isInternalLink = props.href && props.href.startsWith('#');
+                
+                if (isInternalLink) {
+                  return (
+                    <a 
+                      href={props.href} 
+                      target="_self"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const targetId = props.href.substring(1); // Remove the #
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                          targetElement.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start' 
+                          });
+                          // Update URL hash without triggering page reload
+                          window.history.pushState(null, null, props.href);
+                        }
+                      }}
+                      className='underline cursor-pointer hover:text-brand-primary2 text-justify'
+                    >
+                      {props.children}
+                    </a>
+                  );
+                }
+                
                 return (
                   <a 
                     href={props.href} 
-                    target={isInternalLink ? "_self" : "_blank"} 
+                    target="_blank" 
                     className='underline cursor-pointer hover:text-brand-primary2 text-justify'
                   >
                     {props.children}

@@ -6,7 +6,7 @@ date: 28 July 2025
 author: XLANG Lab
 coverImage: /blog/osworld-verified/overview.png
 previewContent: We've systematically addressed 300+ issues in OSWorld through a comprehensive refinement process. OSWorld-Verified delivers more reliable evaluation signals through improved infrastructure and enhanced task quality, providing the community with a more stable foundation for advancing computer use agent research.
-onlineImage: https://imgur.com/a/Jh7SS0Q
+onlineImage: https://imgur.com/a/KEfC6ce
 githubLink: https://github.com/xlang-ai/OSWorld
 ---
 

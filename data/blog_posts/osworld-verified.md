@@ -232,7 +232,7 @@ For Agent implementation, we have added implementations of Operator, Claude, UI-
 We have also integrated advanced agent implementations based on agentic frameworks, such as Agent S[[13]](#ref13), Jedi[[14]](#ref14), GTA1[[15]](#ref15), and others.
 All agent implementations are placed under [mm_agents folder of OSWorld repo](https://github.com/xlang-ai/OSWorld/tree/main/mm_agents).
 
-In the implementation, since many of the above models are not publicly available, for Operator and Claude models, we extensively referenced the implementation of Computer Use Agent Arena [[16]](#ref16), and referenced some usage examples from these providers [[17]](#ref17)[[18]](#ref18)[[19]](#ref19). 
+In the implementation, since many of the above models are not publicly available, for Operator and Claude models, we extensively referenced the implementation of Computer Agent Arena [[16]](#ref16), and referenced some usage examples from these providers [[17]](#ref17)[[18]](#ref18)[[19]](#ref19). 
 We also conducted repeated validation and calibration of agent performance through preliminary experiments for confirmation.
 
 ### Key Insights from OSWorld-Verified Results

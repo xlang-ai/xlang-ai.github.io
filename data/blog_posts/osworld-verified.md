@@ -10,6 +10,10 @@ onlineImage: https://imgur.com/a/KEfC6ce
 githubLink: https://github.com/xlang-ai/OSWorld
 ---
 
+📝Blog: https://xlang.ai/blog/osworld-verified 
+📊Data: https://github.com/xlang-ai/OSWorld/tree/main/evaluation_examples (same place as before)
+👩‍💻Code: https://github.com/xlang-ai/OSWorld (same place as before)
+
 In April 2024, OSWorld's initial version [[1]](#ref1) was released for the first controllable environment to benchmark computer use agents. Over the past year and more, we have been delighted and pleasantly surprised to witness the benchmark and environment's driving impact on the community, the emergence of multiple related works, new directions and testing initiatives from tech giants like Anthropic [[2]](#ref2)[[3]](#ref3) and OpenAI [[4]](#ref4), and the birth of new startups [[5]](#ref5)[[6]](#ref6)[[7]](#ref7), applications and possibilities.
 
 Throughout these 15 months, we have continuously invested in supporting features like Docker, parallelization and developing system images for more platforms, while collaborating with the community to address issues on an ongoing basis. 
@@ -352,9 +356,12 @@ Thanks for getting this far.
 If you think this blog post and the content involved are helpful to you, please cite:
 ```
 @article{osworld_verified,
-      title={Introducing OSWorld-Verified}, 
-      author={Tianbao Xie and Mengqi Yuan and Danyang Zhang and Xinzhuang Xiong and Zhennan Shen and Zilong Zhou  and Xinyuan Wang and Yanxu Chen and Jiaqi Deng and Junda Chen and Bowen Wang and Haoyuan Wu and Jixuan Chen and Junli Wang and Dunjie Lu and Hao Hu and Tao Yu},
-      year={2025},
+  title = {Introducing OSWorld-Verified},
+  author = {Tianbao Xie and Mengqi Yuan and Danyang Zhang and Xinzhuang Xiong and Zhennan Shen and Zilong Zhou and Xinyuan Wang and Yanxu Chen and Jiaqi Deng and Junda Chen and Bowen Wang and Haoyuan Wu and Jixuan Chen and Junli Wang and Dunjie Lu and Hao Hu and Tao Yu},
+  journal = {xlang.ai},
+  year = {2025},
+  month = {July},
+  url = "https://xlang.ai/blog/osworld-verified"
 }
 ```
 

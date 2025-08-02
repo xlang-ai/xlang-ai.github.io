@@ -10,9 +10,11 @@ onlineImage: https://imgur.com/a/KEfC6ce
 githubLink: https://github.com/xlang-ai/OSWorld
 ---
 
-📝Blog: https://xlang.ai/blog/osworld-verified 
-📊Data: https://github.com/xlang-ai/OSWorld/tree/main/evaluation_examples (same place as before)
-👩‍💻Code: https://github.com/xlang-ai/OSWorld (same place as before)
+📝Blog: [https://xlang.ai/blog/osworld-verified](https://xlang.ai/blog/osworld-verified)
+
+📊Data: [https://github.com/xlang-ai/OSWorld/tree/main/evaluation_examples](https://github.com/xlang-ai/OSWorld/tree/main/evaluation_examples) (same place as before)
+
+👩‍💻Code: [https://github.com/xlang-ai/OSWorld](https://github.com/xlang-ai/OSWorld) (same place as before)
 
 In April 2024, OSWorld's initial version [[1]](#ref1) was released for the first controllable environment to benchmark computer use agents. Over the past year and more, we have been delighted and pleasantly surprised to witness the benchmark and environment's driving impact on the community, the emergence of multiple related works, new directions and testing initiatives from tech giants like Anthropic [[2]](#ref2)[[3]](#ref3) and OpenAI [[4]](#ref4), and the birth of new startups [[5]](#ref5)[[6]](#ref6)[[7]](#ref7), applications and possibilities.
 

@@ -59,6 +59,18 @@ Next, we'll discuss the uncontrollable factors we discovered in actual operation
 #### Environment Instability and Changes
 
 - **Anti-crawling mechanisms and CAPTCHAs**: Google search, shopping websites showing "blocked by the website as robot", verification challenges
+
+<div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin: 25px auto; max-width: 800px; flex-wrap: wrap;">
+  <figure style="flex: 1; min-width: 300px; max-width: 380px; text-align: center; margin: 0;">  
+    <img src="/blog/osworld-verified/access_denied.png" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;">  
+    <figcaption style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">Access Denied - Websites blocking automated agents</figcaption>  
+  </figure>
+  <figure style="flex: 1; min-width: 300px; max-width: 380px; text-align: center; margin: 0;">  
+    <img src="/blog/osworld-verified/amazon_captcha.png" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;">  
+    <figcaption style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">CAPTCHA Challenge - Human verification requirements</figcaption>  
+  </figure>
+</div>
+
 - **Network access restrictions**: 403 IP blocking issues (Steam connection timeout, NBA.com geo-restrictions)
 - **Dynamic content changes**: Website UI overhauls causing DOM structure changes
   - e.g., Apple comparison page URL parameter changes, Budget.com introducing CAPTCHAs from some point
@@ -114,7 +126,7 @@ Many tasks exhibit complex temporal dependencies where proper initialization req
     <figcaption style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">Method 1: Sequential paragraph selection - selecting paragraphs individually</figcaption>  
   </figure>
   <figure style="flex: 1; min-width: 300px; max-width: 380px; text-align: center; margin: 0;">  
-    <img src="/blog/osworld-verified/2_linespace_line_by_line_2.png" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;">  
+    <img src="/blog/osworld-verified/2linespace_line_by_line_2.png" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;">  
     <figcaption style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">Method 2: Bulk selection - selecting both paragraphs together</figcaption>  
   </figure>
 </div>
@@ -172,17 +184,6 @@ For tasks we identified as genuinely problematic, we primarily modified only the
 #### Anti-Crawling and Access Issues
 
 **Problem**: Websites blocking automated access through CAPTCHA, IP restrictions, or bot detection.
-
-<div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin: 20px auto; max-width: 800px; flex-wrap: wrap;">
-  <figure style="flex: 1; min-width: 300px; max-width: 380px; text-align: center; margin: 0;">  
-    <img src="/blog/osworld-verified/access_denied.png" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;">  
-    <figcaption style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">Access Denied - Websites blocking automated agents</figcaption>  
-  </figure>
-  <figure style="flex: 1; min-width: 300px; max-width: 380px; text-align: center; margin: 0;">  
-    <img src="/blog/osworld-verified/amazon_captcha.png" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;">  
-    <figcaption style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">CAPTCHA Challenge - Human verification requirements</figcaption>  
-  </figure>
-</div>
 
 **Solutions Deployed**:
 - **Proxy infrastructure**: Added `proxy` field support for websites with aggressive anti-crawling

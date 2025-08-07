@@ -251,109 +251,46 @@ The performance distribution reveals distinct tiers with substantial improvement
 While the gaps between tiers remain significant, the dramatic upward shift across all categories demonstrates accelerating progress. 
 This indicates that OSWorld continues to provide meaningful developmental signal, particularly highlighting the effectiveness of reasoning-enhanced agentic approaches while revealing remaining challenges in areas requiring complex multi-step reasoning, robust error recovery, and dynamic adaptation to interface changes.
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-<style>
-.chart-container {
-    width: 100%;
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-.chart-title {
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    color: #2c3e50;
-    margin-bottom: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-</style>
-
-<div class="chart-container">
-    <div class="chart-title">Gap to Human Performance</div>
-    <canvas id="humanGapChart" width="800" height="400"></canvas>
+<div style="width: 100%; max-width: 800px; margin: 30px auto; padding: 20px; background: #f8f9fa; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+  <h3 style="text-align: center; font-size: 24px; font-weight: bold; color: #2c3e50; margin-bottom: 30px;">Gap to Human Performance</h3>
+  
+  <div style="display: flex; align-items: end; justify-content: space-around; height: 300px; margin: 20px 0; padding: 20px; background: white; border-radius: 8px;">
+    
+    <div style="display: flex; flex-direction: column; align-items: center; margin: 0 10px;">
+      <div style="width: 80px; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 4px 4px 0 0; position: relative; display: flex; align-items: end; justify-content: center; color: white; font-weight: bold; font-size: 14px; padding: 8px 4px;" data-height="240">
+        <div style="height: 240px; width: 100%; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 4px 4px 0 0; display: flex; align-items: end; justify-content: center; padding-bottom: 8px;">60.76%</div>
+      </div>
+      <div style="margin-top: 8px; font-size: 12px; font-weight: 600; text-align: center; color: #333; word-wrap: break-word; width: 100px;">CoACT-1</div>
+    </div>
+    
+    <div style="display: flex; flex-direction: column; align-items: center; margin: 0 10px;">
+      <div style="width: 80px; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 4px 4px 0 0; position: relative; display: flex; align-items: end; justify-content: center; color: white; font-weight: bold; font-size: 14px; padding: 8px 4px;" data-height="220">
+        <div style="height: 220px; width: 100%; background: linear-gradient(45deg, #667eea 70%, #764ba2); border-radius: 4px 4px 0 0; display: flex; align-items: end; justify-content: center; padding-bottom: 8px;">56.0%</div>
+      </div>
+      <div style="margin-top: 8px; font-size: 12px; font-weight: 600; text-align: center; color: #333; word-wrap: break-word; width: 100px;">Agent S2.5 w/ o3</div>
+    </div>
+    
+    <div style="display: flex; flex-direction: column; align-items: center; margin: 0 10px;">
+      <div style="width: 80px; background: linear-gradient(45deg, #764ba2, #9b59b6); border-radius: 4px 4px 0 0; position: relative; display: flex; align-items: end; justify-content: center; color: white; font-weight: bold; font-size: 14px; padding: 8px 4px;" data-height="175">
+        <div style="height: 175px; width: 100%; background: linear-gradient(45deg, #764ba2, #9b59b6); border-radius: 4px 4px 0 0; display: flex; align-items: end; justify-content: center; padding-bottom: 8px;">43.9%</div>
+      </div>
+      <div style="margin-top: 8px; font-size: 12px; font-weight: 600; text-align: center; color: #333; word-wrap: break-word; width: 100px;">Claude 4 Sonnet</div>
+    </div>
+    
+    <div style="display: flex; flex-direction: column; align-items: center; margin: 0 10px;">
+      <div style="width: 80px; background: linear-gradient(45deg, #2ecc71, #27ae60); border-radius: 4px 4px 0 0; position: relative; display: flex; align-items: end; justify-content: center; color: white; font-weight: bold; font-size: 14px; padding: 8px 4px;" data-height="288">
+        <div style="height: 288px; width: 100%; background: linear-gradient(45deg, #2ecc71, #27ae60); border-radius: 4px 4px 0 0; display: flex; align-items: end; justify-content: center; padding-bottom: 8px;">72%</div>
+      </div>
+      <div style="margin-top: 8px; font-size: 12px; font-weight: 600; text-align: center; color: #333; word-wrap: break-word; width: 100px;">Human Performance</div>
+    </div>
+    
+  </div>
+  
+  <div style="text-align: center; margin-top: 20px;">
+    <div style="font-size: 16px; font-weight: bold; color: #666; margin-bottom: 5px;">Best Models vs Human Performance</div>
+    <div style="font-size: 14px; color: #888;">Success Rate (%)</div>
+  </div>
 </div>
-
-<script>
-const humanGapData = {
-    labels: ['CoACT-1', 'Agent S2.5 w/ o3', 'Claude 4 Sonnet', 'Human Performance'],
-    datasets: [{
-        label: 'Performance (%)',
-        data: [60.76, 56.0, 43.9, 72],
-        backgroundColor: [
-            'rgba(102, 126, 234, 0.8)',
-            'rgba(102, 126, 234, 0.6)',
-            'rgba(118, 75, 162, 0.8)',
-            'rgba(46, 204, 113, 0.8)'
-        ],
-        borderColor: [
-            'rgba(102, 126, 234, 1)',
-            'rgba(102, 126, 234, 1)',
-            'rgba(118, 75, 162, 1)',
-            'rgba(46, 204, 113, 1)'
-        ],
-        borderWidth: 2
-    }]
-};
-
-new Chart(document.getElementById('humanGapChart'), {
-    type: 'bar',
-    data: humanGapData,
-    options: {
-        responsive: true,
-        maintainAspectRatio: true,
-        plugins: {
-            title: {
-                display: true,
-                text: 'Best Models vs Human Performance',
-                font: { 
-                    size: 16,
-                    weight: 'bold'
-                },
-                color: '#666'
-            },
-            legend: {
-                display: false
-            }
-        },
-        scales: {
-            y: {
-                beginAtZero: true,
-                max: 80,
-                title: {
-                    display: true,
-                    text: 'Success Rate (%)',
-                    font: {
-                        size: 14,
-                        weight: 'bold'
-                    }
-                },
-                grid: {
-                    color: 'rgba(0,0,0,0.1)'
-                },
-                ticks: {
-                    font: {
-                        size: 12
-                    }
-                }
-            },
-            x: {
-                grid: {
-                    display: false
-                },
-                ticks: {
-                    font: {
-                        size: 12
-                    }
-                }
-            }
-        }
-    }
-});
-</script>
 
 **Agentic frameworks with reasoning models dominate the leaderboard.** Agentic frameworks powered by reasoning models like o3 have achieved breakthrough performance.CoACT-1 leads with 60.76% success rate, followed closely by Agent S2.5 w/ o3 (56.0%) and GTA1 w/ o3 (53.1%). 
 This demonstrates that sophisticated orchestration layers can dramatically amplify the capabilities of reasoning models, even when those models weren't specifically trained for computer use tasks. 

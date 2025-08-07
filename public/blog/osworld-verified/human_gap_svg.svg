@@ -46,7 +46,7 @@
   <rect x="190" y="192" width="70" height="208" fill="rgba(102, 126, 234, 0.6)" stroke="rgba(102, 126, 234, 1)" stroke-width="2" rx="3"/>
   
   <!-- Claude 4 Sonnet: 43.9% -->
-  <rect x="280" y="237.15" width="70" height="162.85" fill="rgba(118, 75, 162, 0.8)" stroke="rgba(118, 75, 162, 1)" stroke-width="2" rx="3"/>
+  <rect x="280" y="237.15" width="70" height="162.85" fill="rgba(255, 193, 7, 0.8)" stroke="rgba(255, 193, 7, 1)" stroke-width="2" rx="3"/>
   
   <!-- Doubao: 40.0% -->
   <rect x="370" y="250" width="70" height="150" fill="rgba(255, 193, 7, 0.8)" stroke="rgba(255, 193, 7, 1)" stroke-width="2" rx="3"/>
@@ -87,16 +87,13 @@
     <circle cx="100" cy="470" r="3" fill="rgba(102, 126, 234, 0.8)"/>
     <text x="108" y="474">Agentic Frameworks</text>
     
-    <circle cx="230" cy="470" r="3" fill="rgba(118, 75, 162, 0.8)"/>
-    <text x="238" y="474">Foundation Models</text>
+    <circle cx="230" cy="470" r="3" fill="rgba(255, 193, 7, 0.8)"/>
+    <text x="238" y="474">General Models</text>
     
-    <circle cx="350" cy="470" r="3" fill="rgba(255, 193, 7, 0.8)"/>
-    <text x="358" y="474">General Models</text>
+    <circle cx="350" cy="470" r="3" fill="rgba(255, 99, 132, 0.8)"/>
+    <text x="358" y="474">Specialized Models</text>
     
-    <circle cx="450" cy="470" r="3" fill="rgba(255, 99, 132, 0.8)"/>
-    <text x="458" y="474">Specialized Models</text>
-    
-    <circle cx="580" cy="470" r="3" fill="rgba(46, 204, 113, 0.8)"/>
-    <text x="588" y="474">Human Baseline</text>
+    <circle cx="480" cy="470" r="3" fill="rgba(46, 204, 113, 0.8)"/>
+    <text x="488" y="474">Human Baseline</text>
   </g>
 </svg>

@@ -77,7 +77,7 @@ Many tasks exhibit complex temporal dependencies where proper initialization req
   </figure>
   <figure style="flex: 1; min-width: 300px; max-width: 380px; text-align: center; margin: 0;">  
     <img src="/blog/osworld-verified/stucked_open.png" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;">  
-    <figcaption style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">Sequential Dependencies - Precise cursor positioning requirements</figcaption>  
+    <figcaption style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">Blocking Operation Dependencies - Ensuring software initialization before action execution</figcaption>  
   </figure>
 </div>
 

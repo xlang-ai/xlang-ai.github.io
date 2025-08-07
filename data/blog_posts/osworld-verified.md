@@ -68,7 +68,20 @@ Next, we'll discuss the uncontrollable factors we discovered in actual operation
 
 #### Fragile Dependencies with Timing Issues
 
-e.g., Some tasks' config and postconfig rely on "hardcoded" operations, such as "Copy the screenshot 1.png from the desktop to where my cursor is located." Our configuration uses `pyautogui.press("down", presses=8, interval=0.01)` to move the cursor to the 9th line, which requires LibreOffice Writer to be fully loaded with the document open and cursor blinking at the first line when executing this command. The previous fragile dependencies couldn't guarantee sequential execution, causing initial setup issues in some tasks.
+Many tasks exhibit complex temporal dependencies where proper initialization requires precise sequential execution. Software applications and web pages often require significant loading and response times, creating timing-sensitive scenarios that can lead to task failures.
+
+<div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin: 25px auto; max-width: 800px; flex-wrap: wrap;">
+  <figure style="flex: 1; min-width: 300px; max-width: 380px; text-align: center; margin: 0;">  
+    <img src="/blog/osworld-verified/loading.png" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;">  
+    <figcaption style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">Loading Delays - Applications requiring extended initialization time</figcaption>  
+  </figure>
+  <figure style="flex: 1; min-width: 300px; max-width: 380px; text-align: center; margin: 0;">  
+    <img src="/blog/osworld-verified/stucked_open.png" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;">  
+    <figcaption style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">Sequential Dependencies - Precise cursor positioning requirements</figcaption>  
+  </figure>
+</div>
+
+**Specific Example**: Tasks involving document operations, such as "Copy the screenshot 1.png from the desktop to where my cursor is located," require complex initialization sequences. Our configuration uses `pyautogui.press("down", presses=8, interval=0.01)` to move the cursor to the 9th line, which demands that LibreOffice Writer be fully loaded with the document open and cursor positioned at the first line before executing this command. These fragile dependencies previously couldn't guarantee sequential execution, causing initial setup failures in multiple tasks.
 
 ### Incompleteness of Initial Tasks Annotation
 
@@ -94,6 +107,18 @@ e.g., Some tasks' config and postconfig rely on "hardcoded" operations, such as 
 
 **False negatives from limited ground truth**:
 - e.g., "Change the first two paragraphs to double line spacing" - the empty line between the two paragraphs can either be set to double spacing or left unchanged; both approaches should be considered correct.
+
+<div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin: 25px auto; max-width: 800px; flex-wrap: wrap;">
+  <figure style="flex: 1; min-width: 300px; max-width: 380px; text-align: center; margin: 0;">  
+    <img src="/blog/osworld-verified/2_linespace_line_by_line_1.png" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;">  
+    <figcaption style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">Method 1: Sequential paragraph selection - selecting paragraphs individually</figcaption>  
+  </figure>
+  <figure style="flex: 1; min-width: 300px; max-width: 380px; text-align: center; margin: 0;">  
+    <img src="/blog/osworld-verified/2_linespace_line_by_line_2.png" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;">  
+    <figcaption style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">Method 2: Bulk selection - selecting both paragraphs together</figcaption>  
+  </figure>
+</div>
+
 - e.g., Different but functionally equivalent spreadsheet formulas marked incorrect
 
 ### Decentralized Evaluation Reduces Motivation to Contribute Error Discovery
@@ -147,6 +172,17 @@ For tasks we identified as genuinely problematic, we primarily modified only the
 #### Anti-Crawling and Access Issues
 
 **Problem**: Websites blocking automated access through CAPTCHA, IP restrictions, or bot detection.
+
+<div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin: 20px auto; max-width: 800px; flex-wrap: wrap;">
+  <figure style="flex: 1; min-width: 300px; max-width: 380px; text-align: center; margin: 0;">  
+    <img src="/blog/osworld-verified/access_denied.png" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;">  
+    <figcaption style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">Access Denied - Websites blocking automated agents</figcaption>  
+  </figure>
+  <figure style="flex: 1; min-width: 300px; max-width: 380px; text-align: center; margin: 0;">  
+    <img src="/blog/osworld-verified/amazon_captcha.png" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;">  
+    <figcaption style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">CAPTCHA Challenge - Human verification requirements</figcaption>  
+  </figure>
+</div>
 
 **Solutions Deployed**:
 - **Proxy infrastructure**: Added `proxy` field support for websites with aggressive anti-crawling
@@ -251,8 +287,8 @@ The performance distribution reveals distinct tiers with substantial improvement
 While the gaps between tiers remain significant, the dramatic upward shift across all categories demonstrates accelerating progress. 
 This indicates that OSWorld continues to provide meaningful developmental signal, particularly highlighting the effectiveness of reasoning-enhanced agentic approaches while revealing remaining challenges in areas requiring complex multi-step reasoning, robust error recovery, and dynamic adaptation to interface changes.
 
-<figure style="text-align: center;">  
-  <img src="/blog/osworld-verified/human_gap_svg.svg" height=400>  
+<figure style="text-align: center; margin: 30px auto; max-width: 100%;">  
+  <img src="/blog/osworld-verified/human_gap_svg.svg" height=400 style="display: block; margin: 0 auto;">  
   <figcaption style="text-align: center;">Figure 2. Gap to Human Performance - Current best models still show significant gaps compared to human performance.</figcaption>  
 </figure>
 

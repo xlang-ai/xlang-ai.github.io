@@ -313,7 +313,7 @@ OSWorld-Verified is an in-place upgrade of OSWorld with enhanced infrastructure 
 
 Meanwhile, we have provided a detailed guide on using our AWS-based [Public Evaluation platform](https://github.com/xlang-ai/OSWorld/blob/main/PUBLIC_EVALUATION_GUIDELINE.md). You can set up and run your OSWorld-Verified tests on this more controllable platform. 
 
-If you want your results to be verified and displayed on the verified leaderboard, you need to schedule a meeting with us (current maintainers: tianbaoxiexxx@gmail.com, yuanmengqi732@gmail.com) to run your agent code on our side and have us report the results. 
+If you want your results to be verified and displayed on the verified leaderboard, you need to schedule a meeting with us (current maintainers: [tianbaoxiexxx@gmail.com](mailto:tianbaoxiexxx@gmail.com), [yuanmengqi732@gmail.com](mailto:yuanmengqi732@gmail.com)) to run your agent code on our side and have us report the results. 
 
 You need to upload and allow us to disclose your agent implementation under the OSWorld framework (you may choose not to expose your model API to the public), along with a report that allows the public to understand what's happening behind the scenes.
 

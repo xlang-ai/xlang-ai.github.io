@@ -118,6 +118,12 @@ Inspired by the [dokur project series](https://github.com/dockur/windows), we in
 
 Later, WindowsAgentArena [[8]](#ref8) (whose leading authors founded the c/ua company) left a profound impression on us by leveraging cloud services for parallelization, compressing evaluation time from 10+ hours to just 20 minutes. We think it is the right direction, while enhancement can always be done. So we actually followed WindowsAgentArena's approach by leveraging AWS as cloud services and extended this feature in OSWorld infrastructure, which enables us to run up to 50 environments simultaneously and shorten evaluation time to minutes while ensuring comparability across evaluations.
 
+<figure style="text-align: center;">  
+  <img src="/blog/osworld-verified/infra_evolution.svg" height=20>  
+  <figcaption style="text-align: center;">The Journey of CUA Environment Infrastructure.</figcaption>  
+</figure>  
+
+
 <hr class="solid">
 
 ## Tasks — Practice for Repairing Task Signals Manually at Scale: Embracing Change and Ambiguity

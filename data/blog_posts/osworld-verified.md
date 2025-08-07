@@ -120,7 +120,7 @@ Later, WindowsAgentArena [[8]](#ref8) (whose leading authors founded the c/ua co
 
 <figure style="text-align: center;">  
   <img src="/blog/osworld-verified/infra_evolution.svg" height=20>  
-  <figcaption style="text-align: center;">The Journey of CUA Environment Infrastructure.</figcaption>  
+  <figcaption style="text-align: center;">Figure 1. The Journey of CUA Environment Infrastructure.</figcaption>  
 </figure>  
 
 
@@ -245,11 +245,123 @@ We also conducted repeated validation and calibration of agent performance throu
 
 We ran experiments for each model under different step settings. Here are some takeaways:
 
-**OSWorld remains far from saturated with substantial headroom to human-level performance.** Despite impressive gains, the benchmark still presents significant challenges. With human performance estimated at ~72% from our original study, even the best current systems are only reaching about 75% of human capability. The performance distribution shows clear tiers: agentic frameworks (45-53%), strong foundation models (35-44%), and specialized models (25-40%), with substantial gaps between each tier. This indicates that OSWorld continues to provide meaningful signal for model development, particularly in areas requiring complex multi-step reasoning, error recovery, and adaptation to interface changes.
+**OSWorld remains far from saturated with substantial headroom to human-level performance.** 
+Despite remarkable breakthroughs, the benchmark continues to present significant challenges. With human performance estimated at ~72% from our original study, the best current systems have now reached 84.4% of human capability (CoACT-1 at 60.76%). 
+The performance distribution reveals distinct tiers with substantial improvements: agentic frameworks now leading at 45-61%, advanced foundation models achieving 35-44%, and specialized models reaching 25-40%. 
+While the gaps between tiers remain significant, the dramatic upward shift across all categories demonstrates accelerating progress. 
+This indicates that OSWorld continues to provide meaningful developmental signal, particularly highlighting the effectiveness of reasoning-enhanced agentic approaches while revealing remaining challenges in areas requiring complex multi-step reasoning, robust error recovery, and dynamic adaptation to interface changes.
 
-**Agentic frameworks with reasoning models dominate the leaderboard.** Agentic frameworks powered by reasoning models like o3 have achieved breakthrough performance. GTA1 w/ o3 reaches 53.1% and Jedi-7B w/ o3 achieves 51.0%, representing a remarkable 4.3x improvement over the original OSWorld best result of 12.24%. This demonstrates that sophisticated orchestration layers can dramatically amplify the capabilities of reasoning models, even when those models weren't specifically trained for computer use tasks. Interestingly, highlighting the importance of computational resources in achieving strong performance.
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<style>
+.chart-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.chart-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+</style>
 
-**General models' capability improvements and reasoning enhancements show exceptional progress in computer use capabilities.** Among foundation models, Claude 4 Sonnet stands out with 43.9% performance, significantly outperforming other general-purpose models and even approaching specialized computer use models like UI-TARS (40.0%). o3's performance varies drastically with step budget (9.1% to 23.0%), compared with 5% of GPT-4o, not to mention further integration with grounding model improvements. This all suggests that better pretraining and post-training bringing general scaling capabilities and reasoning abilities (even without any computer-use specific purpose) will potentially help improve computer use agents.
+<div class="chart-container">
+    <div class="chart-title">Gap to Human Performance</div>
+    <canvas id="humanGapChart" width="800" height="400"></canvas>
+</div>
+
+<script>
+const humanGapData = {
+    labels: ['CoACT-1', 'Agent S2.5 w/ o3', 'Claude 4 Sonnet', 'Human Performance'],
+    datasets: [{
+        label: 'Performance (%)',
+        data: [60.76, 56.0, 43.9, 72],
+        backgroundColor: [
+            'rgba(102, 126, 234, 0.8)',
+            'rgba(102, 126, 234, 0.6)',
+            'rgba(118, 75, 162, 0.8)',
+            'rgba(46, 204, 113, 0.8)'
+        ],
+        borderColor: [
+            'rgba(102, 126, 234, 1)',
+            'rgba(102, 126, 234, 1)',
+            'rgba(118, 75, 162, 1)',
+            'rgba(46, 204, 113, 1)'
+        ],
+        borderWidth: 2
+    }]
+};
+
+new Chart(document.getElementById('humanGapChart'), {
+    type: 'bar',
+    data: humanGapData,
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Best Models vs Human Performance',
+                font: { 
+                    size: 16,
+                    weight: 'bold'
+                },
+                color: '#666'
+            },
+            legend: {
+                display: false
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                max: 80,
+                title: {
+                    display: true,
+                    text: 'Success Rate (%)',
+                    font: {
+                        size: 14,
+                        weight: 'bold'
+                    }
+                },
+                grid: {
+                    color: 'rgba(0,0,0,0.1)'
+                },
+                ticks: {
+                    font: {
+                        size: 12
+                    }
+                }
+            },
+            x: {
+                grid: {
+                    display: false
+                },
+                ticks: {
+                    font: {
+                        size: 12
+                    }
+                }
+            }
+        }
+    }
+});
+</script>
+
+**Agentic frameworks with reasoning models dominate the leaderboard.** Agentic frameworks powered by reasoning models like o3 have achieved breakthrough performance.CoACT-1 leads with 60.76% success rate, followed closely by Agent S2.5 w/ o3 (56.0%) and GTA1 w/ o3 (53.1%). 
+This demonstrates that sophisticated orchestration layers can dramatically amplify the capabilities of reasoning models, even when those models weren't specifically trained for computer use tasks. 
+Interestingly, highlighting the importance of computational resources in achieving strong performance.
+
+**General models' capability improvements and reasoning enhancements show exceptional progress in computer use capabilities.** 
+Among foundation models, Claude 4 Sonnet stands out with 43.9% performance, significantly outperforming other general-purpose models and even approaching specialized computer use models like UI-TARS (40.0%). o3's performance varies drastically with step budget (9.1% to 23.0%), compared with 5% of GPT-4o, not to mention further integration with grounding model improvements. 
+This all suggests that better pretraining and post-training bringing general scaling capabilities and reasoning abilities (even without any computer-use specific purpose) will potentially help improve computer use agents.
 
 
 
@@ -277,17 +389,24 @@ Please carefully follow the [Public Evaluation Guideline](https://github.com/xla
 
 ### Scaling Computer Use Data Collection and Training
 
-Our analysis of UI-TARS and OpenCUA, currently the most successful models with publicly available technical details, reveals that their success stems primarily from extensive human computer use trajectory data. The existing publicly available trajectory datasets remain insufficient in scale, predominantly focusing on Mobile and Web Agent domains with limited action spaces, indicating that research in this area is still in its early stages [[17]](#ref17)[[18]](#ref18)[[19]](#ref19).
+Our analysis of UI-TARS and OpenCUA, currently the most successful models with publicly available technical details, reveals that their success stems primarily from extensive human computer use trajectory data. 
+The existing publicly available trajectory datasets remain insufficient in scale, predominantly focusing on Mobile and Web Agent domains with limited action spaces, indicating that research in this area is still in its early stages [[17]](#ref17)[[18]](#ref18)[[19]](#ref19).
 
-There is substantial room for exploration in data collection methodologies (including collection tools, annotation frameworks, and potentially viable commercial models), synthetic data generation approaches, efficient utilization strategies, and optimal integration practices across different training phases. Current evidence suggests that diverse, high-quality computer use data, combined with existing model architectures, is sufficient to enable models to develop robust computer use capabilities. Further scaling could involve collecting large volumes of unlabeled trajectories for pretraining phases, while providing more effective signals during post-training to enhance instruction-following capabilities in computer use scenarios.
+There is substantial room for exploration in data collection methodologies (including collection tools, annotation frameworks, and potentially viable commercial models), synthetic data generation approaches, efficient utilization strategies, and optimal integration practices across different training phases. 
+Current evidence suggests that diverse, high-quality computer use data, combined with existing model architectures, is sufficient to enable models to develop robust computer use capabilities. 
+Further scaling could involve collecting large volumes of unlabeled trajectories for pretraining phases, while providing more effective signals during post-training to enhance instruction-following capabilities in computer use scenarios. This approach is particularly suitable for broad and diverse tasks, especially in cases where building reproducible environments is challenging, serving as open-loop training that can capture the general patterns of computer interactions across varied contexts and applications.
 
 ### Scaling Post-Training Signal Enhancement
 
 Jason Wei's blog post on verification asymmetry and its implications for reinforcement learning [[20]](#ref20) provides valuable insights that align with OSWorld's approach to leveraging verification asymmetry for signal generation. For broader-scope computer use domains, we encompass both test case verification (similar to SWE-bench) and verification capabilities found in competition mathematics and open-domain QA (such as AIME and GAIA). We collectively term this "verifiable code" or "(dense) reward code," which can often be automatically generated [[21]](#ref21)[[22]](#ref22).
 
-Current models lack robust capabilities for processing trajectories, particularly multimodal ones, making correctness assessment challenging (though human evaluation of computer use actions remains relatively straightforward). If humans establish appropriate scaffolding with well-designed verification code, combined with human-generated operational results for additional validation support, the difficulty of assessment could be significantly reduced or even eliminated. However, building such scaffolding requires domain expertise, and iterating through multiple problem-solving approaches demands practical experience. Our goal should be to advance models to a position where they can autonomously construct this scaffolding—a process requiring iteration but representing our intended direction.
+Current models lack robust capabilities for processing trajectories, particularly multimodal ones, making correctness assessment challenging (though human evaluation of computer use actions remains relatively straightforward). 
+If humans establish appropriate scaffolding with well-designed verification code, combined with human-generated operational results for additional validation support, the difficulty of assessment could be significantly reduced or even eliminated. 
+However, building such scaffolding requires domain expertise, and iterating through multiple problem-solving approaches demands practical experience. 
+Our goal should be to advance models to a position where they can autonomously construct this scaffolding—a process requiring iteration but representing our intended direction.
+Given current cost considerations, this post-training environment construction process should be narrow and deep, targeting the most critical areas. For example, we could build a comprehensive Photoshop-related scaffolding codebase and then massively expand image editing tasks, or we could annotate a complete spreadsheet scaffolding codebase and then annotate a large number of business data analysis tasks. Rather than broadly annotating many scaffolding codebases and then, after consuming significant costs, annotating shallow tasks that waste our investment in this area.
 
-We propose leveraging the gap in all domains where max(human verification capability, model verification capability) > model generation capability to reinforce or filter synthetically generated data for capability enhancement. This process can be substantially automated or semi-automated [[23]](#ref23)[[24]](#ref24), with existing academic research offering significant opportunities for industrial-scale implementation. Additionally, for existing verifiable rewards, we can build upon current infrastructure to consider process-based approaches for denser reward provision, thereby improving learning efficiency for suitable tasks where critical milestones can be clearly defined.
+The overall approach is that we propose leveraging the gap in all domains where max(human verification capability, model verification capability) > model generation capability to reinforce or filter synthetically generated data for capability enhancement. This process can be substantially automated or semi-automated [[23]](#ref23)[[24]](#ref24), with existing academic research offering significant opportunities for industrial-scale implementation. Additionally, for existing verifiable rewards, we can build upon current infrastructure to consider process-based approaches for denser reward provision, thereby improving learning efficiency for suitable tasks where critical milestones can be clearly defined.
 
 ### More Realistic and Controllable Evaluation
 

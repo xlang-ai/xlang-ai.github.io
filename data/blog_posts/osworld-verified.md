@@ -251,46 +251,10 @@ The performance distribution reveals distinct tiers with substantial improvement
 While the gaps between tiers remain significant, the dramatic upward shift across all categories demonstrates accelerating progress. 
 This indicates that OSWorld continues to provide meaningful developmental signal, particularly highlighting the effectiveness of reasoning-enhanced agentic approaches while revealing remaining challenges in areas requiring complex multi-step reasoning, robust error recovery, and dynamic adaptation to interface changes.
 
-<div style="width: 100%; max-width: 800px; margin: 30px auto; padding: 20px; background: #f8f9fa; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
-  <h3 style="text-align: center; font-size: 24px; font-weight: bold; color: #2c3e50; margin-bottom: 30px;">Gap to Human Performance</h3>
-  
-  <div style="display: flex; align-items: end; justify-content: space-around; height: 300px; margin: 20px 0; padding: 20px; background: white; border-radius: 8px;">
-    
-    <div style="display: flex; flex-direction: column; align-items: center; margin: 0 10px;">
-      <div style="width: 80px; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 4px 4px 0 0; position: relative; display: flex; align-items: end; justify-content: center; color: white; font-weight: bold; font-size: 14px; padding: 8px 4px;" data-height="240">
-        <div style="height: 240px; width: 100%; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 4px 4px 0 0; display: flex; align-items: end; justify-content: center; padding-bottom: 8px;">60.76%</div>
-      </div>
-      <div style="margin-top: 8px; font-size: 12px; font-weight: 600; text-align: center; color: #333; word-wrap: break-word; width: 100px;">CoACT-1</div>
-    </div>
-    
-    <div style="display: flex; flex-direction: column; align-items: center; margin: 0 10px;">
-      <div style="width: 80px; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 4px 4px 0 0; position: relative; display: flex; align-items: end; justify-content: center; color: white; font-weight: bold; font-size: 14px; padding: 8px 4px;" data-height="220">
-        <div style="height: 220px; width: 100%; background: linear-gradient(45deg, #667eea 70%, #764ba2); border-radius: 4px 4px 0 0; display: flex; align-items: end; justify-content: center; padding-bottom: 8px;">56.0%</div>
-      </div>
-      <div style="margin-top: 8px; font-size: 12px; font-weight: 600; text-align: center; color: #333; word-wrap: break-word; width: 100px;">Agent S2.5 w/ o3</div>
-    </div>
-    
-    <div style="display: flex; flex-direction: column; align-items: center; margin: 0 10px;">
-      <div style="width: 80px; background: linear-gradient(45deg, #764ba2, #9b59b6); border-radius: 4px 4px 0 0; position: relative; display: flex; align-items: end; justify-content: center; color: white; font-weight: bold; font-size: 14px; padding: 8px 4px;" data-height="175">
-        <div style="height: 175px; width: 100%; background: linear-gradient(45deg, #764ba2, #9b59b6); border-radius: 4px 4px 0 0; display: flex; align-items: end; justify-content: center; padding-bottom: 8px;">43.9%</div>
-      </div>
-      <div style="margin-top: 8px; font-size: 12px; font-weight: 600; text-align: center; color: #333; word-wrap: break-word; width: 100px;">Claude 4 Sonnet</div>
-    </div>
-    
-    <div style="display: flex; flex-direction: column; align-items: center; margin: 0 10px;">
-      <div style="width: 80px; background: linear-gradient(45deg, #2ecc71, #27ae60); border-radius: 4px 4px 0 0; position: relative; display: flex; align-items: end; justify-content: center; color: white; font-weight: bold; font-size: 14px; padding: 8px 4px;" data-height="288">
-        <div style="height: 288px; width: 100%; background: linear-gradient(45deg, #2ecc71, #27ae60); border-radius: 4px 4px 0 0; display: flex; align-items: end; justify-content: center; padding-bottom: 8px;">72%</div>
-      </div>
-      <div style="margin-top: 8px; font-size: 12px; font-weight: 600; text-align: center; color: #333; word-wrap: break-word; width: 100px;">Human Performance</div>
-    </div>
-    
-  </div>
-  
-  <div style="text-align: center; margin-top: 20px;">
-    <div style="font-size: 16px; font-weight: bold; color: #666; margin-bottom: 5px;">Best Models vs Human Performance</div>
-    <div style="font-size: 14px; color: #888;">Success Rate (%)</div>
-  </div>
-</div>
+<figure style="text-align: center;">  
+  <img src="/blog/osworld-verified/human_gap_svg.svg" height=400>  
+  <figcaption style="text-align: center;">Figure 2. Gap to Human Performance - Current best models still show significant gaps compared to human performance.</figcaption>  
+</figure>
 
 **Agentic frameworks with reasoning models dominate the leaderboard.** Agentic frameworks powered by reasoning models like o3 have achieved breakthrough performance.CoACT-1 leads with 60.76% success rate, followed closely by Agent S2.5 w/ o3 (56.0%) and GTA1 w/ o3 (53.1%). 
 This demonstrates that sophisticated orchestration layers can dramatically amplify the capabilities of reasoning models, even when those models weren't specifically trained for computer use tasks. 

@@ -122,7 +122,7 @@ Many tasks exhibit complex temporal dependencies where proper initialization req
 
 <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin: 25px auto; max-width: 800px; flex-wrap: wrap;">
   <figure style="flex: 1; min-width: 300px; max-width: 380px; text-align: center; margin: 0;">  
-    <img src="/blog/osworld-verified/double_linespace_all_line_by_line.png" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;">  
+    <img src="/blog/osworld-verified/double_linespace_line_by_line.png" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px;">  
     <figcaption style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">Method 1: Sequential paragraph selection - selecting paragraphs individually</figcaption>  
   </figure>
   <figure style="flex: 1; min-width: 300px; max-width: 380px; text-align: center; margin: 0;">  

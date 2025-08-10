@@ -69,7 +69,8 @@
   
   <!-- X-axis labels -->
   <g font-family="Arial, sans-serif" font-size="11" fill="#666" text-anchor="middle">
-    <text x="145" y="430">CoACT-1</text>
+    <text x="145" y="425">CoACT-1</text>
+    <text x="145" y="440">w/ o3</text>
     <text x="235" y="425">Agent S2.5</text>
     <text x="235" y="440">w/ o3</text>
     <text x="325" y="425">Claude 4</text>

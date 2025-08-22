@@ -301,8 +301,6 @@ Interestingly, highlighting the importance of computational resources in achievi
 Among foundation models, Claude 4 Sonnet stands out with 43.9% performance, significantly outperforming other general-purpose models and even approaching specialized computer use models like UI-TARS (40.0%). o3's performance varies drastically with step budget (9.1% to 23.0%), compared with 5% of GPT-4o, not to mention further integration with grounding model improvements. 
 This all suggests that better pretraining and post-training bringing general scaling capabilities and reasoning abilities (even without any computer-use specific purpose) will potentially help improve computer use agents.
 
-
-
 Based on these results, we updated the leaderboard by adding a verified section and setting it as the default display, while also adding links to computer agent arena scores. For future model submissions, we will continue to serve as a verification platform, consistently open-sourcing agent implementations, execution code, reproducible results, and generated trajectories to help the community gain further insights into current capability boundaries and continuously provide reliable evaluation signals.
 
 <hr class="solid">

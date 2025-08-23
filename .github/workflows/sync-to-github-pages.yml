@@ -1,0 +1,22 @@
+name: Auto Sync to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        token: ${{ secrets.PERSONAL_TOKEN }}
+    
+    - name: Sync branches
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git checkout github-page
+        git merge origin/main --no-edit
+        git push origin github-page

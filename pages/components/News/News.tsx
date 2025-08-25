@@ -12,7 +12,7 @@ const News = ({ news }: { news?: NewsInterface[] }) => {
             className='grid grid-cols-[auto,1fr] gap-x-8 flex-wrap py-3 border-b border-black/30 text-sm'
             key="top-news"
           >
-            <div>{`12/24/2024`}</div>
+            <div>{`08/13/2025`}</div>
             <div>Introducing <a href="https://opencua.xlang.ai/" target="_blank" className="underline">OpenCUA</a> - Open foundations for computer-use agents, including OpenCUA models, AgentNet dataset and benchmark, and data annotation tools. Check out our <a href="https://opencua.xlang.ai/" target="_blank" className="underline">project website</a> for more details</div>
           </div>
           <div

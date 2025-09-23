@@ -24,30 +24,6 @@
     "image": "/research/jedi.png"
   },
   {
-    "category": ["DigitalAIAgents", "CodeGeneration"],
-    "title": "Learn-by-interact: A Data-Centric Framework for Self-Adaptive Agents in Realistic Environments",
-    "authors": "Hongjin Su, Ruoxi Sun, Jinsung Yoon, Pengcheng Yin, Tao Yu and Sercan Ö. Arık",
-    "publication": "ICLR 2025",
-    "paperLink": "https://arxiv.org/abs/2501.10893",
-    "codeLink": "",
-    "dataLink": "",
-    "blogLink": "",
-    "twitterLink": "",
-    "image": "/research/lbi.png"
-  },
-  {
-    "category": ["DigitalAIAgents"],
-    "title": "AgentTrek: Agent Trajectory Synthesis via Guiding Replay with Web Tutorials",
-    "authors": "Yiheng Xu*, Dunjie Lu*, Zhennan Shen*, Junli Wang, Zekun Wang, Yuchen Mao, Caiming Xiong, Tao Yu",
-    "publication": "ICLR 2025",
-    "paperLink": "https://arxiv.org/abs/2412.09605",
-    "codeLink": "https://github.com/xlang-ai/AgentTrek",
-    "dataLink": "https://huggingface.co/datasets/xlangai/AgentTrek",
-    "blogLink": "",
-    "twitterLink": "",
-    "image": "/research/agenttrek.jpg"
-  },
-  {
     "category": ["DigitalAIAgents"],
     "title": "Aguvis: Unified Pure Vision Agents for Autonomous GUI Interaction",
     "authors": "Yiheng Xu*, Zekun Wang*, Junli Wang*, Dunjie Lu, Tianbao Xie, Amrita Saha, Doyen Sahoo, Tao Yu, Caiming Xiong",
@@ -73,18 +49,6 @@
   },
   {
     "category": ["Others"],
-    "title": "EVOR: Evolving Retrieval for Code Generation",
-    "authors": "Hongjin Su, Shuyang Jiang, Yuhang Lai, Haoyuan Wu, Boao Shi, Che Liu, Qian Liu, Tao Yu",
-    "publication": "EMNLP 2024 Findings",
-    "paperLink": "https://arxiv.org/abs/2402.12317",
-    "codeLink": "https://arks-codegen.github.io",
-    "dataLink": "",
-    "blogLink": "",
-    "twitterLink": "",
-    "image": "/research/evor.png"
-  },
-  {
-    "category": ["Others"],
     "title": "BRIGHT: A Realistic and Challenging Benchmark for Reasoning-Intensive Retrieval",
     "authors": "Hongjin Su*, Howard Yen*, Mengzhou Xia*, Weijia Shi, Niklas Muennighoff, Han-yu Wang, Haisu Liu, Quan Shi, Zachary S. Siegel, Michael Tang, Ruoxi Sun, Jinsung Yoon, Sercan Ö. Arik, Danqi Chen, Tao Yu",
     "publication": "ICLR 2025 Spotlight",
@@ -94,6 +58,66 @@
     "blogLink": "",
     "twitterLink": "https://x.com/hongjin_su/status/1814299949326311626",
     "image": "/research/bright.jpg"
+  },
+  {
+    "category": ["DigitalAIAgents", "CodeGeneration"],
+    "title": "Learn-by-interact: A Data-Centric Framework for Self-Adaptive Agents in Realistic Environments",
+    "authors": "Hongjin Su, Ruoxi Sun, Jinsung Yoon, Pengcheng Yin, Tao Yu and Sercan Ö. Arık",
+    "publication": "ICLR 2025",
+    "paperLink": "https://arxiv.org/abs/2501.10893",
+    "codeLink": "",
+    "dataLink": "",
+    "blogLink": "",
+    "twitterLink": "",
+    "image": "/research/lbi.png"
+  },
+  {
+    "category": ["DigitalAIAgents"],
+    "title": "AgentTrek: Agent Trajectory Synthesis via Guiding Replay with Web Tutorials",
+    "authors": "Yiheng Xu*, Dunjie Lu*, Zhennan Shen*, Junli Wang, Zekun Wang, Yuchen Mao, Caiming Xiong, Tao Yu",
+    "publication": "ICLR 2025",
+    "paperLink": "https://arxiv.org/abs/2412.09605",
+    "codeLink": "https://github.com/xlang-ai/AgentTrek",
+    "dataLink": "https://huggingface.co/datasets/xlangai/AgentTrek",
+    "blogLink": "",
+    "twitterLink": "",
+    "image": "/research/agenttrek.jpg"
+  },
+  {
+    "category": ["Others"],
+    "title": "Generative Representational Instruction Tuning",
+    "authors": "Niklas Muennighoff, Hongjin Su, Liang Wang, Nan Yang, Furu Wei, Tao Yu, Amanpreet Singh, Douwe Kiela",
+    "publication": "ICLR 2025",
+    "paperLink": "https://arxiv.org/abs/2402.09906",
+    "codeLink": "https://github.com/ContextualAI/gritlm",
+    "dataLink": "",
+    "blogLink": "",
+    "twitterLink": "https://twitter.com/Muennighoff/status/1758307967802224770",
+    "image": "/research/grit.jpeg"
+  },
+  {
+    "category": ["DigitalAIAgents"],
+    "title": "Attacking Vision-Language Computer Agents via Pop-ups",
+    "authors": "Yanzhe Zhang, Tao Yu, Diyi Yang",
+    "publication": "ACL 2025",
+    "paperLink": "https://arxiv.org/abs/2411.07763",
+    "codeLink": "https://github.com/SALT-NLP/PopupAttack",
+    "dataLink": "",
+    "blogLink": "",
+    "twitterLink": "",
+    "image": "/research/attack.png"
+  },
+  {
+    "category": ["Others"],
+    "title": "EVOR: Evolving Retrieval for Code Generation",
+    "authors": "Hongjin Su, Shuyang Jiang, Yuhang Lai, Haoyuan Wu, Boao Shi, Che Liu, Qian Liu, Tao Yu",
+    "publication": "EMNLP 2024 Findings",
+    "paperLink": "https://arxiv.org/abs/2402.12317",
+    "codeLink": "https://arks-codegen.github.io",
+    "dataLink": "",
+    "blogLink": "",
+    "twitterLink": "",
+    "image": "/research/evor.png"
   },
   {
     "category": ["DigitalAIAgents"],
@@ -109,18 +133,6 @@
   },
   {
     "category": ["DigitalAIAgents"],
-    "title": "Attacking Vision-Language Computer Agents via Pop-ups",
-    "authors": "Yanzhe Zhang, Tao Yu, Diyi Yang",
-    "publication": "ACL 2025",
-    "paperLink": "https://arxiv.org/abs/2411.07763",
-    "codeLink": "https://github.com/SALT-NLP/PopupAttack",
-    "dataLink": "",
-    "blogLink": "",
-    "twitterLink": "",
-    "image": "/research/attack.png"
-  },
-  {
-    "category": ["DigitalAIAgents"],
     "title": "OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments",
     "authors": "Tianbao Xie, Danyang Zhang, Jixuan Chen, Xiaochuan Li, Siheng Zhao, Ruisheng Cao, Toh Jing Hua, Zhoujun Cheng, Dongchan Shin, Fangyu Lei, Yitao Liu, Yiheng Xu, Shuyan Zhou, Silvio Savarese, Caiming Xiong, Victor Zhong, Tao Yu",
     "publication": "NeurIPS 2024",
@@ -130,18 +142,6 @@
     "blogLink": "",
     "twitterLink": "https://twitter.com/TianbaoX/status/1778781521253667267",
     "image": "/research/osworld.png"
-  },
-  {
-    "category": ["Others"],
-    "title": "Generative Representational Instruction Tuning",
-    "authors": "Niklas Muennighoff, Hongjin Su, Liang Wang, Nan Yang, Furu Wei, Tao Yu, Amanpreet Singh, Douwe Kiela",
-    "publication": "ICLR 2025",
-    "paperLink": "https://arxiv.org/abs/2402.09906",
-    "codeLink": "https://github.com/ContextualAI/gritlm",
-    "dataLink": "",
-    "blogLink": "",
-    "twitterLink": "https://twitter.com/Muennighoff/status/1758307967802224770",
-    "image": "/research/grit.jpeg"
   },
   {
     "category": ["DigitalAIAgents"],

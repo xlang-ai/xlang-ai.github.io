@@ -11,6 +11,7 @@ import { getPapers, getTalks } from '@/utils/data';
 import { Paper, PaperCategory, Talk } from '@/interface/research';
 import { publicFilePath } from '@/utils';
 const PaperCategoryNames: Record<PaperCategory, string> = {
+  All: 'All',
   // CodeGeneration: 'code generation and semantic parsing',
   CodeGeneration: 'Code Generation for Data Science',
   DigitalAIAgents: 'Grounding Language in the Digital World',
@@ -71,12 +72,12 @@ const Intro = () => (
 );
 
 const PapersSection = ({ papers }: { papers: Paper[] }) => {
-  const [filter, setFilter] = useState<PaperCategory>(null);
+  const [filter, setFilter] = useState<PaperCategory>('All');
   const [filteredPapers, setFilteredPapers] = useState<Paper[]>(papers);
 
   useEffect(() => {
     setFilteredPapers(
-      papers.filter((paper) => !filter || paper.category.includes(filter))
+      papers.filter((paper) => !filter || filter === 'All' || paper.category.includes(filter))
     );
   }, [filter, papers]);
 
@@ -92,7 +93,7 @@ const PapersSection = ({ papers }: { papers: Paper[] }) => {
               filter === key ? { borderColor: '#0156AC', color: '#0156AC' } : {}
             }
             onClick={() => {
-              if (key === filter) setFilter(null);
+              if (key === filter) setFilter('All');
               else setFilter(key as PaperCategory);
             }}
           >

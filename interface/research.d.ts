@@ -1,6 +1,7 @@
 import { list } from 'postcss';
 
 export type PaperCategory =
+  | 'All'
   // | 'CodeGeneration'
   | 'CodeGeneration'
   | 'DigitalAIAgents'

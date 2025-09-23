@@ -38,7 +38,12 @@ export const getUndergraduates = (): TeamMember[] => {
     join(TEAM_DIR, 'undergraduates.csv'),
     'utf8'
   );
-  return Papa.parse(fileContents, { header: true }).data as TeamMember[];
+  const data = Papa.parse(fileContents, { header: true }).data as TeamMember[];
+
+  return data.map(member => ({
+    ...member,
+    image: member.image || '/members/empty.png'
+  }));
 };
 
 export const getAlumni = (): Alumni[] => {

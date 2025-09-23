@@ -24,7 +24,7 @@
     "image": "/research/jedi.png"
   },
   {
-    "category": ["DigitalAIAgents"],
+    "category": ["DigitalAIAgents", "CodeGeneration"],
     "title": "Learn-by-interact: A Data-Centric Framework for Self-Adaptive Agents in Realistic Environments",
     "authors": "Hongjin Su, Ruoxi Sun, Jinsung Yoon, Pengcheng Yin, Tao Yu and Sercan Ö. Arık",
     "publication": "ICLR 2025",
@@ -60,7 +60,7 @@
     "image": "/research/aguvis.jpg"
   },
   {
-    "category": ["DigitalAIAgents"],
+    "category": ["DigitalAIAgents", "CodeGeneration"],
     "title": "Spider 2.0: Evaluating Language Models on Real-World Enterprise Text-to-SQL Workflows",
     "authors": "Fangyu Lei*, Jixuan Chen*, Yuxiao Ye, Ruisheng Cao, Dongchan Shin, Hongjin Su, Zhaoqing Suo, Hongcheng Gao, Wenjing Hu, Pengcheng Yin, Victor Zhong, Caiming Xiong, Ruoxi Sun, Qian Liu, Sida Wang, Tao Yu",
     "publication": "ICLR 2025 Oral",
@@ -156,7 +156,7 @@
     "image": "/research/openagents.png"
   },
   {
-    "category": ["DigitalAIAgents", "Others"],
+    "category": ["DigitalAIAgents", "PhysicalAIAgents", "Others"],
     "title": "Lemur: Harmonizing Natural Language and Code for Language Agents",
     "authors": "Yiheng Xu*, Hongjin Su*, Chen Xing*, Boyu Mi, Qian Liu, Weijia Shi, Binyuan Hui, Fan Zhou, Yitao Liu, Tianbao Xie, Zhoujun Cheng, Siheng Zhao, Lingpeng Kong, Bailin Wang, Caiming Xiong, Tao Yu",
     "publication": "ICLR 2024 Spotlight",

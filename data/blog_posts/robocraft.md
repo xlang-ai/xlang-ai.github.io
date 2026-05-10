@@ -1,134 +1,105 @@
 ---
-title: 'RoboCraft: Scaling robot manipulation data in simulation for general instruction following'
+title: 'Introducing RoboCraft: A Scalable Data Engine for Generalist Robot Manipulation'
 shortTitle: RoboCraft
 slug: robocraft
 date: '2026-05-05T12:00:00Z'
 author: XLANG Lab
 coverImage: /blog/xgen/xgen_main.png
-previewContent: "RoboCraft is a scalable IsaacLab-based pipeline for generating robot manipulation data in simulation. It builds diverse scenes, synthesizes feasible tasks, generates executable reward code, writes and debugs motion-planning programs through simulation feedback, and rolls out over 1M successful trajectories for VLA training."
+previewContent: "RoboCraft automatically builds realistic manipulation scenes, proposes natural scene-conditioned tasks, writes executable rewards, generates robot programs through simulator feedback, and filters successful domain-randomized rollouts into VLA training data."
 onlineImage: https://imgur.com/a/KEfC6ce
-githubLink: https://github.com/xlang-ai/OSWorld
+githubLink: https://github.com/xlang-ai
 layout: robocraft
 ---
 
-Robot learning is bottlenecked by data. Real robot trajectories are expensive to collect, difficult to annotate, and hard to scale across the long tail of objects, scenes, tasks, camera views, lighting conditions, and contact dynamics. Human videos are abundant on the Internet, and recent work has started to turn them into useful supervision for robot policies [\[1\]](#ref1)[\[2\]](#ref2)[\[12\]](#ref12)[\[13\]](#ref13). However, ordinary videos still lack ground-truth robot actions and must bridge large embodiment gaps before they can directly supervise closed-loop manipulation.
+## Why RoboCraft
 
-At the same time, modern vision-language-action (VLA) models have shown surprising capabilities on complex long-horizon tasks, from doing laundry to cooking eggs [\[5\]](#ref5)[\[15\]](#ref15). Yet these impressive demonstrations do not mean that general robot instruction following is solved.
+Robot learning is still bottlenecked by data. Real robot trajectories are expensive to collect and hard to diversify, while Internet videos are abundant but lack ground-truth robot actions and must bridge large embodiment gaps before they can directly supervise closed-loop manipulation [\[1\]](#ref1)[\[2\]](#ref2)[\[12\]](#ref12)[\[13\]](#ref13).
 
-In practice, even the strongest VLA models still struggle to generalize to unseen tasks, objects, and environments. For example, even a model like `pi_0.7` can fail on a seemingly simple task such as closing an unseen air fryer. We also observe a common gap in current VLA evaluation: a model may score well on benchmarks such as LIBERO and RoboTwin, but fail when we make a small, natural change to the instruction in the same environment, such as "place the bowl to the left of the wine bottle." This suggests that many models are still learning benchmark-specific task distributions rather than robust, open-ended instruction following.
+At the same time, modern VLA models have shown increasingly impressive long-horizon behavior, from household tasks to cooking-style demonstrations [\[5\]](#ref5)[\[15\]](#ref15). Those demonstrations make the data problem more urgent, not less. Generalist manipulation needs training data that covers richer scenes, natural language variation, fine-grained spatial control, and perturbations that do not appear in narrow benchmark distributions.
 
-The motivation of RoboCraft is simple: we believe a general-purpose robot should be able to understand and execute arbitrary, reasonable instructions in arbitrary scenes. RoboCraft is our first step toward this goal.
+Recent systems such as GenSim2, RoboTwin, InternData-A1, and MolmoBot show that scalable robot data is becoming a central path toward general-purpose manipulation [\[8\]](#ref8)[\[9\]](#ref9)[\[10\]](#ref10)[\[11\]](#ref11). RoboCraft explores a complementary direction: generate diverse scenes, natural instructions, executable rewards, and flexible robot programs together, so every retained trajectory is both varied and automatically checked for task success.
 
-Today we are introducing **RoboCraft**, an early look at our scalable IsaacLab-based data generation pipeline for robot manipulation. RoboCraft automates the full path from scene construction and task synthesis to reward design, motion-planning code generation, and trajectory rollout. With this pipeline, we generate over **1M successful, domain-randomized manipulation trajectories** across diverse tasks and environments for VLA training.
+## What RoboCraft does
 
-Several recent works have explored scaling manipulation data in simulation [\[8\]](#ref8)[\[10\]](#ref10)[\[11\]](#ref11). These efforts are important, but we find that they are still limited in ways that matter for general instruction following. Some rely on simplified scenes and relatively narrow task distributions. Others generate trajectories by composing pre-defined skills, which makes the data easier to produce but restricts the complexity and flexibility of the resulting behaviors. Most importantly, the trained models still struggle with instruction diversity and robustness. For example, MolmoBot reports that its model can be sensitive to small linguistic changes such as the presence or absence of the word "the" in the instruction.
+RoboCraft turns robot data generation into a five-stage pipeline:
 
-RoboCraft is designed to push beyond these limitations. Compared with prior simulation-data pipelines, RoboCraft emphasizes:
+1. **Scene generation** creates realistic, cluttered manipulation worlds.
+2. **Task generation** proposes feasible natural-language instructions grounded in each scene.
+3. **Reward code generation** turns language goals into executable success checks.
+4. **Motion-planning code generation** writes and revises robot programs through simulator feedback.
+5. **Trajectory generation** rolls out successful programs under domain randomization.
 
-- **More realistic, cluttered, and diverse scene generation**, including a real-to-sim agentic pipeline for constructing richer tabletop environments.
-- **More expressive reward primitives**, which are crucial for filtering complex task trajectories and for supporting future reinforcement-learning-style training.
-- **More flexible trajectory generation**, where motion-planning code is produced through iterative agent-simulation refinement rather than only composing a fixed set of predefined skills.
-- **Large-scale domain randomization**, covering object poses, camera viewpoints, lighting, backgrounds, textures, robot initial states, and controller dynamics.
+The output is not presented here as a final model release. The output is filtered VLA training data: language instructions, multi-view observations, robot actions, phase information, and predicate-level success metadata.
 
-We have trained our model on a subset of the generated data, and early results show promising robustness to perturbations and stronger general instruction following.
+## Scene Generation - Building Diverse Robot Manipulation Worlds
 
-RoboCraft is built around two simple principles:
+**What this stage solves.** Robust policies need more than clean tabletop scenes. They need clutter, realistic object co-occurrence, spatial variation, camera changes, lighting changes, and physical diversity.
 
-1. **Scaling diverse manipulation data is key to VLA generalization.** A robot cannot learn open-ended instruction following from a narrow set of tasks, scenes, and phrasings.
-2. **Simulation makes this scaling cheaper, faster, and more controllable than the real world.** In simulation, we can automatically generate scenes, tasks, rewards, programs, and successful trajectories at a scale that would be extremely expensive to collect manually.
+**How RoboCraft does it.** RoboCraft uses two complementary scene-generation modes. Random synthesis provides broad combinatorial coverage by sampling everyday objects, converting them into simulation-ready assets, rescaling them to plausible physical sizes, and placing them in physics-valid tabletop layouts. Image-conditioned agentic generation helps reconstruct more natural arrangements from reference images, including object and spatial manifests for kitchen-style or household-style scenes.
 
-## Scaling diverse instruction following data in simulation
+Across both modes, RoboCraft randomizes object poses, camera views, robot initial states, textures, backgrounds, lighting, and physics parameters. The intended distribution is not one perfect simulated world, but many plausible worlds that expose policies to natural visual and physical variation.
 
-For language and vision models, web-scale data has been one of the major drivers of progress. For robot manipulation, however, data is much harder to scale.
+**Example visual.** This stage should show generated tabletop scenes and, when available, a real-to-sim reconstruction example. The current page reserves this slot for the final scene-generation visual.
 
-RoboCraft attacks this bottleneck by turning robot data generation into an automated, verifiable simulation pipeline. RoboCraft automatically constructs scenes, generates tasks, writes reward code, synthesizes executable motion-planning programs, and rolls out successful trajectories. Each stage produces an artifact that makes the next stage more reliable.
+## Task Generation - Generating Scene-Conditioned Instructions
 
-At a high level, RoboCraft consists of five stages:
+**What this stage solves.** A dataset can be large and still be narrow if every instruction comes from a fixed template. RoboCraft aims for natural task diversity grounded in the actual objects and layout of each scene.
 
-1. **Scene generation**: create diverse and realistic environments in simulation.
-2. **Task generation**: synthesize feasible manipulation instructions.
-3. **Reward code generation**: turn task goals into executable success checks.
-4. **Motion-planning code generation**: use an agentic loop to write and debug motion-planning code.
-5. **Trajectory generation**: roll out successful trajectories under domain randomization.
+**How RoboCraft does it.** For each scene, RoboCraft extracts object information and spatial relationships, then asks an LLM to propose feasible instructions under the current robot setup. The task distribution spans atomic object moves, precise spatial arrangements, semantic grouping, visual attributes, and simple physical reasoning.
 
-## Scene Generation — Building Diverse Robot Manipulation Worlds
-
-Robust robot policies need to see more than clean tabletop scenes. They need clutter, different object combinations, realistic spatial relationships, visual variation, and physical diversity.
-
-RoboCraft generates scenes through two complementary modes.
-
-The first mode is **random synthesis**, which gives broad combinatorial coverage. RoboCraft samples everyday objects from a multi-source asset pool, converts them into simulation-ready assets, rescales them to realistic physical sizes, and places them into physics-valid tabletop layouts.
-
-The second mode is **image-conditioned agentic generation**, which helps create more realistic and semantically structured scenes. Given a reference image, RoboCraft reconstructs a corresponding simulation scene with object and spatial manifests, enabling natural arrangements such as kitchen-style tabletops or scenes with realistic object co-occurrence.
-
-Across both modes, RoboCraft further randomizes object poses, camera views, robot states, textures, backgrounds, lighting, and physics parameters. The result is not one perfect simulated world, but a broad distribution of physically plausible worlds for VLA training.
-
-## Task Generation — Scaling Semantic Diversity
-
-Once a scene is generated, RoboCraft proposes tasks conditioned on the objects and layout in that scene.
-
-For each scene, we extract an object-segmented image and a scene graph describing inter-object spatial relationships. An LLM then proposes feasible manipulation instructions under the current robot setup.
-
-We organize tasks into three difficulty levels:
-
-**Easy** tasks are atomic and unambiguous, such as:
+Representative tasks include:
 
 - "Put the mug on the coaster."
-- "Move the book to the left."
-
-**Medium** tasks require more precise spatial or geometric control, such as:
-
 - "Place the cups in a row with handles facing right."
-- "Stack the boxes from largest to smallest."
-
-**Hard** tasks require reasoning over the scene. They may involve physical reasoning, semantic grouping, or visual attributes, such as:
-
 - "Pick up the pen behind the book."
 - "Put the condiments together."
 - "Move the red fruit to the plate."
 
-This lets RoboCraft scale beyond fixed task templates. The generated tasks are scene-conditioned, diverse, and designed to exercise both low-level manipulation and high-level instruction following.
+This gives RoboCraft fine-grained control over language, scene semantics, and task difficulty while still producing instructions that feel closer to natural manipulation goals than benchmark-only labels.
 
-## Reward Code Generation — Turning Language Goals into Executable Success Checks
+**Example visual.** This stage should show the scene image, object/relationship context, generated instructions, and feasibility filtering. The current page reserves this slot for the final task-generation visual.
 
-A trajectory is only useful if we know whether it succeeded.
+## Reward Code Generation - Turning Language into Executable Checks
 
-For simple tasks, success can be checked directly: "put the mug on the plate" means the mug should end up on the plate. But for compositional tasks, success may depend on semantic groups and spatial relations. For example, "separate the produce from the packaged drinks" requires understanding which objects are produce, which are drinks, and whether the two groups are spatially separated.
+**What this stage solves.** A trajectory is only useful if we know whether it solved the task. For compositional instructions, success may depend on spatial relations, semantic groups, object state, contact, orientation, or temporal constraints.
 
-RoboCraft turns these language goals into executable reward code.
+**How RoboCraft does it.** The reward-generation module receives the task instruction, scene-specific object identities, and a predicate library. A VLM then writes an `evaluate()` function that composes predicates such as `On`, `LeftTo`, `RightTo`, `IsInside`, `IsStatic`, `Upright`, `IsOpen`, and `ConstraintAlways` into a task-specific success checker.
 
-The reward-generation module receives the task instruction, scene-specific object identities, and a library of predicates such as `In`, `On`, `LeftTo`, and `RightTo`. A VLM then writes an `evaluate()` function that composes these predicates into a task-specific success checker.
+Compact reward logic often looks like this:
 
-This reward code is used in two places:
+```python
+positions_swapped = book_at_target & mug_at_target
+both_settled = book_settled & mug_settled
+success = positions_swapped & both_settled & book_always_upright
+```
 
-1. during motion-code generation, to decide whether the generated program solves the task;
-2. during trajectory rollout, to filter successful trajectories from failed ones.
+The predicate library covers many common manipulation success criteria and can be extended as tasks become more complex. Current categories include spatial relations, orientation, contact, articulation state, temporal constraints, and neural/image predicates.
 
-This is a core design choice in RoboCraft: language goals become executable verification programs.
+**Where it is used.** Reward code is used during motion-code generation to decide whether a generated program solves the task, and again during trajectory rollout to filter successful trajectories from failed ones. This is the verification layer that lets RoboCraft scale data without treating every rollout as useful by default.
 
-## Motion-Planning Code Generation — Closed-loop coding through Agent-Simulation Interface
+The full-code exhibit below shows a generated temporal reward for a two-stage task: place a knife inside a red box, then move the box onto a cutting board while keeping the knife inside.
 
-The hardest part of generating trajectories is to decide **what sequence of target poses** the robot should move through to complete a task, i.e. the motion-planning code.
+## Motion-Planning Code Generation - Debugging Robot Programs in Simulation
 
-For many tasks, this is difficult to generate in one shot. The model may not know whether a target pose is reachable, whether a path will collide, whether the object will move as expected, or whether the final state will satisfy the task.
+**What this stage solves.** The difficult part of trajectory generation is deciding the sequence of poses, grasps, and contact motions needed to complete a task. A generated plan may be unreachable, collide with the scene, drop the object, or finish in a state that does not satisfy the reward.
 
-RoboCraft solves this with an **Agent-Simulation Interface**.
+**How RoboCraft does it.** RoboCraft uses an Agent-Simulation Interface. The agent writes motion-planning code with low-level APIs such as `move_to`, `open_gripper`, `close_gripper`, `move_linear`, and `move_planar`. The simulator executes the code and returns feedback: planning failures, collision and joint-limit information, predicate-level reward results, object and robot states, multi-view observations, local object frames, and visualized target poses.
 
-The agent writes motion-planning code using low-level robot APIs such as:
+The agent then revises the program. The loop continues until the generated reward code reports success or the maximum refinement budget is reached.
 
-- `move_to`
-- `open_gripper`
-- `close_gripper`
-- `move_linear`
-- `move_planar`
+For a task such as "Place the 7 Up can into the left bottom drawer of the mini cabinet and close the drawer," the generated strategy can be summarized as:
 
-These APIs are lower-level than predefined skills. This makes generation harder, but also much more flexible: any task that can be described as a sequence of target poses and motion-planning calls can potentially be supported.
+1. Open the drawer by grasping and pulling the handle.
+2. Pick the can from above.
+3. Move the can over the open drawer cavity and release it.
+4. Re-grasp the drawer handle.
+5. Push the drawer closed.
+6. Verify success with the generated reward code.
 
-After the agent writes code, the simulator executes it and returns feedback through the interface. The feedback includes planning failure reasons, joint-limit and collision information, predicate-level reward results, object and robot states, multi-view observations, local object frames, and visualized target poses.
+This stage is important because RoboCraft is not only composing fixed skills. It generates executable robot strategies and improves them with physical feedback.
 
-The agent then revises its code based on this feedback. The loop continues until the generated reward code reports success or the maximum number of refinement rounds is reached.
-
-A generated program example for task "Place the 7 Up can into the left bottom drawer of the mini cabinet and close the drawer":
+<details>
+<summary>View full generated motion program</summary>
 
 ```python
 def solve(self, seed: int = 42, skills=None) -> bool:
@@ -231,41 +202,27 @@ def solve(self, seed: int = 42, skills=None) -> bool:
     return True
 ```
 
-This closed-loop design bridges the gap between flexible code generation and physical feasibility. The agent does not need to be perfect on the first try; it can use simulation feedback to debug its own robot program.
+</details>
 
-In short, RoboCraft does not only generate trajectories. It generates executable robot strategies and improves them in simulation.
+## Trajectory Generation - Filtering Rollouts into VLA Supervision
 
-## Trajectory Generation — From Programs to VLA Data
+**What this stage solves.** A successful generated program can be reused across many randomized variants of the task and scene. This turns one solved strategy into many supervised trajectories.
 
-Once a motion-planning program succeeds, RoboCraft uses it to generate concrete trajectories.
+**How RoboCraft does it.** During rollout, RoboCraft randomizes object initial poses, camera poses, lighting, backgrounds, table textures, robot initial states, and controller dynamics such as stiffness and damping. Each rollout is evaluated by the generated `evaluate()` function, and only successful trajectories are retained for the main dataset.
 
-The same program can be rolled out across many randomized variants of a task and scene. During rollout, RoboCraft randomizes object initial poses, camera poses, lighting, backgrounds, table textures, robot initial states, and controller dynamics such as stiffness and damping.
+The retained data records include the natural-language instruction, observations, robot actions, end-effector poses, phase labels, success flags, predicate-level results, and optional videos. This final stage converts executable robot programs into filtered VLA training data.
 
-Each rollout is evaluated by the generated `evaluate()` function. Only successful trajectories are retained.
+Using RoboCraft, we target over **1M successful trajectories** across diverse tasks and randomized environments.
 
-Figure 2. Example trajectories generated by RoboCraft. Each rollout is produced by executing generated motion-planning code and filtering the result with task-specific reward code. This final stage converts successful robot programs into VLA supervision: language instructions, visual observations, robot actions, and verified task outcomes.
+## Early model observations
 
-Using RoboCraft, we generate over **1M successful trajectories** across diverse tasks and randomized environments. We have also trained a VLA model on part of the generated data. Early results show promising robustness to perturbations, stronger compositional generalization to new instructions, and encouraging zero-shot transfer to real robots. We will report detailed results in a future release.
+We have trained early VLA models on part of the generated data. The results are still preview observations, not a final benchmark release, but the signs are encouraging: stronger robustness to perturbations, better compositional instruction following, and early hints of zero-shot transfer to real robots.
 
-Stay tuned!
+For this preview, the main contribution is the data engine itself: a way to automatically generate diverse, realistic, controllable, and verifiable manipulation experience at scale.
 
-## RoboCraft Is an Early Step
+RoboCraft is our first step toward scalable robot data generation that is both broad and inspectable. We are continuing to expand the pipeline across embodiments, richer physical settings, and stronger mixtures of synthetic and real-world data.
 
-RoboCraft is our first release of a scalable simulation data generation pipeline for robot manipulation. It already enables large-scale VLA supervision, but there are several directions we are actively improving.
-
-First, the current pipeline is tested on a single-arm robot. Since the pipeline is built around scene generation, reward code, motion-planning APIs, and simulator feedback, it is naturally extensible to more embodiments. We are working toward supporting dual-arm robots next.
-
-Second, RoboCraft may also provide a path toward reinforcement learning for VLA models. Because every task comes with generated reward code, the same infrastructure used for trajectory filtering can potentially be used to provide training signals during policy optimization. We are excited to explore this direction further.
-
-Third, RoboCraft currently focuses on rigid-object manipulation. Soft objects and liquids remain challenging due to simulation limitations, but they are important for many real-world tasks. Extending scalable data generation to these settings is an exciting direction for future work.
-
-Beyond these extensions, we are especially interested in how synthetic simulation data should be combined with other data sources, including teleoperation data, UMI-style data, and human videos. Simulation gives us scale, control, and verifiability; real-world data gives us realism and embodiment grounding. Understanding the right mixture is one of the key open questions for building more general robot policies.
-
-RoboCraft is not the final answer to robot data scaling. It is a step toward a more automated, verifiable, and controllable way to build embodied training data.
-
-Our broader goal is to make robot data generation more scalable and scientific. We hope RoboCraft helps us and the community study how large-scale synthetic interaction data can improve VLA models, especially when real robot data is expensive, scarce, or hard to diversify.
-
-Thanks for getting this far.
+More results and release details are coming soon.
 
 ## References
 

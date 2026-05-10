@@ -11,4 +11,5 @@ export interface BlogPost {
   onlineImage?: string;
   twitterLink?: string;
   githubLink?: string;
+  layout?: string;
 }

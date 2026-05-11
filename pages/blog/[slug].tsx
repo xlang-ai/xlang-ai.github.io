@@ -23,7 +23,7 @@ const BlogPost = ({ post }: { post: Post }) => {
   return (
     <>
       <Head>
-        <title>XLANG Lab | {post.title}</title>
+        <title>{`XLANG Lab | ${post.title}`}</title>
         <link
           rel='apple-touch-icon'
           sizes='180x180'
@@ -190,7 +190,7 @@ type RoboCraftStage = {
   title: string;
   content: string;
   kicker: string;
-  mediaKind: 'scene' | 'taskPlaceholder' | 'rewardPlaceholder' | 'trajectoryVideo' | 'none';
+  mediaKind: 'scene' | 'taskPlaceholder' | 'rewardPlaceholder' | 'motionPlaceholder' | 'trajectoryVideo' | 'none';
 };
 
 const ROBOCRAFT_STAGE_DEFS = [
@@ -216,7 +216,7 @@ const ROBOCRAFT_STAGE_DEFS = [
     prefix: 'Motion-Planning Code Generation',
     shortTitle: 'Motion Code',
     kicker: 'Agentic robot programs',
-    mediaKind: 'none' as const,
+    mediaKind: 'motionPlaceholder' as const,
   },
   {
     prefix: 'Trajectory Generation',
@@ -225,6 +225,146 @@ const ROBOCRAFT_STAGE_DEFS = [
     mediaKind: 'trajectoryVideo' as const,
   },
 ];
+
+const ROBOCRAFT_METRICS = [
+  {
+    value: '1M+',
+    label: 'successful trajectories',
+    detail: 'Filtered simulation rollouts for VLA supervision.',
+    tone: 'border-[#0f766e]/30 bg-[#ecfdf5] text-[#0f766e]',
+  },
+  {
+    value: '5K+',
+    label: 'task programs',
+    detail: 'Launch-scale estimate for diverse generated manipulation tasks.',
+    tone: 'border-[#0156AC]/30 bg-[#edf4ff] text-[#0156AC]',
+  },
+  {
+    value: '300+',
+    label: 'scenes',
+    detail: 'Planned release coverage across realistic tabletop settings.',
+    tone: 'border-[#b45309]/30 bg-[#fff7ed] text-[#b45309]',
+  },
+  {
+    value: '50+',
+    label: 'predicate primitives',
+    detail: 'Spatial, contact, temporal, articulation, and neural checks.',
+    tone: 'border-[#6C4AAF]/30 bg-[#f8f5ff] text-[#6C4AAF]',
+  },
+];
+
+const PREVIEW_NOW = [
+  'Automated scene, task, reward, program, and rollout generation',
+  'Trajectory demos under domain randomization',
+  'Early model observations',
+];
+
+const PREVIEW_LATER = [
+  'Full training recipe, benchmarks, and ablations',
+  'Release details for data, code, and assets',
+  'Broader real-robot evaluation',
+];
+
+const PIPELINE_ARTIFACTS = [
+  { label: 'Scene', artifact: 'randomized tabletop world' },
+  { label: 'Task', artifact: 'scene-conditioned instruction' },
+  { label: 'Reward', artifact: 'executable evaluate()' },
+  { label: 'Program', artifact: 'motion-planning code' },
+  { label: 'Rollout', artifact: 'successful trajectory' },
+  { label: 'Output', artifact: 'VLA training record' },
+];
+
+const ROADMAP_ITEMS = [
+  {
+    today: 'Single-arm manipulation',
+    next: 'Dual-arm and broader embodiments',
+    why: 'More realistic household and industrial manipulation.',
+  },
+  {
+    today: 'Rigid objects',
+    next: 'Soft objects, liquids, and deformables',
+    why: 'Clothes, food, packaging, and other everyday materials.',
+  },
+  {
+    today: 'Generated rewards for filtering and training signals',
+    next: 'Scaled policy optimization and evaluation with those rewards',
+    why: 'Use the same executable checks beyond offline dataset construction.',
+  },
+  {
+    today: 'Coarse-grained manipulation tasks',
+    next: 'More intricate, fine-grained, and difficult task programs',
+    why: 'Stress-test compositional rewards, contact-rich motion code, and long-horizon verification.',
+  },
+];
+
+const REWARD_PREDICATE_CHIPS = [
+  'Sequential',
+  'ConstraintAlwaysAfter',
+  'IsInside',
+  'On',
+  'PullBy',
+  'Stage state',
+];
+
+const REWARD_CODE_EXCERPT = `sequential_success = self.sequential(self)
+knife_stays_in_box = self.knife_stays_in_box(self)
+success = sequential_success & knife_stays_in_box`;
+
+const FULL_REWARD_CODE = `def __init__(self, cfg: ScaleTaskEnvCfg, **kwargs):
+    super().__init__(cfg)
+    from isaaclab.predicates import On, IsInside
+    from isaaclab.predicates.temporal import Sequential, ConstraintAlwaysAfter
+    from isaaclab.predicates.motion import PullBy
+
+    self.knife_in_box = IsInside(cfg=None, env=self)
+    self.box_on_board = On(cfg=None, env=self)
+    self.pull_by = PullBy(cfg=None, env=self)
+
+    self._stage1_predicate = lambda: self.knife_in_box(
+        self, entity="kitchen_knife", container="red_plasticbox"
+    )
+
+    self._box_pulled_predicate = lambda: (
+        self.pull_by(self, entity="red_plasticbox", by="panda_hand", target_distance=0.10, axis="auto")
+        | self.pull_by(self, entity="red_plasticbox", by="panda_leftfinger", target_distance=0.10, axis="auto")
+        | self.pull_by(self, entity="red_plasticbox", by="panda_rightfinger", target_distance=0.10, axis="auto")
+    )
+
+    self._stage2_predicate = lambda: (
+        self.box_on_board(self, subject="red_plasticbox", support="cutting_board")
+        & self.knife_in_box(self, entity="kitchen_knife", container="red_plasticbox")
+        & self._box_pulled_predicate()
+    )
+
+    self.knife_stays_in_box = ConstraintAlwaysAfter(
+        self,
+        predicate_fn=lambda: self.knife_in_box(self, entity="kitchen_knife", container="red_plasticbox"),
+        trigger_fn=self._stage1_predicate,
+        constraint_id="knife_stays_in_box",
+    )
+
+    self.sequential = Sequential(self, self._stage1_predicate, self._stage2_predicate)
+
+def evaluate(self) -> Dict[str, torch.Tensor]:
+    sequential_success = self.sequential(self)
+    knife_stays_in_box = self.knife_stays_in_box(self)
+
+    knife_inside = self.knife_in_box(self, entity="kitchen_knife", container="red_plasticbox")
+    box_on_cutting_board = self.box_on_board(self, subject="red_plasticbox", support="cutting_board")
+    box_was_pulled = self._box_pulled_predicate()
+
+    current_stage = self.sequential.get_current_stage(self)
+    success = sequential_success & knife_stays_in_box
+
+    return {
+        "success": success,
+        "sequential_success": sequential_success,
+        "knife_stays_in_box": knife_stays_in_box,
+        "knife_inside_box": knife_inside,
+        "box_on_cutting_board": box_on_cutting_board,
+        "box_was_pulled": box_was_pulled,
+        "current_stage": current_stage.float(),
+    }`;
 
 const slugify = (text: string) =>
   text
@@ -339,8 +479,24 @@ const getContentHeadings = (content: string) =>
     };
   });
 
+const splitPostStageContent = (content: string) => {
+  const finalNoteMarker = /\n\n(?=RoboCraft is our first step)/.exec(content);
+  if (!finalNoteMarker || finalNoteMarker.index === undefined) {
+    return { before: content.trim(), finalNote: '' };
+  }
+
+  return {
+    before: content.slice(0, finalNoteMarker.index).trim(),
+    finalNote: content.slice(finalNoteMarker.index).trim(),
+  };
+};
+
 const RoboCraftPost = ({ post }: { post: Post }) => {
   const parsed = useMemo(() => parseRobocraftContent(post.content), [post.content]);
+  const postContentParts = useMemo(
+    () => splitPostStageContent(parsed.postStageContent),
+    [parsed.postStageContent]
+  );
   const [activeStage, setActiveStage] = useState(0);
   const [activeCitation, setActiveCitation] = useState<string>();
   const [activeSection, setActiveSection] = useState('overview');
@@ -354,10 +510,11 @@ const RoboCraftPost = ({ post }: { post: Post }) => {
       { id: 'overview', label: 'Overview' },
       ...getContentHeadings(parsed.preStageContent),
       { id: 'pipeline-module', label: 'Pipeline Explorer' },
-      ...getContentHeadings(parsed.postStageContent),
+      ...getContentHeadings(postContentParts.before),
+      { id: 'roadmap', label: 'Current Scope' },
       ...(parsed.citationContent ? [{ id: 'citation', label: 'Citation' }] : []),
     ],
-    [parsed.citationContent, parsed.postStageContent, parsed.preStageContent]
+    [parsed.citationContent, parsed.preStageContent, postContentParts.before]
   );
 
   useEffect(() => {
@@ -378,14 +535,14 @@ const RoboCraftPost = ({ post }: { post: Post }) => {
   return (
     <>
       <BlogHead post={post} blogUrl={BlogUrl} />
-      <div className='min-h-screen bg-[#f7f8fb] pt-28 text-[#0b1b2b]'>
-        <div className='mx-auto grid w-full max-w-[1500px] grid-cols-1 gap-8 px-4 pb-24 xl:grid-cols-[220px_minmax(0,820px)_320px] 2xl:px-8'>
+      <div className='min-h-screen bg-[#fbfbf8] pt-28 text-[#0b1b2b]'>
+        <div className='mx-auto grid w-full max-w-[1480px] grid-cols-1 gap-8 px-4 pb-24 xl:grid-cols-[190px_minmax(0,900px)_250px] 2xl:px-8'>
           <aside className='hidden xl:block'>
-            <div className='sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto border-l border-[#0156AC]/20 pl-5'>
-              <Link href='/blog' className='mb-8 block text-xs font-semibold uppercase tracking-[0.3em] text-[#0156AC]'>
+            <div className='sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto border-l border-slate-200/70 pl-5'>
+              <Link href='/blog' className='mb-8 block text-xs font-semibold uppercase text-slate-500 hover:text-[#0f766e]'>
                 Blog
               </Link>
-              <div className='mb-3 text-[11px] font-semibold uppercase tracking-[0.25em] text-slate-400'>
+              <div className='mb-3 text-[11px] font-semibold uppercase text-slate-500'>
                 Contents
               </div>
               <nav className='flex flex-col gap-3'>
@@ -395,8 +552,8 @@ const RoboCraftPost = ({ post }: { post: Post }) => {
                     href={`#${item.id}`}
                     className={`text-sm leading-5 transition-colors ${
                       activeSection === item.id
-                        ? 'font-semibold text-[#0156AC]'
-                        : 'text-slate-500 hover:text-[#0156AC]'
+                        ? 'font-semibold text-[#0f766e]'
+                        : 'text-slate-500 hover:text-[#0f766e]'
                     }`}
                   >
                     {item.label}
@@ -406,23 +563,25 @@ const RoboCraftPost = ({ post }: { post: Post }) => {
             </div>
           </aside>
 
-          <main>
-            <section id='overview' className='mb-10 scroll-mt-28 border-b border-[#0156AC]/10 pb-10'>
-              <div className='mb-5 flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-[0.24em] text-[#0156AC]'>
-                <span>RoboCraft-preview</span>
+          <main className='space-y-12'>
+            <section id='overview' className='scroll-mt-28 pb-4'>
+              <div className='mb-5 flex flex-wrap gap-2 text-xs font-semibold uppercase text-[#0f766e]'>
+                <span>Preview release</span>
                 <span>/</span>
                 <span>{parseDateString(post.date)}</span>
               </div>
-              <h1 className='max-w-4xl text-2xl font-semibold leading-snug tracking-[-0.02em] text-[#031425] sm:text-4xl'>
+              <h1 className='max-w-4xl text-3xl font-semibold leading-tight text-[#031425] sm:text-5xl'>
                 {post.title}
               </h1>
-              <p className='mt-6 max-w-3xl border-l-4 border-[#0156AC] bg-[#edf4ff] px-5 py-4 text-base font-medium leading-8 text-[#174B81]'>
-                TL;DR: {post.previewContent}
+              <RoboCraftHeroMeta date={post.date} author={post.author} twitterUrl={TwitterShareUrl} githubUrl={GithubShareUrl} />
+              <p className='mt-6 max-w-3xl text-lg font-medium leading-8 text-slate-700'>
+                {post.previewContent}
               </p>
+              <HeroProofPanel />
             </section>
 
-            <div className='mb-8 rounded-2xl border border-[#0156AC]/10 bg-white p-5 xl:hidden'>
-              <div className='mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-slate-400'>
+            <div className='border-y border-slate-200 py-5 xl:hidden'>
+              <div className='mb-3 text-xs font-semibold uppercase text-slate-500'>
                 Contents
               </div>
               <div className='flex flex-wrap gap-2'>
@@ -430,7 +589,7 @@ const RoboCraftPost = ({ post }: { post: Post }) => {
                   <a
                     key={item.id}
                     href={`#${item.id}`}
-                    className='rounded-full border border-[#0156AC]/15 px-3 py-1 text-xs font-semibold text-[#0156AC]'
+                    className='rounded-full border border-[#0f766e]/20 px-3 py-1 text-xs font-semibold text-[#0f766e]'
                   >
                     {item.label}
                   </a>
@@ -438,13 +597,14 @@ const RoboCraftPost = ({ post }: { post: Post }) => {
               </div>
             </div>
 
-            <div className='rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm sm:p-10'>
-              <PostMeta date={post.date} author={post.author} twitterUrl={TwitterShareUrl} githubUrl={GithubShareUrl} />
-              <RoboCraftMarkdown
-                content={parsed.preStageContent}
-                activeCitation={activeCitation}
-                setActiveCitation={setActiveCitation}
-              />
+            <article className='space-y-14'>
+              <section className='pt-2'>
+                <RoboCraftMarkdown
+                  content={parsed.preStageContent}
+                  activeCitation={activeCitation}
+                  setActiveCitation={setActiveCitation}
+                />
+              </section>
               <PipelineShowcase />
               <StageExplorer
                 stages={parsed.stages}
@@ -453,13 +613,27 @@ const RoboCraftPost = ({ post }: { post: Post }) => {
                 activeCitation={activeCitation}
                 setActiveCitation={setActiveCitation}
               />
-              <RoboCraftMarkdown
-                content={parsed.postStageContent}
-                activeCitation={activeCitation}
-                setActiveCitation={setActiveCitation}
-              />
+              {postContentParts.before && (
+                <section className='border-t border-slate-200 pt-10'>
+                  <RoboCraftMarkdown
+                    content={postContentParts.before}
+                    activeCitation={activeCitation}
+                    setActiveCitation={setActiveCitation}
+                  />
+                </section>
+              )}
+              <RoadmapSection />
+              {postContentParts.finalNote && (
+                <section className='-mt-10'>
+                  <RoboCraftMarkdown
+                    content={postContentParts.finalNote}
+                    activeCitation={activeCitation}
+                    setActiveCitation={setActiveCitation}
+                  />
+                </section>
+              )}
               {parsed.citationContent && (
-                <section id='citation' className='mt-12 rounded-2xl border border-[#0156AC]/10 bg-[#f6f9ff] p-5'>
+                <section id='citation' className='border-t border-slate-200 pt-10'>
                   <RoboCraftMarkdown
                     content={parsed.citationContent}
                     activeCitation={activeCitation}
@@ -467,21 +641,16 @@ const RoboCraftPost = ({ post }: { post: Post }) => {
                   />
                 </section>
               )}
-            </div>
+            </article>
 
-            <section className='mt-8 rounded-2xl border border-slate-200 bg-white p-6 xl:hidden'>
-              <h2 className='mb-4 text-lg font-semibold text-[#0156AC]'>References</h2>
+            <section className='mt-8 border-t border-slate-200 pt-8 xl:hidden'>
+              <h2 className='mb-4 text-lg font-semibold text-slate-500'>References</h2>
               <ReferencesList references={parsed.references} activeCitation={activeCitation} idSuffix='-mobile' />
             </section>
           </main>
 
           <aside className='hidden xl:block'>
-            <div className='sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto rounded-2xl border border-slate-200 bg-white/90 p-5 shadow-sm backdrop-blur'>
-              <div className='mb-4 text-[11px] font-semibold uppercase tracking-[0.25em] text-slate-400'>
-                References
-              </div>
-              <ReferencesList references={parsed.references} activeCitation={activeCitation} />
-            </div>
+            <ReferenceRail references={parsed.references} activeCitation={activeCitation} />
           </aside>
         </div>
       </div>
@@ -491,7 +660,7 @@ const RoboCraftPost = ({ post }: { post: Post }) => {
 
 const BlogHead = ({ post, blogUrl }: { post: Post; blogUrl: string }) => (
   <Head>
-    <title>XLANG Lab | {post.title}</title>
+    <title>{`XLANG Lab | ${post.title}`}</title>
     <link
       rel='apple-touch-icon'
       sizes='180x180'
@@ -523,35 +692,146 @@ const BlogHead = ({ post, blogUrl }: { post: Post; blogUrl: string }) => (
   </Head>
 );
 
-const PipelineShowcase = () => (
-  <section className='my-12 space-y-8'>
-    <figure className='overflow-hidden rounded-[1.5rem] border border-[#0156AC]/10 bg-white shadow-sm'>
-      <div className='relative aspect-video w-full bg-[#edf4ff]'>
-        <Image
-          src={publicFilePath('/blog/xgen/xgen_main.png')}
-          alt='RoboCraft-preview pipeline overview'
-          fill
-          style={{ objectFit: 'contain', objectPosition: 'center' }}
-        />
-      </div>
-      <figcaption className='border-t border-slate-100 px-5 py-4 text-sm leading-6 text-slate-500'>
-        Figure 1. Overview of the RoboCraft-preview data generation pipeline. This placeholder figure uses the current XGen main image and can be replaced when the final pipeline diagram is ready.
-      </figcaption>
-    </figure>
+const RoboCraftHeroMeta = ({
+  date,
+  author,
+  twitterUrl,
+  githubUrl,
+}: {
+  date: string;
+  author: string;
+  twitterUrl: string;
+  githubUrl: string;
+}) => (
+  <div className='mt-5 flex flex-wrap items-center gap-x-5 gap-y-3 text-sm text-slate-500'>
+    <span>
+      <span className='font-semibold text-slate-700'>Author</span> {author}
+    </span>
+    <span>
+      <span className='font-semibold text-slate-700'>Date</span> {parseDateString(date)}
+    </span>
+    <div className='flex items-center gap-3'>
+      <span className='font-semibold text-slate-700'>Share</span>
+      <PostShare twitterUrl={twitterUrl} githubUrl={githubUrl} />
+    </div>
+  </div>
+);
 
-    <figure className='overflow-hidden rounded-[1.5rem] border border-[#0156AC]/10 bg-[#031425] shadow-sm'>
-      <video
-        className='w-full'
-        src={publicFilePath('/blog/xgen/demo.mp4')}
-        controls
-        muted
-        loop
-        playsInline
-      />
-      <figcaption className='border-t border-white/10 bg-white px-5 py-4 text-sm leading-6 text-slate-500'>
-        Demo video. Nine generated task trajectories from RoboCraft-preview.
-      </figcaption>
-    </figure>
+const HeroProofPanel = () => (
+  <section className='mt-10 border-y border-slate-200 py-7'>
+    <div className='grid gap-y-6 sm:grid-cols-2 sm:gap-y-7 lg:grid-cols-4 lg:divide-x lg:divide-slate-200'>
+      {ROBOCRAFT_METRICS.map((metric, index) => (
+        <div
+          key={metric.label}
+          className={`lg:px-5 ${index === 0 ? 'lg:pl-0' : ''} ${
+            index === ROBOCRAFT_METRICS.length - 1 ? 'lg:pr-0' : ''
+          }`}
+        >
+          <div className='text-4xl font-semibold leading-none text-[#031425]'>{metric.value}</div>
+          <div className='mt-2 text-xs font-semibold uppercase text-slate-500'>{metric.label}</div>
+          <p className='mt-2 text-sm leading-6 text-slate-600'>{metric.detail}</p>
+        </div>
+      ))}
+    </div>
+
+    <div className='mt-7 grid gap-6 border-t border-slate-200 pt-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]'>
+      <div>
+        <div className='text-xs font-semibold uppercase text-[#0f766e]'>Design thesis</div>
+        <p className='mt-2 text-base leading-8 text-slate-700'>
+          RoboCraft's bet is simple: simulation data becomes useful for generalist robot learning when it is not only large, but{' '}
+          <span className='font-semibold text-[#031425]'>diverse</span>,{' '}
+          <span className='font-semibold text-[#031425]'>natural</span>,{' '}
+          <span className='font-semibold text-[#031425]'>physically grounded</span>, and{' '}
+          <span className='font-semibold text-[#031425]'>controllable</span>, with successful rollouts verified before they reach a policy.
+        </p>
+      </div>
+
+      <div className='grid gap-5 sm:grid-cols-2 lg:grid-cols-1'>
+        <div>
+          <div className='text-xs font-semibold uppercase text-[#0f766e]'>In this preview</div>
+          <ul className='mt-3 space-y-2 text-sm leading-6 text-slate-600'>
+            {PREVIEW_NOW.map((item) => (
+              <li key={item} className='border-l border-[#0f766e]/30 pl-3'>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <div className='text-xs font-semibold uppercase text-slate-400'>Coming later</div>
+          <ul className='mt-3 space-y-2 text-sm leading-6 text-slate-500'>
+            {PREVIEW_LATER.map((item) => (
+              <li key={item} className='border-l border-slate-200 pl-3'>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const PipelineShowcase = () => (
+  <section className='border-t border-slate-200 pt-12'>
+    <div className='mb-7'>
+      <div className='text-xs font-semibold uppercase text-[#0f766e]'>
+        Pipeline overview
+      </div>
+      <h2 className='mt-2 text-3xl font-semibold leading-tight text-[#031425]'>
+        Five generation stages, one training-data output
+      </h2>
+      <p className='mt-3 max-w-3xl text-sm leading-7 text-slate-600'>
+        Each stage produces an artifact that makes the next stage more reliable. The endpoint is not a finished model in this preview; it is filtered VLA supervision containing instructions, observations, actions, and task-success metadata.
+      </p>
+    </div>
+
+    <ol className='grid border-y border-slate-200 md:grid-cols-6'>
+      {PIPELINE_ARTIFACTS.map((item, index) => (
+        <li
+          key={item.label}
+          className={`py-4 md:px-4 ${index > 0 ? 'md:border-l md:border-slate-200' : ''} ${
+            item.label === 'Output' ? 'text-[#0f766e]' : 'text-[#031425]'
+          }`}
+        >
+          <div className='text-[11px] font-semibold uppercase text-slate-400'>
+            {index < 5 ? `0${index + 1}` : 'Output'}
+          </div>
+          <div className='mt-2 text-base font-semibold'>{item.label}</div>
+          <div className='mt-1 text-sm leading-6 text-slate-600'>{item.artifact}</div>
+        </li>
+      ))}
+    </ol>
+
+    <div className='mt-8 grid gap-5 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]'>
+      <figure className='overflow-hidden rounded-xl border border-slate-200/80 bg-white/50'>
+        <div className='relative aspect-video w-full bg-[#edf4ff]'>
+          <Image
+            src={publicFilePath('/blog/xgen/xgen_main.png')}
+            alt='RoboCraft pipeline overview placeholder'
+            fill
+            style={{ objectFit: 'contain', objectPosition: 'center' }}
+          />
+        </div>
+        <figcaption className='border-t border-slate-100 px-5 py-4 text-sm leading-6 text-slate-500'>
+          Pipeline visual slot. Replace this placeholder with the final RoboCraft data-provenance diagram when the asset is ready.
+        </figcaption>
+      </figure>
+
+      <figure className='overflow-hidden rounded-xl border border-slate-200/80 bg-[#031425]'>
+        <video
+          className='w-full'
+          src={publicFilePath('/blog/xgen/demo.mp4')}
+          controls
+          muted
+          loop
+          playsInline
+        />
+        <figcaption className='border-t border-white/10 bg-white px-5 py-4 text-sm leading-6 text-slate-500'>
+          Demo slot. Example generated task trajectories from RoboCraft.
+        </figcaption>
+      </figure>
+    </div>
   </section>
 );
 
@@ -565,14 +845,14 @@ const RoboCraftMarkdown = ({
   setActiveCitation: (id: string) => void;
 }) => (
   <ReactMarkdown
-    className='robocraft-markdown tracking-wide'
+    className='robocraft-markdown'
     rehypePlugins={[rehypeRaw]}
     linkTarget="_blank"
     components={{
       h2(props) {
         const text = getMarkdownText(props.children);
         return (
-          <h2 id={slugify(text)} className='scroll-mt-28 pt-8 text-3xl font-semibold leading-tight tracking-[-0.03em] text-[#031425]'>
+          <h2 id={slugify(text)} className='scroll-mt-28 pt-8 text-3xl font-semibold leading-tight text-[#031425]'>
             {props.children}
           </h2>
         );
@@ -596,6 +876,27 @@ const RoboCraftMarkdown = ({
       },
       strong(props) {
         return <strong className='font-semibold text-[#031425]'>{props.children}</strong>;
+      },
+      blockquote(props) {
+        return (
+          <blockquote className='mt-6 border-l-4 border-[#0f766e] bg-[#ecfdf5] px-5 py-4 text-[15px] leading-8 text-slate-700'>
+            {props.children}
+          </blockquote>
+        );
+      },
+      details(props) {
+        return (
+          <details className='mt-6 border-y border-slate-200 py-4 text-slate-700'>
+            {props.children}
+          </details>
+        );
+      },
+      summary(props) {
+        return (
+          <summary className='cursor-pointer text-sm font-semibold text-[#0f766e]'>
+            {props.children}
+          </summary>
+        );
       },
       a(props) {
         const isRefCitation = props.href && props.href.match(/^#ref\d+$/);
@@ -646,13 +947,13 @@ const RoboCraftMarkdown = ({
         }
 
         return (
-          <code className='block whitespace-pre-wrap rounded-2xl bg-[#07182a] p-5 font-mono text-[13px] leading-7 text-[#d9f2ff]'>
+          <code className='block whitespace-pre-wrap rounded-xl bg-[#07182a] p-5 font-mono text-[13px] leading-7 text-[#d9f2ff]'>
             {props.children}
           </code>
         );
       },
       pre(props) {
-        return <pre className='my-6 overflow-x-auto rounded-2xl bg-[#07182a]'>{props.children}</pre>;
+        return <pre className='my-6 overflow-x-auto rounded-xl bg-[#07182a]'>{props.children}</pre>;
       },
     }}
   >
@@ -681,21 +982,21 @@ const StageExplorer = ({
   };
 
   return (
-    <section id='pipeline-module' className='my-14 scroll-mt-28 overflow-hidden rounded-[2rem] border border-[#0156AC]/15 bg-gradient-to-br from-[#f7fbff] via-white to-[#f8f5ff] p-5 shadow-[0_24px_80px_rgba(1,86,172,0.08)] sm:p-7'>
+    <section id='pipeline-module' className='scroll-mt-28 overflow-hidden rounded-2xl border border-slate-200 bg-white/95 p-5 shadow-[0_24px_80px_rgba(15,23,42,0.08)] sm:p-7'>
       <div className='mb-6 flex items-center justify-between gap-4'>
         <div>
-          <div className='text-xs font-semibold uppercase tracking-[0.28em] text-[#0156AC]'>
+          <div className='text-xs font-semibold uppercase text-[#0f766e]'>
             Pipeline Explorer
           </div>
-          <h2 className='mt-2 text-3xl font-semibold tracking-[-0.04em] text-[#031425]'>
-            From Scene Gen to Traj Gen
+          <h2 className='mt-2 text-3xl font-semibold text-[#031425]'>
+            The five-stage generation loop
           </h2>
         </div>
         <div className='flex gap-2'>
           <button
             type='button'
             onClick={() => go(-1)}
-            className='h-10 w-10 rounded-full border border-[#0156AC]/20 bg-white text-xl text-[#0156AC] shadow-sm transition hover:-translate-x-0.5 hover:border-[#0156AC]'
+            className='h-9 w-9 rounded-full border border-slate-200 bg-white text-lg text-slate-500 transition hover:-translate-x-0.5 hover:border-[#0f766e] hover:text-[#0f766e]'
             aria-label='Previous pipeline stage'
           >
             ‹
@@ -703,7 +1004,7 @@ const StageExplorer = ({
           <button
             type='button'
             onClick={() => go(1)}
-            className='h-10 w-10 rounded-full border border-[#0156AC]/20 bg-white text-xl text-[#0156AC] shadow-sm transition hover:translate-x-0.5 hover:border-[#0156AC]'
+            className='h-9 w-9 rounded-full border border-slate-200 bg-white text-lg text-slate-500 transition hover:translate-x-0.5 hover:border-[#0f766e] hover:text-[#0f766e]'
             aria-label='Next pipeline stage'
           >
             ›
@@ -711,31 +1012,33 @@ const StageExplorer = ({
         </div>
       </div>
 
-      <div className='mb-8 grid grid-cols-2 gap-2 md:grid-cols-5'>
-        {stages.map((item, index) => (
-          <button
-            key={item.id}
-            type='button'
-            onClick={() => setActiveStage(index)}
-            className={`rounded-2xl border px-3 py-3 text-left transition ${
-              index === activeStage
-                ? 'border-[#0156AC] bg-[#0156AC] text-white shadow-lg shadow-[#0156AC]/20'
-                : 'border-slate-200 bg-white text-slate-500 hover:border-[#0156AC]/40 hover:text-[#0156AC]'
-            }`}
-          >
-            <div className='text-[11px] font-semibold uppercase tracking-[0.2em] opacity-75'>
-              0{index + 1}
-            </div>
-            <div className='mt-1 text-sm font-semibold'>{item.shortTitle}</div>
-          </button>
-        ))}
+      <div className='mb-8 overflow-x-auto'>
+        <div className='grid min-w-[620px] grid-cols-5 rounded-full border border-slate-200 bg-[#f6f7f6] p-1'>
+          {stages.map((item, index) => (
+            <button
+              key={item.id}
+              type='button'
+              onClick={() => setActiveStage(index)}
+              className={`rounded-full px-3 py-2 text-left transition ${
+                index === activeStage
+                  ? 'bg-white text-[#031425] shadow-sm'
+                  : 'text-slate-500 hover:text-[#0f766e]'
+              }`}
+            >
+              <span className='mr-2 text-[11px] font-semibold uppercase opacity-60'>
+                0{index + 1}
+              </span>
+              <span className='text-sm font-semibold'>{item.shortTitle}</span>
+            </button>
+          ))}
+        </div>
       </div>
 
-      <div>
-        <div className='mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#6C4AAF]'>
+      <div className='border-t border-slate-200 pt-7'>
+        <div className='mb-2 text-xs font-semibold uppercase text-[#b45309]'>
           {stage.kicker}
         </div>
-        <h3 className='text-2xl font-semibold leading-tight tracking-[-0.03em] text-[#031425]'>
+        <h3 className='text-2xl font-semibold leading-tight text-[#031425]'>
           {stage.title}
         </h3>
         <RoboCraftMarkdown
@@ -743,12 +1046,82 @@ const StageExplorer = ({
           activeCitation={activeCitation}
           setActiveCitation={setActiveCitation}
         />
-        {stage.mediaKind !== 'none' && (
+        {stage.mediaKind === 'rewardPlaceholder' && (
+          <div className='mt-8'>
+            <RewardCodeExhibit />
+          </div>
+        )}
+        {stage.mediaKind !== 'none' && stage.mediaKind !== 'rewardPlaceholder' && (
           <div className='mt-8'>
             <StageMedia stage={stage} />
           </div>
         )}
       </div>
+    </section>
+  );
+};
+
+const RewardCodeExhibit = () => {
+  const [activeTab, setActiveTab] = useState<'logic' | 'code'>('logic');
+
+  return (
+    <section className='overflow-hidden rounded-xl border border-slate-200 bg-white'>
+      <div className='flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 px-4 py-3'>
+        <div>
+          <div className='text-xs font-semibold uppercase text-[#0f766e]'>Generated reward exhibit</div>
+          <div className='mt-1 text-sm font-semibold text-[#031425]'>
+            Knife-in-box, then box-on-cutting-board
+          </div>
+        </div>
+        <div className='flex rounded-full border border-slate-200 bg-[#f6f7f6] p-1'>
+          {[
+            { id: 'logic' as const, label: 'Logic' },
+            { id: 'code' as const, label: 'Full code' },
+          ].map((tab) => (
+            <button
+              key={tab.id}
+              type='button'
+              onClick={() => setActiveTab(tab.id)}
+              className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
+                activeTab === tab.id
+                  ? 'bg-[#031425] text-white shadow-sm'
+                  : 'text-slate-500 hover:text-[#031425]'
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {activeTab === 'logic' ? (
+        <div className='grid gap-4 p-4 md:grid-cols-[minmax(0,1fr)_220px]'>
+          <div>
+            <p className='text-sm leading-7 text-slate-600'>
+              The generated reward keeps stage order explicit: first the knife must enter the box, then the box must move onto the cutting board, while the knife remains inside after stage one completes.
+            </p>
+            <pre className='mt-4 overflow-x-auto rounded-lg bg-[#07182a] p-4 text-sm leading-7 text-[#d9f2ff]'>
+              <code>{REWARD_CODE_EXCERPT}</code>
+            </pre>
+          </div>
+          <div>
+            <div className='text-xs font-semibold uppercase text-slate-500'>Predicate mix</div>
+            <div className='mt-3 flex flex-wrap gap-2'>
+              {REWARD_PREDICATE_CHIPS.map((chip) => (
+                <span key={chip} className='rounded-full border border-[#0f766e]/20 bg-white px-3 py-1 text-xs font-medium text-[#0f766e]'>
+                  {chip}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className='p-4'>
+          <pre className='max-h-[560px] overflow-auto rounded-lg bg-[#07182a] p-5 text-sm leading-7 text-[#d9f2ff]'>
+            <code>{FULL_REWARD_CODE}</code>
+          </pre>
+        </div>
+      )}
     </section>
   );
 };
@@ -760,7 +1133,7 @@ const StageMedia = ({ stage }: { stage: RoboCraftStage }) => {
 
   if (stage.mediaKind === 'scene') {
     return (
-      <figure className='overflow-hidden rounded-[1.5rem] border border-[#0156AC]/10 bg-white'>
+      <figure className='overflow-hidden rounded-xl border border-slate-200 bg-white/60'>
         <div className='relative aspect-[16/9] w-full bg-[#ebe7e2]'>
           <Image
             src={publicFilePath('/blog/xgen/scene.png')}
@@ -778,7 +1151,7 @@ const StageMedia = ({ stage }: { stage: RoboCraftStage }) => {
 
   if (stage.mediaKind === 'trajectoryVideo') {
     return (
-      <figure className='overflow-hidden rounded-[1.5rem] border border-[#0156AC]/10 bg-[#031425]'>
+      <figure className='overflow-hidden rounded-xl border border-slate-200 bg-[#031425]'>
         <video
           className='w-full'
           src={publicFilePath('/blog/xgen/traj_gen_demo_grid.mp4')}
@@ -805,27 +1178,92 @@ const StageMedia = ({ stage }: { stage: RoboCraftStage }) => {
             label: 'Reward generation figure',
             text: 'Reserved for a diagram showing how language goals become executable reward code.',
           }
+        : stage.mediaKind === 'motionPlaceholder'
+          ? {
+              label: 'Motion-code refinement figure',
+              text: 'Reserved for a visual showing agent-written robot programs, simulator feedback, and iterative repair.',
+            }
         : {
             label: 'Media slot',
             text: 'Reserved for a stage figure or video.',
           };
 
   return (
-    <div className='flex min-h-[260px] flex-col justify-between rounded-[1.5rem] border border-dashed border-[#0156AC]/30 bg-white p-5'>
+    <div className='flex min-h-[240px] flex-col justify-between rounded-xl border border-dashed border-slate-300 bg-white/60 p-5'>
       <div>
-        <div className='text-[10px] font-semibold uppercase tracking-[0.25em] text-[#0156AC]'>
+        <div className='text-[10px] font-semibold uppercase text-[#0f766e]'>
           {placeholderCopy.label}
         </div>
         <p className='mt-4 text-sm leading-7 text-slate-600'>
           {placeholderCopy.text}
         </p>
       </div>
-      <div className='rounded-2xl bg-[#edf4ff] p-4 text-sm font-semibold text-[#0156AC]'>
+      <div className='border-t border-slate-200 pt-4 text-sm font-semibold text-[#0156AC]'>
         {stage.shortTitle}
       </div>
     </div>
   );
 };
+
+const RoadmapSection = () => (
+  <section id='roadmap' className='scroll-mt-28 border-t border-slate-200 pt-12'>
+    <h2 className='text-3xl font-semibold leading-tight text-[#031425]'>
+      Current Scope and Next Steps
+    </h2>
+    <p className='mt-4 max-w-3xl text-sm leading-7 text-slate-600'>
+      RoboCraft-preview focuses on scalable, controllable data generation today. The same pipeline points to the next physical settings, embodiments, and data mixtures we are expanding toward.
+    </p>
+    <div className='mt-6 overflow-hidden border-y border-slate-200'>
+      <div className='grid grid-cols-1 bg-[#031425] text-xs font-semibold uppercase text-white md:grid-cols-3'>
+        <div className='p-3'>Today</div>
+        <div className='border-l border-white/10 p-3'>Next</div>
+        <div className='border-l border-white/10 p-3'>Why it matters</div>
+      </div>
+      {ROADMAP_ITEMS.map((item, index) => (
+        <div
+          key={item.today}
+          className={`grid grid-cols-1 text-sm leading-6 text-slate-700 md:grid-cols-3 ${
+            index % 2 === 0 ? 'bg-white/50' : 'bg-transparent'
+          }`}
+        >
+          <div className='border-t border-slate-200 p-4 font-semibold text-[#031425]'>{item.today}</div>
+          <div className='border-t border-slate-200 p-4 md:border-l'>{item.next}</div>
+          <div className='border-t border-slate-200 p-4 md:border-l'>{item.why}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+);
+
+const ReferenceRail = ({
+  references,
+  activeCitation,
+}: {
+  references: Reference[];
+  activeCitation?: string;
+}) => (
+  <div className='sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto pr-2 text-slate-300'>
+    <div className='mb-4 text-[11px] font-semibold uppercase text-slate-300'>
+      References
+    </div>
+    <div className='flex flex-col gap-3'>
+      {references.map((reference) => (
+        <div
+          key={reference.id}
+          id={reference.id}
+          className={`scroll-mt-28 border-l pl-3 transition-colors ${
+            activeCitation === reference.id
+              ? 'border-[#6C4AAF]/70 text-slate-600'
+              : 'border-slate-200/50 hover:border-slate-300 hover:text-slate-500'
+          }`}
+        >
+          <div className='mb-1 text-[11px] font-semibold'>[{reference.number}]</div>
+          <div className='text-[11px] leading-5'>{reference.text}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+);
 
 const ReferencesList = ({
   references,
@@ -841,13 +1279,13 @@ const ReferencesList = ({
       <div
         key={reference.id}
         id={`${reference.id}${idSuffix}`}
-        className={`scroll-mt-28 rounded-xl border p-3 transition-colors ${
+        className={`scroll-mt-28 border-l px-3 py-2 transition-colors ${
           activeCitation === reference.id
-            ? 'border-[#6C4AAF]/40 bg-[#f8f5ff]'
-            : 'border-transparent bg-slate-50'
+            ? 'border-[#6C4AAF]/60 bg-[#f8f5ff]'
+            : 'border-slate-200'
         }`}
       >
-        <div className='mb-1 text-xs font-semibold text-[#0156AC]'>[{reference.number}]</div>
+        <div className='mb-1 text-xs font-semibold text-slate-500'>[{reference.number}]</div>
         <div className='text-xs leading-5 text-slate-600'>{reference.text}</div>
       </div>
     ))}

@@ -89,3 +89,7 @@
 .top-margin {
   margin-top: 2rem;
 }
+
+.hljs {
+  background: transparent !important;
+}

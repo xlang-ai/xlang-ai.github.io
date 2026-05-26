@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import { InferGetStaticPropsType } from 'next';
-import Welcome from './components/Welcome';
-import News from './components/News';
-import Sponsors from './components/Sponsors';
+import Welcome from '../components/Welcome';
+import News from '../components/News';
+import Sponsors from '../components/Sponsors';
 
 import { getNews } from '@/utils/data';
 import { Analytics } from '@vercel/analytics/react';

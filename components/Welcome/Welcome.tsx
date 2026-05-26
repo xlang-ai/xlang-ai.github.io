@@ -1,5 +1,5 @@
 import React from 'react';
-import { publicFilePath } from '../../../utils';
+import { publicFilePath } from '@/utils';
 import Image from 'next/image';
 
 const Welcome = () => {

@@ -39,8 +39,6 @@ The output is not presented here as a final model release. The output is filtere
 
 Across both modes, RoboCraft randomizes object poses, camera views, robot initial states, textures, backgrounds, lighting, and physics parameters. The intended distribution is not one perfect simulated world, but many plausible worlds that expose policies to natural visual and physical variation.
 
-**Example visual.** This stage should show generated tabletop scenes and, when available, a real-to-sim reconstruction example. The current page reserves this slot for the final scene-generation visual.
-
 ## Task Generation - Generating Scene-Conditioned Instructions
 
 **What this stage solves.** A dataset can be large and still be narrow if every instruction comes from a fixed template. RoboCraft aims for natural task diversity grounded in the actual objects and layout of each scene.
@@ -56,8 +54,6 @@ Representative tasks include:
 - "Move the red fruit to the plate."
 
 This gives RoboCraft fine-grained control over language, scene semantics, and task difficulty while still producing instructions that feel closer to natural manipulation goals than benchmark-only labels.
-
-**Example visual.** This stage should show the scene image, object/relationship context, generated instructions, and feasibility filtering. The current page reserves this slot for the final task-generation visual.
 
 ## Reward Code Generation - Turning Language into Executable Checks
 
@@ -97,112 +93,6 @@ For a task such as "Place the 7 Up can into the left bottom drawer of the mini c
 6. Verify success with the generated reward code.
 
 This stage is important because RoboCraft is not only composing fixed skills. It generates executable robot strategies and improves them with physical feedback.
-
-<details>
-<summary>View full generated motion program</summary>
-
-```python
-def solve(self, seed: int = 42, skills=None) -> bool:
-    """Solve the task with motion planning. Returns True when complete."""
-    if skills is None:
-        skills = SkillLibrary(self, self.planner)
-
-    device = self.device
-    num_envs = self.num_envs
-    cabinet_name = "mini_2x2_top_open_bottom_drawer_0"
-    can_name = "seven_up_can_0"
-    drawer_handle_kp = "drawer_0_1_handle"
-    drawer_body_kp = "drawer_0_1"
-
-    rng = torch.Generator(device="cpu")
-    rng.manual_seed(seed)
-    skills.open_gripper()
-
-    # 1) Open the drawer by pulling the handle toward the robot side (+Y).
-    handle_grasp = skills.select_grasp_poses(
-        cabinet_name,
-        keypoint_name=drawer_handle_kp,
-        approaching=[0.0, 1.0, 0.0],
-        closing=[1.0, 0.0, 0.0],
-    )
-    skills.move_to(handle_grasp)
-    skills.close_gripper()
-
-    ee_pose = self.get_ee_pose()
-    open_pos = ee_pose.position.clone()
-    open_pos[:, 1] += 0.16
-    open_pose = Pose(position=open_pos, quaternion=ee_pose.quaternion)
-    skills.move_planar(
-        open_pose,
-        plane_normal=torch.tensor([0.0, 0.0, 1.0], device=device),
-        hold_orientation=True,
-        contact=True,
-        object_names_to_disable_collision=[cabinet_name],
-        attached_object_name=cabinet_name,
-        source_call="open left bottom drawer",
-    )
-    skills.open_gripper()
-
-    # 2) Pick the can from above.
-    can_grasp = skills.select_grasp_poses(can_name, approaching="top")
-    skills.move_to(can_grasp)
-    skills.close_gripper()
-
-    # 3) Move the can over the opened drawer cavity and release it inside.
-    drawer_min, drawer_max = self.get_object_bounding_box_batch(
-        cabinet_name,
-        keypoint_name=drawer_body_kp,
-    )
-    can_min, can_max = self.get_object_bounding_box_batch(can_name)
-    can_height = can_max[:, 2] - can_min[:, 2]
-    target_pos = 0.5 * (drawer_min + drawer_max)
-    target_pos[:, 1] -= 0.03
-    target_pos[:, 2] = drawer_max[:, 2] + 0.5 * can_height + 0.04
-
-    xy_jitter = (
-        torch.rand((num_envs, 2), generator=rng) * 2.0 - 1.0
-    ) * 0.005
-    target_pos[:, :2] += xy_jitter.to(device=device, dtype=target_pos.dtype)
-    target_pose = Pose(
-        position=target_pos,
-        quaternion=self.get_object_pose_batch(can_name).quaternion,
-    )
-    skills.move_to(
-        target_pose,
-        move_object=True,
-        attached_object_name=can_name,
-        source_call="move 7 Up can above opened left bottom drawer",
-    )
-    skills.open_gripper()
-
-    # 4) Re-grasp the handle and push the drawer closed.
-    handle_grasp = skills.select_grasp_poses(
-        cabinet_name,
-        keypoint_name=drawer_handle_kp,
-        approaching=[0.0, 1.0, 0.0],
-        closing=[1.0, 0.0, 0.0],
-    )
-    skills.move_to(handle_grasp)
-    skills.close_gripper()
-
-    ee_pose = self.get_ee_pose()
-    close_pos = ee_pose.position.clone()
-    close_pos[:, 1] -= 0.16
-    close_pose = Pose(position=close_pos, quaternion=ee_pose.quaternion)
-    skills.move_planar(
-        close_pose,
-        plane_normal=torch.tensor([0.0, 0.0, 1.0], device=device),
-        hold_orientation=True,
-        contact=True,
-        object_names_to_disable_collision=[cabinet_name, can_name],
-        attached_object_name=cabinet_name,
-        source_call="close left bottom drawer",
-    )
-    skills.open_gripper()
-    return True
-```
-
-</details>
 
 ## Trajectory Generation - Filtering Rollouts into VLA Supervision
 

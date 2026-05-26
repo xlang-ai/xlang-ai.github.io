@@ -366,6 +366,130 @@ def evaluate(self) -> Dict[str, torch.Tensor]:
         "current_stage": current_stage.float(),
     }`;
 
+const MOTION_PRIMITIVE_CHIPS = [
+  'move_to',
+  'open_gripper',
+  'close_gripper',
+  'move_planar',
+  'select_grasp_poses',
+];
+
+const MOTION_CODE_EXCERPT = `# 1. Open the drawer
+handle = skills.select_grasp_poses("cabinet", keypoint="handle")
+skills.move_to(handle) → skills.close_gripper()
+skills.move_planar(+Y, contact=True)       # pull open
+skills.open_gripper()
+
+# 2. Pick can and place into drawer
+can_grasp = skills.select_grasp_poses("can", approach="top")
+skills.move_to(can_grasp) → skills.close_gripper()
+target = bbox_center(drawer) + height_offset
+skills.move_to(target) → skills.open_gripper()  # release into drawer
+
+# 3. Close the drawer
+skills.move_to(handle) → skills.close_gripper()
+skills.move_planar(-Y, contact=True)       # push closed
+skills.open_gripper()`;
+
+const FULL_MOTION_CODE = `def solve(self, seed: int = 42, skills=None) -> bool:
+    """Solve the task with motion planning. Returns True when complete."""
+    if skills is None:
+        skills = SkillLibrary(self, self.planner)
+
+    device = self.device
+    num_envs = self.num_envs
+    cabinet_name = "mini_2x2_top_open_bottom_drawer_0"
+    can_name = "seven_up_can_0"
+    drawer_handle_kp = "drawer_0_1_handle"
+    drawer_body_kp = "drawer_0_1"
+
+    rng = torch.Generator(device="cpu")
+    rng.manual_seed(seed)
+    skills.open_gripper()
+
+    # 1) Open the drawer by pulling the handle toward the robot side (+Y).
+    handle_grasp = skills.select_grasp_poses(
+        cabinet_name,
+        keypoint_name=drawer_handle_kp,
+        approaching=[0.0, 1.0, 0.0],
+        closing=[1.0, 0.0, 0.0],
+    )
+    skills.move_to(handle_grasp)
+    skills.close_gripper()
+
+    ee_pose = self.get_ee_pose()
+    open_pos = ee_pose.position.clone()
+    open_pos[:, 1] += 0.16
+    open_pose = Pose(position=open_pos, quaternion=ee_pose.quaternion)
+    skills.move_planar(
+        open_pose,
+        plane_normal=torch.tensor([0.0, 0.0, 1.0], device=device),
+        hold_orientation=True,
+        contact=True,
+        object_names_to_disable_collision=[cabinet_name],
+        attached_object_name=cabinet_name,
+        source_call="open left bottom drawer",
+    )
+    skills.open_gripper()
+
+    # 2) Pick the can from above.
+    can_grasp = skills.select_grasp_poses(can_name, approaching="top")
+    skills.move_to(can_grasp)
+    skills.close_gripper()
+
+    # 3) Move the can over the opened drawer cavity and release it inside.
+    drawer_min, drawer_max = self.get_object_bounding_box_batch(
+        cabinet_name,
+        keypoint_name=drawer_body_kp,
+    )
+    can_min, can_max = self.get_object_bounding_box_batch(can_name)
+    can_height = can_max[:, 2] - can_min[:, 2]
+    target_pos = 0.5 * (drawer_min + drawer_max)
+    target_pos[:, 1] -= 0.03
+    target_pos[:, 2] = drawer_max[:, 2] + 0.5 * can_height + 0.04
+
+    xy_jitter = (
+        torch.rand((num_envs, 2), generator=rng) * 2.0 - 1.0
+    ) * 0.005
+    target_pos[:, :2] += xy_jitter.to(device=device, dtype=target_pos.dtype)
+    target_pose = Pose(
+        position=target_pos,
+        quaternion=self.get_object_pose_batch(can_name).quaternion,
+    )
+    skills.move_to(
+        target_pose,
+        move_object=True,
+        attached_object_name=can_name,
+        source_call="move 7 Up can above opened left bottom drawer",
+    )
+    skills.open_gripper()
+
+    # 4) Re-grasp the handle and push the drawer closed.
+    handle_grasp = skills.select_grasp_poses(
+        cabinet_name,
+        keypoint_name=drawer_handle_kp,
+        approaching=[0.0, 1.0, 0.0],
+        closing=[1.0, 0.0, 0.0],
+    )
+    skills.move_to(handle_grasp)
+    skills.close_gripper()
+
+    ee_pose = self.get_ee_pose()
+    close_pos = ee_pose.position.clone()
+    close_pos[:, 1] -= 0.16
+    close_pose = Pose(position=close_pos, quaternion=ee_pose.quaternion)
+    skills.move_planar(
+        close_pose,
+        plane_normal=torch.tensor([0.0, 0.0, 1.0], device=device),
+        hold_orientation=True,
+        contact=True,
+        object_names_to_disable_collision=[cabinet_name, can_name],
+        attached_object_name=cabinet_name,
+        source_call="close left bottom drawer",
+    )
+    skills.open_gripper()
+    return True`;
+
 const slugify = (text: string) =>
   text
     .toLowerCase()
@@ -578,6 +702,19 @@ const RoboCraftPost = ({ post }: { post: Post }) => {
                 {post.previewContent}
               </p>
               <HeroProofPanel />
+              <figure className='mt-8 overflow-hidden rounded-xl border border-slate-200/80 bg-white/50'>
+                <video
+                  className='w-full'
+                  src={publicFilePath('/blog/xgen/demo.mp4')}
+                  controls
+                  muted
+                  loop
+                  playsInline
+                />
+                <figcaption className='border-t border-slate-100 px-5 py-4 text-sm leading-6 text-slate-500'>
+                  <strong className='text-slate-700'>Fully automatic</strong> trajectories generated end-to-end from scene to task to rollout — spanning <strong className='text-slate-700'>simple pick-and-place</strong> to <strong className='text-slate-700'>articulation-related</strong> tasks, each augmented with <strong className='text-slate-700'>diverse domain randomization</strong>.
+                </figcaption>
+              </figure>
             </section>
 
             <div className='border-y border-slate-200 py-5 xl:hidden'>
@@ -738,7 +875,7 @@ const HeroProofPanel = () => (
       <div>
         <div className='text-xs font-semibold uppercase text-[#0f766e]'>Design thesis</div>
         <p className='mt-2 text-base leading-8 text-slate-700'>
-          RoboCraft's bet is simple: simulation data becomes useful for generalist robot learning when it is not only large, but{' '}
+          RoboCraft&apos;s bet is simple: simulation data becomes useful for generalist robot learning when it is not only large, but{' '}
           <span className='font-semibold text-[#031425]'>diverse</span>,{' '}
           <span className='font-semibold text-[#031425]'>natural</span>,{' '}
           <span className='font-semibold text-[#031425]'>physically grounded</span>, and{' '}
@@ -803,32 +940,18 @@ const PipelineShowcase = () => (
       ))}
     </ol>
 
-    <div className='mt-8 grid gap-5 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]'>
+    <div className='mt-8'>
       <figure className='overflow-hidden rounded-xl border border-slate-200/80 bg-white/50'>
         <div className='relative aspect-video w-full bg-[#edf4ff]'>
           <Image
             src={publicFilePath('/blog/xgen/xgen_main.png')}
-            alt='RoboCraft pipeline overview placeholder'
+            alt='RoboCraft pipeline overview'
             fill
             style={{ objectFit: 'contain', objectPosition: 'center' }}
           />
         </div>
         <figcaption className='border-t border-slate-100 px-5 py-4 text-sm leading-6 text-slate-500'>
           Pipeline visual slot. Replace this placeholder with the final RoboCraft data-provenance diagram when the asset is ready.
-        </figcaption>
-      </figure>
-
-      <figure className='overflow-hidden rounded-xl border border-slate-200/80 bg-[#031425]'>
-        <video
-          className='w-full'
-          src={publicFilePath('/blog/xgen/demo.mp4')}
-          controls
-          muted
-          loop
-          playsInline
-        />
-        <figcaption className='border-t border-white/10 bg-white px-5 py-4 text-sm leading-6 text-slate-500'>
-          Demo slot. Example generated task trajectories from RoboCraft.
         </figcaption>
       </figure>
     </div>
@@ -1051,7 +1174,12 @@ const StageExplorer = ({
             <RewardCodeExhibit />
           </div>
         )}
-        {stage.mediaKind !== 'none' && stage.mediaKind !== 'rewardPlaceholder' && (
+        {stage.mediaKind === 'motionPlaceholder' && (
+          <div className='mt-8'>
+            <MotionCodeExhibit />
+          </div>
+        )}
+        {stage.mediaKind !== 'none' && stage.mediaKind !== 'rewardPlaceholder' && stage.mediaKind !== 'motionPlaceholder' && (
           <div className='mt-8'>
             <StageMedia stage={stage} />
           </div>
@@ -1126,6 +1254,71 @@ const RewardCodeExhibit = () => {
   );
 };
 
+const MotionCodeExhibit = () => {
+  const [activeTab, setActiveTab] = useState<'logic' | 'code'>('logic');
+
+  return (
+    <section className='overflow-hidden rounded-xl border border-slate-200 bg-white'>
+      <div className='flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 px-4 py-3'>
+        <div>
+          <div className='text-xs font-semibold uppercase text-[#0f766e]'>Generated motion-code exhibit</div>
+          <div className='mt-1 text-sm font-semibold text-[#031425]'>
+            Place can in drawer, close drawer
+          </div>
+        </div>
+        <div className='flex rounded-full border border-slate-200 bg-[#f6f7f6] p-1'>
+          {[
+            { id: 'logic' as const, label: 'Logic' },
+            { id: 'code' as const, label: 'Full code' },
+          ].map((tab) => (
+            <button
+              key={tab.id}
+              type='button'
+              onClick={() => setActiveTab(tab.id)}
+              className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
+                activeTab === tab.id
+                  ? 'bg-[#031425] text-white shadow-sm'
+                  : 'text-slate-500 hover:text-[#031425]'
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {activeTab === 'logic' ? (
+        <div className='grid gap-4 p-4 md:grid-cols-[minmax(0,1fr)_220px]'>
+          <div>
+            <p className='text-sm leading-7 text-slate-600'>
+              The agent decomposes the task into three phases: open the drawer by pulling the handle, pick the can and release it inside, then re-grasp the handle and push the drawer closed.
+            </p>
+            <pre className='mt-4 overflow-x-auto rounded-lg bg-[#07182a] p-4 text-sm leading-7 text-[#d9f2ff]'>
+              <code>{MOTION_CODE_EXCERPT}</code>
+            </pre>
+          </div>
+          <div>
+            <div className='text-xs font-semibold uppercase text-slate-500'>Motion primitives</div>
+            <div className='mt-3 flex flex-wrap gap-2'>
+              {MOTION_PRIMITIVE_CHIPS.map((chip) => (
+                <span key={chip} className='rounded-full border border-[#0f766e]/20 bg-white px-3 py-1 text-xs font-medium text-[#0f766e]'>
+                  {chip}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className='p-4'>
+          <pre className='max-h-[560px] overflow-auto rounded-lg bg-[#07182a] p-5 text-sm leading-7 text-[#d9f2ff]'>
+            <code>{FULL_MOTION_CODE}</code>
+          </pre>
+        </div>
+      )}
+    </section>
+  );
+};
+
 const StageMedia = ({ stage }: { stage: RoboCraftStage }) => {
   if (stage.mediaKind === 'none') {
     return null;
@@ -1167,13 +1360,26 @@ const StageMedia = ({ stage }: { stage: RoboCraftStage }) => {
     );
   }
 
+  if (stage.mediaKind === 'taskPlaceholder') {
+    return (
+      <figure className='overflow-hidden rounded-xl border border-slate-200 bg-white/60'>
+        <div className='relative aspect-[16/9] w-full bg-[#ebe7e2]'>
+          <Image
+            src={publicFilePath('/blog/xgen/task_gen.png')}
+            alt='Scene with labeled objects for task generation'
+            fill
+            style={{ objectFit: 'contain', objectPosition: 'center' }}
+          />
+        </div>
+        <figcaption className='border-t border-slate-100 px-5 py-4 text-sm leading-6 text-slate-500'>
+          A generated tabletop scene with object annotations. RoboCraft extracts object identities and spatial relationships from each scene, then prompts an LLM to propose feasible natural-language instructions grounded in the current layout.
+        </figcaption>
+      </figure>
+    );
+  }
+
   const placeholderCopy =
-    stage.mediaKind === 'taskPlaceholder'
-      ? {
-          label: 'Task generation figure',
-          text: 'Reserved for an image showing scene-conditioned instruction generation, object segmentation, or scene graph prompting.',
-        }
-      : stage.mediaKind === 'rewardPlaceholder'
+    stage.mediaKind === 'rewardPlaceholder'
         ? {
             label: 'Reward generation figure',
             text: 'Reserved for a diagram showing how language goals become executable reward code.',

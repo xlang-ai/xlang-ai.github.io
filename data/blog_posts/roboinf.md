@@ -1,14 +1,14 @@
 ---
 title: 'RoboInF: Scaling Robot Manipulation Data in Simulation for General Instruction Following'
 shortTitle: RoboInF
-slug: robocraft
+slug: roboinf
 date: '2026-05-05T12:00:00Z'
 author: XLANG Lab
-coverImage: /blog/xgen/pipeline_main.webp
+coverImage: /blog/xgen/roboinf_cover.webp
 previewContent: "RoboInF is a five-stage pipeline that automatically generates diverse, physically verified robot manipulation data in simulation -- from realistic scenes and natural instructions to executable rewards and filtered VLA training trajectories."
 onlineImage: https://xlang.ai/blog/xgen/og-robocraft.png
 githubLink: https://github.com/xlang-ai
-layout: robocraft
+layout: roboinf
 ---
 
 ## Why RoboInF
@@ -145,6 +145,6 @@ If you think this blog post and the content involved are helpful to you, please 
   journal = {xlang.ai},
   year = {2026},
   month = {May},
-  url = "https://xlang.ai/blog/robocraft"
+  url = "https://xlang.ai/blog/roboinf"
 }
 ```

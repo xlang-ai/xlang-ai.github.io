@@ -17,7 +17,7 @@ import python from 'highlight.js/lib/languages/python';
 hljs.registerLanguage('python', python);
 
 const BlogPost = ({ post }: { post: Post }) => {
-  if (post.layout === 'robocraft') {
+  if (post.layout === 'roboinf') {
     return <RoboCraftPost post={post} />;
   }
 

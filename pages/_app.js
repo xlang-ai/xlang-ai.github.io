@@ -1,6 +1,7 @@
 import { SessionProvider } from 'next-auth/react';
 import Head from 'next/head';
 import '../styles/globals.css';
+import 'highlight.js/styles/github-dark.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Image from 'next/image';

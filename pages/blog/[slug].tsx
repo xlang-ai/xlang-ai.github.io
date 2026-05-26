@@ -10,6 +10,11 @@ import { publicFilePath } from '@/utils';
 
 import { BlogPost as Post } from '@/interface/blog';
 import rehypeRaw from 'rehype-raw';
+import rehypeHighlight from 'rehype-highlight';
+const rehypeHighlightPlugin = rehypeHighlight as any;
+import hljs from 'highlight.js/lib/core';
+import python from 'highlight.js/lib/languages/python';
+hljs.registerLanguage('python', python);
 
 const BlogPost = ({ post }: { post: Post }) => {
   if (post.layout === 'robocraft') {
@@ -82,7 +87,7 @@ const BlogPost = ({ post }: { post: Post }) => {
 
           <ReactMarkdown
             className='tracking-wide leading-7 mb-24 mt-6'
-            rehypePlugins={[rehypeRaw]} linkTarget="_blank"
+            rehypePlugins={[rehypeRaw, rehypeHighlightPlugin]} linkTarget="_blank"
             components={{
               h2(props) {
                 return (
@@ -230,39 +235,27 @@ const ROBOCRAFT_METRICS = [
   {
     value: '1M+',
     label: 'successful trajectories',
-    detail: 'Filtered simulation rollouts for VLA supervision.',
+    detail: 'Verified rollouts across diverse tasks and environments.',
     tone: 'border-[#0f766e]/30 bg-[#ecfdf5] text-[#0f766e]',
   },
   {
     value: '5K+',
     label: 'task programs',
-    detail: 'Launch-scale estimate for diverse generated manipulation tasks.',
+    detail: 'Diverse ability distribution for tabletop manipulation learning.',
     tone: 'border-[#0156AC]/30 bg-[#edf4ff] text-[#0156AC]',
   },
   {
     value: '300+',
     label: 'scenes',
-    detail: 'Planned release coverage across realistic tabletop settings.',
+    detail: 'Randomized tabletop worlds with realistic clutter and variation.',
     tone: 'border-[#b45309]/30 bg-[#fff7ed] text-[#b45309]',
   },
   {
     value: '50+',
     label: 'predicate primitives',
-    detail: 'Spatial, contact, temporal, articulation, and neural checks.',
+    detail: 'Compose for unlimited reward and evaluation logic.',
     tone: 'border-[#6C4AAF]/30 bg-[#f8f5ff] text-[#6C4AAF]',
   },
-];
-
-const PREVIEW_NOW = [
-  'Automated scene, task, reward, program, and rollout generation',
-  'Trajectory demos under domain randomization',
-  'Early model observations',
-];
-
-const PREVIEW_LATER = [
-  'Full training recipe, benchmarks, and ablations',
-  'Release details for data, code, and assets',
-  'Broader real-robot evaluation',
 ];
 
 const PIPELINE_ARTIFACTS = [
@@ -286,9 +279,9 @@ const ROADMAP_ITEMS = [
     why: 'Clothes, food, packaging, and other everyday materials.',
   },
   {
-    today: 'Generated rewards for filtering and training signals',
-    next: 'Scaled policy optimization and evaluation with those rewards',
-    why: 'Use the same executable checks beyond offline dataset construction.',
+    today: 'Reward-filtered SFT data',
+    next: 'RL fine-tuning and multi-task co-training with the same rewards',
+    why: 'Move from imitation to optimization without writing new reward functions.',
   },
   {
     today: 'Coarse-grained manipulation tasks',
@@ -695,12 +688,12 @@ const RoboCraftPost = ({ post }: { post: Post }) => {
                 <span>{parseDateString(post.date)}</span>
               </div>
               <h1 className='max-w-4xl text-3xl font-semibold leading-tight text-[#031425] sm:text-5xl'>
-                {post.title}
+                RoboInF: Scaling <u className='decoration-[#0f766e]'>Robo</u>t Manipulation Data in Simulation for General <u className='decoration-[#0f766e]'>In</u>struction <u className='decoration-[#0f766e]'>F</u>ollowing
               </h1>
-              <RoboCraftHeroMeta date={post.date} author={post.author} twitterUrl={TwitterShareUrl} githubUrl={GithubShareUrl} />
               <p className='mt-6 max-w-3xl text-lg font-medium leading-8 text-slate-700'>
                 {post.previewContent}
               </p>
+              <RoboCraftHeroMeta date={post.date} author={post.author} twitterUrl={TwitterShareUrl} githubUrl={GithubShareUrl} />
               <HeroProofPanel />
               <figure className='mt-8 overflow-hidden rounded-xl border border-slate-200/80 bg-white/50'>
                 <video
@@ -870,42 +863,6 @@ const HeroProofPanel = () => (
         </div>
       ))}
     </div>
-
-    <div className='mt-7 grid gap-6 border-t border-slate-200 pt-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]'>
-      <div>
-        <div className='text-xs font-semibold uppercase text-[#0f766e]'>Design thesis</div>
-        <p className='mt-2 text-base leading-8 text-slate-700'>
-          RoboCraft&apos;s bet is simple: simulation data becomes useful for generalist robot learning when it is not only large, but{' '}
-          <span className='font-semibold text-[#031425]'>diverse</span>,{' '}
-          <span className='font-semibold text-[#031425]'>natural</span>,{' '}
-          <span className='font-semibold text-[#031425]'>physically grounded</span>, and{' '}
-          <span className='font-semibold text-[#031425]'>controllable</span>, with successful rollouts verified before they reach a policy.
-        </p>
-      </div>
-
-      <div className='grid gap-5 sm:grid-cols-2 lg:grid-cols-1'>
-        <div>
-          <div className='text-xs font-semibold uppercase text-[#0f766e]'>In this preview</div>
-          <ul className='mt-3 space-y-2 text-sm leading-6 text-slate-600'>
-            {PREVIEW_NOW.map((item) => (
-              <li key={item} className='border-l border-[#0f766e]/30 pl-3'>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <div className='text-xs font-semibold uppercase text-slate-400'>Coming later</div>
-          <ul className='mt-3 space-y-2 text-sm leading-6 text-slate-500'>
-            {PREVIEW_LATER.map((item) => (
-              <li key={item} className='border-l border-slate-200 pl-3'>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </div>
   </section>
 );
 
@@ -941,19 +898,16 @@ const PipelineShowcase = () => (
     </ol>
 
     <div className='mt-8'>
-      <figure className='overflow-hidden rounded-xl border border-slate-200/80 bg-white/50'>
-        <div className='relative aspect-video w-full bg-[#edf4ff]'>
+      <div className='overflow-hidden rounded-xl'>
+        <div className='relative aspect-[2/1] w-full'>
           <Image
-            src={publicFilePath('/blog/xgen/xgen_main.png')}
-            alt='RoboCraft pipeline overview'
+            src={publicFilePath('/blog/xgen/pipeline_main.webp')}
+            alt='Pipeline overview'
             fill
             style={{ objectFit: 'contain', objectPosition: 'center' }}
           />
         </div>
-        <figcaption className='border-t border-slate-100 px-5 py-4 text-sm leading-6 text-slate-500'>
-          Pipeline visual slot. Replace this placeholder with the final RoboCraft data-provenance diagram when the asset is ready.
-        </figcaption>
-      </figure>
+      </div>
     </div>
   </section>
 );
@@ -969,7 +923,7 @@ const RoboCraftMarkdown = ({
 }) => (
   <ReactMarkdown
     className='robocraft-markdown'
-    rehypePlugins={[rehypeRaw]}
+    rehypePlugins={[rehypeRaw, rehypeHighlightPlugin]}
     linkTarget="_blank"
     components={{
       h2(props) {
@@ -1105,7 +1059,7 @@ const StageExplorer = ({
   };
 
   return (
-    <section id='pipeline-module' className='scroll-mt-28 overflow-hidden rounded-2xl border border-slate-200 bg-white/95 p-5 shadow-[0_24px_80px_rgba(15,23,42,0.08)] sm:p-7'>
+    <section id='pipeline-module' className='scroll-mt-28 overflow-hidden rounded-2xl border border-slate-200 bg-white/95 p-5 shadow-[0_4px_24px_rgba(15,23,42,0.04)] sm:p-7'>
       <div className='mb-6 flex items-center justify-between gap-4'>
         <div>
           <div className='text-xs font-semibold uppercase text-[#0f766e]'>
@@ -1191,6 +1145,8 @@ const StageExplorer = ({
 
 const RewardCodeExhibit = () => {
   const [activeTab, setActiveTab] = useState<'logic' | 'code'>('logic');
+  const excerptHtml = useMemo(() => hljs.highlight(REWARD_CODE_EXCERPT, { language: 'python' }).value, []);
+  const fullCodeHtml = useMemo(() => hljs.highlight(FULL_REWARD_CODE, { language: 'python' }).value, []);
 
   return (
     <section className='overflow-hidden rounded-xl border border-slate-200 bg-white'>
@@ -1229,7 +1185,7 @@ const RewardCodeExhibit = () => {
               The generated reward keeps stage order explicit: first the knife must enter the box, then the box must move onto the cutting board, while the knife remains inside after stage one completes.
             </p>
             <pre className='mt-4 overflow-x-auto rounded-lg bg-[#07182a] p-4 text-sm leading-7 text-[#d9f2ff]'>
-              <code>{REWARD_CODE_EXCERPT}</code>
+              <code dangerouslySetInnerHTML={{ __html: excerptHtml }} />
             </pre>
           </div>
           <div>
@@ -1246,7 +1202,7 @@ const RewardCodeExhibit = () => {
       ) : (
         <div className='p-4'>
           <pre className='max-h-[560px] overflow-auto rounded-lg bg-[#07182a] p-5 text-sm leading-7 text-[#d9f2ff]'>
-            <code>{FULL_REWARD_CODE}</code>
+            <code dangerouslySetInnerHTML={{ __html: fullCodeHtml }} />
           </pre>
         </div>
       )}
@@ -1329,14 +1285,14 @@ const StageMedia = ({ stage }: { stage: RoboCraftStage }) => {
       <figure className='overflow-hidden rounded-xl border border-slate-200 bg-white/60'>
         <div className='relative aspect-[16/9] w-full bg-[#ebe7e2]'>
           <Image
-            src={publicFilePath('/blog/xgen/scene.png')}
-            alt='Generated RoboCraft simulation scenes'
+            src={publicFilePath('/blog/xgen/scene.webp')}
+            alt='Generated simulation scenes'
             fill
             style={{ objectFit: 'contain', objectPosition: 'center' }}
           />
         </div>
         <figcaption className='border-t border-slate-100 px-5 py-4 text-sm leading-6 text-slate-500'>
-          Generated tabletop scenes from RoboCraft scene generation.
+          Generated tabletop scenes from the scene generation stage.
         </figcaption>
       </figure>
     );
@@ -1395,16 +1351,16 @@ const StageMedia = ({ stage }: { stage: RoboCraftStage }) => {
           };
 
   return (
-    <div className='flex min-h-[240px] flex-col justify-between rounded-xl border border-dashed border-slate-300 bg-white/60 p-5'>
+    <div className='flex min-h-[240px] flex-col justify-between rounded-xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-5'>
       <div>
         <div className='text-[10px] font-semibold uppercase text-[#0f766e]'>
           {placeholderCopy.label}
         </div>
-        <p className='mt-4 text-sm leading-7 text-slate-600'>
+        <p className='mt-4 text-sm leading-7 text-slate-500'>
           {placeholderCopy.text}
         </p>
       </div>
-      <div className='border-t border-slate-200 pt-4 text-sm font-semibold text-[#0156AC]'>
+      <div className='border-t border-slate-100 pt-4 text-sm font-semibold text-[#0156AC]'>
         {stage.shortTitle}
       </div>
     </div>
@@ -1417,7 +1373,7 @@ const RoadmapSection = () => (
       Current Scope and Next Steps
     </h2>
     <p className='mt-4 max-w-3xl text-sm leading-7 text-slate-600'>
-      RoboCraft-preview focuses on scalable, controllable data generation today. The same pipeline points to the next physical settings, embodiments, and data mixtures we are expanding toward.
+      This preview focuses on scalable, controllable data generation today. The same pipeline points to the next physical settings, embodiments, and data mixtures we are expanding toward.
     </p>
     <div className='mt-6 overflow-hidden border-y border-slate-200'>
       <div className='grid grid-cols-1 bg-[#031425] text-xs font-semibold uppercase text-white md:grid-cols-3'>
@@ -1448,8 +1404,8 @@ const ReferenceRail = ({
   references: Reference[];
   activeCitation?: string;
 }) => (
-  <div className='sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto pr-2 text-slate-300'>
-    <div className='mb-4 text-[11px] font-semibold uppercase text-slate-300'>
+  <div className='sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto pr-2 text-slate-400'>
+    <div className='mb-4 text-[11px] font-semibold uppercase text-slate-400'>
       References
     </div>
     <div className='flex flex-col gap-3'>

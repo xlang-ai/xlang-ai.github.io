@@ -5,7 +5,7 @@ slug: roboinf
 date: '2026-05-05T12:00:00Z'
 author: XLANG Lab
 coverImage: /blog/xgen/roboinf_cover.webp
-previewContent: "RoboInF is a five-stage pipeline that automatically generates diverse, physically verified robot manipulation data in simulation -- from realistic scenes and natural instructions to executable rewards and filtered VLA training trajectories."
+previewContent: "RoboInF generates robot manipulation data at scale in simulation -- realistic scenes, natural instructions, and extreme trajectory diversity across objects, actions, and environments."
 onlineImage: https://xlang.ai/blog/xgen/og-robocraft.png
 githubLink: https://github.com/xlang-ai
 layout: roboinf
@@ -13,7 +13,7 @@ layout: roboinf
 
 ## Why RoboInF
 
-If you are training a vision-language-action model today, your data options are limited. Real robot teleoperation produces high-quality trajectories but scales slowly and covers narrow task distributions. Internet videos are abundant but lack ground-truth actions, and bridging the embodiment gap remains an open problem [\[1\]](#ref1)[\[2\]](#ref2)[\[3\]](#ref3)[\[4\]](#ref4). The result is a practical bottleneck: generalist manipulation policies need data that is simultaneously diverse in scenes, natural in language, spatially precise, and physically varied -- and most existing pipelines deliver only one or two of those properties at a time.
+If you are training a vision-language-action model today, your data options are limited. Real robot teleoperation produces high-quality trajectories but scales slowly and covers narrow task distributions. Internet videos are abundant but lack ground-truth actions, and bridging the embodiment gap remains an open problem [\[1\]](#ref1)[\[2\]](#ref2)[\[3\]](#ref3)[\[4\]](#ref4). The result is a practical bottleneck: generalist manipulation policies need data that is **simultaneously diverse in scenes, natural in language, spatially precise, and physically varied** -- and most existing pipelines deliver only one or two of those properties at a time.
 
 Modern VLA models have shown increasingly impressive long-horizon behavior, from household tasks to cooking-style demonstrations [\[5\]](#ref5)[\[6\]](#ref6). Those demonstrations make the data problem more urgent, not less. Generalist manipulation needs training data that covers richer scenes, natural language variation, fine-grained spatial control, and perturbations that do not appear in narrow benchmark distributions.
 
@@ -96,7 +96,7 @@ Using RoboInF, we target over **1M successful trajectories** across diverse task
 
 We have begun training VLA models on a subset of the generated data. We are not reporting quantitative results in this preview because we want the first published numbers to come with a reproducible benchmark and ablation study rather than preliminary snapshots.
 
-Qualitatively, models trained with RoboInF data handle perturbations (distractor objects, changed lighting, shifted camera poses) more reliably than our internal baselines, and they follow compositional instructions more consistently. We have also seen early signs of zero-shot sim-to-real transfer, which we are working to characterize rigorously.
+Qualitatively, models trained with RoboInF data **handle perturbations** (distractor objects, changed lighting, shifted camera poses) **more reliably** than our internal baselines, and they follow **compositional instructions more consistently**. We have also seen early signs of **zero-shot sim-to-real transfer**, which we are working to characterize rigorously.
 
 For this preview, the main contribution is the data engine itself: a way to automatically generate diverse, realistic, controllable, and verifiable manipulation experience at scale. RoboInF is our first step toward scalable robot data generation that is both broad and inspectable, and we are continuing to expand the pipeline across embodiments, richer physical settings, and stronger mixtures of synthetic and real-world data.
 

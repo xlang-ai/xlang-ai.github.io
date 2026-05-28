@@ -5,7 +5,7 @@ slug: roboinf
 date: '2026-05-27T12:00:00Z'
 author: XLANG Lab
 coverImage: /blog/xgen/roboinf_cover.webp
-previewContent: "RoboInF generates robot manipulation data at scale in simulation -- realistic scenes, natural instructions, and extreme trajectory diversity across objects, actions, and environments."
+previewContent: "Diverse instruction-following data for robot manipulation at scale: RoboInF automatically generates realistic scenes, natural task instructions, and verified trajectories across objects, actions, and environments."
 onlineImage: https://xlang.ai/blog/xgen/og-robocraft.png
 githubLink: https://github.com/xlang-ai
 layout: roboinf

@@ -15,6 +15,8 @@ const rehypeHighlightPlugin = rehypeHighlight as any;
 import hljs from 'highlight.js/lib/core';
 import python from 'highlight.js/lib/languages/python';
 hljs.registerLanguage('python', python);
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, EffectCoverflow } from 'swiper/modules';
 
 const BlogPost = ({ post }: { post: Post }) => {
   if (post.layout === 'roboinf') {
@@ -240,7 +242,7 @@ const ROBOCRAFT_METRICS = [
   },
   {
     value: '5K+',
-    label: 'task programs',
+    label: 'tasks',
     detail: 'Diverse ability distribution for tabletop manipulation learning.',
     tone: 'border-[#0156AC]/30 bg-[#edf4ff] text-[#0156AC]',
   },
@@ -252,7 +254,7 @@ const ROBOCRAFT_METRICS = [
   },
   {
     value: '50+',
-    label: 'predicate primitives',
+    label: 'reward primitives',
     detail: 'Compose for unlimited reward and evaluation logic.',
     tone: 'border-[#6C4AAF]/30 bg-[#f8f5ff] text-[#6C4AAF]',
   },
@@ -691,23 +693,12 @@ const RoboCraftPost = ({ post }: { post: Post }) => {
                 RoboInF: Scaling <u className='decoration-[#0f766e]'>Robo</u>t Manipulation Data in Simulation for General <u className='decoration-[#0f766e]'>In</u>struction <u className='decoration-[#0f766e]'>F</u>ollowing
               </h1>
               <p className='mt-6 max-w-3xl text-lg font-medium leading-8 text-slate-700'>
-                {post.previewContent}
+                <span className='font-semibold text-[#031425]'>Diverse instruction-following data</span>{' '}
+                for robot manipulation at scale: RoboInF automatically generates realistic scenes, natural task instructions, and verified trajectories across objects, actions, and environments.
               </p>
               <RoboCraftHeroMeta date={post.date} author={post.author} twitterUrl={TwitterShareUrl} githubUrl={GithubShareUrl} />
               <HeroProofPanel />
-              <figure className='mt-8 overflow-hidden rounded-xl border border-slate-200/80 bg-white/50'>
-                <video
-                  className='w-full'
-                  src={publicFilePath('/blog/xgen/demo.mp4')}
-                  controls
-                  muted
-                  loop
-                  playsInline
-                />
-                <figcaption className='border-t border-slate-100 px-5 py-4 text-sm leading-6 text-slate-500'>
-                  <strong className='text-slate-700'>Fully automatic</strong> trajectories generated end-to-end from scene to task to rollout — spanning <strong className='text-slate-700'>simple pick-and-place</strong> to <strong className='text-slate-700'>articulation-related</strong> tasks, each augmented with <strong className='text-slate-700'>diverse domain randomization</strong>.
-                </figcaption>
-              </figure>
+              <DemoCarousel />
             </section>
 
             <div className='border-y border-slate-200 py-5 xl:hidden'>
@@ -728,7 +719,7 @@ const RoboCraftPost = ({ post }: { post: Post }) => {
             </div>
 
             <article className='space-y-14'>
-              <section className='pt-2'>
+              <section>
                 <RoboCraftMarkdown
                   content={parsed.preStageContent}
                   activeCitation={activeCitation}
@@ -911,6 +902,115 @@ const PipelineShowcase = () => (
     </div>
   </section>
 );
+
+const DEMO_SLIDES: { video: string; instruction: string; category: 'organized' | 'random' }[] = [
+  { video: '/blog/xgen/demos/arrange_the_pink_and_blue_toy_cars_on_the_display_stand_so_they_are_back_to_back.mp4', instruction: 'Arrange the pink and blue toy cars on the display stand so they are back to back.', category: 'organized' },
+  { video: '/blog/xgen/demos/random/mouse_otherside.mp4', instruction: 'Turn the mouse around so it faces the other way', category: 'random' },
+  { video: '/blog/xgen/demos/hit_the_parts_stand_three_times_with_the_hammer.mp4', instruction: 'Hit the parts stand three times with the hammer.', category: 'organized' },
+  { video: '/blog/xgen/demos/random/turn_bottle_upright.mp4', instruction: 'Turn the shampoo bottle upright.', category: 'random' },
+  { video: '/blog/xgen/demos/place_the_7_up_can_into_the_left_bottom_drawer_of_the_mini_cabinet_and_close_the_drawer.mp4', instruction: 'Place the 7 Up can into the left bottom drawer of the mini cabinet and close the drawer.', category: 'organized' },
+  { video: '/blog/xgen/demos/random/brush_parallel.mp4', instruction: 'Set the brush parallel to the glue stick.', category: 'random' },
+  { video: '/blog/xgen/demos/place_the_bowl_into_the_top_drawer_of_the_wooden_cabinet_and_close_the_drawer.mp4', instruction: 'Place the bowl into the top drawer of the wooden cabinet and close the drawer.', category: 'organized' },
+  { video: '/blog/xgen/demos/random/swap_cup_camera.mp4', instruction: 'Swap the positions of the cup and the camera.', category: 'random' },
+  { video: '/blog/xgen/demos/place_the_pear_on_the_display_stand_and_the_apple_on_the_plate_both_standing_upright.mp4', instruction: 'Place the pear on the display stand and the apple on the plate, both standing upright.', category: 'organized' },
+  { video: '/blog/xgen/demos/random/group_drink_separate_sponge.mp4', instruction: 'Group the drink items together and separate the sponge away.', category: 'random' },
+  { video: '/blog/xgen/demos/position_the_blue_toy_car_so_it_is_partly_hanging_off_the_front_edge_of_the_display_stand.mp4', instruction: 'Position the blue toy car so it is partly hanging off the front edge of the display stand.', category: 'organized' },
+  { video: '/blog/xgen/demos/random/push_ball_left_table.mp4', instruction: 'Push the ball over to the left side of the table.', category: 'random' },
+  { video: '/blog/xgen/demos/put_all_the_tools_above_the_black_box_into_the_storage_box.mp4', instruction: 'Put all the tools above the black box into the storage box.', category: 'organized' },
+  { video: '/blog/xgen/demos/random/cup_upsidedown.mp4', instruction: 'Turn the cup upsidedown on the table.', category: 'random' },
+  { video: '/blog/xgen/demos/stack_the_two_pieces_of_bread_together_and_place_the_jam_in_the_remaining_open_spot.mp4', instruction: 'Stack the two pieces of bread together and place the jam in the remaining open spot.', category: 'organized' },
+  { video: '/blog/xgen/demos/random/line_up.mp4', instruction: 'Arrange the bolt, brush and clay pestle in a straight line from left to right', category: 'random' },
+  { video: '/blog/xgen/demos/tilt_the_olive_oil_bottle_slightly_10_degrees_to_the_right.mp4', instruction: 'Tilt the olive oil bottle slightly 10 degrees to the right.', category: 'organized' },
+];
+
+const DemoSlide = ({ slide, isActive, onEnded }: {
+  slide: typeof DEMO_SLIDES[number];
+  isActive: boolean;
+  onEnded: () => void;
+}) => {
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (isActive) {
+      video.currentTime = 0;
+      video.playbackRate = 1.5;
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  }, [isActive]);
+
+  return (
+    <div className={`transition-all duration-300 ${isActive ? 'opacity-100' : 'opacity-20 scale-[0.85]'}`}>
+      <div className={`mt-1 mb-1.5 text-[10px] font-semibold uppercase ${
+        slide.category === 'organized' ? 'text-[#0f766e]' : 'text-[#b45309]'
+      }`}>
+        {slide.category === 'organized' ? 'Organized Scene*' : 'Random Scene*'}
+      </div>
+      <video
+        ref={videoRef}
+        className={`w-full rounded-lg transition-shadow duration-300 ${isActive ? (slide.category === 'organized' ? 'shadow-[0_0_40px_8px_rgba(15,118,110,0.25)]' : 'shadow-[0_0_40px_8px_rgba(180,83,9,0.25)]') : ''}`}
+        src={publicFilePath(slide.video)}
+        muted
+        playsInline
+        onEnded={onEnded}
+      />
+      <p className='mt-3 text-lg font-semibold text-[#031425]'>
+        &ldquo;{slide.instruction}&rdquo;
+      </p>
+    </div>
+  );
+};
+
+const DemoCarousel = () => {
+  const swiperRef = React.useRef<any>(null);
+  return (
+  <section className='mt-14 pb-12 border-b border-slate-200'>
+    <div className='mx-auto mb-8 max-w-4xl text-center'>
+      <div className='text-xs font-semibold uppercase text-[#0f766e]'>Generated trajectory samples</div>
+      <h2 className='mt-3 text-2xl font-semibold tracking-normal text-[#031425]'>
+        Fully automatic robot data, zero manual annotation
+      </h2>
+      <p className='mt-4 text-base leading-8 text-slate-600'>
+        These clips require no human teleoperation or manual annotation. RoboInF generates the scenes, instructions, rewards, motion programs, and successful rollouts end to end.
+      </p>
+      <p className='mt-2 text-base leading-8 text-slate-600'>
+        The tasks go beyond scaling simple pick-and-place: they span two axes, from{' '}
+        <span className='font-semibold text-[#031425]'>short-horizon</span> to{' '}
+        <span className='font-semibold text-[#031425]'>long-horizon</span> tasks and from{' '}
+        <span className='font-semibold text-[#031425]'>rigid-body</span> manipulation to{' '}
+        <span className='font-semibold text-[#031425]'>articulation</span>.
+      </p>
+    </div>
+    <Swiper
+      modules={[Navigation, EffectCoverflow]}
+      effect='coverflow'
+      coverflowEffect={{ rotate: 0, stretch: 0, depth: 300, modifier: 1, slideShadows: false }}
+      loop
+      centeredSlides
+      slidesPerView={1.8}
+      spaceBetween={0}
+      navigation
+      onSwiper={(swiper) => { swiperRef.current = swiper; }}
+      className='demo-carousel'
+    >
+      {DEMO_SLIDES.map((slide, i) => (
+        <SwiperSlide key={i}>
+          {({ isActive }) => (
+            <DemoSlide slide={slide} isActive={isActive} onEnded={() => swiperRef.current?.slideNext()} />
+          )}
+        </SwiperSlide>
+      ))}
+    </Swiper>
+    <p className='mt-4 text-sm text-slate-500'>
+      *<strong className='text-slate-600'>Organized scenes</strong> are agentically reconstructed from real-world reference images into simulation (see <a href='#pipeline-module' className='text-[#0f766e] hover:underline'>Scene Generation</a>).{' '}
+      <strong className='text-slate-600'>Random scenes</strong> sample objects and layouts for broad combinatorial coverage. Videos are shown at 1.5× speed.
+    </p>
+  </section>
+  );
+};
 
 const CopyablePre = ({ children }: { children: React.ReactNode }) => {
   const [copied, setCopied] = useState(false);

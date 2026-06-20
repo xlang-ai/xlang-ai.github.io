@@ -1,5 +1,5 @@
 ---
-title: 'RoboInF: Scaling Robot Manipulation Data in Simulation for General Instruction Following'
+title: 'RoboInF: Scaling Robot Manipulation Data in Simulation for Embodied Instruction Following'
 shortTitle: RoboInF
 slug: roboinf
 date: '2026-05-27T12:00:00Z'
@@ -140,7 +140,7 @@ If you think this blog post and the content involved are helpful to you, please 
 
 ```bibtex
 @article{roboinf,
-  title = {RoboInF: Scaling Robot Manipulation Data in Simulation for General Instruction Following},
+  title = {RoboInF: Scaling Robot Manipulation Data in Simulation for Embodied Instruction Following},
   author = {XLANG Lab},
   journal = {xlang.ai},
   year = {2026},

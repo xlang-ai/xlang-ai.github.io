@@ -690,7 +690,7 @@ const RoboCraftPost = ({ post }: { post: Post }) => {
                 <span>{parseDateString(post.date)}</span>
               </div>
               <h1 className='max-w-4xl text-3xl font-semibold leading-tight text-[#031425] sm:text-5xl'>
-                RoboInF: Scaling <u className='decoration-[#0f766e]'>Robo</u>t Manipulation Data in Simulation for General <u className='decoration-[#0f766e]'>In</u>struction <u className='decoration-[#0f766e]'>F</u>ollowing
+                RoboInF: Scaling <u className='decoration-[#0f766e]'>Robo</u>t Manipulation Data in Simulation for Embodied <u className='decoration-[#0f766e]'>In</u>struction <u className='decoration-[#0f766e]'>F</u>ollowing
               </h1>
               <p className='mt-6 max-w-3xl text-lg font-medium leading-8 text-slate-700'>
                 <span className='font-semibold text-[#031425]'>Diverse instruction-following data</span>{' '}

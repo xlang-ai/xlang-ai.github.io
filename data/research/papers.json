@@ -1,6 +1,36 @@
 [
   {
     "category": ["DigitalAIAgents"],
+    "title": "OSWorld2.0: Benchmarking Computer Use Agents on Long-Horizon Real-World Tasks",
+    "authors": "Mengqi Yuan*, Zilong Zhou*, Xinzhuang Xiong*, Weiming Wu, Jiayang Sun, Jiamin Song, Kaiqian Cui, Bowen Wang, Haoyuan Wu, Yitong Li, Dunjie Lu, Haikong Lu, Qi Zhen, Xinyuan Wang, Jiaqi Deng, Yuhao Yang, Cheng Chen, Boyuan Zheng, Alex Su, Xiao Yu, Hao Zou, Saaket Agashe, Xing Han Lu, Manpreet Kaur, Zhengyang Qi, Vincent Sunn Chen, Frederic Sala, Dayiheng Liu, Junyang Lin, Zhou Yu, Yu Su, Siva Reddy, Xin Eric Wang, Peng Qi, Tianbao Xie, Tao Yu",
+    "publication": "arXiv 2026",
+    "paperLink": "https://arxiv.org/abs/2606.29537",
+    "codeLink": "https://github.com/xlang-ai/OSWorld-V2",
+    "blogLink": "https://osworld-v2.xlang.ai/",
+    "image": "/research/osworld2.png"
+  },
+  {
+    "category": ["PhysicalAIAgents"],
+    "title": "Qwen-VLA: Unifying Vision-Language-Action Modeling across Tasks, Environments, and Robot Embodiments",
+    "authors": "Qiuyue Wang, Mingsheng Li, Jian Guan, Jinhui Ye, Sicheng Xie, Yitao Liu, Junhao Chen, Zhixuan Liang, Jie Zhang, Xintong Hu, Xuhong Huang, Pei Lin, Junyang Lin, Dayiheng Liu, Shuai Bai, Jingren Zhou, Jiazhao Zhang, Haoqi Yuan, Gengze Zhou, Hang Yin, Ye Wang, Yiyang Huang, Zixing Lei, Wujian Peng, Delin Chen, Yingming Zheng, Jingyang Fan, Xianwei Zhuang, Xin Zhou, Haoyang Li, Anzhe Chen, Tong Zhang, Xuejing Liu, Yuchong Sun, Ruizhe Chen, Zhaohai Li, Chenxu Lü, Zhibo Yang, Tao Yu, Xionghui Chen",
+    "publication": "arXiv 2026",
+    "paperLink": "https://arxiv.org/abs/2605.30280",
+    "codeLink": "https://github.com/QwenLM/Qwen-VLA",
+    "blogLink": "https://qwen.ai/blog?id=qwenvla",
+    "image": "/research/qwen-vla.png"
+  },
+  {
+    "category": ["PhysicalAIAgents"],
+    "title": "FineVLA: Fine-Grained Instruction Alignment for Steerable Vision-Language-Action Policies",
+    "authors": "Xintong Hu*, Xuhong Huang*, Jinyu Zhang, Yutong Yao, Yuchong Sun, Qiuyue Wang, Mingsheng Li, Sicheng Xie, Yitao Liu, Junhao Chen, Yixuan Chen, Yingming Zheng, Shuai Bai, Tao Yu",
+    "publication": "arXiv 2026",
+    "paperLink": "https://arxiv.org/abs/2605.27284",
+    "codeLink": "https://github.com/xlang-ai/FineVLA",
+    "blogLink": "https://finevla.xlang.ai/",
+    "image": "/research/finevla.jpg"
+  },
+  {
+    "category": ["DigitalAIAgents"],
     "title": "OpenCUA: Open Foundations for Computer-Use Agents",
     "authors": "Xinyuan Wang*, Bowen Wang*, Dunjie Lu*, Junlin Yang*, Tianbao Xie*, Junli Wang*, Jiaqi Deng, Xiaole Guo, Yiheng Xu, Chen Henry Wu, Zhennan Shen, Zhuokai Li, Ryan Li, Xiaochuan Li, Junda Chen, Boyuan Zheng, Peihang Li, Fangyu Lei, Ruisheng Cao, Yeqiao Fu, Dongchan Shin, Martin Shin, Jiarui Hu, Yuyan Wang, Jixuan Chen, Yuxiao Ye, Danyang Zhang, Dikang Du, Hao Hu, Huarong Chen, Zaida Zhou, Haotian Yao, Ziwei Chen, Qizheng Gu, Yipu Wang, Heng Wang, Diyi Yang, Victor Zhong, Flood Sung, Y.Charles, Zhilin Yang, Tao Yu",
     "publication": "NeurIPS 2025 Spotlight",

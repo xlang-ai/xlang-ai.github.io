@@ -10,6 +10,13 @@ const News = ({ news }: { news?: NewsInterface[] }) => {
         <div className='flex flex-col gap-2'>
           <div
             className='grid grid-cols-[auto,1fr] gap-x-8 flex-wrap py-3 border-b border-black/30 text-sm'
+            key="osworld-2-model-evaluations"
+          >
+            <div>{`06/26/2026`}</div>
+            <div>Introducing <a href="https://osworld-v2.xlang.ai/" target="_blank" className="underline">OSWorld 2.0</a>, a benchmark for long-horizon, real-world computer-use workflows! Excited to see OpenAI and Meta use it to evaluate their latest <a href="https://openai.com/index/gpt-5-6/" target="_blank" className="underline">GPT-5.6</a> and <a href="https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/" target="_blank" className="underline">Muse Spark 1.1</a> models.</div>
+          </div>
+          <div
+            className='grid grid-cols-[auto,1fr] gap-x-8 flex-wrap py-3 border-b border-black/30 text-sm'
             key="top-news"
           >
             <div>{`08/13/2025`}</div>

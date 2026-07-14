@@ -30,7 +30,10 @@ export const getGraduates = (): TeamMember[] => {
     join(TEAM_DIR, 'graduates.csv'),
     'utf8'
   );
-  return Papa.parse(fileContents, { header: true }).data as TeamMember[];
+  return Papa.parse(fileContents, {
+    header: true,
+    skipEmptyLines: true,
+  }).data as TeamMember[];
 };
 
 export const getUndergraduates = (): TeamMember[] => {
@@ -38,7 +41,10 @@ export const getUndergraduates = (): TeamMember[] => {
     join(TEAM_DIR, 'undergraduates.csv'),
     'utf8'
   );
-  const data = Papa.parse(fileContents, { header: true }).data as TeamMember[];
+  const data = Papa.parse(fileContents, {
+    header: true,
+    skipEmptyLines: true,
+  }).data as TeamMember[];
 
   return data.map(member => ({
     ...member,

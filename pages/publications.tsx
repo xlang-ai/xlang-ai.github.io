@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
 import Head from 'next/head';
-import Image from 'next/image';
 import { InferGetStaticPropsType } from 'next';
 import { Star } from 'tabler-icons-react';
 import { Download } from 'tabler-icons-react';
@@ -134,9 +133,12 @@ const PaperBlock = ({ paper }: { paper: Paper }) => {
       <div className='grid grid-cols-7 gap-4'>
         {paper.image ? (
           <div className='col-span-2 relative aspect-video rounded-lg overflow-hidden shadow-xl'>
-            <Image
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src={publicFilePath(paper.image)}
               alt={paper.title}
+              loading='lazy'
+              decoding='async'
               style={{ width: '100%', height: 'auto' }}
             />
           </div>

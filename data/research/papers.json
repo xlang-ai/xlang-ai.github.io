@@ -35,8 +35,8 @@
     "authors": "Bowen Wang, Dunjie Lu, Junli Wang, Tianyi Bai, Shixuan Liu, Zhipeng Zhang, Haiquan Wang, Hao Hu, Tianbao Xie, Shuai Bai, Dayiheng Liu, Que Shen, Junyang Lin, Tao Yu",
     "publication": "arXiv 2026",
     "paperLink": "https://arxiv.org/abs/2605.25624",
-    "codeLink": "",
-    "blogLink": "",
+    "codeLink": "https://github.com/xlang-ai/CUA-Gym",
+    "blogLink": "https://cua-gym.xlang.ai/",
     "image": "/research/cua-gym.png"
   },
   {

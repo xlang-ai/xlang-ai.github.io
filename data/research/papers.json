@@ -1,7 +1,7 @@
 [
   {
     "category": ["DigitalAIAgents"],
-    "title": "OSWorld2.0: Benchmarking Computer Use Agents on Long-Horizon Real-World Tasks",
+    "title": "OSWorld 2.0: Benchmarking Computer Use Agents on Long-Horizon Real-World Tasks",
     "authors": "Mengqi Yuan*, Zilong Zhou*, Xinzhuang Xiong*, Weiming Wu, Jiayang Sun, Jiamin Song, Kaiqian Cui, Bowen Wang, Haoyuan Wu, Yitong Li, Dunjie Lu, Haikong Lu, Qi Zhen, Xinyuan Wang, Jiaqi Deng, Yuhao Yang, Cheng Chen, Boyuan Zheng, Alex Su, Xiao Yu, Hao Zou, Saaket Agashe, Xing Han Lu, Manpreet Kaur, Zhengyang Qi, Vincent Sunn Chen, Frederic Sala, Dayiheng Liu, Junyang Lin, Zhou Yu, Yu Su, Siva Reddy, Xin Eric Wang, Peng Qi, Tianbao Xie, Tao Yu",
     "publication": "arXiv 2026",
     "paperLink": "https://arxiv.org/abs/2606.29537",
@@ -28,6 +28,36 @@
     "codeLink": "https://github.com/xlang-ai/FineVLA",
     "blogLink": "https://finevla.xlang.ai/",
     "image": "/research/finevla.jpg"
+  },
+  {
+    "category": ["DigitalAIAgents"],
+    "title": "CUA-Gym: Scaling Verifiable Training Environments and Tasks for Computer-Use Agents",
+    "authors": "Bowen Wang, Dunjie Lu, Junli Wang, Tianyi Bai, Shixuan Liu, Zhipeng Zhang, Haiquan Wang, Hao Hu, Tianbao Xie, Shuai Bai, Dayiheng Liu, Que Shen, Junyang Lin, Tao Yu",
+    "publication": "arXiv 2026",
+    "paperLink": "https://arxiv.org/abs/2605.25624",
+    "codeLink": "",
+    "blogLink": "",
+    "image": "/research/cua-gym.png"
+  },
+  {
+    "category": ["DigitalAIAgents"],
+    "title": "VideoAgentTrek: Computer Use Pretraining from Unlabeled Videos",
+    "authors": "Dunjie Lu, Yiheng Xu, Junli Wang, Haoyuan Wu, Xinyuan Wang, Zekun Wang, Junlin Yang, Hongjin Su, Jixuan Chen, Junda Chen, Yuchen Mao, Jingren Zhou, Junyang Lin, Binyuan Hui, Tao Yu",
+    "publication": "ICLR 2026",
+    "paperLink": "https://arxiv.org/abs/2510.19488",
+    "codeLink": "https://github.com/xlang-ai/VideoAgentTrek",
+    "blogLink": "https://videoagenttrek.github.io/",
+    "image": "/research/videoagenttrek.png"
+  },
+  {
+    "category": ["DigitalAIAgents"],
+    "title": "Computer Agent Arena: Toward Human-Centric Evaluation and Analysis of Computer-Use Agents",
+    "authors": "Bowen Wang*, Xinyuan Wang*, Jiaqi Deng*, Tianbao Xie, Ryan Li, Yanzhe Zhang, Junli Wang, Dunjie Lu, Zicheng Gong, Gavin Li, Toh Jing Hua, Wei-Lin Chiang, Ion Stoica, Diyi Yang, Yu Su, Yi Zhang, Zhiguo Wang, Victor Zhong, Tao Yu",
+    "publication": "ICLR 2026",
+    "paperLink": "https://openreview.net/forum?id=3x4SDbXbgl",
+    "codeLink": "https://github.com/xlang-ai/computer-agent-arena",
+    "blogLink": "https://arena.xlang.ai/",
+    "image": "/research/computer-agent-arena.png"
   },
   {
     "category": ["DigitalAIAgents"],

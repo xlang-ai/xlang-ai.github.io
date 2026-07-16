@@ -6,7 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { publicFilePath } from '@/utils';
 
-import { github, threads, twitter } from '@/data/socials/socials';
+import { discord, github, threads, twitter } from '@/data/socials/socials';
 
 const Footer = () => {
   return (
@@ -30,6 +30,17 @@ const Footer = () => {
         </div>
         <nav>
           <ul className='text-white flex gap-6'>
+            <li className='cursor-pointer'>
+              <Link href={discord}>
+                <Image
+                  src={publicFilePath('/icons/discord.svg')}
+                  alt='Discord'
+                  width={20}
+                  height={20}
+                  className='rounded-md'
+                />
+              </Link>
+            </li>
             <li className='cursor-pointer'>
               <Link href={github}>
                 <Image

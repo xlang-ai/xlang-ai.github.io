@@ -1,5 +1,15 @@
 [
   {
+    "category": ["PhysicalAIAgents"],
+    "title": "RoboWild: Can Frontier Models Generalize to Robot Use in the Wild?",
+    "authors": "Yimo Cai*, Delin Chen*, Junhao Chen*, Kaiqian Cui*, Zicheng Gong*, Zhewei Kang*, Yitao Liu*, Jiamin Song*, Haoyuan Wu*, Weiming Wu*, Yingming Zheng*, Zilong Zhou*, Yitong Li, Haikong Lu, Taiye Lu, Zhao Pu, Yuxiang Wan, Tao Yu",
+    "publication": "arXiv 2026",
+    "paperLink": "https://huggingface.co/datasets/xlangai/RoboWild/blob/main/RoboWild.pdf",
+    "codeLink": "https://github.com/xlang-ai/RoboWild",
+    "blogLink": "https://robowild.xlang.ai",
+    "image": "/research/robowild.jpg"
+  },
+  {
     "category": ["DigitalAIAgents"],
     "title": "OSWorld 2.0: Benchmarking Computer Use Agents on Long-Horizon Real-World Tasks",
     "authors": "Mengqi Yuan*, Zilong Zhou*, Xinzhuang Xiong*, Weiming Wu, Jiayang Sun, Jiamin Song, Kaiqian Cui, Bowen Wang, Haoyuan Wu, Yitong Li, Dunjie Lu, Haikong Lu, Qi Zhen, Xinyuan Wang, Jiaqi Deng, Yuhao Yang, Cheng Chen, Boyuan Zheng, Alex Su, Xiao Yu, Hao Zou, Saaket Agashe, Xing Han Lu, Manpreet Kaur, Zhengyang Qi, Vincent Sunn Chen, Frederic Sala, Dayiheng Liu, Junyang Lin, Zhou Yu, Yu Su, Siva Reddy, Xin Eric Wang, Peng Qi, Tianbao Xie, Tao Yu",

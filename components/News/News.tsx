@@ -10,6 +10,24 @@ const News = ({ news }: { news?: NewsInterface[] }) => {
         <div className='flex flex-col gap-2'>
           <div
             className='grid grid-cols-[auto,1fr] gap-x-8 flex-wrap py-3 border-b border-black/30 text-sm'
+            key='robowild-release'
+          >
+            <div>11/21/2026</div>
+            <div>
+              Introducing{' '}
+              <a
+                href='https://robowild.xlang.ai'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='underline'
+              >
+                RoboWild
+              </a>
+              , a benchmark for evaluating frontier models as robot-use agents in realistic simulated environments!
+            </div>
+          </div>
+          <div
+            className='grid grid-cols-[auto,1fr] gap-x-8 flex-wrap py-3 border-b border-black/30 text-sm'
             key="osworld-2-model-evaluations"
           >
             <div>{`06/26/2026`}</div>
